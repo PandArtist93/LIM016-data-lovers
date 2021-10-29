@@ -11,16 +11,60 @@ body {
 
 header {
     width: 100%;
-    height: 100px;
-    /* background-color:#BE627E; */
-    background-color:#157181;
-    margin: 0 0 50px 0;
+    height: 90px;
+    margin: 0 0 30px 0;
+}
+
+nav {
+    width: 100%;
+    height: 90px;
+    display: inline-flex;
+    justify-content: space-around;
+    overflow: hidden;
+    background-color: #157181;
+    padding: 20px 10px;
+}
+      
+nav button {
+    float: right;
+    color: #FFFF;
+    text-align: center;
+    align-items: center;
+    padding: 10px;
+    margin: 5px;
+    border: solid 3px #157181;
+    /* padding: 12px; */
+    /* text-decoration: none; */
+    /* font-size: 14px;  */
+    font-family: fantasy;
+    /* line-height: 25px; */
+    border-radius: 4px;
+    background-color: #134d57;
+    vertical-align: middle;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+      
+nav a.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+      
+nav button:hover {
+    background-color:rgb(29, 61, 82);
+    color: #FFFF;
+    transition: .9s;
+}
+   
+.header-right {
+    /* display: flex; */
+    justify-content: space-around;
+    width: 40%;
 }
 
 main {
     height: 100%;
-    height: 100%;
-    /* background-color:#000000; */
+    width: 100%;
 }
 
 h3 {
@@ -37,7 +81,7 @@ h1 {
     letter-spacing: 1px; 
 }
 
-h2, p {
+h2 {
     font-family:fantasy;
     letter-spacing: 1px; 
 }
