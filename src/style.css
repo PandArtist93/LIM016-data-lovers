@@ -19,8 +19,7 @@ header {
 
 main {
     height: 100%;
-    height: 100%;
-    /* background-color:#000000; */
+    width: 100%;
 }
 
 h3 {
@@ -30,16 +29,22 @@ h3 {
     /* letter-spacing: 2px;  */
 }
 
-h1 {
+h1, h2 {
     color: rgb(235, 170, 124);
     font-size: 40px;
     font-family:fantasy;
     letter-spacing: 1px; 
 }
 
-h2, p {
+h4 {
     font-family:fantasy;
     letter-spacing: 1px; 
+}
+
+p {
+    font-family: fantasy;
+    letter-spacing: 1px; 
+    font-size: 15px;
 }
 
 /*------------------características del carrusel-----------------*/
@@ -170,7 +175,6 @@ label span{
     width: 100%;
     height: 200px;
     justify-content: center;
-    /* background-color: #EEE4E4; */
     background-color:#000000;
 }
   
@@ -182,27 +186,39 @@ label span{
 }
   
 .portada {
-    height: 164px;
+    height: 100%;
     width: 100%;
     display: flex;
-    background-color: #302e2e;
+    background-color: #d0dae0b4;
     margin: 18px 10px 20px 10px;
-    /* border: solid #030303; */  
     border-radius: 10px;        
 }
 
-.portada img {
+button {
+    display: inline;
     height: 164px;
     width: 100%;
-    border-radius: 10px;
-    transition: transform .2s; /* Animation */  
+    padding: 0;
+    margin: 0;
+    border-radius: 10px;  
+    border: solid #030303;
+    background-color: #000000;
+    transition: transform .8s;
+}
+  
+button img {
+    height:100%;
+    width:100%;
+    border-radius: 10px;    
+    background-repeat:no-repeat;    
+    background-position:center;    
 }
 
 .portada :hover {
     position: static;
     /* border: 2px solid rgba(78, 12, 202, 0.1); */
-    transition: 0.2s;
-    transform: scale(1.1);             
+    transition: 0.9s;
+    transform: scale(1.12);             
 }
 
 /*---------------------------footer-------------------------*/
