@@ -73,6 +73,7 @@ nav button:hover {
 main {
     height: 100%;
     width: 100%;
+    /* display: none; */
 }
 
 h3 {
@@ -122,7 +123,7 @@ p {
 
 .carrusel {
     width: 100%;
-    height: 500px;
+    height: 1000px;
     background-color:#524e4e;       
     position: relative;
     width: 100%;
@@ -300,6 +301,10 @@ button img {
 
 .contenedor-principal {
     background-color:#157181;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     width: 100%;
     padding: 10px;
 }
@@ -310,9 +315,9 @@ button img {
 }
 
 footer .contenedor {
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     padding: 10px;
 }
 
