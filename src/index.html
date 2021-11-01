@@ -8,115 +8,123 @@
   <body>    
     <header>
       <nav>
-        <h3>GHIBLI</h3>
+        <div class="logo">
+          <h3>GHIBLI</h3>
+          <img src="./imagenes/kanji.PNG" alt="">          
+        </div>
+        
           <div class="header-right">
-            <button class="btn">Home</button>
-            <button class="btn">Películas</button>
-            <button class="btn">Géneros</button>
-            <button class="btn">Comunidad</button>
+            <button class="btnHeader" id= "btnHeaderPrincipal">Princial</button>
+            <button class="btnHeader">Películas</button>
+            <button class="btnHeader">Géneros</button>
+            <button class="btnHeader">Comunidad</button>
           </div>
       </nav>
     </header>
     
-    <main id="main">
-      <div class="mensaje_bienvenida">         
-        <h1>Bienvenido</h1>
-        <h2>a</h2><h3><span>GHIBLI NO SEKAI</span></h3><br>
-        <h4>¡Disfruta del mejor contenido de películas animadas!</h4><br>
-        <h4>Desde los clásicos hasta los últimos estrenos de Studio Ghibli.</h4>
-      </div>             
-
-      <div class="carrusel">
-        <input type="radio" id="i1" name="images" checked>
-        <input type="radio" id="i2" name="images">
-        <input type="radio" id="i3" name="images">
-        <input type="radio" id="i4" name="images">
-        <input type="radio" id="i5" name="images">
+    <main id="main" class="main">
+      <div class="principalPage" id="princialPage">
+        <div class="mensaje_bienvenida">         
+          <h1>Bienvenido</h1>
+          <h2>a</h2><h3><span>GHIBLI NO SEKAI</span></h3><br>
+          <h4>¡Disfruta del mejor contenido de películas animadas!</h4><br>
+          <h4>Desde los clásicos hasta los últimos estrenos de Studio Ghibli.</h4>
+        </div>             
   
-        <div class="slide_img" id="one">
-          <img src="https://i.pinimg.com/originals/c9/db/06/c9db06f07d4831b68812feca92d05843.jpg" alt="fondo de   ghibli">
-          <label for="i5" class="prev"><span>&#x2039</span></label>
-          <label for="i2" class="next"><span>&#x203a</span></label>
-        </div>
-
-        <div class="slide_img" id="two">
-          <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/ghibli2-1548333192.jpg" alt="">
-          <label for="i1" class="prev"><span>&#x2039</span></label>
-          <label for="i3" class="next"><span>&#x203a</span></label>
-        </div>
-
-        <div class="slide_img" id="three">
-          <img src="https://d3i6li5p17fo2k.cloudfront.net/en/rimage/pivot_half_1152/image/5330/a62d76623b89ef1efb5e37543e2504d3" alt="">
-          <label for="i2" class="prev"><span>&#x2039</span></label>
-          <label for="i4" class="next"><span>&#x203a</span></label>
-        </div>
-
-        <div class="slide_img" id="four">
-          <img src="https://media.wired.co.uk/photos/606d9ea2ef15037f58853565/master/w_1600%2Cc_limit/ponyo.jpg" alt="">
-          <label for="i3" class="prev"><span>&#x2039</span></label>
-          <label for="i5" class="next"><span>&#x203a</span></label>
-        </div> 
-
-        <div class="slide_img" id="five">
-          <img src="https://studioghiblimovies.com/wp-content/uploads/2014/11/bg2.jpg" alt="">
-          <label for="i4" class="prev"><span>&#x2039</span></label>
-          <label for="i1" class="next"><span>&#x203a</span></label>
-        </div>
+        <div class="carrusel">
+          <input type="radio" id="i1" name="images" checked>
+          <input type="radio" id="i2" name="images">
+          <input type="radio" id="i3" name="images">
+          <input type="radio" id="i4" name="images">
+          <input type="radio" id="i5" name="images">
+    
+          <div class="slide_img" id="one">
+            <img class="imgStyle" src="https://i.pinimg.com/originals/c9/db/06/c9db06f07d4831b68812feca92d05843.jpg" alt="fondo de   ghibli">
+            <label for="i5" class="prev"><span>&#x2039</span></label>
+            <label for="i2" class="next"><span>&#x203a</span></label>
+          </div>
   
-        <div id="nav_slide">
-          <label for="i1" class="dots" id="dot1"></label>
-          <label for="i2" class="dots" id="dot2"></label>
-          <label for="i3" class="dots" id="dot3"></label>
-          <label for="i4" class="dots" id="dot4"></label>
-          <label for="i5" class="dots" id="dot5"></label>
+          <div class="slide_img" id="two">
+            <img class="imgStyle" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/ghibli2-1548333192.jpg" alt="">
+            <label for="i1" class="prev"><span>&#x2039</span></label>
+            <label for="i3" class="next"><span>&#x203a</span></label>
+          </div>
+  
+          <div class="slide_img" id="three">
+            <img class="imgStyle" src="https://d3i6li5p17fo2k.cloudfront.net/en/rimage/pivot_half_1152/image/5330/a62d76623b89ef1efb5e37543e2504d3" alt="">
+            <label for="i2" class="prev"><span>&#x2039</span></label>
+            <label for="i4" class="next"><span>&#x203a</span></label>
+          </div>
+  
+          <div class="slide_img" id="four">
+            <img class="imgStyle" src="https://media.wired.co.uk/photos/606d9ea2ef15037f58853565/master/w_1600%2Cc_limit/ponyo.jpg" alt="">
+            <label for="i3" class="prev"><span>&#x2039</span></label>
+            <label for="i5" class="next"><span>&#x203a</span></label>
+          </div> 
+  
+          <div class="slide_img" id="five">
+            <img class="imgStyle" src="https://studioghiblimovies.com/wp-content/uploads/2014/11/bg2.jpg" alt="">
+            <label for="i4" class="prev"><span>&#x2039</span></label>
+            <label for="i1" class="next"><span>&#x203a</span></label>
+          </div>
+    
+          <div id="nav_slide">
+            <label for="i1" class="dots" id="dot1"></label>
+            <label for="i2" class="dots" id="dot2"></label>
+            <label for="i3" class="dots" id="dot3"></label>
+            <label for="i4" class="dots" id="dot4"></label>
+            <label for="i5" class="dots" id="dot5"></label>
+          </div>  
+        </div>
+        
+        <div class="grid">
+          <div class="catalogo">  
+            <div class="fila">           
+              <div class="portada"><button id= "btnPortada1"><img src="https://static.wikia.nocookie.net/studio-ghibli/images/c/c1/Castle_in_the_Sky.jpg" alt=""></button></div>
+              <div class="portada"><button id= "btnPortada2"><img src="https://static.wikia.nocookie.net/studio-ghibli/images/d/db/My_Neighbor_Totoro.jpg" alt=""></button></div>
+              <div class="portada"><button id= "btnPortada3"><img src="https://static.wikia.nocookie.net/studio-ghibli/images/4/48/Kiki%27s_Delivery_Service_%282%29.jpg" alt=""></button></div>
+              <div class="portada"><button id= "btnPortada4"><img src="https://static.wikia.nocookie.net/studio-ghibli/images/a/a5/Grave_of_the_Fireflies_Japanese_poster.jpg" alt=""></button></div>
+            </div>
+          </div><br>
+          <div class="catalogo">
+            <div class="fila">
+              <div class="portada"><button id= "btnPortada5"><img src="https://static.wikia.nocookie.net/studio-ghibli/images/a/a9/Only_Yesterday.jpg" alt=""></button></div>
+              <div class="portada"><button id= "btnPortada6"><img src="https://static.wikia.nocookie.net/studio-ghibli/images/4/41/Porco_Rosso.jpg" alt=""></button></div>
+              <div class="portada"><button id= "btnPortada7"><img src="https://static.wikia.nocookie.net/studio-ghibli/images/9/9e/Pom_Poko.jpg" alt=""></button></div>
+              <div class="portada"><button id= "btnPortada8"><img src="https://static.wikia.nocookie.net/studio-ghibli/images/7/7b/Whisper_of_the_Heart.jpg" alt=""></button></div>
+            </div>
+          </div><br>
+          <div class="catalogo">
+            <div class="fila">
+              <div class="portada"><button id= "btnPortada9"><img src="https://static.wikia.nocookie.net/studio-ghibli/images/c/c6/Princess_Mononoke.jpg" alt=""></button></div>
+              <div class="portada"><button id= "btnPortada10"><img src="https://static.wikia.nocookie.net/studio-ghibli/images/d/db/My_Neighbors_the_Yamadas.jpg" alt=""></button></div>
+              <div class="portada"><button id= "btnPortada11"><img src="https://static.wikia.nocookie.net/studio-ghibli/images/9/9e/Spirited_Away.png" alt=""></button></div>
+              <div class="portada"><button id= "btnPortada12"><img src="https://static.wikia.nocookie.net/studio-ghibli/images/8/87/The_Cat_Returns.jpg" alt=""></button></div>
+            </div>
+          </div><br>      
+          <div class="catalogo">
+            <div class="fila">
+              <div class="portada"><button id= "btnPortada13"><img src="https://static.wikia.nocookie.net/studio-ghibli/images/0/08/Howl%27s_Moving_Castle.jpg" alt=""></button></div>
+              <div class="portada"><button id= "btnPortada14"><img src="https://static.wikia.nocookie.net/studio-ghibli/images/0/09/%C3%96v%C3%A4rlden.jpg" alt=""></button></div>
+              <div class="portada"><button id= "btnPortada15"><img src="https://static.wikia.nocookie.net/studio-ghibli/images/5/50/Ponyo_on_the_Cliff_by_the_Sea.jpg" alt=""></button></div>
+              <div class="portada"><button id= "btnPortada16"><img src="https://static.wikia.nocookie.net/studio-ghibli/images/4/46/The_Borrower_Arrietty.jpg" alt=""></button></div>
+            </div>
+          </div><br>     
+          <div class="catalogo">
+            <div class="fila">
+              <div class="portada"><button id= "btnPortada17"><img src="https://static.wikia.nocookie.net/studio-ghibli/images/b/bb/From_Up_on_Poppy_Hill.jpg" alt=""></button></div>
+              <div class="portada"><button id= "btnPortada18"><img src="https://static.wikia.nocookie.net/studio-ghibli/images/2/2d/The_Wind_Rises.jpg" alt=""></button></div>
+              <div class="portada"><button id= "btnPortada19"><img src="https://static.wikia.nocookie.net/studio-ghibli/images/8/87/The_Tale_of_the_Princess_Kaguya.jpg" alt=""></button></div>
+              <div class="portada"><button id= "btnPortada20"><img src="https://static.wikia.nocookie.net/studio-ghibli/images/7/7a/When_Marnie_Was_There.jpg" alt=""></button></div>
+            </div>
+          </div><br>         
         </div>  
-      </div>
-      
-      <div class="grid">
-        <div class="catalogo">  
-          <div class="fila">           
-            <div class="portada"><button id= "btnPortada1"><img src="./imagenes/Castle_in_the_sky.PNG" alt=""></button></div>
-            <div class="portada"><button id= "btnPortada2"><img src="./imagenes/My_Neighbor_Totoro.PNG" alt=""></button></div>
-            <div class="portada"><button id= "btnPortada3"><img src="./imagenes/kikis_delivery_service.PNG" alt=""></button></div>
-            <div class="portada"><button id= "btnPortada4"><img src="./imagenes/Grave_of_the_Fireflies.PNG" alt=""></button></div>
-          </div>
-        </div><br>
-        <div class="catalogo">
-          <div class="fila">
-            <div class="portada"><button id= "btnPortada5"><img src="./imagenes/Only_Yesterday.PNG" alt=""></button></div>
-            <div class="portada"><button id= "btnPortada6"><img src="./imagenes/Porco_Rosso.PNG" alt=""></button></div>
-            <div class="portada"><button id= "btnPortada7"><img src="./imagenes/Pom_Poko.PNG" alt=""></button></div>
-            <div class="portada"><button id= "btnPortada8"><img src="./imagenes/Whisper_of_the_Heart.PNG" alt=""></button></div>
-          </div>
-        </div><br>
-        <div class="catalogo">
-          <div class="fila">
-            <div class="portada"><button id= "btnPortada9"><img src="./imagenes/Princess_Mononoke.PNG" alt=""></button></div>
-            <div class="portada"><button id= "btnPortada10"><img src="./imagenes/My_Neighbors_the_Yamadas.PNG" alt=""></button></div>
-            <div class="portada"><button id= "btnPortada11"><img src="./imagenes/Spirited_Away.PNG" alt=""></button></div>
-            <div class="portada"><button id= "btnPortada12"><img src="./imagenes/The_Cat_Returns.PNG" alt=""></button></div>
-          </div>
-        </div><br>      
-        <div class="catalogo">
-          <div class="fila">
-            <div class="portada"><button id= "btnPortada13"><img src="./imagenes/Howls_Moving_Castle.PNG" alt=""></button></div>
-            <div class="portada"><button id= "btnPortada14"><img src="./imagenes/Tales_from_Earthsea.PNG" alt=""></button></div>
-            <div class="portada"><button id= "btnPortada15"><img src="./imagenes/Ponyo_on_the_Cliff_by_the_Sea.PNG" alt=""></button></div>
-            <div class="portada"><button id= "btnPortada16"><img src="./imagenes/The_Secret_World_of_Arrietty.PNG" alt=""></button></div>
-          </div>
-        </div><br>     
-        <div class="catalogo">
-          <div class="fila">
-            <div class="portada"><button id= "btnPortada17"><img src="./imagenes/From_Up_on_Popy_Hill.PNG" alt=""></button></div>
-            <div class="portada"><button id= "btnPortada18"><img src="./imagenes/The_Wind_Rises.PNG" alt=""></button></div>
-            <div class="portada"><button id= "btnPortada19"><img src="./imagenes/The_Tale_of_the_Princess_Kaguya.PNG" alt=""></button></div>
-            <div class="portada"><button id= "btnPortada20"><img src="./imagenes/When_Marnie_Was_There.PNG" alt=""></button></div>
-          </div>
-        </div><br>         
-      </div>   
+      </div>              
     </main>
     <div id= "pagina2" class="pagina2">
-      <p>Hola MUNDO</p>
+      <div class="contenidoPage" id= "contenidoPage">
+         
+      </div>           
     </div>
     <footer> 
       <div class="contenedor-principal"> 
@@ -136,7 +144,7 @@
       </div>
       
       <!-- <p>Privacy Policy | Cookie Policy | Do Not Sell My Personal Information | Terms | </p>
-      <p> Desarrollado por Maizaga y Katerin © 2021. Todos los derechos reservados.</p>          -->
+      <p> Desarrollado por Maizaga y KaterinT © 2021. Todos los derechos reservados.</p>          -->
     </footer>
     <script src="https://kit.fontawesome.com/a5f03eb3dc.js" crossorigin="anonymous"></script>
     <script src="main.js" type="module"></script>
