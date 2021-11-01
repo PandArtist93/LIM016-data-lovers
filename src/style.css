@@ -9,21 +9,30 @@ body {
     background-color:#000000;
 }
 
+/*-----------------------características del header-------------------*/
 header {
     width: 100%;
-    height: 90px;
+    height: 150px;
     margin: 0 0 30px 0;
 }
 
 nav {
     width: 100%;
-    height: 90px;
+    height: 150px;
     display: inline-flex;
     justify-content: space-around;
     overflow: hidden;
     background-color: #157181;
-    padding: 20px 10px;
+    padding: 20px 50px;
     align-items: center;
+}
+
+nav .logo {
+    display: flex;
+    width: 70%;
+    height: 100%;
+    align-items: center;
+    justify-content: left;
 }
       
 nav button {
@@ -48,12 +57,7 @@ nav button {
        0 0  0 0px  #157181,
        0.3em 0.3em 1em rgba(0,0,0,0.3);
 }
-      
-nav a.logo {
-    font-size: 25px;
-    font-weight: bold;
-}
-      
+            
 nav button:hover {
     background-color:rgb(29, 61, 82);
     color: rgb(240, 227, 227);
@@ -69,24 +73,30 @@ nav button:hover {
     align-items: center;
 }
 
+header h3 {
+    color: rgb(235, 231, 228);
+    font-size: 50px;
+    font-family:fantasy;
+}
+
 /* --------------------- características del main---------------------- */
 main {
     height: 100%;
     width: 100%;
 }
-
-h3 {
+/*---------------caracter÷isticas de la pagina principal----------------*/
+.principalPage h3 {
     color: rgb(250, 114, 17);
     font-size: 50px;
     font-family:fantasy;
     /* letter-spacing: 2px;  */
 }
 
-nav h3 {
+.principalPage nav, h3 {
     color: rgb(255, 255, 255);
 }
 
-h1, h2 {
+.principalPage h1, h2 {
     color: rgb(235, 170, 124);
     font-size: 40px;
     font-family:fantasy;
@@ -94,15 +104,16 @@ h1, h2 {
 }
 
 
-h4 {
+.principalPage h4 {
     font-family:fantasy;
     letter-spacing: 1px; 
 }
 
-p {
+.principalPage p {
     font-family: fantasy;
     letter-spacing: 1px; 
     font-size: 15px;
+    color: aliceblue;
 }
 
 /*------------------características del carrusel-----------------*/
@@ -122,12 +133,12 @@ p {
 
 .carrusel {
     width: 100%;
-    height: 500px;
+    height: 600px;
     background-color:#524e4e;       
     position: relative;
     width: 100%;
-    height: 400px;   
-    user-select: none;    
+    user-select: none;   
+    margin: 50px 0 50px 0; 
 }
 
 #i1,#i2,#i3,#i4,#i5 {
@@ -141,8 +152,8 @@ p {
 }
 
 .carrusel .slide_img img{
-    width: inherit;
-    height: inherit;
+    width: 100%;
+    height: 100%;
 }
 
 .prev, .next {
@@ -231,33 +242,36 @@ label span{
 
 .catalogo {    
     width: 100%;
-    height: 200px;
+    height: 350px;
     justify-content: center;
     background-color:#000000;
+    margin: 20px 0 20px 0;
 }
   
 .fila {
     width: 100%;    
-    height: 200px;
+    height: 350px;
     display: flex;
     justify-content: space-around;       
 }
   
 .portada {
-    height: 100%;
-    width: 100%;
+    /* height: 100%; */
+    width: 90%;
     display: flex;
+    justify-content: space-around;  
     /* background-color: #d0dae0b4; */
-    margin: 18px 10px 20px 10px;
+    /* margin: 18px 10px 20px 10px; */
     border-radius: 10px;        
 }
 
 button {
     display: inline;
-    height: 165px;
-    width: 100%;
+    /* height: 100%; */
+    width: 80%;
     padding: 0;
     margin: 0;
+    justify-content: space-around;  
     border-radius: 10px;  
     border: solid #030303;
     background-color: #000000;
@@ -275,38 +289,56 @@ button img {
 .portada :hover {
     position: static;
     /* border: 2px solid rgba(78, 12, 202, 0.1); */
-    transition: 0.9s;
-    transform: scale(1.12);             
+    transition: 0.2s;
+    transform: scale(1.05);             
+}
+/*--------------------------------características de pagina2--------------------------*/
+.pagina2 {
+    display: flex;
+    height:1400px;
+    width:100%; 
+    background: #323333;  
+    display: none;
+    /* vertical-align: middle;
+    flex-direction: column;  */ 
 }
 
-/*---------------------------footer-------------------------*/
-/* footer { */
-    /* width: 100%;
-    height: 120px; */
-    /* background-color:#BE627E; */
-    /* background-color:#157181;
-    padding: 20px;
-    justify-content: center;
-    align-items: center;
-    display: flex;   */
-    /* vertical-align: middle; */
-    /* font-size: 20px;
-    position: static;
-    flex-direction: column;   
-    color: rgb(236, 222, 222); 
+/* .contenidoPage{
+    height:100%;
+    width:100%;      
 } */
 
-/* ---------------------footer2--------------------- */
+/* ---------------------características del footer--------------------- */
+ footer { 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;  
+    width: 100%;
+    height: 100%; 
+} 
 
 .contenedor-principal {
-    background-color:#157181;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 10px;
+    background-color:#157181;
+    width: 100%    
 }
 
 .contenedor-secundario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
     background-color:#104953;
     width: 100%;
+    font-family: fantasy;
+    letter-spacing: 1px; 
+    font-size: 15px;
+    color: aliceblue;
 }
 
 footer .contenedor {
@@ -318,12 +350,8 @@ footer .contenedor {
 
 .titulo-seccion {
     color: rgb(236, 222, 222);
-    font-size: 25px;
-    letter-spacing: 1px;
-}
-
-footer .copy {
-    color: aliceblue;
+    font-size: 20px;
+    letter-spacing: 1.5px;
 }
 
 .redes-sociales {
@@ -361,7 +389,3 @@ i {
     transform: translateY(-6px);
 }
 
-.pagina2 {
-    background: chartreuse;
-    display: none;   
-}
