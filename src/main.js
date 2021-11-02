@@ -30,7 +30,6 @@ let poster = dataPeliculas.map(x => x.poster);
 let release_date = dataPeliculas.map(x => x.release_date);
 let rt_score = dataPeliculas.map(x => x.rt_score);
 
-//botones del catálogo
 for (let i=0; i< btnImagenes.length; i++) {
     //Añades un evento a cada elemento
     btnImagenes[i].addEventListener("click",function() {
