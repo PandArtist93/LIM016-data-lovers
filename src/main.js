@@ -5,10 +5,6 @@ import data from './data/ghibli/ghibli.js';
 
 let btnImagenes = document.getElementsByClassName("portada");
 let principalBtn = document.getElementById("btnHeaderPrincipal");
-<<<<<<< HEAD
-let pagina2 = document.getElementById("pagina2");
-let principalPage = document.getElementById("principalPage");
-=======
 let pagina2 =  document.getElementById("pagina2");
 let principalPage = document.getElementById("principalPage");
 let textPage2 = document.getElementById("textPage2");
@@ -33,7 +29,6 @@ let producerPelicula = dataPeliculas.map(x => x.producer);
 let poster = dataPeliculas.map(x => x.poster);
 let release_date = dataPeliculas.map(x => x.release_date);
 let rt_score = dataPeliculas.map(x => x.rt_score);
->>>>>>> 1e91a6d8d10a6f0b46974de916671af6a8c1b1b0
 
 //botones del catálogo
 for (let i=0; i< btnImagenes.length; i++) {
@@ -42,14 +37,6 @@ for (let i=0; i< btnImagenes.length; i++) {
        //Aquí la función que se ejecutará cuando se dispare el evento
        principalPage.style.display = "none" ; //En este caso ocultaremos el contenido que se encuentra en "principalPage" al darle click al botón de imagen cliqueado
        pagina2.style.display = "block" ;//En este caso mostraremos la página2 al darle click al botón de imagen cliqueado
-<<<<<<< HEAD
-       
-    });     
-}
-
-//botones del header
-principalBtn.addEventListener("click", function(){
-=======
        textPage6.innerHTML = '<img src ='+ poster[i]+'>';
        textPage2.innerHTML = "Título: " + tituloPeliculas[i];
        textPage3.innerHTML = "Sinopsis: " + descriptionPelicula[i];
@@ -69,14 +56,10 @@ principalBtn.addEventListener("click", function(){
 //botones del header
 principalBtn.addEventListener("click", function(){
     
->>>>>>> 1e91a6d8d10a6f0b46974de916671af6a8c1b1b0
     pagina2.style.display = "none";
     principalPage.style.display = "block";    
 });
 
-<<<<<<< HEAD
-
-=======
 //
 
 // let dataPeliculas = data.films;
@@ -101,7 +84,6 @@ principalBtn.addEventListener("click", function(){
 // textPage3.innerHTML = (descriptionPelicula);
 
 // console.log(dataPeliculas);
->>>>>>> 1e91a6d8d10a6f0b46974de916671af6a8c1b1b0
 
 console.log(example, data);
 
