@@ -15,11 +15,6 @@ let textPage6 = document.getElementById("textPage6");
 let textPage7 = document.getElementById("textPage7");
 let textPage8 = document.getElementById("textPage8");
 
-// let titulosPeliculas = document.querySelectorAll("")
-// let dataPeliculas = data.films;
-// let unaPelicula = dataPeliculas.filter(x => x[0]);
-// console.log(unaPelicula);
-
 let dataPeliculas = data.films;
 
 let tituloPeliculas = dataPeliculas.map(x => x.title);
