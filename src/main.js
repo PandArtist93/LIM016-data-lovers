@@ -2,7 +2,7 @@ import { example } from './data.js';
 
 import data from './data/ghibli/ghibli.js';
 
-//botones del catálogo
+
 let btnImagenes = document.getElementsByClassName("portada");
 let principalBtn = document.getElementById("btnHeaderPrincipal");
 let pagina2 =  document.getElementById("pagina2");
