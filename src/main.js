@@ -5,8 +5,35 @@ import data from './data/ghibli/ghibli.js';
 
 let btnImagenes = document.getElementsByClassName("portada");
 let principalBtn = document.getElementById("btnHeaderPrincipal");
+<<<<<<< HEAD
 let pagina2 = document.getElementById("pagina2");
 let principalPage = document.getElementById("principalPage");
+=======
+let pagina2 =  document.getElementById("pagina2");
+let principalPage = document.getElementById("principalPage");
+let textPage2 = document.getElementById("textPage2");
+let textPage3 = document.getElementById("textPage3");
+let textPage4 = document.getElementById("textPage4");
+let textPage5 = document.getElementById("textPage5");
+let textPage6 = document.getElementById("textPage6");
+let textPage7 = document.getElementById("textPage7");
+let textPage8 = document.getElementById("textPage8");
+
+// let titulosPeliculas = document.querySelectorAll("")
+// let dataPeliculas = data.films;
+// let unaPelicula = dataPeliculas.filter(x => x[0]);
+// console.log(unaPelicula);
+
+let dataPeliculas = data.films;
+
+let tituloPeliculas = dataPeliculas.map(x => x.title);
+let descriptionPelicula = dataPeliculas.map(x => x.description);
+let directorPelicula = dataPeliculas.map(x => x.director);
+let producerPelicula = dataPeliculas.map(x => x.producer);
+let poster = dataPeliculas.map(x => x.poster);
+let release_date = dataPeliculas.map(x => x.release_date);
+let rt_score = dataPeliculas.map(x => x.rt_score);
+>>>>>>> 1e91a6d8d10a6f0b46974de916671af6a8c1b1b0
 
 //botones del catálogo
 for (let i=0; i< btnImagenes.length; i++) {
@@ -15,16 +42,67 @@ for (let i=0; i< btnImagenes.length; i++) {
        //Aquí la función que se ejecutará cuando se dispare el evento
        principalPage.style.display = "none" ; //En este caso ocultaremos el contenido que se encuentra en "principalPage" al darle click al botón de imagen cliqueado
        pagina2.style.display = "block" ;//En este caso mostraremos la página2 al darle click al botón de imagen cliqueado
+<<<<<<< HEAD
        
     });     
 }
 
 //botones del header
 principalBtn.addEventListener("click", function(){
+=======
+       textPage6.innerHTML = '<img src ='+ poster[i]+'>';
+       textPage2.innerHTML = "Título: " + tituloPeliculas[i];
+       textPage3.innerHTML = "Sinopsis: " + descriptionPelicula[i];
+       textPage4.innerHTML = "Director: " + directorPelicula[i];
+       textPage5.innerHTML = "Productor: " + producerPelicula[i];
+       textPage7.innerHTML = "Fecha de lanzamiento: " + release_date[i];
+       textPage8.innerHTML = "Puntaje: " + rt_score[i] + "/100";
+       
+    //    descriptionPeliculas();
+    }); 
+    
+}
+
+// let dataPeliculas = data.films;  
+// console.log(dataPeliculas);
+
+//botones del header
+principalBtn.addEventListener("click", function(){
+    
+>>>>>>> 1e91a6d8d10a6f0b46974de916671af6a8c1b1b0
     pagina2.style.display = "none";
     principalPage.style.display = "block";    
 });
 
+<<<<<<< HEAD
 
+=======
+//
+
+// let dataPeliculas = data.films;
+
+// let tituloPeliculas = dataPeliculas.map(x => x.title);
+
+// let descriptionPelicula = dataPeliculas.map(x => x.description);
+
+// function descriptionPelicula (e) {
+//     for (let i = 0 ; i < descriptionPelicula.length ; i++) {
+//         textPage3.innerHTML = (descriptionPelicula[i]);
+//     }
+// }
+
+// let dataPeliculas = data.films;
+
+// let tituloPeliculas = dataPeliculas.map(x => x.title);
+
+// let descriptionPelicula = dataPeliculas.map(x => x.description);
+
+// textPage2.innerHTML = (tituloPeliculas);
+// textPage3.innerHTML = (descriptionPelicula);
+
+// console.log(dataPeliculas);
+>>>>>>> 1e91a6d8d10a6f0b46974de916671af6a8c1b1b0
 
 console.log(example, data);
+
+
