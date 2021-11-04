@@ -15,6 +15,7 @@ let textPage6 = document.getElementById("textPage6");
 let textPage7 = document.getElementById("textPage7");
 let textPage8 = document.getElementById("textPage8");
 
+
 let dataPeliculas = data.films;
 
 let tituloPeliculas = dataPeliculas.map(x => x.title);
@@ -38,11 +39,19 @@ for (let i=0; i< btnImagenes.length; i++) {
        textPage5.innerHTML = "Productor: " + producerPelicula[i];
        textPage7.innerHTML = "Fecha de lanzamiento: " + release_date[i];
        textPage8.innerHTML = "Puntaje: " + rt_score[i] + "/100";
-       
-    //    descriptionPeliculas();
     }); 
     
 }
+
+// function showData(characterData) {
+//     characterData.forEach((persona) => {
+//         const fotoElement = document.createElement('img');
+//         fotoElement.src = persona.image;
+//     })
+// }
+
+
+
 
 // let dataPeliculas = data.films;  
 // console.log(dataPeliculas);
