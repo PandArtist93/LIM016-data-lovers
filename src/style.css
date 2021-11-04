@@ -6,7 +6,7 @@
 
 body {
     height: 100%;
-    background-color:#000000;
+    background-color:#d4ebe2;
 }
 
 /*-----------------------características del header-------------------*/
@@ -39,20 +39,22 @@ nav button {
     height: 100%;
     width: 100%;
     float: right;
-    color: rgb(0, 0, 0);
+    color: rgb(238, 236, 236);
     text-align: center;
     align-items: center;
-    padding: 10px;
-    margin: 5px;
+    padding: 1rem;
+    margin: 1rem;
     border: solid 3px #157181;
-    font-size: 15px;    
-    font-family: fantasy;    
-    border-radius: 10px;
-    background-color: #388896;
+    justify-content: center;
+    font-size: 1rem;    
+    font-family: fantasy;   
+    letter-spacing: 0.1rem; 
+    border-radius: 1rem;
+    background-color: #44a8b9;
     position: relative;
     vertical-align: middle;
     cursor: pointer;
-    overflow: hidden;
+    /* overflow: hidden; */
     text-transform: uppercase;
     box-shadow:
        inset 0 -3em 3em rgba(0,0,0,0.1),
@@ -64,14 +66,14 @@ nav button:hover {
     background-color:rgb(29, 61, 82);
     color: rgb(240, 227, 227);
     transition: 0.3s;
-    box-shadow: 0 0 10px 0 #157181 inset, 0 0 10px 4px #64c7ba;
+    box-shadow: 0 0 2rem 0 #157181 inset, 0 0 0.5rem 0.5rem #64c7ba;
 }
    
 .header-right {
     display: flex;
     justify-content: space-around;
     width: 60%;
-    padding: 3px 0 3px 0;
+    padding: 1rem 0 1rem 0;
     align-items: center;
 }
 
@@ -89,7 +91,7 @@ main {
 }
 /*---------------caracter÷isticas de la pagina principal----------------*/
 .principalPage h3 {
-    color: rgb(250, 114, 17);
+    color: rgb(255, 119, 7);
     font-size: 50px;
     font-family:fantasy;
     /* letter-spacing: 2px;  */
@@ -100,7 +102,7 @@ main {
 }
 
 .principalPage h1, h2 {
-    color: rgb(235, 170, 124);
+    color: rgb(8, 117, 121);
     font-size: 40px;
     font-family:fantasy;
     letter-spacing: 1px; 
@@ -125,13 +127,13 @@ main {
     flex-direction: column;   
     justify-content: center;
     align-items: center;
-    font-size: 20px;
-    position: static;
+    font-size: 20px;    
     width: 100%;
-    height: 400px;
-    background-color:#000000; 
-    margin-bottom: 40px;
-    color: beige;
+    height: 400px;    
+    background-color:#d4ebe2;  
+    color: rgb(20, 25, 85);  
+    /* margin-bottom: 40px; */
+    
 }
 
 .carrusel {
@@ -141,7 +143,8 @@ main {
     position: relative;
     width: 100%;
     user-select: none;   
-    margin: 50px 0 50px 0; 
+    margin: 50px 0 50px 0;
+    border: solid #524e4e;
 }
 
 #i1,#i2,#i3,#i4,#i5 {
@@ -237,126 +240,132 @@ label span{
 	#i5:checked  ~  #nav_slide #dot5
 { background-color: rgba(255,255,255,.9);}
 
-/*---------------------------características del catálogo de películas----------------*/
-.grid {
+/*---------------------------características de la sección de filtrado---------------*/
+.seccionFiltrado{
     width: 100%;
-    margin: 40px 0 40px 0;
+    height: 5rem;
+    display: flex;
+    background: #104953;    
 }
 
-.catalogo {    
+/*---------------------------características del catálogo de películas----------------*/
+.grid {
+    height: 100%;
     width: 100%;
-    height: 350px;
-    justify-content: center;
-    background-color:#000000;
-    margin: 20px 0 20px 0;
-}
-  
-.fila {
-    width: 100%;    
-    height: 350px;
     display: flex;
-    justify-content: space-around;       
+    padding: auto;
+    flex-wrap: wrap;
+    justify-content: space-around;  
 }
   
 .portada {
-    width: 90%;
-    display: flex;
-    justify-content: space-around;  
-    border-radius: 10px;
+    width: auto;  
+    min-width: 20%;
+    display: flex;  
     position: relative;
-    overflow: hidden;       
+    margin: 1.2rem;
+    overflow: hidden; 
 }
 
 .textoImg {
-    width: 80%;
+    width: 100%;
     height: 20%;
-    display: flex;
-    flex-direction: column;    
+    display: flex;    
     z-index: 5;
     position: absolute;
     top: 80%;
     justify-content: center;
     background: rgba(20, 20, 20, 0.521);
     font-family: fantasy;
-    letter-spacing: 1px; 
-    font-size: 20px;
-    text-shadow: 5px 5px 5px 0;
+    letter-spacing: 0.1rem; 
+    font-size: 1.2rem;
+    text-shadow: 1rem 1rem 1rem 0;
     color: aliceblue;
     text-align: center;
-    align-content: center;
+    align-items: center;
     text-transform: uppercase;
-}
+    border-radius: 0 0 1rem 1rem;  
+    overflow: hidden;
+} 
 
 button {
     display: flex;
-    width: 80%;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    justify-content: space-around;  
-    border-radius: 10px;  
-    border: solid #030303;
-    background-color: #000000;
-    /* transition: transform .8s; */
-    overflow: hidden;
-    position: absolute;
-    z-index: 1;
-}
+    width: 100%;
+    border-color: #d4ebe2;
+    border-radius: 1rem; 
+    z-index: 1;    
+} 
   
 button img {
     height:100%;
     width:100%;
-    border-radius: 10px;    
     background-repeat:no-repeat;
-    background-position:center;    
+    background-position:center;  
+    border-radius: 1rem;  
 }
 
 .portada :hover {
-    position: relative;
     transition: 0.2s;
     transform: scale(1.01);  
-    z-index: 2;           
+    z-index: 2;              
 }
 
 /*--------------------------------características de pagina2--------------------------*/
 .pagina2 {
     display: flex;
-    height:1400px;
     width:100%; 
-    background: #323333;  
+    background-color:#d4ebe2;
     display: none;
-    /* vertical-align: middle;
-    flex-direction: column;  */ 
+    flex-direction: column; 
+    /* height:auto; */    
+    /* vertical-align: middle; */     
 }
 
 .contenidoPage{
     display: flex;
-    background: #000000;
-    flex-direction: column;
-    align-items: center;
-    color: #FFFF;
+    background-color:#d4ebe2;  
+    color: rgb(0, 0, 0);
     font-family: fantasy;
-    letter-spacing: 1px;
-    font-size: 20px;
-    height:100%;
-    width:100%;      
+    justify-content: space-around;
+    width:100%;   
+    margin: 5em 0 5em 0;   
 }
 
-.contentPage2 {
-    width: 60%;
-    height: 30%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-#textPage6 {
-    height: 50%;
-    width: 50%;
+.contentImagPage2 {
+    height: 100%;
+    margin: 0 5% 0 5%; 
     border-radius: 20px;
 }
 
+.contentImagPage2 img{
+    height:40rem;
+    width:30rem; 
+    border-radius: 1rem;
+}
+
+.contentMovie{
+    display: flex;
+    background-color:#d4ebe2;
+    flex-direction: column;
+    color: rgb(0, 0, 0);
+    font-family: fantasy;
+    letter-spacing: 0.1rem;
+    font-size: 1.5rem;
+    width:100%; 
+    margin: 0 5% 0 5%;   
+}
+
+.contentPage2 {
+    display: flex;
+    justify-content: left;
+    /* align-items: center; */
+    flex-direction: column;
+    margin: 0.5rem 0 0.5rem 0;  
+}
+
+.contenidoPagePersonajes{
+
+}
 /* ---------------------características del footer--------------------- */
  footer { 
     display: flex; 
@@ -365,6 +374,8 @@ button img {
     flex-direction: column;  
     width: 100%;
     height: 100%; 
+    margin-top: 6.5rem;
+    font-size: 1.5rem;
 } 
 
 .contenedor-principal {
@@ -372,7 +383,8 @@ button img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    padding: 0.7rem;
+    letter-spacing: 0.07rem; 
     background-color:#157181;
     width: 100%    
 }
@@ -381,26 +393,26 @@ button img {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    padding: 0.7rem;
     background-color:#104953;
     width: 100%;
     font-family: fantasy;
-    letter-spacing: 1px; 
-    font-size: 15px;
+    letter-spacing: 0.1rem; 
+    font-size: 1.05rem;
     color: aliceblue;
 }
 
 .titulo-seccion {
     color: rgb(236, 222, 222);
-    font-size: 20px;
-    letter-spacing: 1.5px;
+    font-size: 1.25rem;
+    letter-spacing: 0.5rem;
 }
 
 .redes-sociales {
     display:flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    padding: 0.7rem;
 }
 
 i {
