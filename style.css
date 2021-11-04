@@ -250,8 +250,8 @@ label span{
 
 /*---------------------------características del catálogo de películas----------------*/
 .grid {
-    height: 100%;
-    width: 100%;
+    height: auto;
+    width: auto;
     display: flex;
     padding: auto;
     flex-wrap: wrap;
@@ -259,8 +259,10 @@ label span{
 }
   
 .portada {
-    width: auto;  
-    min-width: 20%;
+    /* width: auto;  
+    min-width: 20%; */
+    width: 25rem;
+    height: 35rem;
     display: flex;  
     position: relative;
     margin: 1.2rem;
@@ -268,7 +270,7 @@ label span{
 }
 
 .textoImg {
-    width: 100%;
+    width: 25rem;
     height: 20%;
     display: flex;    
     z-index: 5;
@@ -290,15 +292,19 @@ label span{
 
 button {
     display: flex;
-    width: 100%;
+    /* width: 100%; */
+    width: 25rem;
+    height: 35rem;
     border-color: #d4ebe2;
     border-radius: 1rem; 
     z-index: 1;    
 } 
   
 button img {
-    height:100%;
-    width:100%;
+    /* height:100%;
+    width:100%; */
+    width: 25rem;
+    height: 35rem;
     background-repeat:no-repeat;
     background-position:center;  
     border-radius: 1rem;  
@@ -351,7 +357,7 @@ button img {
     font-family: fantasy;
     letter-spacing: 0.1rem;
     /* font-size: 1.5rem; */
-    font-size: 1.05rem;
+    font-size: 1.5rem;
     width:100%; 
     margin: 0 5% 0 5%;   
 }
@@ -366,30 +372,30 @@ button img {
 
 .contenidoPagePersonajes{
     height: 100%;
-    width: 100%;
     display: flex;
-    flex-direction: column;
     padding: 0.5rem;
-    /* margin: 2rem; */
+    margin: 2rem;
     flex-wrap: wrap;
-    justify-content: space-around;  
+    justify-content: space-around;
+    align-content: flex-start;  
     background: rgb(76, 185, 185);
-    /* background: rgba(115, 121, 119, 0.774); */
     border-radius: 0.5rem;
     font-family: fantasy;
     letter-spacing: 0.1rem; 
     font-size: 1.05rem;
     color: rgb(0, 0, 0);
     text-shadow: 1rem #000000;
+    overflow: hidden;
 
 }
 
 .contenedorPersonaje{
-    width: 95%;
-    height: 100%;  
+    width: auto;
+    height: auto;  
     display: flex; 
-    flex-direction: column; 
-    flex-wrap: nowrap;
+    align-content: space-around;
+    flex-direction: column;
+    flex-wrap: wrap;
     margin: 1.2rem;
     padding: 0.5rem;
     border-radius: 0.5rem;
@@ -399,12 +405,11 @@ button img {
     font-family: fantasy;
     letter-spacing: 0.1rem; 
     font-size: 1.5rem;   
-    overflow: hidden;
 }
 
 .contenedorPersonaje img{
-    width: 50%;
-    height: 100%;
+    width: 25rem;
+    height: 35rem;
     border-radius: 1rem;
 }
 
