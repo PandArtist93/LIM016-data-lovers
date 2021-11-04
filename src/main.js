@@ -39,22 +39,11 @@ for (let i=0; i< btnImagenes.length; i++) {
        textPage5.innerHTML = "Productor: " + producerPelicula[i];
        textPage7.innerHTML = "Fecha de lanzamiento: " + release_date[i];
        textPage8.innerHTML = "Puntaje: " + rt_score[i] + "/100";
+       
     }); 
     
 }
 
-// function showData(characterData) {
-//     characterData.forEach((persona) => {
-//         const fotoElement = document.createElement('img');
-//         fotoElement.src = persona.image;
-//     })
-// }
-
-
-
-
-// let dataPeliculas = data.films;  
-// console.log(dataPeliculas);
 
 //botones del header
 principalBtn.addEventListener("click", function(){
@@ -63,30 +52,7 @@ principalBtn.addEventListener("click", function(){
     principalPage.style.display = "block";    
 });
 
-//
 
-// let dataPeliculas = data.films;
-
-// let tituloPeliculas = dataPeliculas.map(x => x.title);
-
-// let descriptionPelicula = dataPeliculas.map(x => x.description);
-
-// function descriptionPelicula (e) {
-//     for (let i = 0 ; i < descriptionPelicula.length ; i++) {
-//         textPage3.innerHTML = (descriptionPelicula[i]);
-//     }
-// }
-
-// let dataPeliculas = data.films;
-
-// let tituloPeliculas = dataPeliculas.map(x => x.title);
-
-// let descriptionPelicula = dataPeliculas.map(x => x.description);
-
-// textPage2.innerHTML = (tituloPeliculas);
-// textPage3.innerHTML = (descriptionPelicula);
-
-// console.log(dataPeliculas);
 
 console.log(example, data);
 
