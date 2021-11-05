@@ -12,14 +12,17 @@
         <div class="logo">
           <h3>GHIBLI</h3>
           <img src="./imagenes/kanji.PNG" alt="">          
+        </div>            
+        <div class="header-right">
+          <div class="search-box" id="">
+            <input class= "search-txt" type="text" name="" placeholder="Ingresar nombre de la película">
+            <a class= "search-bnt" href= "#"><i class="fas fa-search"></i></a>
+          </div>  
+          <button class="btnHeader" id= "btnHeaderPrincipal">Principal</button>
+          <button class="btnHeader">Películas</button>
+          <button class="btnHeader">Géneros</button>
+          <button class="btnHeader">Comunidad</button>
         </div>
-        
-          <div class="header-right">
-            <button class="btnHeader" id= "btnHeaderPrincipal">Principal</button>
-            <button class="btnHeader">Películas</button>
-            <button class="btnHeader">Géneros</button>
-            <button class="btnHeader">Comunidad</button>
-          </div>
       </nav>
     </header>
     
@@ -80,9 +83,10 @@
                 
         <div class="secfiltrado">            
           <nav> 
+            <p>Filtar por:</p>
             <ul>
               <li>
-                <a href="">Por Director</a>
+                <a href="">Director</a>
                 <ul>
                   <li><a href="">Hayao Miyazaki</a></li>
                   <li><a href="">Isao Takahata</a></li>
@@ -93,7 +97,7 @@
                 </ul>
               </li>              
               <li>
-                <a href="">Por productor</a>
+                <a href="">Productor</a>
                 <ul>
                   <li><a href="">Isao Takahata</a></li>
                   <li><a href="">Hayao Miyazaki</a></li>
@@ -101,17 +105,55 @@
                   <li><a href="">Toshio Suzuki</a></li>
                   <li><a href="">Yoshiaki Nishimura</a></li>
                 </ul> 
-              </li>                  
-              <li><a href="">Por puntaje</a></li>         
+              </li>  
+              <li>
+                <a href="">lanzamiento</a>
+                <!-- <ul>
+                  <li><a href=""></a></li>
+                  <li><a href=""></a></li>
+                  <li><a href=""></a></li>
+                  <li><a href=""></a></li>
+                  <li><a href=""></a></li>
+                  <li><a href=""></a></li>
+                </ul> -->
+              </li>                       
             </ul>  
           </nav>              
-          <div class="search-box" id="">
+          <!-- <div class="search-box" id="">
             <input class= "search-txt" type="text" name="" placeholder="Ingresar nombre de la película">
             <a class= "search-bnt" href= "#"><i class="fas fa-search"></i></a>
-          </div>           
+          </div>  -->          
         </div>            
         
-        <div class="grid" id= "grid1">
+        <div class="secOrdenado">            
+          <nav> 
+            <p>Visualizar películas en orden:</p>
+            <ul>
+              <li>
+                <a href="">Cronológico</a>
+                <ul>
+                  <li><a href="">Ascendente</a></li>
+                  <li><a href="">Descendente</a></li>                  
+                </ul>
+              </li>              
+              <li>
+                <a href="">Alfabético</a>
+                <ul>
+                  <li><a href="">A --> Z</a></li>
+                  <li><a href="">Z --> A</a></li>                  
+                </ul> 
+              </li>  
+              <li>
+                <a href="">Calificación</a>
+                <ul>
+                  <li><a href="">Mayor puntaje</a></li>
+                  <li><a href="">Menor puntaje</a></li>                  
+                </ul>
+              </li>                        
+            </ul>  
+          </nav>                
+        </div>            
+        <div class="grid">
 
           <!-- <div class="portada">
             <button id= "btnPortada1">

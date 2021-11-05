@@ -48,8 +48,8 @@ for (let i=0; i< btnImagenes.length; i++) {
 
        for(let j=0; j < characters.length; j++) {
            contenidoPagePersonajes.appendChild(createCharacter(characters[j]));
-           console.log(characters);
-       };   
+        //    console.log(characters);
+       } 
        
     }); 
     

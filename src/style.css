@@ -117,7 +117,7 @@ main {
 .principalPage p {
     font-family: fantasy;
     letter-spacing: 1px; 
-    font-size: 15px;
+    /* font-size: 15px; */
     color: aliceblue;
 }
 
@@ -243,19 +243,32 @@ label span{
 /*---------------------------características de la sección de filtrado---------------*/
 .secfiltrado{
     width: 100%;    
-    height: 8rem;
-    padding-left: 5rem;
+    height: 6rem;
     display: flex;
-    margin-bottom: 5rem;
     flex-wrap: nowrap;
     background-color: #157181;
     font-family: fantasy;
     letter-spacing: 0.1rem; 
-    font-size: 1.05rem;
     color: rgb(255, 255, 255);   
-    justify-content: left;
+    justify-content: center;
     align-items: center;
     vertical-align: middle;    
+}
+
+main nav{
+    display: flex;
+    flex-wrap: nowrap;
+    width: auto;
+    justify-content: space-around;
+    align-items: center;
+    vertical-align: middle; 
+    font-size: 1.4rem;
+}
+
+main nav p{
+    font-size: 1.4rem;
+    font-family: fantasy;
+    letter-spacing: 0.1rem;
 }
 
 main nav:after{
@@ -267,7 +280,7 @@ main nav:after{
 main nav ul{
     list-style: none;
     margin-right: 3rem;
-    position: relative; 
+    position: relative;     
 }
 
 main nav ul li{
@@ -279,6 +292,7 @@ main nav ul li{
     inset 0 -3em 3em rgba(0,0,0,0.1),
     0 0  0 0px  #157181,
     0.3em 0.3em 1em rgba(0,0,0,0.3); 
+    border-radius: 1rem;
     font-size: 1.9rem;   
 }
 
@@ -287,14 +301,14 @@ main nav ul li a{
     position: relative;
     z-index: 200;
     color: rgb(230, 222, 222);
-    line-height: 3rem;
+    line-height: 2rem;
     font-size: 1.4rem;
-    letter-spacing: 0.2rem;
+    letter-spacing: 0.1rem;
     text-transform: uppercase;
-    padding: 0.5rem;
+    /* padding: 0.5rem; */
     margin: 1rem;
     text-decoration: none;
-    border-radius: 2rem;
+    
 }
 
 main nav ul ul{
@@ -303,7 +317,7 @@ main nav ul ul{
     width: auto;
     opacity: 0;
     visibility: hidden;
-    transition: top 0.3s;
+    /* transition: top 0.3s; */
     font-size: 0.7rem;
 }
 
@@ -321,11 +335,8 @@ main nav ul ul li{
     /* margin: 0rem; */
     width: auto;
     float: none;
-    /* display: list-item; */
     justify-content: center;
     align-items: center;
-    border-bottom: 0.2rem solid rgba(0,0,0,0,.3);
-    border-bottom: 0.2rem;
     background: #53909b;
 } 
 
@@ -339,19 +350,33 @@ main nav ul li a:hover{
     /* box-shadow: 0 0 0.2rem #85bec9, 0 0 0.2rem #53909b; */
     color: cyan;
 }
+/*----------------------Sección de ordenado-----------------------*/
+.secOrdenado{
+    width: 100%;    
+    height: 8rem;
+    display: flex;
+    margin-bottom: 2rem;
+    flex-wrap: nowrap;
+    background-color: #157181;
+    font-family: fantasy;
+    letter-spacing: 0.1rem; 
+    color: rgb(255, 255, 255);   
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;    
+}
 
 /*--------------------------caja de busqueda----------------------*/
-
 .search-box{
     display: flex;
     float: left;
     width: auto;
     position: absolute;   
-    right: 10%;
+    right: 50%;
     transform: translate(-50);
     background: #cccecf;
-    border-radius: 2.5rem;
-    padding: 0.8rem;
+    border-radius: 2rem;
+    padding: 0.2rem;
     vertical-align: middle;
     /* justify-content: center;    */ 
     box-shadow:
@@ -363,10 +388,11 @@ main nav ul li a:hover{
 .search-txt{
     height: auto;
     width: 0;
-    border-radius: 1rem;
+    border-radius: 3rem;
     border: none;
     padding: 0;
-    font-size: 1.2rem;
+    font-family: fantasy;
+    font-size: 1rem;
     /* line-height: 1.5rem; */
     transition: 0.4s;
     background: none;
@@ -377,7 +403,7 @@ main nav ul li a:hover{
 .search-btn{
     float: right;
     border-radius: 2rem;
-    
+    background: rgb(241, 239, 236);
 }
 
 .search-box:hover > .search-txt{
