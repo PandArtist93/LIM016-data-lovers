@@ -258,19 +258,19 @@ label span{
     vertical-align: middle;    
 }
 
-.filtro{
+/* .filtro{
     display: flex;
     justify-content: space-around;
     flex-wrap: nowrap;
-}
+} */
 
-.filtro:after{
+main nav:after{
     content: "";
     clear: both;
     display: table;
 }
 
-.filtro ul{
+main nav ul{
     /* float: right; */
     list-style: none;
     margin-right: 3rem;
@@ -278,7 +278,7 @@ label span{
     
 }
 
-.filtro ul li{
+main nav ul li{
     display: inline-block;
     margin: 0 0.4rem;
     border-radius: 0rem;
@@ -286,7 +286,7 @@ label span{
     
 }
 
-.filtro ul li a{
+main nav ul li a{
    /*  display: flex;
     position: relative;
     z-index: 90; */
@@ -299,7 +299,7 @@ label span{
     text-decoration: none;
 }
 
-.filtro ul ul{
+main nav ul ul{
     position: absolute;
     top: 3rem;
     width: auto;
@@ -310,13 +310,13 @@ label span{
     font-size: 0.7rem;
 }
 
-.filtro ul li:hover > ul{
+main nav ul li:hover > ul{
     top: 3rem;
     opacity: 1;
     visibility: visible;
 }
 
-.filtro ul ul li{
+main nav ul ul li{
     position: relative;
     margin: 0rem;
     width: 12rem;
@@ -326,12 +326,12 @@ label span{
     border-bottom: 0.2rem;
 } 
 
-.filtro ul ul li a:hover{
+main nav ul ul li a:hover{
     color: cyan;
     box-shadow: none;
 }
 
-.filtro ul li a:hover{
+main nav ul li a:hover{
     border-radius: 0.3rem;
     box-shadow: 0 0 0.2rem #85bec9, 0 0 0.2rem #53909b;
     color: cyan;
