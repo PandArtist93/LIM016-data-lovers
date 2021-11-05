@@ -16,7 +16,7 @@ header {
     margin: 0 0 30px 0;
 }
 
-nav {
+header nav {
     width: 100%;
     height: 150px;
     display: inline-flex;
@@ -27,7 +27,7 @@ nav {
     align-items: center;
 }
 
-nav .logo {
+header nav .logo {
     display: flex;
     width: 70%;
     height: 100%;
@@ -35,7 +35,7 @@ nav .logo {
     justify-content: left;
 }
       
-nav button {
+header nav button {
     height: 100%;
     width: 100%;
     float: right;
@@ -62,7 +62,7 @@ nav button {
        0.3em 0.3em 1em rgba(0,0,0,0.3);
 }
             
-nav button:hover {
+header nav button:hover {
     background-color:rgb(29, 61, 82);
     color: rgb(240, 227, 227);
     transition: 0.3s;
@@ -241,17 +241,155 @@ label span{
 { background-color: rgba(255,255,255,.9);}
 
 /*---------------------------características de la sección de filtrado---------------*/
-.seccionFiltrado{
-    width: 100%;
-    height: 5rem;
+.secfiltrado{
+    width: 100%;    
+    height: 8rem;
+    padding-left: 5rem;
     display: flex;
-    background: #104953;    
+    margin-bottom: 5rem;
+    flex-wrap: nowrap;
+    background-color: #157181;
+    font-family: fantasy;
+    letter-spacing: 0.1rem; 
+    font-size: 1.05rem;
+    color: rgb(255, 255, 255);   
+    justify-content: left;
+    align-items: center;
+    vertical-align: middle;    
+}
+
+main nav:after{
+    content: "";
+    clear: both;
+    display: table;
+}
+
+main nav ul{
+    list-style: none;
+    margin-right: 3rem;
+    position: relative; 
+}
+
+main nav ul li{
+    display: inline-block;
+    margin: 0 0.4rem;
+    border-radius: 0rem;
+    justify-content: space-between;
+    box-shadow:
+    inset 0 -3em 3em rgba(0,0,0,0.1),
+    0 0  0 0px  #157181,
+    0.3em 0.3em 1em rgba(0,0,0,0.3); 
+    font-size: 1.9rem;   
+}
+
+main nav ul li a{
+    display: flex;
+    position: relative;
+    z-index: 200;
+    color: rgb(230, 222, 222);
+    line-height: 3rem;
+    font-size: 1.4rem;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    padding: 0.5rem;
+    margin: 1rem;
+    text-decoration: none;
+    border-radius: 2rem;
+}
+
+main nav ul ul{
+    position: absolute;
+    bottom: 0;
+    width: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: top 0.3s;
+    font-size: 0.7rem;
+}
+
+main nav ul li:hover > ul{
+    top: 3rem;
+    opacity: 1;
+    visibility: visible;
+}
+
+main nav ul ul li{
+    display: flex;
+    position: relative;
+    z-index: 201;
+    top: 2rem;
+    /* margin: 0rem; */
+    width: auto;
+    float: none;
+    /* display: list-item; */
+    justify-content: center;
+    align-items: center;
+    border-bottom: 0.2rem solid rgba(0,0,0,0,.3);
+    border-bottom: 0.2rem;
+    background: #53909b;
+} 
+
+main nav ul ul li a:hover{
+    color: cyan;
+    box-shadow: none;
+}
+
+main nav ul li a:hover{
+    border-radius: 0.3rem;
+    /* box-shadow: 0 0 0.2rem #85bec9, 0 0 0.2rem #53909b; */
+    color: cyan;
+}
+
+/*--------------------------caja de busqueda----------------------*/
+
+.search-box{
+    display: flex;
+    float: left;
+    width: auto;
+    position: absolute;   
+    right: 10%;
+    transform: translate(-50);
+    background: #cccecf;
+    border-radius: 2.5rem;
+    padding: 0.8rem;
+    vertical-align: middle;
+    /* justify-content: center;    */ 
+    box-shadow:
+       inset 0 -3em 3em rgba(0,0,0,0.1),
+       0 0  0 0px  #157181,
+       0.3em 0.3em 1em rgba(0,0,0,0.3);
+} 
+
+.search-txt{
+    height: auto;
+    width: 0;
+    border-radius: 1rem;
+    border: none;
+    padding: 0;
+    font-size: 1.2rem;
+    /* line-height: 1.5rem; */
+    transition: 0.4s;
+    background: none;
+    text-align: center;
+    float: left;
+}
+
+.search-btn{
+    float: right;
+    border-radius: 2rem;
+    
+}
+
+.search-box:hover > .search-txt{
+    width: 17rem;
+    background: rgb(241, 239, 236);
+    padding: 0, 0.5rem;
 }
 
 /*---------------------------características del catálogo de películas----------------*/
 .grid {
-    height: 100%;
-    width: 100%;
+    height: auto;
+    width: auto;
     display: flex;
     padding: auto;
     flex-wrap: wrap;
@@ -259,8 +397,10 @@ label span{
 }
   
 .portada {
-    width: auto;  
-    min-width: 20%;
+    /* width: auto;  
+    min-width: 20%; */
+    width: 25rem;
+    height: 35rem;
     display: flex;  
     position: relative;
     margin: 1.2rem;
@@ -268,7 +408,7 @@ label span{
 }
 
 .textoImg {
-    width: 100%;
+    width: 25rem;
     height: 20%;
     display: flex;    
     z-index: 5;
@@ -290,15 +430,19 @@ label span{
 
 button {
     display: flex;
-    width: 100%;
+    /* width: 100%; */
+    width: 25rem;
+    height: 35rem;
     border-color: #d4ebe2;
     border-radius: 1rem; 
     z-index: 1;    
 } 
   
 button img {
-    height:100%;
-    width:100%;
+    /* height:100%;
+    width:100%; */
+    width: 25rem;
+    height: 35rem;
     background-repeat:no-repeat;
     background-position:center;  
     border-radius: 1rem;  
@@ -350,6 +494,7 @@ button img {
     color: rgb(0, 0, 0);
     font-family: fantasy;
     letter-spacing: 0.1rem;
+    /* font-size: 1.5rem; */
     font-size: 1.5rem;
     width:100%; 
     margin: 0 5% 0 5%;   
@@ -363,9 +508,49 @@ button img {
     margin: 0.5rem 0 0.5rem 0;  
 }
 
-/* .contenidoPagePersonajes{
+.contenidoPagePersonajes{
+    height: 100%;
+    display: flex;
+    padding: 0.5rem;
+    margin: 2rem;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: flex-start;  
+    background: rgb(76, 185, 185);
+    border-radius: 0.5rem;
+    font-family: fantasy;
+    letter-spacing: 0.1rem; 
+    font-size: 1.05rem;
+    color: rgb(0, 0, 0);
+    text-shadow: 1rem #000000;
+    overflow: hidden;
 
-} */
+}
+
+.contenedorPersonaje{
+    width: auto;
+    height: auto;  
+    display: flex; 
+    align-content: space-around;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 1.2rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background: rgb(255, 250, 250);
+    color: rgb(31, 29, 29);
+    margin: 2rem;
+    font-family: fantasy;
+    letter-spacing: 0.1rem; 
+    font-size: 1.5rem;   
+}
+
+.contenedorPersonaje img{
+    width: 25rem;
+    height: 35rem;
+    border-radius: 1rem;
+}
+
 /* ---------------------características del footer--------------------- */
  footer { 
     display: flex; 
