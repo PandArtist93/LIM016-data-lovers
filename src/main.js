@@ -49,7 +49,7 @@ for (let i=0; i< btnImagenes.length; i++) {
        for(let j=0; j < characters.length; j++) {
            contenidoPagePersonajes.appendChild(createCharacter(characters[j]));
            console.log(characters);
-        };   
+       };   
        
     }); 
     
@@ -106,23 +106,6 @@ dataPeliculas.forEach( (obj) => {
         i++;
 });
 
-for (let i=0; i< btnImagenes.length; i++) {
-    //Añades un evento a cada elemento
-    btnImagenes[i].addEventListener("click",function() {
-       //Aquí la función que se ejecutará cuando se dispare el evento
-       principalPage.style.display = "none" ; //En este caso ocultaremos el contenido que se encuentra en "principalPage" al darle click al botón de imagen cliqueado
-       pagina2.style.display = "block" ;//En este caso mostraremos la página2 al darle click al botón de imagen cliqueado
-       textPage6.innerHTML = '<img src ='+ poster[i]+'>';
-       textPage2.innerHTML = "Título: " + tituloPeliculas[i];
-       textPage3.innerHTML = "Sinopsis: " + descriptionPelicula[i];
-       textPage4.innerHTML = "Director: " + directorPelicula[i];
-       textPage5.innerHTML = "Productor: " + producerPelicula[i];
-       textPage7.innerHTML = "Fecha de lanzamiento: " + release_date[i];
-       textPage8.innerHTML = "Puntaje: " + rt_score[i] + "/100";
-    });    
-   
-}
-
 //botones del header
 principalBtn.addEventListener("click", function(){    
     pagina2.style.display = "none";
@@ -142,77 +125,6 @@ function createCharacter(character) {
     return nuevoElemento;
 }
 
-// crear nuevos div
-
-/* let cajaDiv = document.querySelector("contenidoPagePersonajes"); */
-/* let btnImagenes = document.getElementsByClassName("portada"); */
-
-/* function seccionPersonajes() {
-    let nuevoDiv = document.createElement("div");
-    console.log(nuevoDiv);
-    document.body.appendChild(nuevoDiv);
-}
-btnImagenes.addEventListener("click", seccionPersonajes); */
-
-// crear elementos desde JS
-/* let contenidoPagePersonajes = document.getElementById("contenidoPagePersonajes");
-function prueba(even){
-    for (i = 0; i < personajesPelicula; i++){
-        let nuevoElemento = document.createElement('div');
-        nuevoElemento.textContent =
-        ;
-        nuevoElemento = ;
-    };
-};
- */
-
-/* let contenidoPagePersonajes = document.getElementById("contenidoPagePersonajes");
-let nuevoElemento = document.createElement('div');
-nuevoElemento.textContent = personajesPelicula;
-console.log (nuevoElemento);
-console.dir(nuevoElemento);
-contenidoPagePersonajes.appendChild(nuevoElemento);
- */
-
-
-/* 
-let seccionTitulos = document.querySelector('ul')
-let listaTitulos = document.createElement('li');
-listaTitulos.textContent = tituloPeliculas[i];
-seccionTitulos.appendChild(listaTitulos);
-   */
-  
- 
-
-
-/* let secciontitulos = document.querySelector('ul');
-
-
-for (let i = 0; i < tituloPeliculas.length; i++){
-    let listatitulos = document.createElement('li');
-    listatitulos.textContent = tituloPeliculas[i];
-    secciontitulos.appendChild(li);
-} */
-
-/* let secciontitulos = document.querySelectorAll('ul');
-tituloPeliculas.forEach(item => {
-    let listatitulos = document.createElement('li');
-    listatitulos.textContent = item;
-    secciontitulos.appendChild(li);
-});
- */
-
-
-/* let lista = document.getElementById("lista"); */
-/* let elementoHtml = document.createElement("li"); */
-/* elementoHtml.textContent = "Dos";
-lista.appendChild(elementoHtml); */
-
-/* for (i = 0; i < personajesPelicula.length; i++){
-    let elementoHtml = document.createElement("ul");
-    elementoHtml.textContent = personajesPelicula[i];
-    lista.innerHTML(elementoHtml);
-} */
 
 console.log(example, data);
 
