@@ -31,6 +31,8 @@ let contenidoPagePersonajes = document.getElementById("contenidoPagePersonajes")
 for (let i=0; i< btnImagenes.length; i++) {
     //Añades un evento a cada elemento
     btnImagenes[i].addEventListener("click",function() {
+        let characters = personajesPelicula[i];
+        
        //Aquí la función que se ejecutará cuando se dispare el evento
        principalPage.style.display = "none" ; //En este caso ocultaremos el contenido que se encuentra en "principalPage" al darle click al botón de imagen cliqueado
        pagina2.style.display = "block" ;//En este caso mostraremos la página2 al darle click al botón de imagen cliqueado
@@ -42,12 +44,13 @@ for (let i=0; i< btnImagenes.length; i++) {
        textPage7.innerHTML = "Fecha de lanzamiento: " + release_date[i];
        textPage8.innerHTML = "Puntaje: " + rt_score[i] + "/100";     
 
-       let characters = personajesPelicula[i];
+      /*  let characters = personajesPelicula[i]; */
 
        for(let j=0; j < characters.length; j++) {
            contenidoPagePersonajes.appendChild(createCharacter(characters[j]));
-       }
-      
+           console.log(characters);
+        };   
+       
     }); 
     
 }
