@@ -241,86 +241,6 @@ label span{
 { background-color: rgba(255,255,255,.9);}
 
 /*---------------------------características de la sección de filtrado---------------*/
-main nav{
-    background: azure;
-}
-
-main nav:after{
-    content: "";
-    clear: both;
-    display: table;
-}
-
-main nav ul{
-    /* float: right; */
-    list-style: none;
-    margin-right: 3rem;
-    position: relative;
-    
-}
-
-main nav ul li{
-    display: inline-block;
-    margin: 0 0.4rem;
-    border-radius: 0rem;
-    justify-content: space-between;
-    
-}
-
-main nav ul li a{
-   /*  display: flex;
-    position: relative;
-    z-index: 90; */
-    color: rgb(230, 222, 222);
-    line-height: 3rem;
-    font-size: 1.2rem;
-    letter-spacing: 0.2rem;
-    padding: 0.5rem;
-    margin: 1rem;
-    text-decoration: none;
-}
-
-main nav ul ul{
-    position: absolute;
-    top: 3rem;
-    width: auto;
-    opacity: 0;
-    visibility: hidden;
-    transition: top 0.3s;
-    background: #53909b;
-    font-size: 0.7rem;
-}
-
-nav ul li:hover > ul{
-    top: 3rem;
-    opacity: 1;
-    visibility: visible;
-}
-
-main nav ul ul li{
-    position: relative;
-    margin: 0rem;
-    width: 12rem;
-    float: none;
-    display: list-item;
-    border-bottom: 0.2rem solid rgba(0,0,0,0,.3);
-    border-bottom: 0.2rem;
-} 
-
-main nav ul ul li a:hover{
-    color: cyan;
-    box-shadow: none;
-}
-
-main nav ul li a:hover{
-    border-radius: 0.3rem;
-    box-shadow: 0 0 0.2rem #85bec9, 0 0 0.2rem #53909b;
-    color: cyan;
-}
-
-
-
-
 .secfiltrado{
     width: 100%;    
     height: 8rem;
@@ -343,6 +263,81 @@ main nav ul li a:hover{
     justify-content: space-around;
     flex-wrap: nowrap;
 }
+
+.filtro:after{
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.filtro ul{
+    /* float: right; */
+    list-style: none;
+    margin-right: 3rem;
+    position: relative;
+    
+}
+
+.filtro ul li{
+    display: inline-block;
+    margin: 0 0.4rem;
+    border-radius: 0rem;
+    justify-content: space-between;
+    
+}
+
+.filtro ul li a{
+   /*  display: flex;
+    position: relative;
+    z-index: 90; */
+    color: rgb(230, 222, 222);
+    line-height: 3rem;
+    font-size: 1.2rem;
+    letter-spacing: 0.2rem;
+    padding: 0.5rem;
+    margin: 1rem;
+    text-decoration: none;
+}
+
+.filtro ul ul{
+    position: absolute;
+    top: 3rem;
+    width: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: top 0.3s;
+    background: #53909b;
+    font-size: 0.7rem;
+}
+
+.filtro ul li:hover > ul{
+    top: 3rem;
+    opacity: 1;
+    visibility: visible;
+}
+
+.filtro ul ul li{
+    position: relative;
+    margin: 0rem;
+    width: 12rem;
+    float: none;
+    display: list-item;
+    border-bottom: 0.2rem solid rgba(0,0,0,0,.3);
+    border-bottom: 0.2rem;
+} 
+
+.filtro ul ul li a:hover{
+    color: cyan;
+    box-shadow: none;
+}
+
+.filtro ul li a:hover{
+    border-radius: 0.3rem;
+    box-shadow: 0 0 0.2rem #85bec9, 0 0 0.2rem #53909b;
+    color: cyan;
+}
+
+/*--------------------------caja de busqueda----------------------*/
 
 .search-box{
     display: flex;
