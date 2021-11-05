@@ -16,7 +16,7 @@ header {
     margin: 0 0 30px 0;
 }
 
-nav {
+header nav {
     width: 100%;
     height: 150px;
     display: inline-flex;
@@ -27,7 +27,7 @@ nav {
     align-items: center;
 }
 
-nav .logo {
+header nav .logo {
     display: flex;
     width: 70%;
     height: 100%;
@@ -35,7 +35,7 @@ nav .logo {
     justify-content: left;
 }
       
-nav button {
+header nav button {
     height: 100%;
     width: 100%;
     float: right;
@@ -62,7 +62,7 @@ nav button {
        0.3em 0.3em 1em rgba(0,0,0,0.3);
 }
             
-nav button:hover {
+header nav button:hover {
     background-color:rgb(29, 61, 82);
     color: rgb(240, 227, 227);
     transition: 0.3s;
@@ -241,11 +241,146 @@ label span{
 { background-color: rgba(255,255,255,.9);}
 
 /*---------------------------características de la sección de filtrado---------------*/
-.seccionFiltrado{
-    width: 100%;
-    height: 5rem;
+main nav{
+    background: azure;
+}
+
+main nav:after{
+    content: "";
+    clear: both;
+    display: table;
+}
+
+main nav ul{
+    /* float: right; */
+    list-style: none;
+    margin-right: 3rem;
+    position: relative;
+    
+}
+
+main nav ul li{
+    display: inline-block;
+    margin: 0 0.4rem;
+    border-radius: 0rem;
+    justify-content: space-between;
+    
+}
+
+main nav ul li a{
+   /*  display: flex;
+    position: relative;
+    z-index: 90; */
+    color: rgb(230, 222, 222);
+    line-height: 3rem;
+    font-size: 1.2rem;
+    letter-spacing: 0.2rem;
+    padding: 0.5rem;
+    margin: 1rem;
+    text-decoration: none;
+}
+
+main nav ul ul{
+    position: absolute;
+    top: 3rem;
+    width: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: top 0.3s;
+    background: #53909b;
+    font-size: 0.7rem;
+}
+
+nav ul li:hover > ul{
+    top: 3rem;
+    opacity: 1;
+    visibility: visible;
+}
+
+main nav ul ul li{
+    position: relative;
+    margin: 0rem;
+    width: 12rem;
+    float: none;
+    display: list-item;
+    border-bottom: 0.2rem solid rgba(0,0,0,0,.3);
+    border-bottom: 0.2rem;
+} 
+
+main nav ul ul li a:hover{
+    color: cyan;
+    box-shadow: none;
+}
+
+main nav ul li a:hover{
+    border-radius: 0.3rem;
+    box-shadow: 0 0 0.2rem #85bec9, 0 0 0.2rem #53909b;
+    color: cyan;
+}
+
+
+
+
+.secfiltrado{
+    width: 100%;    
+    height: 8rem;
+    padding-left: 5rem;
     display: flex;
-    background: #104953;    
+    margin-bottom: 5rem;
+    /* flex-wrap: nowrap; */
+    background-color: #157181;
+    font-family: fantasy;
+    letter-spacing: 0.1rem; 
+    font-size: 1.05rem;
+    color: rgb(255, 255, 255);   
+    /* justify-content: space-around; */
+    align-items: center;
+    vertical-align: middle;    
+}
+
+.filtro{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+}
+
+.search-box{
+    display: flex;
+    float: left;
+    width: auto;
+    position: absolute;   
+    right: 10%;
+    transform: translate(-50);
+    background: #cccecf;
+    border-radius: 2.5rem;
+    padding: 0.8rem;
+    vertical-align: middle;
+    /* justify-content: center;    */ 
+} 
+
+.search-txt{
+    height: auto;
+    width: 0;
+    border-radius: 1rem;
+    border: none;
+    padding: 0;
+    font-size: 1.2rem;
+    /* line-height: 1.5rem; */
+    transition: 0.4s;
+    background: none;
+    text-align: center;
+    float: left;
+}
+
+.search-btn{
+    float: right;
+    border-radius: 2rem;
+}
+
+.search-box:hover > .search-txt{
+    width: 17rem;
+    background: rgb(241, 239, 236);
+    padding: 0, 0.5rem;
 }
 
 /*---------------------------características del catálogo de películas----------------*/
