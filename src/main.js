@@ -28,54 +28,6 @@ let rt_score = dataPeliculas.map(x => x.rt_score);
 let personajesPelicula = dataPeliculas.map(x => x.people);
 let contenidoPagePersonajes = document.getElementById("contenidoPagePersonajes");
 
-for (let i=0; i< btnImagenes.length; i++) {
-    //Añades un evento a cada elemento
-    btnImagenes[i].addEventListener("click",function() {
-        let characters = personajesPelicula[i];
-        
-       //Aquí la función que se ejecutará cuando se dispare el evento
-       principalPage.style.display = "none" ; //En este caso ocultaremos el contenido que se encuentra en "principalPage" al darle click al botón de imagen cliqueado
-       pagina2.style.display = "block" ;//En este caso mostraremos la página2 al darle click al botón de imagen cliqueado
-       textPage6.innerHTML = '<img src ='+ poster[i]+'>';
-       textPage2.innerHTML = "Título: " + tituloPeliculas[i];
-       textPage3.innerHTML = "Sinopsis: " + descriptionPelicula[i];
-       textPage4.innerHTML = "Director: " + directorPelicula[i];
-       textPage5.innerHTML = "Productor: " + producerPelicula[i];
-       textPage7.innerHTML = "Fecha de lanzamiento: " + release_date[i];
-       textPage8.innerHTML = "Puntaje: " + rt_score[i] + "/100";     
-
-      /*  let characters = personajesPelicula[i]; */
-
-       for(let j=0; j < characters.length; j++) {
-           contenidoPagePersonajes.appendChild(createCharacter(characters[j]));
-        //    console.log(characters);
-       } 
-       
-    }); 
-    
-}
-
-// let list=''//declaramos una variable que recopila el perfil de cada personaje
-    // peliculasData.forEach( (obj) => {
-    //     list += `<div class="card">
-    //     <div class="front">
-    //     <img src=${obj.image}></img>
-    //     <h2>${obj.name}</h2>
-    //     </div>
-    //     <div class="info">
-    //     <ul>
-    //     <li>Estado: ${obj.status}</li>
-    //     <li>Especie: ${obj.species}</li>
-    //     <li>Genero: ${obj.gender}</li>
-    //     <li>Origen: ${ob(j.origin.name}</li>
-    //     <li>Locacion: ${obj.location.name}</li>
-    //     </ul>
-    //     </div>
-    //     </div>`       
-         
-    // })
-
-
 // let list='';
 // let i = 0;
 // dataPeliculas.forEach( (obj) => {
@@ -105,6 +57,33 @@ dataPeliculas.forEach( (obj) => {
         document.getElementById("grid1").innerHTML = list;
         i++;
 });
+
+for (let i=0; i< btnImagenes.length; i++) {
+    //Añades un evento a cada elemento
+    btnImagenes[i].addEventListener("click",function() {
+        let characters = personajesPelicula[i];
+        
+       //Aquí la función que se ejecutará cuando se dispare el evento
+       principalPage.style.display = "none" ; //En este caso ocultaremos el contenido que se encuentra en "principalPage" al darle click al botón de imagen cliqueado
+       pagina2.style.display = "block" ;//En este caso mostraremos la página2 al darle click al botón de imagen cliqueado
+       textPage6.innerHTML = '<img src ='+ poster[i]+'>';
+       textPage2.innerHTML = "Título: " + tituloPeliculas[i];
+       textPage3.innerHTML = "Sinopsis: " + descriptionPelicula[i];
+       textPage4.innerHTML = "Director: " + directorPelicula[i];
+       textPage5.innerHTML = "Productor: " + producerPelicula[i];
+       textPage7.innerHTML = "Fecha de lanzamiento: " + release_date[i];
+       textPage8.innerHTML = "Puntaje: " + rt_score[i] + "/100";     
+
+      /*  let characters = personajesPelicula[i]; */
+
+       for(let j=0; j < characters.length; j++) {
+           contenidoPagePersonajes.appendChild(createCharacter(characters[j]));
+        //    console.log(characters);
+       } 
+       
+    }); 
+    
+}
 
 //botones del header
 principalBtn.addEventListener("click", function(){    
