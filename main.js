@@ -55,23 +55,25 @@ for (let i=0; i< btnImagenes.length; i++) {
         }  
         
         for(let k = 0; k < locations.length; k++) {
-            if (locations !== ""){
+            contenidoPageLocaciones.appendChild(createLocation(locations[k])); 
+            /* if (locations !== ""){
                 contenidoPageLocaciones.appendChild(createLocation(locations[k]));  
             } 
             else{
                 contenidoPageLocaciones.innerHTML = "En esta película no es destacan locaciones espefíficas";
-            } 
+            }  */
                       
         } 
 
         for(let l = 0; l < vehicles.length; l++) {
-            if (vehicles !== ""){
-                contenidoPageVehiculos.textContent = "En esta película no es destacan vehículos espefíficos";
+            contenidoPageVehiculos.appendChild(createVehicles(vehicles[l]));
+            /* if (vehicles !== ""){
+                contenidoPageVehiculos.appendChild(createVehicles(vehicles[l]));
             } 
             else{
-                contenidoPageVehiculos.appendChild(createVehicles(vehicles[l]));                  
-            } 
-                      
+                contenidoPageVehiculos.innerHTML = "En esta película no es destacan vehículos espefíficos";
+                                
+            }     */             
         }         
        
     }); 
