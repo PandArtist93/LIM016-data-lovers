@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Data Lovers</title>
+    <script src="https://kit.fontawesome.com/59bcf52c44.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css" />
   </head>  
   <body>    
@@ -11,14 +12,17 @@
         <div class="logo">
           <h3>GHIBLI</h3>
           <img src="./imagenes/kanji.PNG" alt="">          
+        </div>            
+        <div class="header-right">
+          <div class="search-box" id="">
+            <input class= "search-txt" type="text" name="" placeholder="Ingresar nombre de la película">
+            <a class= "search-bnt" href= "#"><i class="fas fa-search"></i></a>
+          </div>  
+          <button class="btnHeader" id= "btnHeaderPrincipal">Principal</button>
+          <button class="btnHeader">Películas</button>
+          <button class="btnHeader">Géneros</button>
+          <button class="btnHeader">Comunidad</button>
         </div>
-        
-          <div class="header-right">
-            <button class="btnHeader" id= "btnHeaderPrincipal">Principal</button>
-            <button class="btnHeader">Películas</button>
-            <button class="btnHeader">Géneros</button>
-            <button class="btnHeader">Comunidad</button>
-          </div>
       </nav>
     </header>
     
@@ -76,166 +80,242 @@
             <label for="i5" class="dots" id="dot5"></label>
           </div>  
         </div>
-        
-        <div class="grid">
-          <div class="catalogo">  
-            <div class="fila">           
-              <div class="portada">
-                <button id= "btnPortada1">
-                <img src="https://static.wikia.nocookie.net/studio-ghibli/images/c/c1/Castle_in_the_Sky.jpg" alt="">                
-                </button>
-                <div class="textoImg" id= "">Castle in the Sky</div>
-              </div>
                 
-              <div class="portada">
-                <button id= "btnPortada2">
-                <img src="https://static.wikia.nocookie.net/studio-ghibli/images/d/db/My_Neighbor_Totoro.jpg" alt="">
-                </button>
-                <div class="textoImg" id= "">My Neighbor Totoro</div>
-              </div>
-                                
-              <div class="portada">
-                <button id= "btnPortada3">
-                <img src="https://static.wikia.nocookie.net/studio-ghibli/images/4/48/Kiki%27s_Delivery_Service_%282%29.jpg" alt="">
-                </button>
-                <div class="textoImg" id= "">Kiki's Delivery Service</div>
-              </div>
+        <div class="secfiltrado">            
+          <nav> 
+            <p>Filtar por:</p>
+            <ul>
+              <li>
+                <a href="">Director</a>
+                <ul>
+                  <li><a href="">Hayao Miyazaki</a></li>
+                  <li><a href="">Isao Takahata</a></li>
+                  <li><a href="">Yoshifumi Kondō</a></li>
+                  <li><a href="">Hiroyuki Morita</a></li>
+                  <li><a href="">Gorō Miyazaki</a></li>
+                  <li><a href="">Hiromasa Yonebayashi</a></li>
+                </ul>
+              </li>              
+              <li>
+                <a href="">Productor</a>
+                <ul>
+                  <li><a href="">Isao Takahata</a></li>
+                  <li><a href="">Hayao Miyazaki</a></li>
+                  <li><a href="">Toru Hara</a></li>
+                  <li><a href="">Toshio Suzuki</a></li>
+                  <li><a href="">Yoshiaki Nishimura</a></li>
+                </ul> 
+              </li>  
+              <li>
+                <a href="">lanzamiento</a>
+                <!-- <ul>
+                  <li><a href=""></a></li>
+                  <li><a href=""></a></li>
+                  <li><a href=""></a></li>
+                  <li><a href=""></a></li>
+                  <li><a href=""></a></li>
+                  <li><a href=""></a></li>
+                </ul> -->
+              </li>                       
+            </ul>  
+          </nav>              
+          <!-- <div class="search-box" id="">
+            <input class= "search-txt" type="text" name="" placeholder="Ingresar nombre de la película">
+            <a class= "search-bnt" href= "#"><i class="fas fa-search"></i></a>
+          </div>  -->          
+        </div>            
+        
+        <div class="secOrdenado">            
+          <nav> 
+            <p>Visualizar películas en orden:</p>
+            <ul>
+              <li>
+                <a href="">Cronológico</a>
+                <ul>
+                  <li><a href="">Ascendente</a></li>
+                  <li><a href="">Descendente</a></li>                  
+                </ul>
+              </li>              
+              <li>
+                <a href="">Alfabético</a>
+                <ul>
+                  <li><a href="">A --> Z</a></li>
+                  <li><a href="">Z --> A</a></li>                  
+                </ul> 
+              </li>  
+              <li>
+                <a href="">Calificación</a>
+                <ul>
+                  <li><a href="">Mayor puntaje</a></li>
+                  <li><a href="">Menor puntaje</a></li>                  
+                </ul>
+              </li>                        
+            </ul>  
+          </nav>                
+        </div>            
+        <div class="grid" id="grid1">
 
-              <div class="portada">
-                <button id= "btnPortada4">
-                <img src="https://static.wikia.nocookie.net/studio-ghibli/images/a/a5/Grave_of_the_Fireflies_Japanese_poster.jpg" alt="">
-                </button>
-                <div class="textoImg" id= "">Grave of the Fireflies</div>
-              </div>                
-            </div>
-          </div><br>
+          <!-- <div class="portada">
+            <button id= "btnPortada1">
+            <img src="https://static.wikia.nocookie.net/studio-ghibli/images/c/c1/Castle_in_the_Sky.jpg" alt="">                
+            </button>
+            <div class="textoImg" id= "">Castle in the Sky</div>
+          </div>
+            
+          <div class="portada">
+            <button id= "btnPortada2">
+            <img src="https://static.wikia.nocookie.net/studio-ghibli/images/d/db/My_Neighbor_Totoro.jpg" alt="">
+            </button>
+            <div class="textoImg" id= "">My Neighbor Totoro</div>
+          </div>
+                            
+          <div class="portada">
+            <button id= "btnPortada3">
+            <img src="https://static.wikia.nocookie.net/studio-ghibli/images/4/48/Kiki%27s_Delivery_Service_%282%29.jpg" alt="">
+            </button>
+            <div class="textoImg" id= "">Kiki's Delivery Service</div>
+          </div>
 
-          <div class="catalogo">
-            <div class="fila">
-              <div class="portada">
-                <button id= "btnPortada5"><img src="https://static.wikia.nocookie.net/studio-ghibli/images/a/a9/Only_Yesterday.jpg" alt="">
-                </button>
-                <div class="textoImg" id= "">Only Yesterday</div>
-              </div>
+          <div class="portada">
+            <button id= "btnPortada4">
+            <img src="https://static.wikia.nocookie.net/studio-ghibli/images/a/a5/Grave_of_the_Fireflies_Japanese_poster.jpg" alt="">
+            </button>
+            <div class="textoImg" id= "">Grave of the Fireflies</div>
+          </div>   
+          
+          <div class="portada">
+            <button id= "btnPortada5">
+              <img src="https://static.wikia.nocookie.net/studio-ghibli/images/a/a9/Only_Yesterday.jpg" alt="">
+            </button>
+            <div class="textoImg" id= "">Only Yesterday</div>
+          </div>
 
-              <div class="portada">
-                <button id= "btnPortada6"><img src="https://static.wikia.nocookie.net/studio-ghibli/images/4/41/Porco_Rosso.jpg" alt="">
-                </button>
-                <div class="textoImg" id= "">Porco Rosso</div>
-              </div>
+          <div class="portada">
+            <button id= "btnPortada6">
+              <img src="https://static.wikia.nocookie.net/studio-ghibli/images/4/41/Porco_Rosso.jpg" alt="">
+            </button>
+            <div class="textoImg" id= "">Porco Rosso</div>
+          </div>
 
-              <div class="portada">
-                <button id= "btnPortada7"><img src="https://static.wikia.nocookie.net/studio-ghibli/images/9/9e/Pom_Poko.jpg" alt="">
-                </button>
-                <div class="textoImg" id= "">Pom Poko</div>
-              </div>
+          <div class="portada">
+            <button id= "btnPortada7">
+              <img src="https://static.wikia.nocookie.net/studio-ghibli/images/9/9e/Pom_Poko.jpg" alt="">
+            </button>
+            <div class="textoImg" id= "">Pom Poko</div>
+          </div>
 
-              <div class="portada">
-                <button id= "btnPortada8"><img src="https://static.wikia.nocookie.net/studio-ghibli/images/7/7b/Whisper_of_the_Heart.jpg" alt="">
-                </button>
-                <div class="textoImg" id= "">Whisper of the Heart</div>
-              </div>
-            </div>
-          </div><br>
+          <div class="portada">
+            <button id= "btnPortada8">
+              <img src="https://static.wikia.nocookie.net/studio-ghibli/images/7/7b/Whisper_of_the_Heart.jpg" alt="">
+            </button>
+            <div class="textoImg" id= "">Whisper of the Heart</div>
+          </div>
 
-          <div class="catalogo">
-            <div class="fila">
-              <div class="portada">
-                <button id= "btnPortada9"><img src="https://static.wikia.nocookie.net/studio-ghibli/images/c/c6/Princess_Mononoke.jpg" alt="">
-                </button>
-                <div class="textoImg" id= "">Princess Mononoke</div>
-              </div>
+          <div class="portada">
+            <button id= "btnPortada9">
+              <img src="https://static.wikia.nocookie.net/studio-ghibli/images/c/c6/Princess_Mononoke.jpg" alt="">
+            </button>
+            <div class="textoImg" id= "">Princess Mononoke</div>
+          </div>
 
-              <div class="portada">
-                <button id= "btnPortada10"><img src="https://static.wikia.nocookie.net/studio-ghibli/images/d/db/My_Neighbors_the_Yamadas.jpg" alt="">
-                </button>
-                <div class="textoImg" id= "">My Neighbors the Yamadas</div>
-              </div>
+          <div class="portada">
+            <button id= "btnPortada10">
+              <img src="https://static.wikia.nocookie.net/studio-ghibli/images/d/db/My_Neighbors_the_Yamadas.jpg" alt="">
+            </button>
+            <div class="textoImg" id= "">My Neighbors the Yamadas</div>
+          </div>
 
-              <div class="portada">
-                <button id= "btnPortada11"><img src="https://static.wikia.nocookie.net/studio-ghibli/images/9/9e/Spirited_Away.png" alt="">
-                </button>
-                <div class="textoImg" id= "">Spirited Away</div>
-              </div>
+          <div class="portada">
+            <button id= "btnPortada11">
+              <img src="https://static.wikia.nocookie.net/studio-ghibli/images/9/9e/Spirited_Away.png" alt="">
+            </button>
+            <div class="textoImg" id= "">Spirited Away</div>
+          </div>
 
-              <div class="portada">
-                <button id= "btnPortada12"><img src="https://static.wikia.nocookie.net/studio-ghibli/images/8/87/The_Cat_Returns.jpg" alt="">
-                </button>
-                <div class="textoImg" id= "">The Cat Returns</div>
-              </div>
-            </div>
-          </div><br>     
+          <div class="portada">
+            <button id= "btnPortada12">
+              <img src="https://static.wikia.nocookie.net/studio-ghibli/images/8/87/The_Cat_Returns.jpg" alt="">
+            </button>
+            <div class="textoImg" id= "">The Cat Returns</div>
+          </div>
 
-          <div class="catalogo">
-            <div class="fila">
-              <div class="portada">
-                <button id= "btnPortada13"><img src="https://static.wikia.nocookie.net/studio-ghibli/images/0/08/Howl%27s_Moving_Castle.jpg" alt="">
-                </button>
-                <div class="textoImg" id= "">Howl's Moving Castle</div>
-              </div>
+          <div class="portada">
+            <button id= "btnPortada13"
+            ><img src="https://static.wikia.nocookie.net/studio-ghibli/images/0/08/Howl%27s_Moving_Castle.jpg" alt="">
+            </button>
+            <div class="textoImg" id= "">Howl's Moving Castle</div>
+          </div>
 
-              <div class="portada">
-                <button id= "btnPortada14"><img src="https://static.wikia.nocookie.net/studio-ghibli/images/0/09/%C3%96v%C3%A4rlden.jpg" alt="">
-                </button>
-                <div class="textoImg" id= "">Tales from Earthsea</div>
-              </div>
+          <div class="portada">
+            <button id= "btnPortada14">
+              <img src="https://static.wikia.nocookie.net/studio-ghibli/images/0/09/%C3%96v%C3%A4rlden.jpg" alt="">
+            </button>
+            <div class="textoImg" id= "">Tales from Earthsea</div>
+          </div>
 
-              <div class="portada">
-                <button id= "btnPortada15"><img src="https://static.wikia.nocookie.net/studio-ghibli/images/5/50/Ponyo_on_the_Cliff_by_the_Sea.jpg" alt="">
-                </button>
-                <div class="textoImg" id= "">Ponyo on the Cliff by the Sea</div>
-              </div>
+          <div class="portada">
+            <button id= "btnPortada15">
+              <img src="https://static.wikia.nocookie.net/studio-ghibli/images/5/50/Ponyo_on_the_Cliff_by_the_Sea.jpg" alt="">
+            </button>
+            <div class="textoImg" id= "">Ponyo on the Cliff by the Sea</div>
+          </div>
 
-              <div class="portada">
-                <button id= "btnPortada16"><img src="https://static.wikia.nocookie.net/studio-ghibli/images/4/46/The_Borrower_Arrietty.jpg" alt="">
-                </button>
-                <div class="textoImg" id= "">The Borrower Arrietty</div>
-              </div>
-            </div>
-          </div><br>   
+          <div class="portada">
+            <button id= "btnPortada16">
+              <img src="https://static.wikia.nocookie.net/studio-ghibli/images/4/46/The_Borrower_Arrietty.jpg" alt="">
+            </button>
+            <div class="textoImg" id= "">The Borrower Arrietty</div>
+          </div>
 
-          <div class="catalogo">
-            <div class="fila">
-              <div class="portada">
-                <button id= "btnPortada17"><img src="https://static.wikia.nocookie.net/studio-ghibli/images/b/bb/From_Up_on_Poppy_Hill.jpg" alt="">
-                </button>
-                <div class="textoImg" id= "">From Up on Poppy Hill</div>
-              </div>
+          <div class="portada">
+            <button id= "btnPortada17">
+              <img src="https://static.wikia.nocookie.net/studio-ghibli/images/b/bb/From_Up_on_Poppy_Hill.jpg" alt="">
+            </button>
+            <div class="textoImg" id= "">From Up on Poppy Hill</div>
+          </div>
 
-              <div class="portada">
-                <button id= "btnPortada18"><img src="https://static.wikia.nocookie.net/studio-ghibli/images/2/2d/The_Wind_Rises.jpg" alt="">
-                </button>
-                <div class="textoImg" id= "">The Wind Rises</div>
-              </div>
+          <div class="portada">
+            <button id= "btnPortada18">
+              <img src="https://static.wikia.nocookie.net/studio-ghibli/images/2/2d/The_Wind_Rises.jpg" alt="">
+            </button>
+            <div class="textoImg" id= "">The Wind Rises</div>
+          </div>
 
-              <div class="portada">
-                <button id= "btnPortada19"><img src="https://static.wikia.nocookie.net/studio-ghibli/images/8/87/The_Tale_of_the_Princess_Kaguya.jpg" alt="">
-                </button>
-                <div class="textoImg" id= "">The Tale of the Princess Kaguya</div>
-              </div>
+          <div class="portada">
+            <button id= "btnPortada19">
+              <img src="https://static.wikia.nocookie.net/studio-ghibli/images/8/87/The_Tale_of_the_Princess_Kaguya.jpg" alt="">
+            </button>
+            <div class="textoImg" id= "">The Tale of the Princess Kaguya</div>
+          </div>
 
-              <div class="portada">
-                <button id= "btnPortada20"><img src="https://static.wikia.nocookie.net/studio-ghibli/images/7/7a/When_Marnie_Was_There.jpg" alt="">
-                </button>
-                <div class="textoImg" id= "">When Marnie Was There</div>
-              </div>
-            </div>
-          </div><br>         
+          <div class="portada">
+            <button id= "btnPortada20">
+              <img src="https://static.wikia.nocookie.net/studio-ghibli/images/7/7a/When_Marnie_Was_There.jpg" alt="">
+            </button>
+            <div class="textoImg" id= "">When Marnie Was There</div> -->
+          </div>
+
         </div>  
       </div>              
     </main>
+
     <div id= "pagina2" class="pagina2">
       <div class="contenidoPage" id= "contenidoPage">
-         <div class="contentPage2" id="textPage6"></div>
-         <div class="contentPage2" id="textPage2"></div>
-         <div class="contentPage2" id="textPage3"></div>
-         <div class="contentPage2" id="textPage4"></div>
-         <div class="contentPage2" id="textPage5"></div>
-         <div class="contentPage2" id="textPage7"></div>
-         <div class="contentPage2" id="textPage8"></div>
-      </div>
-            
+         <div class="contentImagPage2" id="textPage6"></div>
+         <div class="contentMovie">
+          <div class="contentPage2" id="textPage2"></div>
+          <div class="contentPage2" id="textPage3"></div>
+          <div class="contentPage2" id="textPage4"></div>
+          <div class="contentPage2" id="textPage5"></div>
+          <div class="contentPage2" id="textPage7"></div>
+          <div class="contentPage2" id="textPage8"></div>
+         </div>         
+      </div> 
+      <div class="contenidoPagePersonajes" id= "contenidoPagePersonajes">
+        <!-- <h4>Personajes:</h4> -->
+      </div>           
     </div>
+
     <footer> 
       <div class="contenedor-principal"> 
         <div class="contenedor">
