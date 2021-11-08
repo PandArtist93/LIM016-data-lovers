@@ -21,18 +21,19 @@ header nav {
     flex-wrap: wrap;
     height: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    /* justify-content: space-around; */
     background-color: #157181;
-    padding: 1.2rem 3rem;
+    padding: 1rem;
     align-items: center;
 }
 
 header nav .logo {
     display: flex;
     /* width: 100%; */
-    width: auto;
-    min-width: 30%;
-    max-width: 50%;
+   /*  width: auto; */
+    /* min-width: 30%;
+    max-width: 35%; */
     height: 100%;
     align-items: center;
     justify-content: left;
@@ -69,10 +70,10 @@ header nav button:hover {
 .header-right {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    width: auto;
-    min-width: 35%;
-    padding: 1rem 0 1rem 0;
+    /* justify-content: space-around; */
+    /* width: auto; */
+    /* min-width: 35%; */
+    /* padding: 1rem 0 1rem 0; */
     align-items: center;
     font-size:2rem;
 }
@@ -118,7 +119,7 @@ header nav ul li{
 header nav ul li a{
     display: flex;
     position: relative;
-    z-index: 200;
+    /* z-index: 200; */
     color: rgb(230, 222, 222);
     line-height: 2rem;
     font-size: 1.4rem;
@@ -151,7 +152,8 @@ header nav ul li:hover {
 header nav ul li:hover > ul{
     top: 3rem;
     opacity: 1;
-    visibility: visible;
+    /* visibility: visible; */
+    display: none;
     width: auto;
 }
 
@@ -183,10 +185,11 @@ header nav ul li a:hover{
 /*--------------------------caja de busqueda----------------------*/
 .search-box{
     display: flex;
-    width: auto;
-    max-height: 80%;
+    /* width: auto; */
+    /* max-height: 80%; */
     position: relative;   
-    transform: translate(-50);
+    /* transform: translate(-50); */
+    /* align-items: flex-end; */
     background: #cccecf;
     border-radius: 2rem;
     padding: 0.6rem;
@@ -770,44 +773,123 @@ i {
 
 #check {
     display:none;
+    
 }
 @media (max-width: 858px) {
-  .checkbtn {
-      display: flex;
-  }
+    .checkbtn {
+        display: flex;      
+    }
 
-  .header-right {
-      position: absolute;
-      width: 60%;
-      height: calc(100vh - 80px);
-      background: #128291;  
-      top: 9.4rem;
-      right: -100%;
-      text-align: center;
-      transition: all .5s;
-      flex-direction: column;
-      /* z-index: 10; */
-      padding: 17rem 0rem;
-  }
+    .header-right {
+        position: absolute;
+        width: 60%;
+        height: auto;
+        /* height: calc(100vh - 80px); */
+        background: #128291;  
+        top: 10rem;
+        right: -100%;
+        text-align: center;
+        transition: all .5s;
+        flex-direction: column;
+        z-index: 300;
+        padding: 2rem 0 2rem 0;
+    }
 
-  .btnHeader {
-      padding: 2rem;
-      width: 90%;
-  }
+    header nav ul li{
+        width: auto;
+        /* display: inline-block; */
+        margin: 1rem 0 1rem 0;    
+        box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 0 0  0 0px  #157181, 0.3em 0.3em 1em rgba(0,0,0,0.3); 
+        border-radius: 1rem;
+        font-size: 1.5rem; 
+        cursor: pointer;  
+        width: 80%;    
+        align-items: center;
+        padding: 0.05rem;    
+        border: solid 0.2rem #157181;       
+        font-family: fantasy;   
+        text-align: center;
+        letter-spacing: 0.1rem; 
+        justify-items: center;
+        border-radius: 1rem;
+        background-color: #44a8b9;    
+        vertical-align: middle;
+        cursor: pointer;    
+        text-transform: uppercase;    
+    }
 
-  #check:checked ~.header-right {
+    header nav ul li a{
+        display: flex;
+        position: relative;
+        color: rgb(230, 222, 222);
+        line-height: 2rem;
+        font-size: 1.4rem;
+        letter-spacing: 0.1rem;
+        text-transform: uppercase;
+        padding: 0.02rem;
+        margin: 1rem;
+        text-decoration: none;
+        cursor: pointer; 
+    }
+    
+    header nav ul ul{
+        display: none;
+        position: absolute;
+        /* bottom: auto; */
+        width: 0;
+        opacity: -5;
+        /* visibility: hidden; */
+        transition: top 0.3s;
+        font-size: 0.7rem;
+        cursor: pointer; 
+    }
+
+   /*  header nav ul li:checked ~ header nav ul ul{
+        display: block;
+    } */
+    
+    /* header nav ul li:hover {
+        background-color:rgb(29, 61, 82);
+        color: rgb(240, 227, 227);
+        transition: 0.3s;
+        box-shadow: 0 0 2rem 0 #157181 inset, 0 0 0.5rem 0.5rem #64c7ba;
+    } */
+
+   /*  header nav ul li:hover > ul{
+        top: 3rem;
+        opacity: 1;
+        visibility: visible;
+        width: auto;
+    } */
+
+   /*  header nav ul ul li{
+        display: flex;
+        position: relative;
+        top: 2rem;
+        z-index: -20;
+        
+        width: auto;
+        float: none;
+        justify-content: center;
+        align-items: center;
+        background: #53909b;
+        cursor: pointer; 
+    }  */
+
+    #check:checked ~.header-right {
       right:0;
-  }
-  .search-box { 
+    }
+
+    /* .search-box { 
         right: 10%;
         top: 10rem;
         right: -30%;
         z-index: 10;
         transition: all .5s;
-  }
+    } */
 
-  #check:checked ~.search-box {
+    #check:checked.search-box {
     right: 0.5rem;
-}
+    }
 }
 
