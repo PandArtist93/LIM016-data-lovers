@@ -21,7 +21,7 @@ header nav {
     flex-wrap: wrap;
     height: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     background-color: #157181;
     padding: 1.2rem 3rem;
     align-items: center;
@@ -220,12 +220,12 @@ header nav ul li a:hover{
     width: 17rem;
     background: rgb(241, 239, 236);
     padding: 0, 0.5rem;
-}
+} 
 /* --------------------- características del main---------------------- */
 main {
     height: 100%;
     width: 100%;
-}
+} 
 /*---------------caracter÷isticas de la pagina principal----------------*/
 .principalPage h3 {
     color: rgb(255, 119, 7);
@@ -778,36 +778,54 @@ i {
 
   .header-right {
       position: absolute;
-      width: 60%;
-      height: calc(100vh - 80px);
+      width: 80%;
+      /* height: calc(83vh - 80px); */
       background: #128291;  
-      top: 9.4rem;
+      top: 10rem;
       right: -100%;
       text-align: center;
       transition: all .5s;
       flex-direction: column;
-      /* z-index: 10; */
-      padding: 17rem 0rem;
+      z-index: 10;
+      border-radius: 1rem;
   }
 
-  .btnHeader {
+  /* .btnHeader {
       padding: 2rem;
       width: 90%;
+  } */
+  
+  header nav ul li{
+      /* display: block; */
+      padding: 0.5rem;
+      width: 90%;
+      margin: 1rem 0 1rem 0;
+      top:20px;
+  }
+  
+  header nav ul li a{
+      justify-content: center;
+  }
+
+  header nav ul ul li {
+      transform: translate(-15px, 161px);
+      width: 33rem;
   }
 
   #check:checked ~.header-right {
       right:0;
   }
-  .search-box { 
-        right: 10%;
-        top: 10rem;
-        right: -30%;
-        z-index: 10;
-        transition: all .5s;
+
+  /* .search-box { 
+      right: 10%;
+      top: 30rem;
+      right: -30%;
+      z-index: 10;
+      transition: all .5s;
   }
 
   #check:checked ~.search-box {
-    right: 0.5rem;
-}
+      right: 0.5rem;
+  } */
 }
 
