@@ -271,6 +271,7 @@ main {
     color: rgb(20, 25, 85);      
 }
 
+/**/
 .carrusel {
     width: 100%;
     height: 38rem;
@@ -508,52 +509,6 @@ main nav ul li a:hover{
     color: rgb(219, 226, 152);
 }
 
-<<<<<<< HEAD
-=======
-/*--------------------------caja de busqueda----------------------*/
-.search-box{
-    display: flex;
-    float: left;
-    width: auto;
-    position: relative ;   
-    /* right: 57%;
-    transform: translate(-50); */
-    background: #cccecf;
-    border-radius: 2rem;
-    padding: 0.2rem;
-    vertical-align: middle;
-    /* justify-content: center;    */ 
-    box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 0 0  0 0px  #157181, 0.3em 0.3em 1em rgba(0,0,0,0.3);
-} 
-
-.search-txt{
-    height: auto;
-    width: 0;
-    border-radius: 3rem;
-    border: none;
-    padding: 0;
-    font-family: fantasy;
-    font-size: 1rem;
-    /* line-height: 1.5rem; */
-    transition: 0.4s;
-    background: none;
-    text-align: center;
-    float: left;
-}
-
-.search-btn{
-    float: right;
-    border-radius: 2rem;
-    background: rgb(241, 239, 236);
-}
-
-.search-box:hover > .search-txt{
-    width: 17rem;
-    background: rgb(241, 239, 236);
-    padding: 0, 0.5rem;
-}
-
->>>>>>> rama1
 /*---------------------------características del catálogo de películas----------------*/
 .boxPoster {
     height: auto;
