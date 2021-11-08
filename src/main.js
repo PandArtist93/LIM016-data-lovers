@@ -1,3 +1,4 @@
+// import { conditionalExpression } from '@babel/types';
 /* import { example } from './data.js'; */
 
 import data from './data/ghibli/ghibli.js';
@@ -18,7 +19,6 @@ let contenidoPagePersonajes = document.getElementById("contenidoPagePersonajes")
 let contenidoPageLocaciones = document.getElementById("contenidoPageLocaciones");
 let contenidoPageVehiculos = document.getElementById("contenidoPageVehiculos");
 
-//para ingresar la data de la película seleccionada en la pagina2 
 
 let dataPeliculas = data.films;
 let tituloPeliculas = dataPeliculas.map(x => x.title);
@@ -32,6 +32,36 @@ let personajesPelicula = dataPeliculas.map(x => x.people);
 let locacionesPelicula = dataPeliculas.map(x => x.locations);
 let vehiculosPelicula = dataPeliculas.map(x => x.vehicles);
 
+
+// let list='';
+// let i = 0;
+// dataPeliculas.forEach( (obj) => {
+//         list += `
+//         <div class="portada_prueba ${[i]}">
+//             <button id= "btnPortada ${[i]}">
+//             <img src=" ${obj.poster}" alt="">                
+//             </button>
+//             <div class="textoImg" id= "">${obj.title}</div>
+//         </div>`
+//         document.getElementById("contenidoPagePersonajes").innerHTML=list;
+//         i++;
+
+// });
+
+let list='';
+let i = 1;
+
+dataPeliculas.forEach( (obj) => {
+        list +=`
+        <div class="portada">
+            <button id= "btnPortada${[i]}">
+            <img src="${obj.poster}" alt="">                
+            </button>
+            <div class="textoImg" id= "">${obj.title}</div>
+        </div>`
+        document.getElementById("boxPoster").innerHTML = list;
+        i++;
+});
 
 for (let i=0; i< btnImagenes.length; i++) {
     //Añades un evento a cada elemento
@@ -80,13 +110,12 @@ for (let i=0; i< btnImagenes.length; i++) {
     
 }
 
-
 //botones del header
 principalBtn.addEventListener("click", function(){    
     pagina2.style.display = "none";
     principalPage.style.display = "block";    
 });
-
+// _________________________________________________________
 //crea los div en función de cada caracter 
 function createCharacter(character) {
     let nuevoElemento = document.createElement('div'); 
@@ -123,77 +152,6 @@ function createVehicles(vehicles) {
     return nuevoElemento;
 }
 
-// crear nuevos div
-
-/* let cajaDiv = document.querySelector("contenidoPagePersonajes"); */
-/* let btnImagenes = document.getElementsByClassName("portada"); */
-
-/* function seccionPersonajes() {
-    let nuevoDiv = document.createElement("div");
-    console.log(nuevoDiv);
-    document.body.appendChild(nuevoDiv);
-}
-btnImagenes.addEventListener("click", seccionPersonajes); */
-
-// crear elementos desde JS
-/* let contenidoPagePersonajes = document.getElementById("contenidoPagePersonajes");
-function prueba(even){
-    for (i = 0; i < personajesPelicula; i++){
-        let nuevoElemento = document.createElement('div');
-        nuevoElemento.textContent =
-        ;
-        nuevoElemento = ;
-    };
-};
- */
-
-/* let contenidoPagePersonajes = document.getElementById("contenidoPagePersonajes");
-let nuevoElemento = document.createElement('div');
-nuevoElemento.textContent = personajesPelicula;
-console.log (nuevoElemento);
-console.dir(nuevoElemento);
-contenidoPagePersonajes.appendChild(nuevoElemento);
- */
-
-
-/* 
-let seccionTitulos = document.querySelector('ul')
-let listaTitulos = document.createElement('li');
-listaTitulos.textContent = tituloPeliculas[i];
-seccionTitulos.appendChild(listaTitulos);
-   */
-  
- 
-
-
-/* let secciontitulos = document.querySelector('ul');
-
-
-for (let i = 0; i < tituloPeliculas.length; i++){
-    let listatitulos = document.createElement('li');
-    listatitulos.textContent = tituloPeliculas[i];
-    secciontitulos.appendChild(li);
-} */
-
-/* let secciontitulos = document.querySelectorAll('ul');
-tituloPeliculas.forEach(item => {
-    let listatitulos = document.createElement('li');
-    listatitulos.textContent = item;
-    secciontitulos.appendChild(li);
-});
- */
-
-
-/* let lista = document.getElementById("lista"); */
-/* let elementoHtml = document.createElement("li"); */
-/* elementoHtml.textContent = "Dos";
-lista.appendChild(elementoHtml); */
-
-/* for (i = 0; i < personajesPelicula.length; i++){
-    let elementoHtml = document.createElement("ul");
-    elementoHtml.textContent = personajesPelicula[i];
-    lista.innerHTML(elementoHtml);
-} */
 
 /* console.log(example, data); */
 
