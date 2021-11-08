@@ -775,7 +775,7 @@ i {
     display:none;
     
 }
-@media (max-width: 1300px) {
+@media (max-width: 70rem) {
     .checkbtn {
         display: flex;      
     }
