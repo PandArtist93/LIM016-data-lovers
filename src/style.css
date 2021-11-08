@@ -72,7 +72,6 @@ header nav button:hover {
 .header-right {
     display: flex;
     justify-content: space-around;
-    /* width: 100%; */
     width: auto;
     min-width: 35%;
     padding: 1rem 0 1rem 0;
@@ -90,7 +89,6 @@ header h3 {
 main {
     height: 100%;
     width: 100%;
-    /* display: none; */
 }
 /*---------------caracter÷isticas de la pagina principal----------------*/
 .principalPage h3 {
@@ -209,7 +207,7 @@ label span{
     top: 1.2rem;
     width: 1%;
     height: 1rem;
-    margin: 0 4px;
+    margin: 0 0.25rem;
     position: relative;
     border-radius: 50%;
     display: inline-block;
@@ -279,8 +277,6 @@ main nav{
  */
 main nav ul{
     list-style: none;
-    /* margin-right: 3rem; */
-    /* margin-left: 3rem; */
     position: relative;     
 }
 
@@ -291,7 +287,8 @@ main nav ul li{
     justify-content: space-between;
     box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 0 0  0 0px  #157181, 0.3em 0.3em 1em rgba(0,0,0,0.3); 
     border-radius: 1rem;
-    font-size: 1.9rem;   
+    font-size: 1.9rem; 
+    cursor: pointer;  
 }
 
 main nav ul li a{
@@ -306,6 +303,7 @@ main nav ul li a{
     padding: 0.02rem;
     margin: 1rem;
     text-decoration: none;
+    cursor: pointer; 
 }
 
 main nav ul ul{
@@ -316,6 +314,7 @@ main nav ul ul{
     /* visibility: hidden; */
     transition: top 0.3s;
     font-size: 0.7rem;
+    cursor: pointer; 
 }
 
 main nav ul li:hover > ul{
@@ -336,6 +335,7 @@ main nav ul ul li{
     justify-content: center;
     align-items: center;
     background: #53909b;
+    cursor: pointer; 
 } 
 
 main nav ul ul li a:hover{
@@ -378,7 +378,6 @@ main nav ul li a:hover{
     float: left;
     width: auto;
     position: relative;   
-    /* right: 50%; */
     transform: translate(-50);
     background: #cccecf;
     border-radius: 2rem;
@@ -644,21 +643,19 @@ i {
 #fb:hover {
     cursor: pointer;
     color: rgb(29, 69, 201);
-    transform: translateY(-6px);
+    transform: translateY(-0.38rem);
 }
-
 
 #twitter:hover {
     cursor: pointer;
     color: #0CA2DC;
-    transform: translateY(-6px);
+    transform: translateY(-0.38rem);
 }
-
 
 #yt:hover {
     cursor: pointer;
     color: rgb(255, 0, 0);
-    transform: translateY(-6px);
+    transform: translateY(-0.38rem);
 }
 
 
