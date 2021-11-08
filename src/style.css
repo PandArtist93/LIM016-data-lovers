@@ -371,9 +371,9 @@ main nav ul li a:hover{
     display: flex;
     float: left;
     width: auto;
-    position: absolute;   
-    right: 50%;
-    transform: translate(-50);
+    position: relative ;   
+    /* right: 57%;
+    transform: translate(-50); */
     background: #cccecf;
     border-radius: 2rem;
     padding: 0.2rem;
@@ -661,3 +661,54 @@ i {
     height: 1200px;
     width: 100%;
 }
+
+/*--------- Media queries-menu responsive------------ */
+
+.checkbtn {
+    cursor: pointer;
+    display:none;
+}
+
+#check {
+    display:none;
+}
+@media (max-width: 858px) {
+  .checkbtn {
+      display: flex;
+  }
+
+  .header-right {
+      position: absolute;
+      width: 60%;
+      height: calc(100vh - 80px);
+      background: #128291;  
+      top: 9.4rem;
+      right: -100%;
+      text-align: center;
+      transition: all .5s;
+      flex-direction: column;
+      /* z-index: 10; */
+      padding: 17rem 0rem;
+  }
+
+  .btnHeader {
+      padding: 2rem;
+      width: 90%;
+  }
+
+  #check:checked ~.header-right {
+      right:0;
+  }
+  .search-box { 
+        right: 10%;
+        top: 10rem;
+        right: -30%;
+        z-index: 10;
+        transition: all .5s;
+  }
+
+  #check:checked ~.search-box {
+    right: 0.5rem;
+}
+}
+
