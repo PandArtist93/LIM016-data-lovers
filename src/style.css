@@ -508,6 +508,52 @@ main nav ul li a:hover{
     color: rgb(219, 226, 152);
 }
 
+<<<<<<< HEAD
+=======
+/*--------------------------caja de busqueda----------------------*/
+.search-box{
+    display: flex;
+    float: left;
+    width: auto;
+    position: relative ;   
+    /* right: 57%;
+    transform: translate(-50); */
+    background: #cccecf;
+    border-radius: 2rem;
+    padding: 0.2rem;
+    vertical-align: middle;
+    /* justify-content: center;    */ 
+    box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 0 0  0 0px  #157181, 0.3em 0.3em 1em rgba(0,0,0,0.3);
+} 
+
+.search-txt{
+    height: auto;
+    width: 0;
+    border-radius: 3rem;
+    border: none;
+    padding: 0;
+    font-family: fantasy;
+    font-size: 1rem;
+    /* line-height: 1.5rem; */
+    transition: 0.4s;
+    background: none;
+    text-align: center;
+    float: left;
+}
+
+.search-btn{
+    float: right;
+    border-radius: 2rem;
+    background: rgb(241, 239, 236);
+}
+
+.search-box:hover > .search-txt{
+    width: 17rem;
+    background: rgb(241, 239, 236);
+    padding: 0, 0.5rem;
+}
+
+>>>>>>> rama1
 /*---------------------------características del catálogo de películas----------------*/
 .boxPoster {
     height: auto;
@@ -752,4 +798,61 @@ i {
     transform: translateY(-0.38rem);
 }
 
+
+.contenidoPagePersonajes {
+    background: #44a8b9;
+    color: #720076;
+    height: 1200px;
+    width: 100%;
+}
+
+/*--------- Media queries-menu responsive------------ */
+
+.checkbtn {
+    cursor: pointer;
+    display:none;
+}
+
+#check {
+    display:none;
+}
+@media (max-width: 858px) {
+  .checkbtn {
+      display: flex;
+  }
+
+  .header-right {
+      position: absolute;
+      width: 60%;
+      height: calc(100vh - 80px);
+      background: #128291;  
+      top: 9.4rem;
+      right: -100%;
+      text-align: center;
+      transition: all .5s;
+      flex-direction: column;
+      /* z-index: 10; */
+      padding: 17rem 0rem;
+  }
+
+  .btnHeader {
+      padding: 2rem;
+      width: 90%;
+  }
+
+  #check:checked ~.header-right {
+      right:0;
+  }
+  .search-box { 
+        right: 10%;
+        top: 10rem;
+        right: -30%;
+        z-index: 10;
+        transition: all .5s;
+  }
+
+  #check:checked ~.search-box {
+    right: 0.5rem;
+}
+}
 
