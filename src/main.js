@@ -1,5 +1,5 @@
 // import { conditionalExpression } from '@babel/types';
-import { example } from './data.js';
+/* import { example } from './data.js'; */
 
 import data from './data/ghibli/ghibli.js';
 
@@ -15,6 +15,9 @@ let textPage5 = document.getElementById("textPage5");
 let textPage6 = document.getElementById("textPage6");
 let textPage7 = document.getElementById("textPage7");
 let textPage8 = document.getElementById("textPage8");
+let contenidoPagePersonajes = document.getElementById("contenidoPagePersonajes");
+let contenidoPageLocaciones = document.getElementById("contenidoPageLocaciones");
+let contenidoPageVehiculos = document.getElementById("contenidoPageVehiculos");
 
 
 let dataPeliculas = data.films;
@@ -26,7 +29,9 @@ let poster = dataPeliculas.map(x => x.poster);
 let release_date = dataPeliculas.map(x => x.release_date);
 let rt_score = dataPeliculas.map(x => x.rt_score);
 let personajesPelicula = dataPeliculas.map(x => x.people);
-let contenidoPagePersonajes = document.getElementById("contenidoPagePersonajes");
+let locacionesPelicula = dataPeliculas.map(x => x.locations);
+let vehiculosPelicula = dataPeliculas.map(x => x.vehicles);
+
 
 // let list='';
 // let i = 0;
@@ -54,7 +59,7 @@ dataPeliculas.forEach( (obj) => {
             </button>
             <div class="textoImg" id= "">${obj.title}</div>
         </div>`
-        document.getElementById("grid1").innerHTML = list;
+        document.getElementById("boxPoster").innerHTML = list;
         i++;
 });
 
@@ -62,7 +67,8 @@ for (let i=0; i< btnImagenes.length; i++) {
     //Añades un evento a cada elemento
     btnImagenes[i].addEventListener("click",function() {
         let characters = personajesPelicula[i];
-        
+        let locations = locacionesPelicula[i];
+        let vehicles = vehiculosPelicula[i];
        //Aquí la función que se ejecutará cuando se dispare el evento
        principalPage.style.display = "none" ; //En este caso ocultaremos el contenido que se encuentra en "principalPage" al darle click al botón de imagen cliqueado
        pagina2.style.display = "block" ;//En este caso mostraremos la página2 al darle click al botón de imagen cliqueado
@@ -74,12 +80,31 @@ for (let i=0; i< btnImagenes.length; i++) {
        textPage7.innerHTML = "Fecha de lanzamiento: " + release_date[i];
        textPage8.innerHTML = "Puntaje: " + rt_score[i] + "/100";     
 
-      /*  let characters = personajesPelicula[i]; */
+        for(let j = 0; j < characters.length; j++) {
+           contenidoPagePersonajes.appendChild(createCharacter(characters[j]));           
+        }  
+        
+        for(let k = 0; k < locations.length; k++) {
+            contenidoPageLocaciones.appendChild(createLocation(locations[k])); 
+            /* if (locations !== ""){
+                contenidoPageLocaciones.appendChild(createLocation(locations[k]));  
+            } 
+            else{
+                contenidoPageLocaciones.innerHTML = "En esta película no es destacan locaciones espefíficas";
+            }  */
+                      
+        } 
 
-       for(let j=0; j < characters.length; j++) {
-           contenidoPagePersonajes.appendChild(createCharacter(characters[j]));
-        //    console.log(characters);
-       } 
+        for(let l = 0; l < vehicles.length; l++) {
+            contenidoPageVehiculos.appendChild(createVehicles(vehicles[l]));
+            /* if (vehicles !== ""){
+                contenidoPageVehiculos.appendChild(createVehicles(vehicles[l]));
+            } 
+            else{
+                contenidoPageVehiculos.innerHTML = "En esta película no es destacan vehículos espefíficos";
+                                
+            }     */             
+        }         
        
     }); 
     
@@ -96,15 +121,38 @@ function createCharacter(character) {
     let nuevoElemento = document.createElement('div'); 
     let nuevoElementoImg = document.createElement('img');
     nuevoElementoImg.src = character.img;
-    nuevoElemento.textContent += `${character.name}: \n`
+    nuevoElemento.textContent += `${character.name}:`
     nuevoElemento.appendChild(nuevoElementoImg);
-    /* nuevoElemento.textContent += `${character.name}: \n` */
-    nuevoElemento.classList.add("contenedorPersonaje");
+    nuevoElemento.classList.add("contenedorSubData");
+    
+    return nuevoElemento;
+}
+
+//crea los div en función de cada locación 
+function createLocation(locations) {
+    let nuevoElemento = document.createElement('div'); 
+    let nuevoElementoImg = document.createElement('img');
+    nuevoElementoImg.src = locations.img;
+    nuevoElemento.textContent += `${locations.name}:`
+    nuevoElemento.appendChild(nuevoElementoImg);
+    nuevoElemento.classList.add("contenedorSubData");
+    
+    return nuevoElemento;
+}
+
+//crea los div en función de cada vehículo 
+function createVehicles(vehicles) {
+    let nuevoElemento = document.createElement('div'); 
+    let nuevoElementoImg = document.createElement('img');
+    nuevoElementoImg.src = vehicles.img;
+    nuevoElemento.textContent += `${vehicles.name}:`
+    nuevoElemento.appendChild(nuevoElementoImg);
+    nuevoElemento.classList.add("contenedorSubData");
     
     return nuevoElemento;
 }
 
 
-console.log(example, data);
+/* console.log(example, data); */
 
 
