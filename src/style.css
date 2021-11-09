@@ -771,7 +771,7 @@ i {
 #check {
     display:none;
 }
-@media (max-width: 858px) {
+@media (max-width: 988px) {
   .checkbtn {
       display: flex;
   }
@@ -782,7 +782,7 @@ i {
       /* height: calc(83vh - 80px); */
       background: #128291;  
       top: 10rem;
-      right: -100%;
+      left: -100%;
       text-align: center;
       transition: all .5s;
       flex-direction: column;
@@ -813,7 +813,7 @@ i {
   }
 
   #check:checked ~.header-right {
-      right:0;
+      left:0;
   }
 
   /* .search-box { 
