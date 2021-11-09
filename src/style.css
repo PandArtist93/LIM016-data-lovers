@@ -21,18 +21,19 @@ header nav {
     flex-wrap: wrap;
     height: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    /* justify-content: space-around; */
     background-color: #157181;
-    padding: 1.2rem 3rem;
+    padding: 1rem;
     align-items: center;
 }
 
 header nav .logo {
     display: flex;
     /* width: 100%; */
-    width: auto;
-    min-width: 30%;
-    max-width: 50%;
+   /*  width: auto; */
+    /* min-width: 30%;
+    max-width: 35%; */
     height: 100%;
     align-items: center;
     justify-content: left;
@@ -69,10 +70,10 @@ header nav button:hover {
 .header-right {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    width: auto;
-    min-width: 35%;
-    padding: 1rem 0 1rem 0;
+    /* justify-content: space-around; */
+    /* width: auto; */
+    /* min-width: 35%; */
+    /* padding: 1rem 0 1rem 0; */
     align-items: center;
     font-size:2rem;
 }
@@ -118,7 +119,7 @@ header nav ul li{
 header nav ul li a{
     display: flex;
     position: relative;
-    z-index: 200;
+    /* z-index: 200; */
     color: rgb(230, 222, 222);
     line-height: 2rem;
     font-size: 1.4rem;
@@ -141,7 +142,7 @@ header nav ul ul{
     cursor: pointer; 
 }
 
-header nav ul li:hover {
+header nav ul li:hover, header nav ul li.active {
     background-color:rgb(29, 61, 82);
     color: rgb(240, 227, 227);
     transition: 0.3s;
@@ -151,7 +152,8 @@ header nav ul li:hover {
 header nav ul li:hover > ul{
     top: 3rem;
     opacity: 1;
-    visibility: visible;
+    /* visibility: visible; */
+    display: none;
     width: auto;
 }
 
@@ -183,10 +185,11 @@ header nav ul li a:hover{
 /*--------------------------caja de busqueda----------------------*/
 .search-box{
     display: flex;
-    width: auto;
-    max-height: 80%;
+    /* width: auto; */
+    /* max-height: 80%; */
     position: relative;   
-    transform: translate(-50);
+    /* transform: translate(-50); */
+    /* align-items: flex-end; */
     background: #cccecf;
     border-radius: 2rem;
     padding: 0.6rem;
@@ -268,7 +271,10 @@ main {
     width: 100%;
     height: 25rem;    
     background-color:#d4ebe2;  
-    color: rgb(20, 25, 85);      
+    background-image: url("https://taylorfinn.files.wordpress.com/2018/10/45e1c53194fc5f424f17e0f926990af8.gif?w=540&h=300&crop=1") ;
+    color: rgb(20, 25, 85);  
+    background-size: cover;  
+    background-position: center center;  
 }
 
 /**/
@@ -547,6 +553,7 @@ main nav ul li a:hover{
     text-transform: uppercase;
     border-radius: 1rem;  
     overflow: hidden;
+    cursor: pointer;
 } 
 
 button {
@@ -563,6 +570,7 @@ button img {
     background-repeat:no-repeat;
     background-position:center;  
     border-radius: 1rem;  
+    cursor: pointer;
 }
 
 .portada:hover {
@@ -666,7 +674,9 @@ button img {
     height: 35rem;
     border-radius: 1rem;
     background-repeat:no-repeat;
-    background-position:center;  
+    background-size: cover;
+    background-position:center center;  
+    cursor: pointer;
 }
 
 .TitleSec{
@@ -764,68 +774,143 @@ i {
 /*--------- Media queries-menu responsive------------ */
 
 .checkbtn {
+    
     cursor: pointer;
     display:none;
+    /* color: #FFFF;
+    font-size: 2rem; */
 }
 
 #check {
     display:none;
+    
 }
-@media (max-width: 988px) {
-  .checkbtn {
-      display: flex;
-  }
 
-  .header-right {
-      position: absolute;
-      width: 80%;
-      /* height: calc(83vh - 80px); */
-      background: #128291;  
-      top: 10rem;
-      left: -100%;
-      text-align: center;
-      transition: all .5s;
-      flex-direction: column;
-      z-index: 10;
-      border-radius: 1rem;
-  }
+/*----------------------- esto seria para el responsive en celulares -----------------------------*/
+@media (max-width: 1200px) {
+    .checkbtn {
+        display: flex;      
+    }
 
-  /* .btnHeader {
-      padding: 2rem;
-      width: 90%;
-  } */
+    header nav {      
+        justify-content: space-between;
+    }
+
+    .header-right {
+        /* justify-content: ; */
+        display: none;
+        position: absolute;
+        width: 100%;
+        height: auto;        
+        background: #128291;  
+        top: 9.8rem;
+        left: 100;
+        text-align: center;
+        transition: all .5s;
+        flex-direction: column;
+        z-index: 300;
+        padding: 2rem 0 2rem 0;
+    }
   
-  header nav ul li{
-      /* display: block; */
-      padding: 0.5rem;
-      width: 90%;
-      margin: 1rem 0 1rem 0;
-      top:20px;
-  }
-  
-  header nav ul li a{
-      justify-content: center;
-  }
+    header nav ul li{
+        width: auto;
+        margin: 1rem 0 1rem 0;    
+        box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 0 0  0 0px  #157181, 0.3em 0.3em 1em rgba(0,0,0,0.3); 
+        border-radius: 1rem;
+        font-size: 1.5rem; 
+        cursor: pointer;  
+        width: 80%;    
+        align-items: center;
+        padding: 0.05rem;    
+        border: solid 0.2rem #157181;       
+        font-family: fantasy;   
+        text-align: center;
+        letter-spacing: 0.1rem; 
+        justify-items: center;
+        border-radius: 1rem;
+        background-color: #44a8b9;    
+        vertical-align: middle;
+        cursor: pointer;    
+        text-transform: uppercase;    
+    }
 
-  header nav ul ul li {
-      transform: translate(-15px, 161px);
-      width: 33rem;
-  }
-
-  #check:checked ~.header-right {
-      left:0;
-  }
-
-  /* .search-box { 
-      right: 10%;
-      top: 30rem;
-      right: -30%;
-      z-index: 10;
-      transition: all .5s;
-  }
-
-  #check:checked ~.search-box {
-      right: 0.5rem;
-  } */
+    header nav ul li a{
+        display: flex;
+        position: relative;
+        color: rgb(230, 222, 222);
+        line-height: 2rem;
+        font-size: 1.4rem;
+        letter-spacing: 0.1rem;
+        text-transform: uppercase;
+        padding: 0.02rem;
+        margin: 1rem;
+        text-decoration: none;
+        cursor: pointer; 
+        justify-content: center;
+    }
+    
+    header nav ul ul{
+        display: none;
+        position: absolute;
+        width: 0;
+        opacity: -5;
+        transition: top 0.3s;
+        font-size: 0.7rem;
+        cursor: pointer; 
+    }
+     
+    #check:checked ~.header-right {
+        left: 0;
+        display: block;
+      
+    }
+ 
+    .search-box{
+        display: flex;
+        position: relative;
+        width: 80%;
+        left: 10%;
+        margin-bottom: 1.35rem;
+        /* max-height: 80%; */
+        position: relative;   
+        /* transform: translate(-50); */
+        background: #cccecf;
+        border-radius: 2rem;
+        padding: 0.6rem;
+        vertical-align: middle;
+        justify-content: center;   
+        box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 0 0  0 0px  #157181, 0.3em 0.3em 1em rgba(0,0,0,0.3);
+    } 
+    
+    .search-txt{
+        height: auto;
+        width: 0;
+        border-radius: 3rem;
+        border: none;
+        padding: 0;
+        font-family: fantasy;
+        font-size: 1rem;
+        /* line-height: 1.5rem; */
+        transition: 0.4s;
+        background: none;
+        text-align: center;
+        float: left;
+    }
+    
+    .search-btn{
+        margin: 0 0.25rem;
+        float: right;
+        border-radius: 2rem;
+        background: rgb(241, 239, 236);
+    }
+    
+    .search-box:hover > .search-txt{
+        width: 80%;
+        background: rgb(241, 239, 236);
+        padding: 0, 0.5rem;
+    }
 }
+
+
+/* ---------------------esto seria para el responsive en tabletas--------------------*/
 
