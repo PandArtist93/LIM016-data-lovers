@@ -81,14 +81,15 @@ header nav button:hover {
 header h3 {
     color: rgb(235, 231, 228);
     font-size: 4rem;
-    font-family:fantasy;
+    /* font-family:fantasy; */
+    font-family: 'Open Sans', sans-serif;
 }
 
 header nav ul{
     width: auto;
     list-style: none;
     position: relative;  
-    font-family: fantasy;   
+    font-family: 'Open Sans', sans-serif; 
     color: rgb(235, 231, 228);
 }
 
@@ -204,7 +205,9 @@ header nav ul li a:hover{
     border-radius: 3rem;
     border: none;
     padding: 0;
-    font-family: fantasy;
+    /* font-family: fantasy; */
+    font-family: 'Open Sans', sans-serif;
+
     font-size: 1rem;
     /* line-height: 1.5rem; */
     transition: 0.4s;
@@ -233,7 +236,8 @@ main {
 .principalPage h3 {
     color: rgb(255, 119, 7);
     font-size: 4rem;
-    font-family:fantasy;
+    /* font-family:fantasy; */
+    font-family: 'Open Sans', sans-serif;
     /* letter-spacing: 2px;  */
 }
 
@@ -250,7 +254,8 @@ main {
 
 
 .principalPage h4 {
-    font-family:fantasy;
+    /* font-family:fantasy; */
+    font-family: 'Open Sans', sans-serif;
     letter-spacing: 0.15rem; 
 }
 
@@ -272,7 +277,7 @@ main {
     height: 25rem;    
     background-color:#d4ebe2;  
     background-image: url("https://taylorfinn.files.wordpress.com/2018/10/45e1c53194fc5f424f17e0f926990af8.gif?w=540&h=300&crop=1") ;
-    color: rgb(20, 25, 85);  
+    color: rgb(112, 112, 112);  
     background-size: cover;  
     background-position: center center;  
 }
@@ -325,7 +330,7 @@ main {
 
 label span{
     position: absolute;
-    font-size: 2.5rem;
+    font-size: 7rem;
     top:50%;
     transform: translateY(-50%);
 }
@@ -409,7 +414,8 @@ main nav{
     font-size: 1.4rem;
     font-family: fantasy;
     letter-spacing: 0.1rem;
-    color: rgb(219, 226, 152);
+    /* color: rgb(219, 226, 152); */
+    color: rgb(255, 119, 7);
 }
 
 /* main nav:after{
@@ -512,7 +518,7 @@ main nav ul li a:hover{
     font-size: 1.4rem;
     font-family: fantasy;
     letter-spacing: 0.1rem;
-    color: rgb(219, 226, 152);
+    color: rgb(255, 119, 7);
 }
 
 /*---------------------------características del catálogo de películas----------------*/
@@ -914,3 +920,10 @@ i {
 
 /* ---------------------esto seria para el responsive en tabletas--------------------*/
 
+/* .boxPosterFilter {
+    flex-wrap: wrap;
+} */
+
+.hide {
+    display:none;
+}

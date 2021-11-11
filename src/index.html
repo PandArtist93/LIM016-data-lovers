@@ -5,6 +5,9 @@
     <title>Data Lovers</title>
     <script src="https://kit.fontawesome.com/59bcf52c44.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
   </head>  
   <body>    
     <header>
@@ -19,7 +22,7 @@
         </label>   
         <div class="header-right">
           <div class="search-box" id="">
-            <input class= "search-txt" type="text" name="" placeholder="Ingresar nombre de la película">
+            <input class= "search-txt" id="search-txt" type="text" name="" placeholder="Ingresar nombre de la película">
             <a class= "search-bnt" href= "#"><i class="fas fa-search"></i></a>
           </div> 
           <ul>
@@ -162,31 +165,36 @@
             <p>Visualizar películas en orden:</p>
             <ul>
               <li>
-                <a href="">Cronológico</a>
+                <a>Cronológico</a>
                 <ul>
-                  <li><a href="">Ascendente</a></li>
-                  <li><a href="">Descendente</a></li>                  
+                  <li><a id="yearAsc">Ascendente</a></li>
+                  <li><a id="yearDesc">Descendente</a></li>                  
                 </ul>
               </li>              
               <li>
-                <a href="">Alfabético</a>
+                <a >Alfabético</a>
                 <ul>
-                  <li><a href="">A -- Z</a></li>
-                  <li><a href="">Z -- A</a></li>                  
-                </ul> 
+                  <li><a id="a_z">A -- Z</a></li>
+                  <li><a id="z_a">Z -- A</a></li>                  
+                </ul>
               </li>  
               <li>
-                <a href="">Calificación</a>
+                <a >Calificación</a>
                 <ul>
-                  <li><a href="">Mayor puntaje</a></li>
-                  <li><a href="">Menor puntaje</a></li>                  
+                  <li><a></a>>Mayor puntaje</a></li>
+                  <li><a></a>>Menor puntaje</a></li>                  
                 </ul>
               </li>                        
             </ul>  
           </nav>                
-        </div>            
+        </div>   
+
         <section class="boxPoster" id="boxPoster">           
         </section>
+
+        <section class="boxPoster" id="boxPosterFilter">           
+        </section>
+
       </div>                      
     </main>
 
@@ -246,3 +254,5 @@
     <script src="main.js" type="module"></script>
   </body>
 </html>
+
+

@@ -32,22 +32,6 @@ let personajesPelicula = dataPeliculas.map(x => x.people);
 let locacionesPelicula = dataPeliculas.map(x => x.locations);
 let vehiculosPelicula = dataPeliculas.map(x => x.vehicles);
 
-
-// let list='';
-// let i = 0;
-// dataPeliculas.forEach( (obj) => {
-//         list += `
-//         <div class="portada_prueba ${[i]}">
-//             <button id= "btnPortada ${[i]}">
-//             <img src=" ${obj.poster}" alt="">                
-//             </button>
-//             <div class="textoImg" id= "">${obj.title}</div>
-//         </div>`
-//         document.getElementById("contenidoPagePersonajes").innerHTML=list;
-//         i++;
-
-// });
-
 let list='';
 let i = 1;
 
@@ -151,6 +135,167 @@ function createVehicles(vehicles) {
     
     return nuevoElemento;
 }
+
+// ------Secccion de filtrado por categoria-------
+
+// ordenado alfabético 
+let a_z = document.getElementById("a_z");
+let z_a = document.getElementById("z_a");
+let boxPoster = document.getElementById("boxPoster");
+let boxPosterFilter = document.getElementById("boxPosterFilter");
+// ordenado cronológico
+let yearDesc = document.getElementById("yearDesc");
+let yearAsc = document.getElementById("yearAsc");
+
+a_z.addEventListener("click",() => {
+  boxPoster.style.display = "none";
+  boxPosterFilter.style.display = " ";
+
+//   console.log(tituloPeliculas.sort()); 
+
+  let peliculasOrdenadasPorTitulo = dataPeliculas.sort((a,b) => {
+    if (a.title < b.title) {
+        return -1;
+    }
+    
+    if (a.title > b.title) {
+        return 1;
+    }
+    
+    return 0;
+  });
+
+  let list = " ";
+  let i = 1;
+    
+    peliculasOrdenadasPorTitulo.forEach( (obj) => {
+    list +=`
+    <div class="portada">
+        <button id= "btnPortada${[i]}">
+        <img src="${obj.poster}" alt="">                
+        </button>
+        <div class="textoImg" id= "">${obj.title}</div>
+    </div>`
+    boxPosterFilter.innerHTML = list;
+    i++;
+});
+  
+});
+
+z_a.addEventListener("click",() => {
+    boxPoster.style.display = "none";
+    boxPosterFilter.style.display = " ";
+  
+  //   console.log(tituloPeliculas.sort()); 
+  
+    let peliculasOrdenadasPorTitulo = dataPeliculas.sort((a,b) => {
+      if (a.title > b.title) {
+          return -1;
+      }
+      
+      if (a.title < b.title) {
+          return 1;
+      }
+      
+      return 0;
+    });
+  
+    let list = " ";
+    let i = 1;
+      
+      peliculasOrdenadasPorTitulo.forEach( (obj) => {
+      list +=`
+      <div class="portada">
+          <button id= "btnPortada${[i]}">
+          <img src="${obj.poster}" alt="">                
+          </button>
+          <div class="textoImg" id= "">${obj.title}</div>
+      </div>`
+      boxPosterFilter.innerHTML = list;
+      i++;
+  });
+    
+});
+
+yearDesc.addEventListener("click",() => {
+    boxPoster.style.display = "none";
+    boxPosterFilter.style.display = " ";
+  
+  //   console.log(tituloPeliculas.sort()); 
+  
+    let peliculasOrdenadasPorAño = dataPeliculas.sort((a,b) => {
+      if (a.release_date > b.release_date) {
+          return -1;
+      }
+      
+      if (a.release_date < b.release_date) {
+          return 1;
+      }
+      
+      return 0;
+    });
+  
+    let list = " ";
+    let i = 1;
+      
+      peliculasOrdenadasPorAño.forEach( (obj) => {
+      list +=`
+      <div class="portada">
+          <button id= "btnPortada${[i]}">
+          <img src="${obj.poster}" alt="">                
+          </button>
+          <div class="textoImg" id= "">${obj.title}</div>
+      </div>`
+      boxPosterFilter.innerHTML = list;
+      i++;
+  });
+    
+  });
+
+yearAsc.addEventListener("click", () => {
+    boxPoster.style.display = "none";
+    boxPosterFilter.style.display = " ";
+  
+  //   console.log(tituloPeliculas.sort()); 
+  
+    let peliculasOrdenadasPorAño = dataPeliculas.sort((a,b) => {
+      if (a.release_date < b.release_date) {
+          return -1;
+      }
+      
+      if (a.release_date > b.release_date) {
+          return 1;
+      }
+      
+      return 0;
+    });
+  
+    let list = " ";
+    let i = 1;
+      
+      peliculasOrdenadasPorAño.forEach( (obj) => {
+      list +=`
+      <div class="portada">
+          <button id= "btnPortada${[i]}">
+          <img src="${obj.poster}" alt="">                
+          </button>
+          <div class="textoImg" id= "">${obj.title}</div>
+      </div>`
+      boxPosterFilter.innerHTML = list;
+      i++;
+  });
+    
+  });
+
+// yearDesc.addEventListener("click", () => {
+//     console.log(release_date.reverse());
+// })
+// ----------------------------------------------------
+
+
+
+
+
 
 
 /* console.log(example, data); */
