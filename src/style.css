@@ -7,6 +7,8 @@
 body {
     height: 100%;
     background-color:#d4ebe2;
+    /* background-color: #b0dfe6; */
+    color: #e4dbdb;
 }
 
 /*-----------------------características del header-------------------*/
@@ -79,7 +81,7 @@ header nav button:hover {
 }
 
 header h3 {
-    color: rgb(235, 231, 228);
+    color:#FFFF;
     font-size: 4rem;
     /* font-family:fantasy; */
     font-family: 'Open Sans', sans-serif;
@@ -89,8 +91,8 @@ header nav ul{
     width: auto;
     list-style: none;
     position: relative;  
-    font-family: 'Open Sans', sans-serif; 
-    color: rgb(235, 231, 228);
+    font-family: fantasy;   
+    color: #e4dbdb;
 }
 
 header nav ul li{
@@ -121,7 +123,7 @@ header nav ul li a{
     display: flex;
     position: relative;
     /* z-index: 200; */
-    color: rgb(230, 222, 222);
+    color: #e4dbdb;
     line-height: 2rem;
     font-size: 1.4rem;
     letter-spacing: 0.1rem;
@@ -145,7 +147,7 @@ header nav ul ul{
 
 header nav ul li:hover, header nav ul li.active {
     background-color:rgb(29, 61, 82);
-    color: rgb(240, 227, 227);
+    color: #e4dbdb;
     transition: 0.3s;
     box-shadow: 0 0 2rem 0 #157181 inset, 0 0 0.5rem 0.5rem #64c7ba;
 }
@@ -173,7 +175,7 @@ header nav ul ul li{
 } 
 
 header nav ul ul li a:hover{
-    color: rgb(255, 255, 255);
+    color: #e4dbdb;
     box-shadow: none;
 }
 
@@ -219,12 +221,12 @@ header nav ul li a:hover{
 .search-btn{
     float: right;
     border-radius: 2rem;
-    background: rgb(241, 239, 236);
+    background: #e4dbdb;
 }
 
 .search-box:hover > .search-txt{
     width: 17rem;
-    background: rgb(241, 239, 236);
+    background: #817d7d81;
     padding: 0, 0.5rem;
 } 
 /* --------------------- características del main---------------------- */
@@ -242,7 +244,7 @@ main {
 }
 
 .principalPage nav, h3 {
-    color: rgb(255, 255, 255);
+    color: #e4dbdb;
 }
 
 .principalPage h1, h2 {
@@ -262,11 +264,11 @@ main {
 .principalPage p {
     font-family: fantasy;
     letter-spacing: 0.15rem; 
-    color: aliceblue;
+    color: #e4dbdb;
     font-size: 1.5rem;
 }
 
-/*------------------características del carrusel-----------------*/
+/*------------------características de la sección de bienvenida-----------------*/
 .mensaje_bienvenida {
     display: flex; 
     flex-direction: column;   
@@ -274,22 +276,25 @@ main {
     align-items: center;
     font-size: 1.3rem;    
     width: 100%;
-    height: 25rem;    
-    background-color:#d4ebe2;  
+    height: 37rem;       
+    /* margin-bottom: 3rem; */
+    /* background-color:#d4ebe2;  */ 
     background-image: url("https://taylorfinn.files.wordpress.com/2018/10/45e1c53194fc5f424f17e0f926990af8.gif?w=540&h=300&crop=1") ;
     color: rgb(112, 112, 112);  
     background-size: cover;  
     background-position: center center;  
+    object-fit: cover;
 }
 
-/**/
+/*------------------características del carrusel-----------------*/
 .carrusel {
     width: 100%;
     height: 38rem;
     background-color:#524e4e;       
     position: relative;
     user-select: none;   
-    border: solid #524e4e;
+    border: solid #e4dbdb 0.7rem;
+    /* margin-bottom: 3rem; */
 }
 
 #i1,#i2,#i3,#i4,#i5 {
@@ -300,11 +305,15 @@ main {
     position: absolute;
     width: 100%;
     height: 100%;
+    /* object-fit: cover; */
+
 }
 
 .carrusel .slide_img img{
     width: 100%;
     height: 100%;
+    object-fit: cover;
+
 }
 
 .prev, .next {
@@ -313,7 +322,7 @@ main {
     position: absolute;
     top:0;
     background-color: rgba(122, 117, 117, 0.116);
-    color: rgba(244,244,244, .9);
+    color: #e4dbdb;
     z-index: 99;
     transition: .45s;
     cursor: pointer;
@@ -337,8 +346,8 @@ label span{
 
 .prev:hover, .next:hover {
     transform: .3s;
-    background-color: rgba(84, 186, 218, 0.8);
-    color: #FFFF;
+    background-color: rgba(84, 187, 218, 0.507);
+    color: #817b7b;
 }
 
 #nav_slide{
@@ -383,7 +392,7 @@ label span{
 	#i3:checked  ~  #nav_slide #dot3,
 	#i4:checked  ~  #nav_slide #dot4,
 	#i5:checked  ~  #nav_slide #dot5
-{ background-color: rgba(255,255,255,.9);}
+{ background-color: #e4dbdb;}
 
 /*---------------------------características de la sección de filtrado---------------*/
 .secfiltrado{
@@ -392,8 +401,9 @@ label span{
     display: flex;
     background-color: #157181;
     font-family: fantasy;
-    letter-spacing: 0.1rem; 
-    color: rgb(255, 255, 255);   
+    /* letter-spacing: 0.1rem; */ 
+    /* letter-spacing: 0.18rem; */
+    color: #e4dbdb;   
     justify-content: center;
     align-items: center;
     vertical-align: middle;    
@@ -411,11 +421,11 @@ main nav{
 }
 
 .secfiltrado p{
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-family: fantasy;
-    letter-spacing: 0.1rem;
+    letter-spacing: 0.18rem;
     /* color: rgb(219, 226, 152); */
-    color: rgb(255, 119, 7);
+    color:rgba(231, 186, 101, 0.952);
 }
 
 /* main nav:after{
@@ -508,17 +518,18 @@ main nav ul li a:hover{
     background-color: #157181;
     font-family: fantasy;
     letter-spacing: 0.1rem; 
-    color: rgb(255, 255, 255);   
+    color: #e4dbdb;   
     justify-content: center;
     align-items: center;
     vertical-align: middle;    
 }
 
 .secOrdenado p{
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-family: fantasy;
-    letter-spacing: 0.1rem;
-    color: rgb(255, 119, 7);
+    letter-spacing: 0.18rem;
+    /* color: rgb(219, 226, 152);   */  
+    color:rgba(231, 186, 101, 0.952);
 }
 
 /*---------------------------características del catálogo de películas----------------*/
@@ -530,7 +541,7 @@ main nav ul li a:hover{
     flex-wrap: wrap;
     justify-content: space-around;  
 }
-  
+
 .portada {
     width: 25rem;
     height: 35rem;
@@ -550,10 +561,10 @@ main nav ul li a:hover{
     justify-content: center;
     background: rgba(20, 20, 20, 0.521);
     font-family: fantasy;
-    letter-spacing: 0.1rem; 
-    font-size: 1.2rem;
+    letter-spacing: 0.15rem; 
+    font-size: 2rem;
     text-shadow: 1rem 1rem 1rem 0;
-    color: aliceblue;
+    color: #e4dbdb;
     text-align: center;
     align-items: center;
     text-transform: uppercase;
@@ -574,9 +585,11 @@ button img {
     height:100%;
     width:100%;
     background-repeat:no-repeat;
-    background-position:center;  
     border-radius: 1rem;  
     cursor: pointer;
+    background-size: cover;  
+    background-position: center center;  
+    object-fit: cover;
 }
 
 .portada:hover {
@@ -590,6 +603,7 @@ button img {
     display: flex;
     width:100%; 
     background-color:#d4ebe2;
+    /* background-color: #b0dfe6; */
     display: none;
     flex-direction: column; 
     /* height:auto; */    
@@ -598,7 +612,8 @@ button img {
 
 .contenidoPage{
     display: flex;
-    background-color:#d4ebe2;  
+    /* background-color: #b0dfe6; */
+    background-color:#d4ebe2; 
     color: rgb(0, 0, 0);
     font-family: fantasy;
     justify-content: space-around;
@@ -616,11 +631,15 @@ button img {
     height:40rem;
     width:30rem; 
     border-radius: 1rem;
+    background-size: cover;  
+    background-position: center center;  
+    object-fit: cover;
 }
 
 .contentMovie{
     display: flex;
     flex-direction: column;
+    /* background-color: #b0dfe6; */
     background-color:#d4ebe2;
     flex-wrap: wrap;
     color: rgb(0, 0, 0);
@@ -677,12 +696,15 @@ button img {
 
 .contenedorSubData img{
     width: 25rem;
+   /*  max-width: 16rem; */
     height: 35rem;
     border-radius: 1rem;
     background-repeat:no-repeat;
     background-size: cover;
-    background-position:center center;  
-    cursor: pointer;
+    background-position-x: center; 
+    background-position-y: center; 
+    cursor: pointer;   
+    object-fit: cover;
 }
 
 .TitleSec{
@@ -727,11 +749,11 @@ button img {
     font-family: fantasy;
     letter-spacing: 0.1rem; 
     font-size: 1.05rem;
-    color: aliceblue;
+    color: #e4dbdb;
 }
 
 .titulo-seccion {
-    color: rgb(236, 222, 222);
+    color: #e4dbdb;
     font-size: 1.25rem;
     letter-spacing: 0.5rem;
 }
@@ -777,7 +799,7 @@ i {
     width: 100%;
 }
 
-/*--------- Media queries-menu responsive------------ */
+/*---------------------- Media queries-menu responsive------------------------------- */
 
 .checkbtn {
     
@@ -915,10 +937,18 @@ i {
         background: rgb(241, 239, 236);
         padding: 0, 0.5rem;
     }
+
+    label span{
+        font-size: 4rem;       
+    }
+
+    .carrusel {
+        height: 28rem;
+        border: solid #e4dbdb 0.3rem;
+    }
 }
 
 
-/* ---------------------esto seria para el responsive en tabletas--------------------*/
 
 /* .boxPosterFilter {
     flex-wrap: wrap;

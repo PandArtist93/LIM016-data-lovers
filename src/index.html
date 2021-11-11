@@ -70,9 +70,13 @@
         <div class="mensaje_bienvenida">         
           <h1>Bienvenido</h1>
           <h2>a</h2><h3><span>GHIBLI NO SEKAI</span></h3><br>
+          <!-- <h4>¡Disfruta del mejor contenido de películas animadas!</h4><br>
+          <h4>Desde los clásicos hasta los últimos estrenos de Studio Ghibli.</h4> -->
+        </div> 
+        <!-- <div class="textoExplicativo">
           <h4>¡Disfruta del mejor contenido de películas animadas!</h4><br>
           <h4>Desde los clásicos hasta los últimos estrenos de Studio Ghibli.</h4>
-        </div>             
+        </div>   -->          
   
         <div class="carrusel">
           <input type="radio" id="i1" name="images" checked>
@@ -125,28 +129,28 @@
             <p>Filtar por:</p>
             <ul>
               <li>
-                <a href="">Director</a>
+                <a>Director</a>
                 <ul>
-                  <li><a href="">Hayao Miyazaki</a></li>
-                  <li><a href="">Isao Takahata</a></li>
-                  <li><a href="">Yoshifumi Kondō</a></li>
-                  <li><a href="">Hiroyuki Morita</a></li>
-                  <li><a href="">Gorō Miyazaki</a></li>
-                  <li><a href="">Hiromasa Yonebayashi</a></li>
+                  <li><a id="directorFil">Hayao Miyazaki</a></li>
+                  <li><a id="directorFil">Isao Takahata</a></li>
+                  <li><a id="directorFil">Yoshifumi Kondō</a></li>
+                  <li><a id="directorFil">Hiroyuki Morita</a></li>
+                  <li><a id="directorFil">Gorō Miyazaki</a></li>
+                  <li><a id="directorFil">Hiromasa Yonebayashi</a></li>
                 </ul>
               </li>              
               <li>
-                <a href="">Productor</a>
+                <a>Productor</a>
                 <ul>
-                  <li><a href="">Isao Takahata</a></li>
-                  <li><a href="">Hayao Miyazaki</a></li>
-                  <li><a href="">Toru Hara</a></li>
-                  <li><a href="">Toshio Suzuki</a></li>
-                  <li><a href="">Yoshiaki Nishimura</a></li>
+                  <li><a>Isao Takahata</a></li>
+                  <li><a>Hayao Miyazaki</a></li>
+                  <li><a>Toru Hara</a></li>
+                  <li><a>Toshio Suzuki</a></li>
+                  <li><a>Yoshiaki Nishimura</a></li>
                 </ul> 
               </li>  
               <li>
-                <a href="">lanzamiento</a>
+                <a>lanzamiento</a>
                 <!-- <ul>
                   <li><a href=""></a></li>
                   <li><a href=""></a></li>
@@ -165,36 +169,34 @@
             <p>Visualizar películas en orden:</p>
             <ul>
               <li>
-                <a>Cronológico</a>
+                <a>lanzamiento</a>
                 <ul>
-                  <li><a id="yearAsc">Ascendente</a></li>
-                  <li><a id="yearDesc">Descendente</a></li>                  
+                  <li><a id="yearAsc">Mas Antigua</a></li>
+                  <li><a id="yearDesc">Mas Nueva</a></li>                  
                 </ul>
               </li>              
               <li>
-                <a >Alfabético</a>
+                <a>Alfabético</a>
                 <ul>
                   <li><a id="a_z">A -- Z</a></li>
                   <li><a id="z_a">Z -- A</a></li>                  
-                </ul>
+                </ul> 
               </li>  
               <li>
                 <a >Calificación</a>
                 <ul>
-                  <li><a></a>>Mayor puntaje</a></li>
-                  <li><a></a>>Menor puntaje</a></li>                  
+                  <li><a id="mayorToMenor">Mayor puntaje</a></li>
+                  <li><a id="menorToMayor">Menor puntaje</a></li>                  
                 </ul>
               </li>                        
             </ul>  
           </nav>                
-        </div>   
+        </div>
 
-        <section class="boxPoster" id="boxPoster">           
-        </section>
+        <section class="boxPoster" id="boxPoster"></section>
 
-        <section class="boxPoster" id="boxPosterFilter">           
-        </section>
-
+        <section class="boxPoster" id= "boxPosterFilter"></section>
+                  
       </div>                      
     </main>
 

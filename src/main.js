@@ -19,7 +19,6 @@ let contenidoPagePersonajes = document.getElementById("contenidoPagePersonajes")
 let contenidoPageLocaciones = document.getElementById("contenidoPageLocaciones");
 let contenidoPageVehiculos = document.getElementById("contenidoPageVehiculos");
 
-
 let dataPeliculas = data.films;
 let tituloPeliculas = dataPeliculas.map(x => x.title);
 let descriptionPelicula = dataPeliculas.map(x => x.description);
@@ -32,37 +31,39 @@ let personajesPelicula = dataPeliculas.map(x => x.people);
 let locacionesPelicula = dataPeliculas.map(x => x.locations);
 let vehiculosPelicula = dataPeliculas.map(x => x.vehicles);
 
+// genera las portadas de los catálogos dinamicamente 
 let list='';
 let i = 1;
-
 dataPeliculas.forEach( (obj) => {
-        list +=`
-        <div class="portada">
-            <button id= "btnPortada${[i]}">
-            <img src="${obj.poster}" alt="">                
-            </button>
-            <div class="textoImg" id= "">${obj.title}</div>
-        </div>`
-        document.getElementById("boxPoster").innerHTML = list;
-        i++;
+    list +=`
+    <div class="portada">
+        <button id= "btnPortada${[i]}">
+        <img src="${obj.poster}" alt="">                
+        </button>
+        <div class="textoImg" id= "">${obj.title}</div>
+    </div>`
+    document.getElementById("boxPoster").innerHTML = list;
+    i++;  
+
 });
 
+//crea que catálogo con las imagenes de "personajes", "locaciones" y "vehículos"
 for (let i=0; i< btnImagenes.length; i++) {
-    //Añades un evento a cada elemento
+    
     btnImagenes[i].addEventListener("click",function() {
         let characters = personajesPelicula[i];
         let locations = locacionesPelicula[i];
         let vehicles = vehiculosPelicula[i];
-       //Aquí la función que se ejecutará cuando se dispare el evento
-       principalPage.style.display = "none" ; //En este caso ocultaremos el contenido que se encuentra en "principalPage" al darle click al botón de imagen cliqueado
-       pagina2.style.display = "block" ;//En este caso mostraremos la página2 al darle click al botón de imagen cliqueado
-       textPage6.innerHTML = '<img src ='+ poster[i]+'>';
-       textPage2.innerHTML = "Título: " + tituloPeliculas[i];
-       textPage3.innerHTML = "Sinopsis: " + descriptionPelicula[i];
-       textPage4.innerHTML = "Director: " + directorPelicula[i];
-       textPage5.innerHTML = "Productor: " + producerPelicula[i];
-       textPage7.innerHTML = "Fecha de lanzamiento: " + release_date[i];
-       textPage8.innerHTML = "Puntaje: " + rt_score[i] + "/100";     
+     // oculta la primera vista y despliega la segunda 
+        principalPage.style.display = "none" ; 
+        pagina2.style.display = "block" ;
+        textPage6.innerHTML = '<img src ='+ poster[i]+'>';
+        textPage2.innerHTML = "Título: " + tituloPeliculas[i];
+        textPage3.innerHTML = "Sinopsis: " + descriptionPelicula[i];
+        textPage4.innerHTML = "Director: " + directorPelicula[i];
+        textPage5.innerHTML = "Productor: " + producerPelicula[i];
+        textPage7.innerHTML = "Fecha de lanzamiento: " + release_date[i];
+        textPage8.innerHTML = "Puntaje: " + rt_score[i] + "/100";     
 
         for(let j = 0; j < characters.length; j++) {
            contenidoPagePersonajes.appendChild(createCharacter(characters[j]));           
@@ -88,10 +89,8 @@ for (let i=0; i< btnImagenes.length; i++) {
                 contenidoPageVehiculos.innerHTML = "En esta película no es destacan vehículos espefíficos";
                                 
             }     */             
-        }         
-       
+        }     
     }); 
-    
 }
 
 //botones del header
@@ -99,7 +98,7 @@ principalBtn.addEventListener("click", function(){
     pagina2.style.display = "none";
     principalPage.style.display = "block";    
 });
-// _________________________________________________________
+//--------------------------------------------------
 //crea los div en función de cada caracter 
 function createCharacter(character) {
     let nuevoElemento = document.createElement('div'); 
@@ -136,167 +135,252 @@ function createVehicles(vehicles) {
     return nuevoElemento;
 }
 
-// ------Secccion de filtrado por categoria-------
-
-// ordenado alfabético 
+//--------------------------------------------------
+// ordenado alfabético ascendente
 let a_z = document.getElementById("a_z");
-let z_a = document.getElementById("z_a");
-let boxPoster = document.getElementById("boxPoster");
-let boxPosterFilter = document.getElementById("boxPosterFilter");
-// ordenado cronológico
-let yearDesc = document.getElementById("yearDesc");
-let yearAsc = document.getElementById("yearAsc");
-
 a_z.addEventListener("click",() => {
-  boxPoster.style.display = "none";
-  boxPosterFilter.style.display = " ";
+    let boxPoster = document.getElementById("boxPoster");
+    let boxPosterFilter = document.getElementById("boxPosterFilter");   
+    boxPoster.style.display= "none";
+    boxPosterFilter.style.display= " ";
+    /* let peliculasFil = dataPeliculas.sort(); */
 
-//   console.log(tituloPeliculas.sort()); 
-
-  let peliculasOrdenadasPorTitulo = dataPeliculas.sort((a,b) => {
-    if (a.title < b.title) {
-        return -1;
-    }
-    
-    if (a.title > b.title) {
-        return 1;
-    }
-    
-    return 0;
-  });
-
-  let list = " ";
-  let i = 1;
-    
-    peliculasOrdenadasPorTitulo.forEach( (obj) => {
-    list +=`
-    <div class="portada">
-        <button id= "btnPortada${[i]}">
-        <img src="${obj.poster}" alt="">                
-        </button>
-        <div class="textoImg" id= "">${obj.title}</div>
-    </div>`
-    boxPosterFilter.innerHTML = list;
-    i++;
-});
-  
-});
-
-z_a.addEventListener("click",() => {
-    boxPoster.style.display = "none";
-    boxPosterFilter.style.display = " ";
-  
-  //   console.log(tituloPeliculas.sort()); 
-  
     let peliculasOrdenadasPorTitulo = dataPeliculas.sort((a,b) => {
-      if (a.title > b.title) {
-          return -1;
-      }
-      
-      if (a.title < b.title) {
-          return 1;
-      }
-      
-      return 0;
-    });
-  
-    let list = " ";
+        if (a.title < b.title) { return -1;}
+        if (a.title > b.title) { return 1;}
+        return 0;
+    }) 
+// -----------------------------------------------
+
+const orderAz = (infoPeliculas) => {
+    const newArrayPeliculas = [];
+    for (let i = 0; i < infoPeliculas.legth; i += 1 {
+        newArrayPeliculas.push(infoPeliculas[i]);
+    })
+    // let peliculasOrdenadasPorTitulo = dataPeliculas.sort((a,b) => {
+    dataPeliculas.sort((a,b) => {
+        if (a.title < b.title) { return -1;}
+        if (a.title > b.title) { return 1;}
+        return 0;
+    })
+    return newArrayPeliculas; 
+};
+
+    // ---------------------------------------------------
+ // ------------------------------------------
+ console.log(peliculasOrdenadasPorTitulo);
+    let list='';
     let i = 1;
-      
-      peliculasOrdenadasPorTitulo.forEach( (obj) => {
-      list +=`
-      <div class="portada">
-          <button id= "btnPortada${[i]}">
-          <img src="${obj.poster}" alt="">                
-          </button>
-          <div class="textoImg" id= "">${obj.title}</div>
-      </div>`
-      boxPosterFilter.innerHTML = list;
-      i++;
-  });
-    
-});
 
-yearDesc.addEventListener("click",() => {
-    boxPoster.style.display = "none";
-    boxPosterFilter.style.display = " ";
-  
-  //   console.log(tituloPeliculas.sort()); 
-  
-    let peliculasOrdenadasPorAño = dataPeliculas.sort((a,b) => {
-      if (a.release_date > b.release_date) {
-          return -1;
-      }
-      
-      if (a.release_date < b.release_date) {
-          return 1;
-      }
-      
-      return 0;
+    peliculasOrdenadasPorTitulo.forEach( (obj) => {
+        list +=`
+        <div class="portada">
+            <button id= "btnPortada${[i]}">
+            <img src="${obj.poster}" alt="">                
+            </button>
+            <div class="textoImg" id= "">${obj.title}</div>
+        </div>`
+        boxPosterFilter.innerHTML = list;
+        i++;
+        
     });
-  
-    let list = " ";
-    let i = 1;
-      
-      peliculasOrdenadasPorAño.forEach( (obj) => {
-      list +=`
-      <div class="portada">
-          <button id= "btnPortada${[i]}">
-          <img src="${obj.poster}" alt="">                
-          </button>
-          <div class="textoImg" id= "">${obj.title}</div>
-      </div>`
-      boxPosterFilter.innerHTML = list;
-      i++;
-  });
-    
-  });
+}); 
 
-yearAsc.addEventListener("click", () => {
-    boxPoster.style.display = "none";
-    boxPosterFilter.style.display = " ";
-  
-  //   console.log(tituloPeliculas.sort()); 
-  
-    let peliculasOrdenadasPorAño = dataPeliculas.sort((a,b) => {
-      if (a.release_date < b.release_date) {
-          return -1;
-      }
-      
-      if (a.release_date > b.release_date) {
-          return 1;
-      }
-      
-      return 0;
+// ordenado alfabético descendente
+let z_a = document.getElementById("z_a");
+z_a.addEventListener("click", () => {
+    /* console.log(tituloPeliculas.reverse()) */
+    let boxPoster = document.getElementById("boxPoster");
+    let boxPosterFilter = document.getElementById("boxPosterFilter");   
+    boxPoster.style.display= "none";
+    boxPosterFilter.style.display= " ";
+
+    let peliculasOrdenadasPorTitulo = dataPeliculas.sort((a,b) => {
+        if (a.title > b.title) {
+            return -1;
+        }
+        if (a.title < b.title) {
+            return 1;
+        }
+        return 0;
+    }) 
+    /* console.log(peliculasOrdenadasPorTitulo); */
+    
+    let list='';
+    let i = 1;
+
+    peliculasOrdenadasPorTitulo.forEach( (obj) => {
+        list +=`
+        <div class="portada">
+            <button id= "btnPortada${[i]}">
+            <img src="${obj.poster}" alt="">                
+            </button>
+            <div class="textoImg" id= "">${obj.title}</div>
+        </div>`
+        boxPosterFilter.innerHTML = list;
+        i++;        
     });
-  
-    let list = " ";
-    let i = 1;
-      
-      peliculasOrdenadasPorAño.forEach( (obj) => {
-      list +=`
-      <div class="portada">
-          <button id= "btnPortada${[i]}">
-          <img src="${obj.poster}" alt="">                
-          </button>
-          <div class="textoImg" id= "">${obj.title}</div>
-      </div>`
-      boxPosterFilter.innerHTML = list;
-      i++;
-  });
+})
+
+// ordenado cronológico ascendente
+let yearAsc = document.getElementById("yearAsc");
+yearAsc.addEventListener("click",() => {
+    /* console.log(release_date.sort()) */
+    let boxPoster = document.getElementById("boxPoster");
+    let boxPosterFilter = document.getElementById("boxPosterFilter");   
+    boxPoster.style.display= "none";
+    boxPosterFilter.style.display= " ";
+
+    let peliculasOrdenadasPorYear = dataPeliculas.sort((a,b) => {
+        if (a.release_date < b.release_date) {
+            return -1;
+        }
+        if (a.release_date > b.release_date) {
+            return 1;
+        }
+        return 0;
+    }) 
+    /* console.log(peliculasOrdenadasPorYear); */
     
-  });
+    let list='';
+    let i = 1;
 
-// yearDesc.addEventListener("click", () => {
-//     console.log(release_date.reverse());
-// })
-// ----------------------------------------------------
+    peliculasOrdenadasPorYear.forEach( (obj) => {
+        list +=`
+        <div class="portada">
+            <button id= "btnPortada${[i]}">
+            <img src="${obj.poster}" alt="">                
+            </button>
+            <div class="textoImg" id= "">${obj.title}</div>
+        </div>`
+        boxPosterFilter.innerHTML = list;
+        i++;        
+    });
+
+
+})
+
+// ordenado cronológico descendente
+let yearDesc = document.getElementById("yearDesc");
+yearDesc.addEventListener("click", () => {
+    /* console.log(tituloPeliculas.reverse()) */
+    let boxPoster = document.getElementById("boxPoster");
+    let boxPosterFilter = document.getElementById("boxPosterFilter");   
+    boxPoster.style.display= "none";
+    boxPosterFilter.style.display= " ";
+
+    let peliculasOrdenadasPorYear = dataPeliculas.sort((a,b) => {
+        if (a.release_date > b.release_date) {
+            return -1;
+        }
+        if (a.release_date < b.release_date) {
+            return 1;
+        }
+        return 0;
+    }) 
+    /* console.log(peliculasOrdenadasPorYear); */
+    
+    let list='';
+    let i = 1;
+ 
+    peliculasOrdenadasPorYear.forEach( (obj) => {
+        list +=`
+        <div class="portada">
+            <button id= "btnPortada${[i]}">
+            <img src="${obj.poster}" alt="">                
+            </button>
+            <div class="textoImg" id= "">${obj.title}</div>
+        </div>`
+        boxPosterFilter.innerHTML = list;
+        i++;        
+    });
+})
+
+//ordenado por calificación de Mayor a menor
+let mayorToMenor = document.getElementById("mayorToMenor");
+mayorToMenor.addEventListener("click", () => {
+    let boxPoster = document.getElementById("boxPoster");
+    let boxPosterFilter = document.getElementById("boxPosterFilter");   
+    boxPoster.style.display= "none";
+    boxPosterFilter.style.display= " ";
+
+    let peliculasOrdenadasPorcalificacion = dataPeliculas.sort((a,b) => {
+        if (parseInt(a.rt_score) > parseInt(b.rt_score)) {
+            return -1;
+        }
+        if (parseInt(a.rt_score) < parseInt(b.rt_score)) {
+            return 1;
+        }
+        return 0;
+    }) 
+    console.log(peliculasOrdenadasPorcalificacion);
+
+    let list='';
+    let i = 1;
+
+    peliculasOrdenadasPorcalificacion.forEach( (obj) => {
+        list +=`
+        <div class="portada">
+            <button id= "btnPortada${[i]}">
+            <img src="${obj.poster}" alt="">                
+            </button>
+            <div class="textoImg" id= "">${obj.title}</div>
+        </div>`
+        boxPosterFilter.innerHTML = list;
+        i++;        
+    });
+
+})
+
+//ordenado por calificación de menor a Mayor
+let menorToMayor = document.getElementById("menorToMayor");
+menorToMayor.addEventListener("click", () => {
+    let boxPoster = document.getElementById("boxPoster");
+    let boxPosterFilter = document.getElementById("boxPosterFilter");   
+    boxPoster.style.display= "none";
+    boxPosterFilter.style.display= " ";
+
+    let peliculasOrdenadasPorcalificacion = dataPeliculas.sort((a,b) => {
+        if (parseInt(a.rt_score) < parseInt(b.rt_score)) {
+            return -1;
+        }
+        if (parseInt(a.rt_score) > parseInt(b.rt_score)) {
+            return 1;
+        }
+        return 0;
+    }) 
+    console.log(peliculasOrdenadasPorcalificacion);
+
+    let list='';
+    let i = 1;
+
+    peliculasOrdenadasPorcalificacion.forEach( (obj) => {
+        list +=`
+        <div class="portada">
+            <button id= "btnPortada${[i]}">
+            <img src="${obj.poster}" alt="">                
+            </button>
+            <div class="textoImg" id= "">${obj.title}</div>
+        </div>`
+        boxPosterFilter.innerHTML = list;
+        i++;        
+    });
+
+})
+
+//filtrado por director
+/* let directorFilter = document.getElementById("directorFil");
+directorFilter.addEventListener("click", () => {
+
+    let boxPoster = document.getElementById("boxPoster");
+    let boxPosterFilter = document.getElementById("boxPosterFilter");   
+    boxPoster.style.display= "none";
+    boxPosterFilter.style.display= " ";
 
 
 
-
-
-
+})
+ */
 
 /* console.log(example, data); */
 
