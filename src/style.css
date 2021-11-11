@@ -718,15 +718,10 @@ button img {
     align-items: center;
     padding: 0 2.5rem;
     background-color:#d4ebe2;
-}
-
-.fondo > img{
-    height: 80%;
-
-}
-
-.fondo{
-    font-size: 2.2rem;
+    font-size: 1.2rem;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
 }
 
 .cajaSuperior{
@@ -747,9 +742,10 @@ button img {
     letter-spacing: 0.5rem;
     justify-content: right;
     font-family: sans-serif;
+    vertical-align: middle;
 }
 
-.cta{
+/* .cta{
  display: flex;
  padding: 2rem 0;
  width: 8rem;
@@ -760,7 +756,7 @@ button img {
  color: #283773;
  background: #FFFF;
  cursor: pointer;
-}
+} */
 
 .modal-container{
     position: fixed;
@@ -770,7 +766,7 @@ button img {
     top: 0;
     left: 0;
     display: flex;
-    background: rgba(0,0,0,0.65);
+    background: rgba(105, 102, 102, 0.65);
     justify-content: center;
     align-items: center;
     opacity: 0;
@@ -795,16 +791,16 @@ button img {
 
 .close{
     position: absolute;
-    top: 0.3rem;
-    left:0.3rem;
-    display: inline-flex;    
+    top: 0.9rem;
+    left:0.9rem;
     margin: 0;
     background-color: rgb(2, 44, 109);
     color: rgb(255, 255, 255);
     border-radius: 50%;
-    width: 3rem;
-    height: 3rem;
-    text-align: center; 
+    width: 1.9rem;
+    height: 1.7rem;
+    vertical-align: middle;
+    align-content: center;
     align-items: center;
     justify-content: center;
     cursor: pointer;
@@ -814,9 +810,7 @@ button img {
     height: auto;
     width: 75%;
     display: flex;
-    /* border: 0.48rem solid #000000; */
     justify-content: center;
-    /* border-radius: 1.2rem; */
     background-image: cover;
 }
 
@@ -826,66 +820,66 @@ button img {
     background-size: cover;  
     background-position: center;  
     object-fit: cover;   
-    /* border-radius: 1.2rem;  */
 }
 
 .fondoImg{
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
     background-color: #D3CEBD;
     height: auto;
     width: 50%;
     margin: 0;
     overflow: hidden;
-    /* border-radius: 0 0 0 2rem; */
 }
 
-.contenido-texto{
-    /* display: flex; */
+.seccionDatos{
+    height: auto;
+    width: 50%;
+    padding: 2rem;
+    overflow: hidden;
+    line-height:1.5rem;
+}
+
+.contenido-texto{    
     width: 100%;
     height: auto;
     color: #000000;
     font-size: 1.5rem;
     font-family: sans-serif;
+    background: #FFFF;
 }
 
 .cajaMedia{
     width: 100%;
-    height: 82%;
+    height: 100%;
     display: flex;
     flex-wrap: nowrap;
+    background: #FFFF;
 }
 
 .finalCarnet{
     display: flex;
     position: absolute;
     color: #FFFF;
-    /* bottom: 2%; */
     background-color: #315468;
     justify-content: center;
     text-align: center;
     align-items: center;
     font-family: sans-serif;
-    font-size: 1rem;
+    font-size:0.7rem;
+    font-weight: normal;
+    font-variant: small-caps;
     letter-spacing: 0.5rem;
-    padding: 0.4rem;
+    padding: 0.8rem;
     width: 100%;
     height: auto;
     border-radius: 0 0 1.99rem 1.99rem;
 }
 
-.seccionDatos{
-    height: auto;
-    width: 50%;
-    padding: 1.5rem;
-    overflow: hidden;
-    line-height:1.5rem;
-}
 .codigoQR{
     display: flex;
     position: relative;
-    float: right;
+    /* float: right; */
     top: 6%;
     width: auto;
     height: auto;
@@ -997,7 +991,19 @@ i {
 }
 
 /*----------------------- esto seria para el responsive en celulares -----------------------------*/
-@media (max-width: 1200px) {
+@media (max-width: 1430px){
+    .modal{        
+        max-height: 400px;
+        width: 60%;
+        height: 55%;
+        
+    }
+    .cajaMedia{
+        max-height: 400px;        
+    }
+}
+
+@media (max-width: 1250px) {
     .checkbtn {
         display: flex;      
     }
@@ -1128,7 +1134,33 @@ i {
         height: 28rem;
         border: solid #e4dbdb 0.3rem;
     }
+
+    .modal{
+        width: 55%;
+        height: 45%;
+    }
+    
 }
 
+@media (max-width: 830px) {
+    @media (min-width: 750px) {
+        .modal{
+           max-width: 640px;
+        }
+        .cajaMedia{
+            max-height: 380px;
+        }
+    }
+}
 
+@media (min-width: 600px){
+    .modal{        
+        max-height: 380px;
+        height: 70%;
+        
+    }
+    .cajaMedia{
+        max-height: 380px;        
+    }
+}
 

@@ -403,8 +403,7 @@ cerrar.addEventListener("click", function(e){
 window.addEventListener("click", function(e){
     this.console.log(e.target); // esto nos indica que estamos seleccionando por medio de la consola
     if (e.target == modalC){
-        modal.classList.toggle("modalClose");
-  
+        modal.classList.toggle("modalClose");       
         setTimeout(function(){
             modalC.style.opacity = "0";
             modalC.style.visibility = "hidden";
