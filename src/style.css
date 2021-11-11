@@ -346,8 +346,8 @@ label span{
 
 .prev:hover, .next:hover {
     transform: .3s;
-    background-color: rgba(84, 187, 218, 0.507);
-    color: #817b7b;
+    /* background-color: rgba(84, 187, 218, 0.507); */
+    color: #fffefe;
 }
 
 #nav_slide{
@@ -715,7 +715,187 @@ button img {
     font-size: 1.5rem;   
 }
 
+/*----------------------características del modal-----------------------*/
 
+.fondo{
+    display: flex;
+    height: auto;
+    align-items: center;
+    padding: 0 2.5rem;
+    background-color:#d4ebe2;
+    font-size: 1.2rem;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.cajaSuperior{
+    padding: 1.1rem 0;    
+    background-color: #3482AE;
+    align-items: center;
+    padding-right: 9%;
+    padding-left:2%;
+    text-align: center;
+    width: 100%;    
+    border-radius: 1.99rem 1.99rem 0 0;
+}
+
+.cajaSuperior h2{
+    display: flex;
+    color: #FFFF;
+    font-size: 1rem ;
+    letter-spacing: 0.5rem;
+    justify-content: right;
+    font-family: sans-serif;
+    vertical-align: middle;
+}
+
+/* .cta{
+ display: flex;
+ padding: 2rem 0;
+ width: 8rem;
+ border: 0.16rem solid #FFFF;
+ border-radius: 3.15rem;
+ text-align: center;
+ text-decoration: none;
+ color: #283773;
+ background: #FFFF;
+ cursor: pointer;
+} */
+
+.modal-container{
+    position: fixed;
+    z-index: 500;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    background: rgba(105, 102, 102, 0.65);
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    width: 55%;
+    height: 43%;
+    background: #FFFF;
+    border-radius: 2rem 2rem 2.5rem 2.5rem;
+    transform: translateY(0%);
+    transition: transform 0.8s;
+}
+
+.modalClose {
+    transform: translateY(-200%);
+}
+
+.close{
+    position: absolute;
+    top: 0.9rem;
+    left:0.9rem;
+    margin: 0;
+    background-color: rgb(2, 44, 109);
+    color: rgb(255, 255, 255);
+    border-radius: 50%;
+    width: 1.9rem;
+    height: 1.7rem;
+    vertical-align: middle;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.imagen-carnet{
+    height: auto;
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    background-image: cover;
+}
+
+.imagen-carnet img{
+    width: 100%;
+    height: auto;
+    background-size: cover;  
+    background-position: center;  
+    object-fit: cover;   
+}
+
+.fondoImg{
+    display: flex;
+    justify-content: center;
+    background-color: #D3CEBD;
+    height: auto;
+    width: 50%;
+    margin: 0;
+    overflow: hidden;
+}
+
+.seccionDatos{
+    height: auto;
+    width: 50%;
+    padding: 2rem;
+    overflow: hidden;
+    line-height:1.5rem;
+}
+
+.contenido-texto{    
+    width: 100%;
+    height: auto;
+    color: #000000;
+    font-size: 1.5rem;
+    font-family: sans-serif;
+    background: #FFFF;
+}
+
+.cajaMedia{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    background: #FFFF;
+}
+
+.finalCarnet{
+    display: flex;
+    position: absolute;
+    color: #FFFF;
+    background-color: #315468;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-family: sans-serif;
+    font-size:0.7rem;
+    font-weight: normal;
+    font-variant: small-caps;
+    letter-spacing: 0.5rem;
+    padding: 0.8rem;
+    width: 100%;
+    height: auto;
+    border-radius: 0 0 1.99rem 1.99rem;
+}
+
+.codigoQR{
+    display: flex;
+    position: relative;
+    /* float: right; */
+    top: 6%;
+    width: auto;
+    height: auto;
+    /* right: 0.3rem;
+    bottom: auto; */
+}
+
+.codigoQR img{
+    width: auto;
+    height: auto;  
+}
 /* ---------------------características del footer--------------------- */
  footer { 
     display: flex; 
@@ -726,6 +906,7 @@ button img {
     height: 100%; 
     margin-top: 6.5rem;
     font-size: 1.5rem;
+    
 } 
 
 .contenedor-principal {
@@ -815,7 +996,19 @@ i {
 }
 
 /*----------------------- esto seria para el responsive en celulares -----------------------------*/
-@media (max-width: 1200px) {
+@media (max-width: 1430px){
+    .modal{        
+        max-height: 400px;
+        width: 60%;
+        height: 55%;
+        
+    }
+    .cajaMedia{
+        max-height: 400px;        
+    }
+}
+
+@media (max-width: 1250px) {
     .checkbtn {
         display: flex;      
     }
@@ -946,9 +1139,35 @@ i {
         height: 28rem;
         border: solid #e4dbdb 0.3rem;
     }
+
+    .modal{
+        width: 55%;
+        height: 45%;
+    }
+    
 }
 
+@media (max-width: 830px) {
+    @media (min-width: 750px) {
+        .modal{
+           max-width: 640px;
+        }
+        .cajaMedia{
+            max-height: 380px;
+        }
+    }
+}
 
+@media (min-width: 600px){
+    .modal{        
+        max-height: 380px;
+        height: 70%;
+        
+    }
+    .cajaMedia{
+        max-height: 380px;        
+    }
+}
 
 /* .boxPosterFilter {
     flex-wrap: wrap;
