@@ -56,12 +56,8 @@ a_z.addEventListener("click",() => {
     boxPosterFilter.style.display= " ";
     
     let peliculasOrdenadasPorTitulo = dataPeliculas.sort((a,b) => {
-        if (a.title < b.title) {
-            return -1;
-        }
-        if (a.title > b.title) {
-            return 1;
-        }
+        if (a.title < b.title) { return -1;}
+        if (a.title > b.title) { return 1;}
         return 0;
     }) 
         
@@ -180,7 +176,7 @@ yearDesc.addEventListener("click", () => {
     
     let list='';
     let i = 1;
-
+ 
     peliculasOrdenadasPorYear.forEach( (obj) => {
         list +=`
         <div class="portada">
@@ -410,5 +406,4 @@ window.addEventListener("click", function(e){
 });
 
 /* console.log(example, data); */
-
 
