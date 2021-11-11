@@ -211,8 +211,7 @@ mayorToMenor.addEventListener("click", () => {
         }
         return 0;
     }) 
-    console.log(peliculasOrdenadasPorcalificacion);
-
+    
     let list='';
     let i = 1;
 
@@ -247,8 +246,7 @@ menorToMayor.addEventListener("click", () => {
         }
         return 0;
     }) 
-    console.log(peliculasOrdenadasPorcalificacion);
-
+    
     let list='';
     let i = 1;
 
@@ -391,26 +389,25 @@ abrir.addEventListener("click", function(e){
     modal.classList.toggle("modalClose");
 });
 
-cerrar.addEventListener("click", function(e){
+cerrar.addEventListener("click", function(){
     modal.classList.toggle("modalClose");
   
     setTimeout(function(){
         modalC.style.opacity = "0";
         modalC.style.visibility = "hidden";
-    },900)
+    },900);
 });
 
 window.addEventListener("click", function(e){
     this.console.log(e.target); // esto nos indica que estamos seleccionando por medio de la consola
     if (e.target == modalC){
-        modal.classList.toggle("modalClose");
-  
+        modal.classList.toggle("modalClose");       
         setTimeout(function(){
             modalC.style.opacity = "0";
             modalC.style.visibility = "hidden";
         },900);
     }
-})
+});
 
 /* console.log(example, data); */
 
