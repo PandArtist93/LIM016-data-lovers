@@ -43,7 +43,8 @@ dataPeliculas.forEach( (obj) => {
         <div class="textoImg" id= "">${obj.title}</div>
     </div>`
     document.getElementById("boxPoster").innerHTML = list;
-    i++;       
+    i++;  
+
 });
 
 //crea que catálogo con las imagenes de "personajes", "locaciones" y "vehículos"
@@ -166,7 +167,7 @@ a_z.addEventListener("click",() => {
             </button>
             <div class="textoImg" id= "">${obj.title}</div>
         </div>`
-        boxPosterFilter.innerHTML = list;
+        boxPoster.innerHTML = list;
         i++;
         
     });
@@ -291,10 +292,10 @@ mayorToMenor.addEventListener("click", () => {
     boxPosterFilter.style.display= " ";
 
     let peliculasOrdenadasPorcalificacion = dataPeliculas.sort((a,b) => {
-        if (a.rt_score > b.rt_score) {
+        if (parseInt(a.rt_score) > parseInt(b.rt_score)) {
             return -1;
         }
-        if (a.rt_score < b.rt_score) {
+        if (parseInt(a.rt_score) < parseInt(b.rt_score)) {
             return 1;
         }
         return 0;
@@ -327,10 +328,10 @@ menorToMayor.addEventListener("click", () => {
     boxPosterFilter.style.display= " ";
 
     let peliculasOrdenadasPorcalificacion = dataPeliculas.sort((a,b) => {
-        if (a.rt_score < b.rt_score) {
+        if (parseInt(a.rt_score) < parseInt(b.rt_score)) {
             return -1;
         }
-        if (a.rt_score > b.rt_score) {
+        if (parseInt(a.rt_score) > parseInt(b.rt_score)) {
             return 1;
         }
         return 0;
@@ -353,6 +354,20 @@ menorToMayor.addEventListener("click", () => {
     });
 
 })
+
+//filtrado por director
+/* let directorFilter = document.getElementById("directorFil");
+directorFilter.addEventListener("click", () => {
+
+    let boxPoster = document.getElementById("boxPoster");
+    let boxPosterFilter = document.getElementById("boxPosterFilter");   
+    boxPoster.style.display= "none";
+    boxPosterFilter.style.display= " ";
+
+
+
+})
+ */
 
 /* console.log(example, data); */
 
