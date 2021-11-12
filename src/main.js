@@ -86,10 +86,10 @@ z_a.addEventListener("click", () => {
             return 1;
         }
         return 0;
-    }) 
+    });
     
     renderCatalogo (peliculasOrdenadasPorTitulo, boxPosterFilter);    
-})
+});
 
 // ordenado cronológico ascendente
 let yearAsc = document.getElementById("yearAsc");
@@ -112,7 +112,7 @@ yearAsc.addEventListener("click",() => {
 
     renderCatalogo (peliculasOrdenadasPorYear, boxPosterFilter);  
 
-})
+});
 
 // ordenado cronológico descendente
 let yearDesc = document.getElementById("yearDesc");
@@ -134,7 +134,7 @@ yearDesc.addEventListener("click", () => {
     });
 
     renderCatalogo (peliculasOrdenadasPorYear, boxPosterFilter);
-})
+});
 
 //ordenado por calificación de Mayor a menor
 let mayorToMenor = document.getElementById("mayorToMenor");
@@ -155,7 +155,7 @@ mayorToMenor.addEventListener("click", () => {
     });
 
     renderCatalogo (peliculasOrdenadasPorcalificacion, boxPosterFilter);
-})
+});
 
 //ordenado por calificación de menor a Mayor
 let menorToMayor = document.getElementById("menorToMayor");
@@ -176,7 +176,7 @@ menorToMayor.addEventListener("click", () => {
     });
     
     renderCatalogo (peliculasOrdenadasPorcalificacion, boxPosterFilter);
-})
+});
 
 //--------------------------------------------------
 //crea que catálogo con las imagenes de "personajes", "locaciones" y "vehículos"

@@ -1136,7 +1136,7 @@ i {
     }    
 }
 
-@media (max-width: 830px) {
+@media (max-width: 860px) {
     @media (min-width: 750px) {
         .modal{
            max-width: 640px;
@@ -1144,6 +1144,19 @@ i {
 
         .cajaMedia{
             max-height: 380px;
+        }
+
+        .codigoQR{
+            width: 70px;
+            height: 70px;
+        }
+        
+        .seccionDatos{
+            /* height: auto;
+            width: 50%;
+            padding: 2rem;
+            overflow: hidden; */
+            line-height:1.35rem;
         }
     }
 }
