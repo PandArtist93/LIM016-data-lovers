@@ -14,6 +14,7 @@ body {
 /*-----------------------características del header-------------------*/
 header {
     width: 100%;
+    height: 8rem;
     margin: 0;
     display: flex;
 }
@@ -26,7 +27,7 @@ header nav {
     justify-content: space-around;
     /* justify-content: space-around; */
     background-color: #157181;
-    padding: 1rem;
+    padding: 0.7rem;
     align-items: center;
 }
 
@@ -279,25 +280,31 @@ main {
     align-items: center;
     font-size: 1.3rem;    
     width: 100%;
-    height: 37rem;       
+    height: 35rem;       
     /* margin-bottom: 3rem; */
     /* background-color:#d4ebe2;  */ 
     background-image: url("https://taylorfinn.files.wordpress.com/2018/10/45e1c53194fc5f424f17e0f926990af8.gif?w=540&h=300&crop=1") ;
     color: rgb(112, 112, 112);  
     background-size: cover;  
-    background-position: center center;  
+    background-position: center;  
     object-fit: cover;
 }
 
 /*------------------características del carrusel-----------------*/
 .carrusel {
-    width: 100%;
+    display: flex;
+    width: 90%;
     height: 38rem;
     background-color:#524e4e;       
     position: relative;
-    user-select: none;   
-    border: solid #e4dbdb 0.7rem;
-    /* margin-bottom: 3rem; */
+    justify-content: center;
+    user-select: none;  
+    left: 5%;
+    align-items: center;
+    justify-content: center; 
+    margin: 5% 0;
+    /* border: solid #e4dbdb 0.7rem; */
+   
 }
 
 #i1,#i2,#i3,#i4,#i5 {
@@ -324,7 +331,7 @@ main {
     height: inherit;
     position: absolute;
     top:0;
-    background-color: rgba(122, 117, 117, 0.116);
+    background-color: rgba(122, 117, 117, 0);
     color: #e4dbdb;
     z-index: 99;
     transition: .45s;
@@ -399,7 +406,7 @@ label span{
 
 /*---------------------------características de la sección de filtrado---------------*/
 .secfiltrado{
-    width: auto;    
+    width: 100%;    
     height: 6rem;
     display: flex;
     background-color: #157181;
@@ -420,11 +427,12 @@ main nav{
     align-content: center;
     align-items: center;
     vertical-align: middle; 
-    font-size: 1.4rem;
+    font-size: 1.9rem;
+    margin: 0rem 1rem;
 }
 
 .secfiltrado p{
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-family: fantasy;
     letter-spacing: 0.18rem;
     /* color: rgb(219, 226, 152); */
@@ -438,37 +446,44 @@ main nav{
 }
  */
 main nav ul{
+    display: inline-flex;
+    flex-wrap: nowrap;
     list-style: none;
     position: relative;     
 }
 
 main nav ul li{
     display: inline-block;
+    flex-wrap: nowrap;
     margin: 0 0.4rem;
     border-radius: 0rem;
     justify-content: space-between;
     box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 0 0  0 0px  #157181, 0.3em 0.3em 1em rgba(0,0,0,0.3); 
     border-radius: 1rem;
-    font-size: 1.9rem; 
-    cursor: pointer;  
+    font-size: 1.3rem; 
+    cursor: pointer; 
+    padding: 1rem; 
 }
 
 main nav ul li a{
-    display: flex;
+    /* display: flex; */
     position: relative;
     z-index: 200;
     color: rgb(230, 222, 222);
     line-height: 2rem;
-    font-size: 1.4rem;
+    font-size: 1rem;
     letter-spacing: 0.1rem;
     text-transform: uppercase;
-    padding: 0.02rem;
-    margin: 1rem;
+    /* padding: 0.02rem; */
+    margin: auto;
     text-decoration: none;
     cursor: pointer; 
+    width: auto;
 }
 
 main nav ul ul{
+    position: flex;
+    flex-direction: column;
     position: absolute;
     bottom: auto;
     width: 0;
@@ -491,7 +506,7 @@ main nav ul ul li{
     position: relative;
     z-index: 201;
     top: 2rem;
-    /* margin: 0rem; */
+    margin: 0rem;
     width: auto;
     float: none;
     justify-content: center;
@@ -516,7 +531,7 @@ main nav ul li a:hover{
     width: auto;    
     height: 8rem;
     display: flex;
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem; */
     flex-wrap: nowrap;
     background-color: #157181;
     font-family: fantasy;
@@ -540,23 +555,25 @@ main nav ul li a:hover{
     height: auto;
     width: auto;
     display: flex;
-    padding: auto;
+    padding: 2%;
     flex-wrap: wrap;
     justify-content: space-around;  
 }
 
 .portada {
-    width: 25rem;
-    height: 35rem;
+    background: #d4ebe2;
+    border-radius: 0 1rem 0 1rem;
+    width: 22rem;
+    height: 38rem;
     display: flex;  
     position: relative;
-    margin: 1.2rem;
-    overflow: hidden; 
+    margin: 2rem;
+    overflow: hidden;
 }
 
 .textoImg {
     width: 100%;
-    height: 20%;
+    height: 15%;
     display: flex;    
     z-index: 5;
     position: absolute;
@@ -571,7 +588,7 @@ main nav ul li a:hover{
     text-align: center;
     align-items: center;
     text-transform: uppercase;
-    border-radius: 1rem;  
+    border-radius: 0 0 1rem 1rem;  
     overflow: hidden;
     cursor: pointer;
 } 
@@ -579,20 +596,22 @@ main nav ul li a:hover{
 button {
     display: flex;
     width: 100%;
+    height: 81%;
+    justify-content: center;
     border-color: #d4ebe2;
-    border-radius: 1rem; 
-    z-index: 1;    
+    border-radius: 1rem 1rem 0 0; 
+    z-index: 6;    
 } 
   
 button img {
     height:100%;
     width:100%;
     background-repeat:no-repeat;
-    border-radius: 1rem;  
+    border-radius: 1rem 1rem 0 0;   
     cursor: pointer;
     background-size: cover;  
-    background-position: center center;  
-    object-fit: cover;
+    /* background-position: center center;  */ 
+   /*  object-fit: cover; */
 }
 
 .portada:hover {
@@ -1015,7 +1034,7 @@ i {
         width: 100%;
         height: auto;        
         background: #128291;  
-        top: 9.8rem;
+        top: 8rem;
         left: 100;
         text-align: center;
         transition: all .5s;
@@ -1158,6 +1177,11 @@ i {
             overflow: hidden; */
             line-height:1.35rem;
         }
+
+        .portada {           
+            width: 30rem;
+            height: 45rem;
+        }  
     }
 }
 
