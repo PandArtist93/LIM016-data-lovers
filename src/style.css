@@ -93,6 +93,7 @@ header nav ul{
     position: relative;  
     font-family: fantasy;   
     color: #e4dbdb;
+    margin: 0 1rem;
 }
 
 header nav ul li{
@@ -229,11 +230,13 @@ header nav ul li a:hover{
     background: #faf9f9;
     padding: 0, 0.5rem;
 } 
+
 /* --------------------- características del main---------------------- */
 main {
     height: 100%;
     width: 100%;
 } 
+
 /*---------------caracter÷isticas de la pagina principal----------------*/
 .principalPage h3 {
     color: rgb(255, 119, 7);
@@ -959,7 +962,6 @@ i {
     transform: translateY(-0.38rem);
 }
 
-
 .contenidoPagePersonajes {
     background: #44a8b9;
     color: #720076;
@@ -1008,7 +1010,6 @@ i {
     }
 
     .header-right {
-        /* justify-content: ; */
         display: none;
         position: absolute;
         width: 100%;
