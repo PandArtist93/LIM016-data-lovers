@@ -421,7 +421,7 @@ label span{
 
 main nav{
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     width: auto;
     justify-content: space-around;
     align-content: center;
@@ -527,28 +527,28 @@ main nav ul li a:hover{
 }
 
 /*----------------------Sección de ordenado-----------------------*/
-.secOrdenado{
+/* .secOrdenado{
     width: auto;    
     height: 8rem;
     display: flex;
     /* margin-bottom: 2rem; */
-    flex-wrap: nowrap;
+   /*  flex-wrap: nowrap;
     background-color: #157181;
     font-family: fantasy;
     letter-spacing: 0.1rem; 
     color: #e4dbdb;   
     justify-content: center;
     align-items: center;
-    vertical-align: middle;    
-}
+    vertical-align: middle;  */   
+/*} */
 
-.secOrdenado p{
+/* .secOrdenado p{
     font-size: 1.5rem;
     font-family: fantasy;
-    letter-spacing: 0.18rem;
+    letter-spacing: 0.18rem; */
     /* color: rgb(219, 226, 152);   */  
-    color:rgba(231, 186, 101, 0.952);
-}
+    /* color:rgba(231, 186, 101, 0.952);
+} */
 
 /*---------------------------características del catálogo de películas----------------*/
 .boxPoster {
@@ -1193,5 +1193,65 @@ i {
 
     .cajaMedia{
         max-height: 380px;        
+    }
+}
+ 
+@media (max-width: 1250px) {
+
+    .secfiltrado {
+        width: auto;
+        height: 17rem;
+        display: flex;
+        background-color: #157181;
+        font-family: fantasy;
+        /* letter-spacing: 0.1rem; */
+        letter-spacing: 0.18rem;
+        color: #e4dbdb;
+        justify-content: center;
+        align-items: center;
+        vertical-align: middle;
+        flex-direction: column;
+        flex-wrap: wrap;
+    } 
+
+    main nav { 
+        display: flex;
+        flex-wrap: wrap; 
+        width: auto;
+        /* justify-content: space-around; */
+        align-content: center;
+        align-items: center;
+        vertical-align: middle;
+        font-size: 1.9rem;
+        margin: 0rem 1rem;
+        flex-direction: column; 
+     }
+
+     main nav ul {
+        display: inline-flex;
+        flex-wrap: nowrap;
+        list-style: none;
+        position: relative;
+        margin: 1rem 0rem;
+    }
+
+    main nav ul li {
+        display: inline-block;
+        margin: 0 0.4rem;
+        border-radius: 0rem;
+        justify-content: space-between;
+        box-shadow: inset 0 -3em 3em rgb(0 0 0 / 10%), 0 0 0 0px #157181, 0.3em 0.3em 1em rgb(0 0 0 / 30%);
+        border-radius: 1rem;
+        font-size: 2rem;
+        cursor: pointer;
+        padding: 1rem;
+        width: 13rem;
+        align-items: inherit;
+        /* justify-content: center; */
+        text-align: center;
+    }
+
+    main nav ul li a {
+        font-size: 1.3rem;
     }
 }
