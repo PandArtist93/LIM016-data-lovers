@@ -402,116 +402,114 @@ label span{
     width: 100%;    
     height: 6rem;
     display: flex;
+    justify-content: space-around;
+    align-items:center;
+    /* vertical-align: middle;    */
     background-color: #157181;
     font-family: fantasy;
     /* letter-spacing: 0.1rem; */ 
     /* letter-spacing: 0.18rem; */
     color: #e4dbdb;   
-    justify-content: center;
-    align-items: center;
-    vertical-align: middle;    
 }
 
-main nav{
+.secfiltrado nav{
     display: flex;
     flex-wrap: nowrap;
     width: auto;
     justify-content: space-around;
-    align-content: center;
+    /* align-content: center; */
     align-items: center;
-    vertical-align: middle; 
-    font-size: 1.9rem;
-    margin: 0rem 1rem;
+    /* vertical-align: middle;  */
+    margin: 1rem 1rem;
 }
 
 .secfiltrado p{
-    font-size: 1.3rem;
-    font-family: fantasy;
-    letter-spacing: 0.18rem;
+    /* display: flex;
+    justify-content: space-around; */
+    font-size: 1.4rem;
+    /* font-family: fantasy; */
+    letter-spacing: 0.1rem;
     /* color: rgb(219, 226, 152); */
     color:rgba(231, 186, 101, 0.952);
-}
+} 
 
-/* main nav:after{
-    content: "";
-    clear: both;
-    display: table;
-}
- */
-main nav ul{
+.secfiltrado nav ul{
     display: inline-flex;
+    flex-direction: row;
     flex-wrap: nowrap;
     list-style: none;
-    position: relative;     
-}
-
-main nav ul li{
-    display: inline-block;
-    margin: 0 0.4rem;
-    border-radius: 0rem;
-    justify-content: space-between;
-    box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 0 0  0 0px  #157181, 0.3em 0.3em 1em rgba(0,0,0,0.3); 
-    border-radius: 1rem;
-    font-size: 1.3rem; 
-    cursor: pointer; 
-    padding: 1rem; 
-}
-
-main nav ul li a{
     position: relative;
+}
+
+.secfiltrado nav ul li{
+    /* display: inline-block; */
+    margin: 0 0.4rem;
+    /* justify-content: space-between; */
+    box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 0 0  0 0px  #157181, 0.3em 0.3em 1em rgba(0,0,0,0.3); 
+    border: solid 0.2rem #157181;
+    border-radius: 1rem;
+    /* font-size: 1.3rem;  */
+    cursor: pointer; 
+    padding: 0.35rem; 
+}
+
+.secfiltrado nav ul li a{
+    display: flex;
+    /* position: relative; */
     z-index: 200;
     color: rgb(230, 222, 222);
-    line-height: 2rem;
-    font-size: 1rem;
+    line-height: 1.7rem;
+    font-size: 1.4rem;
     letter-spacing: 0.1rem;
     text-transform: uppercase;
     /* padding: 0.02rem; */
-    margin: auto;
-    text-decoration: none;
+    margin: 1rem;
+    /* text-decoration: none; */
     cursor: pointer; 
     width: auto;
 }
 
-main nav ul ul{
+.secfiltrado nav ul ul{
     display: flex;
     flex-direction: column;
     position: absolute;
     bottom: auto;
-    width: 0;
+    width: 14rem;
     opacity: 0;
-    /* visibility: hidden; */
-    transition: top 0.3s;
-    font-size: 0.7rem;
-    cursor: pointer; 
+    visibility: hidden;
+    transition: top 0.2s;
+
+    /* cursor: pointer;  */
 }
 
-main nav ul li:hover > ul{
+.secfiltrado nav ul li:hover > ul{
     top: 3rem;
     opacity: 1;
-    visibility: visible;
-    width: auto;
+    visibility: visible; 
+    /* width:13rem; */
 }
 
-main nav ul ul li{
-    display: flex;
+.secfiltrado nav ul ul li{
+    /* display: flex; */
     position: relative;
     z-index: 201;
     top: 2rem;
     margin: 0rem;
     width: auto;
-    float: none;
-    justify-content: center;
-    align-items: center;
+    /* float: none; */
+    /* justify-content: center; */
+    /* align-items: center; */
     background: #53909b;
     cursor: pointer; 
+    left: -0.6rem;
 } 
 
-main nav ul ul li a:hover{
-    color: rgb(24, 10, 233);
+.secfiltrado nav ul ul li a:hover{
+    color: rgb(176, 235, 207);
     box-shadow: none;
 }
 
-main nav ul li a:hover{
+.secfiltrado nav ul li a:hover{
     border-radius: 0.3rem;
     /* box-shadow: 0 0 0.2rem #85bec9, 0 0 0.2rem #53909b; */
     color: rgb(176, 235, 207);
@@ -1179,61 +1177,35 @@ i {
 }
  
 @media (max-width: 1250px) {
-
-    .secfiltrado {
-        width: auto;
-        height: 17rem;
+    .secfiltrado{
+        width: 100%;    
+        height: 13rem;
         display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items:inherit;
+        /* vertical-align: middle;    */
         background-color: #157181;
         font-family: fantasy;
-        /* letter-spacing: 0.1rem; */
-        letter-spacing: 0.18rem;
-        color: #e4dbdb;
-        justify-content: center;
-        align-items: center;
-        vertical-align: middle;
-        flex-direction: column;
-        flex-wrap: wrap;
-    } 
+        /* letter-spacing: 0.1rem; */ 
+        /* letter-spacing: 0.18rem; */
+        color: #e4dbdb;   
+    }
 
-    main nav { 
+    .secfiltrado nav ul li a {
         display: flex;
-        flex-wrap: wrap; 
-        width: auto;
-        /* justify-content: space-around; */
-        align-content: center;
-        align-items: center;
-        vertical-align: middle;
-        font-size: 1.9rem;
-        margin: 0rem 1rem;
-        flex-direction: column; 
-     }
-
-     main nav ul {
-        display: inline-flex;
-        flex-wrap: nowrap;
-        list-style: none;
-        position: relative;
-        margin: 1rem 0rem;
-    }
-
-    main nav ul li {
-        display: inline-block;
-        margin: 0 0.4rem;
-        border-radius: 0rem;
-        justify-content: space-between;
-        box-shadow: inset 0 -3em 3em rgb(0 0 0 / 10%), 0 0 0 0px #157181, 0.3em 0.3em 1em rgb(0 0 0 / 30%);
-        border-radius: 1rem;
-        font-size: 2rem;
+        /* position: relative; */
+        z-index: 200;
+        color: rgb(230, 222, 222);
+        line-height: 1.7rem;
+        font-size: 1.4rem;
+        letter-spacing: 0.1rem;
+        text-transform: uppercase;
+        padding: 0.02rem;
+        margin: 1rem;
+        /* text-decoration: none; */
         cursor: pointer;
-        padding: 1rem;
-        width: 13rem;
-        align-items: inherit;
-        /* justify-content: center; */
-        text-align: center;
-    }
-
-    main nav ul li a {
-        font-size: 1.3rem;
+        width: 60%;
     }
 }
