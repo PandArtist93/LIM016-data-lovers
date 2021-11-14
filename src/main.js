@@ -66,7 +66,38 @@ a_z.addEventListener("click",() => {
         return 0;
     }) 
         
-    renderCatalogo (peliculasOrdenadasPorTitulo, boxPosterFilter);
+    renderCatalogo (peliculasOrdenadasPorTitulo, boxPosterFilter); 
+     
+    for (let i=0; i< btnImagenes.length; i++) {
+        
+        btnImagenes[i].addEventListener("click",function() {            
+            principalPage.style.display = "none" ; 
+            pagina2.style.display = "block" ;
+            
+            /* let personajesPelicula = peliculasOrdenadasPorTitulo.map(x => x.people); */
+            /* console.log(personajesPelicula);  */   
+
+            textPage6.innerHTML = '<img src ='+ poster[i]+'>';
+            textPage2.innerHTML = "Título: " + tituloPeliculas[i];
+            textPage3.innerHTML = "Sinopsis: " + descriptionPelicula[i];
+            textPage4.innerHTML = "Director: " + directorPelicula[i];
+            textPage5.innerHTML = "Productor: " + producerPelicula[i];
+            textPage7.innerHTML = "Fecha de lanzamiento: " + release_date[i];
+            textPage8.innerHTML = "Puntaje: " + rt_score[i] + "/100";     
+
+            /* textPage2.innerHTML = "Título: " + `${peliculaSelect.title}:`;
+            textPage3.innerHTML = "Sinopsis: " + `${peliculaSelect.description}:`;
+            textPage4.innerHTML = "Director: " + `${peliculaSelect.director}:`;
+            textPage5.innerHTML = "Productor: " + `${peliculaSelect.producer}:`;
+            textPage7.innerHTML = "Fecha de lanzamiento: " + `${peliculaSelect.release_date}:`;
+            textPage8.innerHTML = "Puntaje: " + `${peliculaSelect.rt_score}:` + "/100";      */             
+                    
+
+        });  
+
+        
+    }
+
 }); 
 
 // ordenado alfabético descendente
@@ -253,7 +284,8 @@ for (let i=0; i< btnImagenes.length; i++) {
 //botones del header
 principalBtn.addEventListener("click", function(){    
     pagina2.style.display = "none";
-    principalPage.style.display = "block";    
+    principalPage.style.display = "block";  
+    location.reload();    
 });
 
 /* let comunityBtn = document.getElementById("btnHeaderComunidad");
@@ -343,6 +375,6 @@ window.addEventListener("click", function(e){
     }
 });
 
-
+/*-----------------------------sección del slider------------------------------*/
 /* console.log(example, data); */
 
