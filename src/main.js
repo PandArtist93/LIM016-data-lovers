@@ -55,7 +55,7 @@ renderCatalogo(dataPeliculas, boxPoster);
 // ordenado alfabético ascendente
 let a_z = document.getElementById("a_z");
 a_z.addEventListener("click",() => {
-    let boxPoster = document.getElementById("boxPoster");
+    // let boxPoster = document.getElementById("boxPoster");
     let boxPosterFilter = document.getElementById("boxPosterFilter");   
     boxPoster.style.display= "none";
     boxPosterFilter.style.display= " ";
@@ -73,7 +73,7 @@ a_z.addEventListener("click",() => {
 let z_a = document.getElementById("z_a");
 z_a.addEventListener("click", () => {
     
-    let boxPoster = document.getElementById("boxPoster");
+    // let boxPoster = document.getElementById("boxPoster");
     let boxPosterFilter = document.getElementById("boxPosterFilter");   
     boxPoster.style.display= "none";
     boxPosterFilter.style.display= " ";
@@ -86,6 +86,31 @@ z_a.addEventListener("click", () => {
     
     renderCatalogo (peliculasOrdenadasPorTitulo, boxPosterFilter);    
 });
+// --------------------------probando alfabetico--------------------
+// let alfabeticoOrden = document.querySelectorAll("alfabetico");
+// let boxPoster = document.getElementById("boxPoster");
+// let boxPosterFilter = document.getElementById("boxPosterFilter")
+
+// for (let i=0; i<alfabeticoOrden.length; i++) {
+//     alfabeticoOrden[i].addEventListener("click", () => {
+//         boxPoster.style.display= "none";
+//         boxPosterFilter.style.display= " ";
+//         let peliculasOrdenadasPorTitulo = dataPeliculas.sort((a,b) => {
+//             if (alfabeticoOrden[i]==="a_z"){
+//                 if (a.title > b.title) {return -1;}
+//                 if (a.title < b.title) {return 1;}
+//                 return 0;
+//             }else if(alfabeticoOrden[i]==="z_a") {
+//                 if (a.title < b.title) {return -1;}
+//                 if (a.title > b.title) {return 1;}
+//                 return 0; 
+//             }
+//         });
+//         renderCatalogo (peliculasOrdenadasPorTitulo, boxPosterFilter); 
+        
+//     })
+// }
+// ------------fin de probando alfabetico---------------------
 
 // ordenado cronológico ascendente
 let yearAsc = document.getElementById("yearAsc");
@@ -164,7 +189,19 @@ menorToMayor.addEventListener("click", () => {
     
     renderCatalogo (peliculasOrdenadasPorcalificacion, boxPosterFilter);
 });
-
+// -----------creando funcion para catálogo y locaciones----------------
+    function catalogoLocacionesOVehiculos(caracteristica, contenidoPage) {
+        if (caracteristica.length !== 0){
+            for(let k = 0; k < caracteristica.length; k++) {
+                contenidoPage.appendChild(createDetalles(caracteristica[k]));                      
+            } 
+        }
+        else{
+            contenidoPage.innerHTML = `En esta película no es destacan ${caracteristica} en específico`;
+        }
+    }
+        
+// ----------fin de creando funcion para catálogo y locaciones--------------
 //--------------------------------------------------
 //crea que catálogo con las imagenes de "personajes", "locaciones" y "vehículos"
 /* console.log(btnImagenes); */
@@ -187,34 +224,45 @@ for (let i=0; i< btnImagenes.length; i++) {
         textPage7.innerHTML = "Fecha de lanzamiento: " + release_date[i];
         textPage8.innerHTML = "Puntaje: " + rt_score[i] + "/100";     
         // crear el catalogo de personajes
+
         for(let j = 0; j < characters.length; j++) {
-           contenidoPagePersonajes.appendChild(createCharacter(characters[j]));           
-        }  
-        // crear el catalogo de locaciones
-        if (locations.length !== 0){
-            for(let k = 0; k < locations.length; k++) {
-                contenidoPageLocaciones.appendChild(createLocation(locations[k]));                      
-            } 
-        }
-        else{
-            contenidoPageLocaciones.innerHTML = "En esta película no es destacan locaciones específicas";
+           contenidoPagePersonajes.appendChild(createDetalles(characters[j])); 
+           
+           catalogoLocacionesOVehiculos(locations,contenidoPageLocaciones);
+           catalogoLocacionesOVehiculos(vehicles,contenidoPageVehiculos);          
         }
         
-        // crear el catalogo de vehículos
-        if (vehicles.length == 0){
-            contenidoPageVehiculos.innerHTML = "En esta película no es destacan vehículos específicos";
-        }
-        else{
-            for(let l = 0; l < vehicles.length ; l++){
-                console.log(vehicles);
-                contenidoPageVehiculos.appendChild(createVehicles(vehicles[l]));
-            }
-        }    
-
         let imgDetalles = document.getElementsByClassName("contenedorSubData");
         abrirModal(imgDetalles);
-    }); 
-}
+    })
+}    
+        // crear el catalogo de locaciones
+
+        // if (locations.length !== 0){
+        //     for(let k = 0; k < locations.length; k++) {
+        //         contenidoPageLocaciones.appendChild(createDetalles(locations[k]));                      
+        //     } 
+        // }
+        // else{
+        //     contenidoPageLocaciones.innerHTML = "En esta película no es destacan locaciones específicas";
+        // }
+        
+        
+        // crear el catalogo de vehículos
+//         if (vehicles.length == 0){
+//             contenidoPageVehiculos.innerHTML = "En esta película no es destacan vehículos en específico";
+//         }
+//         else{
+//             for(let l = 0; l < vehicles.length ; l++){
+//                 console.log(vehicles);
+//                 contenidoPageVehiculos.appendChild(createDetalles(vehicles[l]));
+//             }
+//         }    
+
+//         let imgDetalles = document.getElementsByClassName("contenedorSubData");
+//         abrirModal(imgDetalles);
+//     }); 
+// }
 
 //--------------------------------------------------
 /* function crearVista2 () {
@@ -240,7 +288,8 @@ for (let i=0; i< btnImagenes.length; i++) {
 //botones del header
 principalBtn.addEventListener("click", function(){    
     pagina2.style.display = "none";
-    principalPage.style.display = "block";    
+    principalPage.style.display = "block";  
+    location.reload();  
 });
 
 /* let comunityBtn = document.getElementById("btnHeaderComunidad");
@@ -250,7 +299,7 @@ comunityBtn.addEventListener("click", function(){
 
 //--------------------------------------------------
 //crea los div en función de cada caracter 
-function createCharacter(character) {
+function createDetalles(character) {
     let nuevoElemento = document.createElement('div'); 
     let nuevoElementoImg = document.createElement('img');
     nuevoElementoImg.src = character.img;
@@ -262,28 +311,28 @@ function createCharacter(character) {
 }
 
 //crea los div en función de cada locación 
-function createLocation(locations) {
-    let nuevoElemento = document.createElement('div'); 
-    let nuevoElementoImg = document.createElement('img');
-    nuevoElementoImg.src = locations.img;
-    nuevoElemento.textContent += `${locations.name}:`
-    nuevoElemento.appendChild(nuevoElementoImg);
-    nuevoElemento.classList.add("contenedorSubData");
+// function createLocation(locations) {
+//     let nuevoElemento = document.createElement('div'); 
+//     let nuevoElementoImg = document.createElement('img');
+//     nuevoElementoImg.src = locations.img;
+//     nuevoElemento.textContent += `${locations.name}:`
+//     nuevoElemento.appendChild(nuevoElementoImg);
+//     nuevoElemento.classList.add("contenedorSubData");
     
-    return nuevoElemento;
-}
+//     return nuevoElemento;
+// }
 
 //crea los div en función de cada vehículo 
-function createVehicles(vehicles) {
-    let nuevoElemento = document.createElement('div'); 
-    let nuevoElementoImg = document.createElement('img');
-    nuevoElementoImg.src = vehicles.img;
-    nuevoElemento.textContent += `${vehicles.name}:`
-    nuevoElemento.appendChild(nuevoElementoImg);
-    nuevoElemento.classList.add("contenedorSubData");
+// function createVehicles(vehicles) {
+//     let nuevoElemento = document.createElement('div'); 
+//     let nuevoElementoImg = document.createElement('img');
+//     nuevoElementoImg.src = vehicles.img;
+//     nuevoElemento.textContent += `${vehicles.name}:`
+//     nuevoElemento.appendChild(nuevoElementoImg);
+//     nuevoElemento.classList.add("contenedorSubData");
     
-    return nuevoElemento;
-}
+//     return nuevoElemento;
+// }
 
 //--------------------------------------------------
 // reacción y funcionalidad del modal
@@ -330,6 +379,4 @@ window.addEventListener("click", function(e){
     }
 });
 
-
 /* console.log(example, data); */
-
