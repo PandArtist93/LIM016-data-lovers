@@ -48,10 +48,36 @@ function renderCatalogo(dataArray, htmlLocation){
         i++; 
     });
 }
+
+// crea los div en función de cada caracter 
+function createDetalles(character) {
+    let nuevoElemento = document.createElement('div'); 
+    let nuevoElementoImg = document.createElement('img');
+    nuevoElementoImg.src = character.img;
+    nuevoElemento.textContent += `${character.name}:`
+    nuevoElemento.appendChild(nuevoElementoImg);
+    nuevoElemento.classList.add("contenedorSubData");
+    
+    return nuevoElemento;
+}
+
+// -----------creando funcion para catálogo y locaciones----------------
+function catalogoLocacionesOVehiculos(caracteristica, contenidoPage,stringDeContenido) {
+    if (caracteristica.length !== 0){
+        for(let k = 0; k < caracteristica.length; k++) {
+            contenidoPage.appendChild(createDetalles(caracteristica[k]));                      
+        } 
+    }
+    else{
+        contenidoPage.innerHTML = `En esta película no se destacan ${stringDeContenido} en específico`;
+    }
+}  
+// ----------fin de creando funcion para catálogo y locaciones--------------
+//--------------------------------------------------------------------------
+
 let boxPoster = document.getElementById("boxPoster");
 renderCatalogo(dataPeliculas, boxPoster);
 
-//--------------------------------------------------
 // ordenado alfabético ascendente
 let a_z = document.getElementById("a_z");
 a_z.addEventListener("click",() => {
@@ -82,35 +108,9 @@ z_a.addEventListener("click", () => {
         if (a.title > b.title) {return -1;}
         if (a.title < b.title) {return 1;}
         return 0;
-    });
-    
+    });   
     renderCatalogo (peliculasOrdenadasPorTitulo, boxPosterFilter);    
 });
-// --------------------------probando alfabetico--------------------
-// let alfabeticoOrden = document.querySelectorAll("alfabetico");
-// let boxPoster = document.getElementById("boxPoster");
-// let boxPosterFilter = document.getElementById("boxPosterFilter")
-
-// for (let i=0; i<alfabeticoOrden.length; i++) {
-//     alfabeticoOrden[i].addEventListener("click", () => {
-//         boxPoster.style.display= "none";
-//         boxPosterFilter.style.display= " ";
-//         let peliculasOrdenadasPorTitulo = dataPeliculas.sort((a,b) => {
-//             if (alfabeticoOrden[i]==="a_z"){
-//                 if (a.title > b.title) {return -1;}
-//                 if (a.title < b.title) {return 1;}
-//                 return 0;
-//             }else if(alfabeticoOrden[i]==="z_a") {
-//                 if (a.title < b.title) {return -1;}
-//                 if (a.title > b.title) {return 1;}
-//                 return 0; 
-//             }
-//         });
-//         renderCatalogo (peliculasOrdenadasPorTitulo, boxPosterFilter); 
-        
-//     })
-// }
-// ------------fin de probando alfabetico---------------------
 
 // ordenado cronológico ascendente
 let yearAsc = document.getElementById("yearAsc");
@@ -126,7 +126,6 @@ yearAsc.addEventListener("click",() => {
         if (a.release_date > b.release_date) {return 1;}
         return 0;
     });
-
     renderCatalogo (peliculasOrdenadasPorYear, boxPosterFilter);  
 });
 
@@ -144,7 +143,6 @@ yearDesc.addEventListener("click", () => {
         if (a.release_date < b.release_date) {return 1;}
         return 0;
     });
-
     renderCatalogo (peliculasOrdenadasPorYear, boxPosterFilter);
 });
 
@@ -165,7 +163,6 @@ mayorToMenor.addEventListener("click", () => {
         }
         return 0;
     });
-
     renderCatalogo (peliculasOrdenadasPorcalificacion, boxPosterFilter);
 });
 
@@ -185,24 +182,10 @@ menorToMayor.addEventListener("click", () => {
             return 1;
         }
         return 0;
-    });
-    
+    });   
     renderCatalogo (peliculasOrdenadasPorcalificacion, boxPosterFilter);
 });
-// -----------creando funcion para catálogo y locaciones----------------
-    function catalogoLocacionesOVehiculos(caracteristica, contenidoPage) {
-        if (caracteristica.length !== 0){
-            for(let k = 0; k < caracteristica.length; k++) {
-                contenidoPage.appendChild(createDetalles(caracteristica[k]));                      
-            } 
-        }
-        else{
-            contenidoPage.innerHTML = `En esta película no es destacan ${caracteristica} en específico`;
-        }
-    }
-        
-// ----------fin de creando funcion para catálogo y locaciones--------------
-//--------------------------------------------------
+
 //crea que catálogo con las imagenes de "personajes", "locaciones" y "vehículos"
 /* console.log(btnImagenes); */
 
@@ -215,7 +198,7 @@ for (let i=0; i< btnImagenes.length; i++) {
         // ocultar la primera vista y despliega la segunda
         principalPage.style.display = "none" ; 
         pagina2.style.display = "block" ;
-        // generar lo datos basicos de la película selecionada
+         // generar lo datos basicos de la película selecionada
         textPage6.innerHTML = '<img src ='+ poster[i]+'>';
         textPage2.innerHTML = "Título: " + tituloPeliculas[i];
         textPage3.innerHTML = "Sinopsis: " + descriptionPelicula[i];
@@ -226,43 +209,16 @@ for (let i=0; i< btnImagenes.length; i++) {
         // crear el catalogo de personajes
 
         for(let j = 0; j < characters.length; j++) {
-           contenidoPagePersonajes.appendChild(createDetalles(characters[j])); 
+            contenidoPagePersonajes.appendChild(createDetalles(characters[j])); 
            
-           catalogoLocacionesOVehiculos(locations,contenidoPageLocaciones);
-           catalogoLocacionesOVehiculos(vehicles,contenidoPageVehiculos);          
-        }
-        
+            catalogoLocacionesOVehiculos(locations,contenidoPageLocaciones,"locaciones");
+            catalogoLocacionesOVehiculos(vehicles,contenidoPageVehiculos,"vehiculos");   
+        }    
+
         let imgDetalles = document.getElementsByClassName("contenedorSubData");
         abrirModal(imgDetalles);
-    })
-}    
-        // crear el catalogo de locaciones
-
-        // if (locations.length !== 0){
-        //     for(let k = 0; k < locations.length; k++) {
-        //         contenidoPageLocaciones.appendChild(createDetalles(locations[k]));                      
-        //     } 
-        // }
-        // else{
-        //     contenidoPageLocaciones.innerHTML = "En esta película no es destacan locaciones específicas";
-        // }
-        
-        
-        // crear el catalogo de vehículos
-//         if (vehicles.length == 0){
-//             contenidoPageVehiculos.innerHTML = "En esta película no es destacan vehículos en específico";
-//         }
-//         else{
-//             for(let l = 0; l < vehicles.length ; l++){
-//                 console.log(vehicles);
-//                 contenidoPageVehiculos.appendChild(createDetalles(vehicles[l]));
-//             }
-//         }    
-
-//         let imgDetalles = document.getElementsByClassName("contenedorSubData");
-//         abrirModal(imgDetalles);
-//     }); 
-// }
+    }) 
+}
 
 //--------------------------------------------------
 /* function crearVista2 () {
@@ -283,58 +239,6 @@ for (let i=0; i< btnImagenes.length; i++) {
     }    
 } */
 
-
-//--------------------------------------------------
-//botones del header
-principalBtn.addEventListener("click", function(){    
-    pagina2.style.display = "none";
-    principalPage.style.display = "block";  
-    location.reload();  
-});
-
-/* let comunityBtn = document.getElementById("btnHeaderComunidad");
-comunityBtn.addEventListener("click", function(){
-    
-}); */
-
-//--------------------------------------------------
-//crea los div en función de cada caracter 
-function createDetalles(character) {
-    let nuevoElemento = document.createElement('div'); 
-    let nuevoElementoImg = document.createElement('img');
-    nuevoElementoImg.src = character.img;
-    nuevoElemento.textContent += `${character.name}:`
-    nuevoElemento.appendChild(nuevoElementoImg);
-    nuevoElemento.classList.add("contenedorSubData");
-    
-    return nuevoElemento;
-}
-
-//crea los div en función de cada locación 
-// function createLocation(locations) {
-//     let nuevoElemento = document.createElement('div'); 
-//     let nuevoElementoImg = document.createElement('img');
-//     nuevoElementoImg.src = locations.img;
-//     nuevoElemento.textContent += `${locations.name}:`
-//     nuevoElemento.appendChild(nuevoElementoImg);
-//     nuevoElemento.classList.add("contenedorSubData");
-    
-//     return nuevoElemento;
-// }
-
-//crea los div en función de cada vehículo 
-// function createVehicles(vehicles) {
-//     let nuevoElemento = document.createElement('div'); 
-//     let nuevoElementoImg = document.createElement('img');
-//     nuevoElementoImg.src = vehicles.img;
-//     nuevoElemento.textContent += `${vehicles.name}:`
-//     nuevoElemento.appendChild(nuevoElementoImg);
-//     nuevoElemento.classList.add("contenedorSubData");
-    
-//     return nuevoElemento;
-// }
-
-//--------------------------------------------------
 // reacción y funcionalidad del modal
 let cerrar = document.getElementById("close");
 let modal = document.getElementById("modal");
@@ -379,4 +283,6 @@ window.addEventListener("click", function(e){
     }
 });
 
+
 /* console.log(example, data); */
+
