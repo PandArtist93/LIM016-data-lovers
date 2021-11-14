@@ -79,12 +79,8 @@ z_a.addEventListener("click", () => {
     boxPosterFilter.style.display= " ";
 
     let peliculasOrdenadasPorTitulo = dataPeliculas.sort((a,b) => {
-        if (a.title > b.title) {
-            return -1;
-        }
-        if (a.title < b.title) {
-            return 1;
-        }
+        if (a.title > b.title) {return -1;}
+        if (a.title < b.title) {return 1;}
         return 0;
     });
     
@@ -101,17 +97,12 @@ yearAsc.addEventListener("click",() => {
     boxPosterFilter.style.display= " ";
 
     let peliculasOrdenadasPorYear = dataPeliculas.sort((a,b) => {
-        if (a.release_date < b.release_date) {
-            return -1;
-        }
-        if (a.release_date > b.release_date) {
-            return 1;
-        }
+        if (a.release_date < b.release_date) {return -1;}
+        if (a.release_date > b.release_date) {return 1;}
         return 0;
     });
 
     renderCatalogo (peliculasOrdenadasPorYear, boxPosterFilter);  
-
 });
 
 // ordenado cronológico descendente
@@ -124,12 +115,8 @@ yearDesc.addEventListener("click", () => {
     boxPosterFilter.style.display= " ";
 
     let peliculasOrdenadasPorYear = dataPeliculas.sort((a,b) => {
-        if (a.release_date > b.release_date) {
-            return -1;
-        }
-        if (a.release_date < b.release_date) {
-            return 1;
-        }
+        if (a.release_date > b.release_date) { return -1;}
+        if (a.release_date < b.release_date) {return 1;}
         return 0;
     });
 
@@ -180,7 +167,8 @@ menorToMayor.addEventListener("click", () => {
 
 //--------------------------------------------------
 //crea que catálogo con las imagenes de "personajes", "locaciones" y "vehículos"
-console.log(btnImagenes);
+/* console.log(btnImagenes); */
+
 for (let i=0; i< btnImagenes.length; i++) {
     
     btnImagenes[i].addEventListener("click",function() {
@@ -190,7 +178,7 @@ for (let i=0; i< btnImagenes.length; i++) {
         // ocultar la primera vista y despliega la segunda
         principalPage.style.display = "none" ; 
         pagina2.style.display = "block" ;
-        // generar lo daros basicos de la película selecionada
+        // generar lo datos basicos de la película selecionada
         textPage6.innerHTML = '<img src ='+ poster[i]+'>';
         textPage2.innerHTML = "Título: " + tituloPeliculas[i];
         textPage3.innerHTML = "Sinopsis: " + descriptionPelicula[i];
@@ -203,18 +191,28 @@ for (let i=0; i< btnImagenes.length; i++) {
            contenidoPagePersonajes.appendChild(createCharacter(characters[j]));           
         }  
         // crear el catalogo de locaciones
-        for(let k = 0; k < locations.length; k++) {
-            contenidoPageLocaciones.appendChild(createLocation(locations[k]));                      
-        } 
-        // crear el catalogo de vehículos
-        if (vehicles.length == 0){
-            contenidoPageVehiculos.innerHTML = "En esta película no es destacan vehículos espefíficos";
+        if (locations.length !== 0){
+            for(let k = 0; k < locations.length; k++) {
+                contenidoPageLocaciones.appendChild(createLocation(locations[k]));                      
+            } 
         }
         else{
-            for(let l = 0; l <= vehicles.length ; l++){
+            contenidoPageLocaciones.innerHTML = "En esta película no es destacan locaciones específicas";
+        }
+        
+        // crear el catalogo de vehículos
+        if (vehicles.length == 0){
+            contenidoPageVehiculos.innerHTML = "En esta película no es destacan vehículos específicos";
+        }
+        else{
+            for(let l = 0; l < vehicles.length ; l++){
+                console.log(vehicles);
                 contenidoPageVehiculos.appendChild(createVehicles(vehicles[l]));
             }
-        }        
+        }    
+
+        let imgDetalles = document.getElementsByClassName("contenedorSubData");
+        abrirModal(imgDetalles);
     }); 
 }
 
@@ -244,6 +242,11 @@ principalBtn.addEventListener("click", function(){
     pagina2.style.display = "none";
     principalPage.style.display = "block";    
 });
+
+/* let comunityBtn = document.getElementById("btnHeaderComunidad");
+comunityBtn.addEventListener("click", function(){
+    
+}); */
 
 //--------------------------------------------------
 //crea los div en función de cada caracter 
@@ -285,16 +288,27 @@ function createVehicles(vehicles) {
 //--------------------------------------------------
 // reacción y funcionalidad del modal
 let cerrar = document.getElementById("close");
-let abrir = document.getElementById("cta");
 let modal = document.getElementById("modal");
 let modalC = document.getElementById("modalCont");
-
-abrir.addEventListener("click", function(e){
+/* let abrir = document.getElementById("cta"); */
+/* abrir.addEventListener("click", function(e){
     e.preventDefault();
     modalC.style.opacity = "1";
     modalC.style.visibility = "visible";
     modal.classList.toggle("modalClose");
-});
+}); */
+
+function abrirModal(imgDetalles) {
+    for (let i = 0; i < imgDetalles.length; i++){
+        let imgSelect = imgDetalles[i];
+        imgSelect.addEventListener("click", function(e){
+            e.preventDefault();
+            modalC.style.opacity = "1";
+            modalC.style.visibility = "visible";
+            modal.classList.toggle("modalClose");
+        });
+    }
+}
 
 cerrar.addEventListener("click", function(){
     modal.classList.toggle("modalClose");
@@ -306,7 +320,7 @@ cerrar.addEventListener("click", function(){
 });
 
 window.addEventListener("click", function(e){
-    this.console.log(e.target); // esto nos indica que estamos seleccionando por medio de la consola
+    /* this.console.log(e.target); */ // esto nos indica que estamos seleccionando por medio de la consola
     if (e.target == modalC){
         modal.classList.toggle("modalClose");       
         setTimeout(function(){
@@ -315,6 +329,7 @@ window.addEventListener("click", function(e){
         },900);
     }
 });
+
 
 /* console.log(example, data); */
 
