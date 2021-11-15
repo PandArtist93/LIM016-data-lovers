@@ -87,8 +87,8 @@
           <h4>Desde los clásicos hasta los últimos estrenos de Studio Ghibli.</h4>
         </div>           
   
-        <div class="container-carrusel">
-          <!-- <input type="radio" id="i1" name="images" checked>
+        <div class="carrusel">
+          <input type="radio" id="i1" name="images" checked>
           <input type="radio" id="i2" name="images">
           <input type="radio" id="i3" name="images">
           <input type="radio" id="i4" name="images">
@@ -130,13 +130,13 @@
             <label for="i3" class="dots" id="dot3"></label>
             <label for="i4" class="dots" id="dot4"></label>
             <label for="i5" class="dots" id="dot5"></label>
-          </div> --> 
+          </div> 
 
-          <div class="slider" id="slider">
+          <!-- <div class="slider" id="slider">
             <div class="seccionCarrusel">
-              <!-- <div>
+              <div>
                 <img class="imgSlider" src="https://i.pinimg.com/originals/c9/db/06/c9db06f07d4831b68812feca92d05843.jpg" alt="fondo de   ghibli">
-              </div> -->
+              </div>
               <div class="seccionImg">
                 <img class="imgSlider" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/ghibli2-1548333192.jpg" alt="">
               </div>
@@ -152,7 +152,7 @@
             </div> 
             <div class="slider-btn slider-btn-right" id="btnRightSlider">&#x203a</div>       
             <div class="slider-btn slider-btn-left" id="btnLeftSlider">&#x2039</div>
-          </div> 
+          </div>  -->
         </div>  
 
         <div class="secfiltrado">            
@@ -161,46 +161,23 @@
             <ul>
               <li>
                 <a>Director</a>
-                <ul id="listDirector">
-                  <!-- <li><a id="">Hayao Miyazaki</a></li>
-                  <li><a id="">Isao Takahata</a></li>
-                  <li><a id="">Yoshifumi Kondō</a></li>
-                  <li><a id="">Hiroyuki Morita</a></li>
-                  <li><a id="">Gorō Miyazaki</a></li>
-                  <li><a id="">Hiromasa Yonebayashi</a></li> -->
-                </ul>
+                <ul id="listDirector"></ul>
               </li>              
               <li>
                 <a>Productor</a>
-                <ul>
-                  <li><a>Isao Takahata</a></li>
-                  <li><a>Hayao Miyazaki</a></li>
-                  <li><a>Toru Hara</a></li>
-                  <li><a>Toshio Suzuki</a></li>
-                  <li><a>Yoshiaki Nishimura</a></li>
-                </ul> 
+                <ul id="listProducer"></ul> 
               </li>  
               <li>
-                <a>lanzamiento</a>
-                <!-- <ul>
-                  <li><a href=""></a></li>
-                  <li><a href=""></a></li>
-                  <li><a href=""></a></li>
-                  <li><a href=""></a></li>
-                  <li><a href=""></a></li>
-                  <li><a href=""></a></li>
-                </ul> -->
+                <a>Año</a>
+                <ul id="listYear"></ul>
               </li>                       
             </ul>  
-          <!-- </nav>   -->
-        <!-- </div> -->
-        <!-- <div class="secOrdenado">   -->         
-          <!-- <nav>  -->
+ 
             <p>Ordenar por:</p>
             <ul>
               <li>
                 <a>lanzamiento</a>
-                <ul>
+                <ul id="listOrdernDate">
                   <li><a id="yearAsc">Mas Antigua</a></li>
                   <li><a id="yearDesc">Mas Nueva</a></li>                  
                 </ul>
@@ -208,8 +185,8 @@
               <li>
                 <a>Alfabético</a>
                 <ul>
-                  <li><a id="a_z">A -- Z</a></li>
-                  <li><a id="z_a">Z -- A</a></li>                  
+                  <li><a id="a_z">A--Z</a></li>
+                  <li><a id="z_a">Z--A</a></li>                  
                 </ul> 
               </li>  
               <li>
@@ -248,14 +225,9 @@
         <div class="contenidoSubPage" id="contenidoPagePersonajes"></div>
       </section>  
 
-      <section class= "fondo">
-        <!-- <div class="contenedor-modal">
-            <a class="cta" id="cta" href="#">Abrir Modal</a>
-        </div> -->
+      <section class= "fondo">       
         <div class="modal-container" id="modalCont">
-
             <div class="modal modalClose" id="modal">
-
               <div class="cajaSuperior">
                 <p class="close" id="close">x</p>
                 <h2>IDENTIFICACIÓN</h2>
@@ -301,7 +273,7 @@
       <p> Desarrollado por Maizaga y KaterinT © 2021. Todos los derechos reservados.</p>          -->
     </footer>
     <script src="https://kit.fontawesome.com/a5f03eb3dc.js" crossorigin="anonymous"></script>
-    <script src="main2.js" type="module"></script>
+    <script src="main.js" type="module"></script>
   </body>
 </html>
 
