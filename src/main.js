@@ -4,10 +4,9 @@
 import data from './data/ghibli/ghibli.js';
 
 //interacción con el DOM
-let btnImagenes = document.getElementsByClassName("portada");
+/* let btnImagenes = document.getElementsByClassName("portada");
 let principalBtn = document.getElementById("btnHeaderPrincipal");
-let pagina2 =  document.getElementById("pagina2");
-let principalPage = document.getElementById("principalPage");
+
 let textPage2 = document.getElementById("textPage2");
 let textPage3 = document.getElementById("textPage3");
 let textPage4 = document.getElementById("textPage4");
@@ -29,7 +28,7 @@ let release_date = dataPeliculas.map(x => x.release_date);
 let rt_score = dataPeliculas.map(x => x.rt_score);
 let personajesPelicula = dataPeliculas.map(x => x.people);
 let locacionesPelicula = dataPeliculas.map(x => x.locations);
-let vehiculosPelicula = dataPeliculas.map(x => x.vehicles);
+let vehiculosPelicula = dataPeliculas.map(x => x.vehicles); */
 
 //--------------------------------------------------
 // genera las portadas de los catálogos dinamicamente en la vista principal
@@ -77,20 +76,20 @@ a_z.addEventListener("click",() => {
             /* let personajesPelicula = peliculasOrdenadasPorTitulo.map(x => x.people); */
             /* console.log(personajesPelicula);  */   
 
-            textPage6.innerHTML = '<img src ='+ poster[i]+'>';
+           /*  textPage6.innerHTML = '<img src ='+ poster[i]+'>';
             textPage2.innerHTML = "Título: " + tituloPeliculas[i];
             textPage3.innerHTML = "Sinopsis: " + descriptionPelicula[i];
             textPage4.innerHTML = "Director: " + directorPelicula[i];
             textPage5.innerHTML = "Productor: " + producerPelicula[i];
             textPage7.innerHTML = "Fecha de lanzamiento: " + release_date[i];
             textPage8.innerHTML = "Puntaje: " + rt_score[i] + "/100";     
-
-            /* textPage2.innerHTML = "Título: " + `${peliculaSelect.title}:`;
+ */
+            textPage2.innerHTML = "Título: " + `${peliculaSelect.title}:`;
             textPage3.innerHTML = "Sinopsis: " + `${peliculaSelect.description}:`;
             textPage4.innerHTML = "Director: " + `${peliculaSelect.director}:`;
             textPage5.innerHTML = "Productor: " + `${peliculaSelect.producer}:`;
             textPage7.innerHTML = "Fecha de lanzamiento: " + `${peliculaSelect.release_date}:`;
-            textPage8.innerHTML = "Puntaje: " + `${peliculaSelect.rt_score}:` + "/100";      */             
+            textPage8.innerHTML = "Puntaje: " + `${peliculaSelect.rt_score}:` + "/100";                  
                     
 
         });  
@@ -295,40 +294,7 @@ comunityBtn.addEventListener("click", function(){
 
 //--------------------------------------------------
 //crea los div en función de cada caracter 
-function createCharacter(character) {
-    let nuevoElemento = document.createElement('div'); 
-    let nuevoElementoImg = document.createElement('img');
-    nuevoElementoImg.src = character.img;
-    nuevoElemento.textContent += `${character.name}:`
-    nuevoElemento.appendChild(nuevoElementoImg);
-    nuevoElemento.classList.add("contenedorSubData");
-    
-    return nuevoElemento;
-}
 
-//crea los div en función de cada locación 
-function createLocation(locations) {
-    let nuevoElemento = document.createElement('div'); 
-    let nuevoElementoImg = document.createElement('img');
-    nuevoElementoImg.src = locations.img;
-    nuevoElemento.textContent += `${locations.name}:`
-    nuevoElemento.appendChild(nuevoElementoImg);
-    nuevoElemento.classList.add("contenedorSubData");
-    
-    return nuevoElemento;
-}
-
-//crea los div en función de cada vehículo 
-function createVehicles(vehicles) {
-    let nuevoElemento = document.createElement('div'); 
-    let nuevoElementoImg = document.createElement('img');
-    nuevoElementoImg.src = vehicles.img;
-    nuevoElemento.textContent += `${vehicles.name}:`
-    nuevoElemento.appendChild(nuevoElementoImg);
-    nuevoElemento.classList.add("contenedorSubData");
-    
-    return nuevoElemento;
-}
 
 //--------------------------------------------------
 // reacción y funcionalidad del modal
@@ -372,7 +338,7 @@ window.addEventListener("click", function(e){
             modalC.style.opacity = "0";
             modalC.style.visibility = "hidden";
         },900);
-    }
+    }    
 });
 
 /*-----------------------------sección del slider------------------------------*/
