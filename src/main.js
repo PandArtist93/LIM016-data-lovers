@@ -561,10 +561,12 @@ btnScrollTop.addEventListener("click", function() {
     //         behavior: "smooth";
     //   });
       
-    setTimeout(function(){
-        window.scrollTo({
+    window.scrollTo({
             top: 0,
             behavior: "auto"
-        });
-    },0);
+    })
 });
+
+
+//filtra en función de la pelicula seleccionada-----
+
