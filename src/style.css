@@ -148,7 +148,7 @@ header nav ul ul li a{
 } 
 
 .search-txt{
-    height: 0;
+    height: auto;
     width: 0;
     border-radius: 3rem;
     border: none;
@@ -427,11 +427,18 @@ label span{
 
 .secfiltrado nav{
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap:wrap;
     width: auto;
     justify-content: space-around;
     align-items: center;
     margin: 1rem 1rem;
+}
+
+.containerSeccFilter{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
 }
 
 .secfiltrado p{
@@ -462,10 +469,10 @@ label span{
     border-radius: 1rem;
     cursor: pointer; 
     padding: 0.35rem; 
-    width: 9rem;
-    height: 3.5rem;
+    /* width: 9rem;
+    height: 3.5rem; */
     justify-content: center;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .secfiltrado nav ul li a{
@@ -1053,7 +1060,7 @@ i {
     }
   
     header nav ul li{
-        width: auto;
+        width: 100%;
         margin: 1rem 0 1rem 0;    
         box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 0 0  0 0px  #157181, 0.3em 0.3em 1em rgba(0,0,0,0.3); 
         border-radius: 1rem;
@@ -1061,8 +1068,17 @@ i {
         cursor: pointer;  
         width: 80%;    
         align-items: center;
-        padding: 0.35rem;   
-        text-align: center;     
+        padding: 0.05rem;    
+        border: solid 0.2rem #157181;       
+        font-family: 'Open Sans', sans-serif;   
+        text-align: center;
+        letter-spacing: 0.1rem; 
+        justify-items: center;
+        border-radius: 1rem;
+        background-color: #44a8b9;    
+        vertical-align: middle;
+        cursor: pointer;    
+        text-transform: uppercase;         
     }
 
     header nav ul li a{
