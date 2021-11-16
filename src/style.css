@@ -96,7 +96,6 @@ header nav ul ul{
     width: 9rem;
     opacity: 0;
     visibility: hidden;
-    transition: top 0.3s;
     cursor: pointer; 
 }
 
@@ -149,7 +148,7 @@ header nav ul ul li a{
 } 
 
 .search-txt{
-    height: auto;
+    height: 0;
     width: 0;
     border-radius: 3rem;
     border: none;
@@ -901,7 +900,7 @@ button img {
     flex-direction: column;  
     width: 100%;
     height: 100%; 
-    margin-top: 6.5rem;
+    margin-top: 2rem;
     font-size: 1.5rem;
     
 } 
@@ -975,7 +974,41 @@ i {
     height: 1200px;
     width: 100%;
 }
+/* ------------------------------scrollTopButton--------------------------------------*/
+#buttomScrollTop {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    
+  
+}
+.btnScrollTop {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    z-index: 600;
+    margin: 2rem;
+    border-radius: 50%;
+    width: 5.3rem;
+    padding: 0.5rem;
+    height: 5.3rem;
+    /* box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 0 0  0 0px  #157181, 0.3em 0.3em 1em rgba(0,0,0,0.3); */
+    background: #c2d4cc;
+    cursor: pointer;
+    border: #157181 5px solid;
+}
 
+.btnScrollTop i {
+    font-size: 4.5rem;
+    
+}
+
+.btnScrollTop:hover{
+    background-color:rgb(168, 238, 238);
+    transition: 0.3s;
+    box-shadow: 0 0 0.6rem 0.1rem #104e48;
+}
 /*---------------------- Media queries-menu responsive------------------------------- */
 .checkbtn {
     cursor: pointer;
@@ -1260,3 +1293,4 @@ i {
         top: -1rem;
     }
 }
+

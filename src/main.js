@@ -8,28 +8,22 @@ let btnImagenes = document.getElementsByClassName("portada");
 let principalBtn = document.getElementById("btnHeaderPrincipal");
 let pagina2 =  document.getElementById("pagina2");
 let principalPage = document.getElementById("principalPage");
-let textPage2 = document.getElementById("textPage2");
-let textPage3 = document.getElementById("textPage3");
-let textPage4 = document.getElementById("textPage4");
-let textPage5 = document.getElementById("textPage5");
-let textPage6 = document.getElementById("textPage6");
-let textPage7 = document.getElementById("textPage7");
-let textPage8 = document.getElementById("textPage8");
 let contenidoPagePersonajes = document.getElementById("contenidoPagePersonajes");
 let contenidoPageLocaciones = document.getElementById("contenidoPageLocaciones");
 let contenidoPageVehiculos = document.getElementById("contenidoPageVehiculos");
+let contenidoPage = document.getElementById("contenidoPage");
 
 let dataPeliculas = data.films;
-let tituloPeliculas = dataPeliculas.map(x => x.title);
-let descriptionPelicula = dataPeliculas.map(x => x.description);
-let directorPelicula = dataPeliculas.map(x => x.director);
-let producerPelicula = dataPeliculas.map(x => x.producer);
-let poster = dataPeliculas.map(x => x.poster);
-let release_date = dataPeliculas.map(x => x.release_date);
-let rt_score = dataPeliculas.map(x => x.rt_score);
-let personajesPelicula = dataPeliculas.map(x => x.people);
-let locacionesPelicula = dataPeliculas.map(x => x.locations);
-let vehiculosPelicula = dataPeliculas.map(x => x.vehicles);
+// let tituloPeliculas = dataPeliculas.map(x => x.title);
+// let descriptionPelicula = dataPeliculas.map(x => x.description);
+// let directorPelicula = dataPeliculas.map(x => x.director);
+// let producerPelicula = dataPeliculas.map(x => x.producer);
+// let poster = dataPeliculas.map(x => x.poster);
+// let release_date = dataPeliculas.map(x => x.release_date);
+// let rt_score = dataPeliculas.map(x => x.rt_score);
+// let personajesPelicula = dataPeliculas.map(x => x.people);
+// let locacionesPelicula = dataPeliculas.map(x => x.locations);
+// let vehiculosPelicula = dataPeliculas.map(x => x.vehicles);
 
 //--------------------------------------------------
 // genera las portadas de los catálogos dinamicamente en la vista principal
@@ -46,6 +40,7 @@ function renderCatalogo(dataArray, htmlLocation){
         </div>`
         htmlLocation.innerHTML = list;
         i++; 
+
     });
 }
 
@@ -61,7 +56,7 @@ function createDetalles(character) {
     return nuevoElemento;
 }
 
-// -----------creando funcion para catálogo y locaciones----------------
+// -----------creando funcion para Vehiculos y locaciones----------------
 function catalogoLocacionesOVehiculos(caracteristica, contenidoPage,stringDeContenido) {
     if (caracteristica.length !== 0){
         for(let k = 0; k < caracteristica.length; k++) {
@@ -72,8 +67,7 @@ function catalogoLocacionesOVehiculos(caracteristica, contenidoPage,stringDeCont
         contenidoPage.innerHTML = `En esta película no se destacan ${stringDeContenido} en específico`;
     }
 }  
-// ----------fin de creando funcion para catálogo y locaciones--------------
-//--------------------------------------------------------------------------
+// ----------fin de creando funcion para Vehiculos y locaciones--------------
 
 let boxPoster = document.getElementById("boxPoster");
 renderCatalogo(dataPeliculas, boxPoster);
@@ -91,12 +85,25 @@ a_z.addEventListener("click",() => {
         if (a.title > b.title) { return 1;}
         return 0;
     }) 
-        
+
     renderCatalogo (peliculasOrdenadasPorTitulo, boxPosterFilter);
+    
+    for (let j=0; j< btnImagenes.length; j++) {
+    
+        btnImagenes[j].addEventListener("click",function() {
+            principalPage.style.display = "none" ; 
+            pagina2.style.display = "block" ;
+            // console.log(btnImagenes.length);
+            let i=j-20
+            generaDatosPeliculaElegida (peliculasOrdenadasPorTitulo,i); 
+        })
+    }
+    
 }); 
 
+
 // ordenado alfabético descendente
-let z_a = document.getElementById("z_a");
+let z_a = document.getElementById("z_a");9
 z_a.addEventListener("click", () => {
     
     // let boxPoster = document.getElementById("boxPoster");
@@ -147,6 +154,7 @@ yearDesc.addEventListener("click", () => {
 });
 
 //ordenado por calificación de Mayor a menor
+
 let mayorToMenor = document.getElementById("mayorToMenor");
 mayorToMenor.addEventListener("click", () => {
     let boxPoster = document.getElementById("boxPoster");
@@ -164,7 +172,10 @@ mayorToMenor.addEventListener("click", () => {
         return 0;
     });
     renderCatalogo (peliculasOrdenadasPorcalificacion, boxPosterFilter);
+   
 });
+
+
 
 //ordenado por calificación de menor a Mayor
 let menorToMayor = document.getElementById("menorToMayor");
@@ -186,34 +197,69 @@ menorToMayor.addEventListener("click", () => {
     renderCatalogo (peliculasOrdenadasPorcalificacion, boxPosterFilter);
 });
 
+principalBtn.addEventListener("click", function(){    
+    pagina2.style.display = "none";
+    principalPage.style.display = "block";    
+    location.reload();
+});
+
 //crea que catálogo con las imagenes de "personajes", "locaciones" y "vehículos"
 /* console.log(btnImagenes); */
+ 
+// --------------funcion genera los datos de la pelicula elegida----------
+function generaDatosPeliculaElegida (arrayElegido,i) {
+
+    let personajesPelicula = arrayElegido.map(x => x.people);
+    let locacionesPelicula = arrayElegido.map(x => x.locations);
+    let vehiculosPelicula = arrayElegido.map(x => x.vehicles);
+    let tituloPeliculas = arrayElegido.map(x => x.title);
+    let descriptionPelicula = arrayElegido.map(x => x.description);
+    let directorPelicula = arrayElegido.map(x => x.director);
+    let producerPelicula = arrayElegido.map(x => x.producer);
+    let poster =arrayElegido.map(x => x.poster);
+    let release_date = arrayElegido.map(x => x.release_date);
+    let rt_score = arrayElegido.map(x => x.rt_score);
+    let characters = personajesPelicula[i];
+    let locations = locacionesPelicula[i];
+    let vehicles = vehiculosPelicula[i];
+
+    let text="";
+
+    text +=
+        `<div class="contentImagPage2" id="textPage6"><img src ="${poster[i]}"></div>
+          <div class="contentMovie">
+            <div class="contentPage2" id="textPage2">${tituloPeliculas[i]}</div>
+            <div class="contentPage2" id="textPage3">Sinopsis: ${descriptionPelicula[i]}</div>
+            <div class="contentPage2" id="textPage4">Director: ${directorPelicula[i]}</div>
+            <div class="contentPage2" id="textPage5">Productor: ${producerPelicula[i]}</div>
+            <div class="contentPage2" id="textPage7">Fecha de lanzamiento: ${release_date[i]}</div>
+            <div class="contentPage2" id="textPage8">Puntaje: ${rt_score[i]}/100</div>
+          </div>`     
+    contenidoPage.innerHTML = text;
+    i++; 
+
+    catalogoLocacionesOVehiculos(locations,contenidoPageLocaciones,"locaciones");
+    catalogoLocacionesOVehiculos(vehicles,contenidoPageVehiculos,"vehiculos");   
+    
+    for(let j = 0; j < characters.length; j++) {
+        contenidoPagePersonajes.appendChild(createDetalles(characters[j])); 
+    }  
+    
+}
+
+// -------------fin de funcion genera los datos de la pelicula elegida------
+
 
 for (let i=0; i< btnImagenes.length; i++) {
     
     btnImagenes[i].addEventListener("click",function() {
-        let characters = personajesPelicula[i];
-        let locations = locacionesPelicula[i];
-        let vehicles = vehiculosPelicula[i];
+        // let characters = personajesPelicula[i];
+        // let locations = locacionesPelicula[i];
+        // let vehicles = vehiculosPelicula[i];
         // ocultar la primera vista y despliega la segunda
         principalPage.style.display = "none" ; 
         pagina2.style.display = "block" ;
-         // generar lo datos basicos de la película selecionada
-        textPage6.innerHTML = '<img src ='+ poster[i]+'>';
-        textPage2.innerHTML = "Título: " + tituloPeliculas[i];
-        textPage3.innerHTML = "Sinopsis: " + descriptionPelicula[i];
-        textPage4.innerHTML = "Director: " + directorPelicula[i];
-        textPage5.innerHTML = "Productor: " + producerPelicula[i];
-        textPage7.innerHTML = "Fecha de lanzamiento: " + release_date[i];
-        textPage8.innerHTML = "Puntaje: " + rt_score[i] + "/100";     
-        // crear el catalogo de personajes
-
-        for(let j = 0; j < characters.length; j++) {
-            contenidoPagePersonajes.appendChild(createDetalles(characters[j])); 
-           
-            catalogoLocacionesOVehiculos(locations,contenidoPageLocaciones,"locaciones");
-            catalogoLocacionesOVehiculos(vehicles,contenidoPageVehiculos,"vehiculos");   
-        }    
+        generaDatosPeliculaElegida (dataPeliculas,i);
 
         let imgDetalles = document.getElementsByClassName("contenedorSubData");
         abrirModal(imgDetalles);
@@ -283,6 +329,67 @@ window.addEventListener("click", function(e){
     }
 });
 
-
 /* console.log(example, data); */
+
+// let select_alfabetico = document.getElementById("select_alfabetico");
+// ---------------------------creando boton de top scroll------------------
+let buttomScrollTop = document.getElementById("buttomScrollTop")
+
+let creationButtomScrollTop="";
+creationButtomScrollTop +=`<button id="btnScrollTop" class="btnScrollTop"><i class="fas fa-arrow-circle-up"></i>status</button>`     
+
+buttomScrollTop.innerHTML=creationButtomScrollTop;
+
+// --------------------------
+
+let btnScrollTop = document.getElementById("btnScrollTop");
+
+document.addEventListener("scroll", handleScroll);
+
+function handleScroll() {
+  // do something on scroll
+
+  var scrollableHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+  var GOLDEN_RATIO = 0.7;
+
+
+  if ((document.documentElement.scrollTop / scrollableHeight ) > GOLDEN_RATIO) {
+    //show button
+    btnScrollTop.style.display = "block";
+  } else {
+    //hide button
+    btnScrollTop.style.display = "none";
+  }
+}
+
+btnScrollTop.addEventListener("click", function() {
+    // window.scrollTo({
+    //         top: 0;
+    //         behavior: "smooth";
+    //   });
+      
+    setTimeout(function(){
+        window.scrollTo({
+            top: 0,
+            behavior: "auto"
+        });
+    },0);
+});
+
+
+// function scrollToTop() {
+    // top: 0,
+    // behavior: "smooth" 
+// }
+
+
+
+
+
+
+
+
+
+
 
