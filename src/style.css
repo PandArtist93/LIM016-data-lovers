@@ -246,8 +246,6 @@ main {
     position: relative; 
     user-select: none;      
     margin: 5% 0;
-    /* border: solid #e4dbdb 0.7rem;   */ 
-
 }
 
 #i1,#i2,#i3,#i4,#i5 {
@@ -260,20 +258,6 @@ main {
     width: 100%;
 } 
 
-/* @keyframes slider{
-    0% {margin-left: 0;}
-    20% {margin-left:  0;}
-
-    25% {margin-left:  -100%;}
-    45% {margin-left:  -100%;}
-
-    50% {margin-left:  -200%;}
-    70% {margin-left:  -200%;}
-
-    75% {margin-left:  -300%;}
-    100% {margin-left:  -300%;}   
-}
- */
 .carrusel .slide_img img{
     position: relative;
     width: 100%;
@@ -462,6 +446,7 @@ label span{
     display: table;
 }
  */
+ 
 .secfiltrado nav ul{
     display: inline-flex;
     flex-direction: row;
@@ -477,7 +462,10 @@ label span{
     border-radius: 1rem;
     cursor: pointer; 
     padding: 0.35rem; 
+    width: 9rem;
+    height: 3.5rem;
     justify-content: center;
+    overflow: hidden;
 }
 
 .secfiltrado nav ul li a{
@@ -512,7 +500,6 @@ label span{
     top: 3rem;
     opacity: 1;
     visibility: visible; 
-    /* width:13rem; */
 }
 
 .secfiltrado nav ul ul li{
@@ -525,6 +512,7 @@ label span{
     background: #53909b;
     cursor: pointer; 
     left: -0.6rem;
+    height: auto;
 } 
 
 .secfiltrado nav ul ul li a{
@@ -545,30 +533,6 @@ main nav ul li:hover{
     border-radius: 0.3rem;
     color: rgb(176, 235, 207);
 }
-
-/*----------------------Sección de ordenado-----------------------*/
-/* .secOrdenado{
-    width: auto;    
-    height: 8rem;
-    display: flex;
-    /* margin-bottom: 2rem; */
-   /*  flex-wrap: nowrap;
-    background-color: #157181;
-    font-family: fantasy;
-    letter-spacing: 0.1rem; 
-    color: #e4dbdb;   
-    justify-content: center;
-    align-items: center;
-    vertical-align: middle;  */   
-/*} */
-
-/* .secOrdenado p{
-    font-size: 1.5rem;
-    font-family: fantasy;
-    letter-spacing: 0.18rem; */
-    /* color: rgb(219, 226, 152);   */  
-    /* color:rgba(231, 186, 101, 0.952);
-} */
 
 /*---------------------------características del catálogo de películas----------------*/
 .boxPoster {
@@ -630,7 +594,6 @@ button img {
     border-radius: 1rem 1rem 0 0;   
     cursor: pointer;
     background-size: cover;  
-    /* background-position: center center;  */ 
     object-fit: cover;
 }
 
@@ -665,15 +628,12 @@ button img {
 
 .contentImagPage2 img{    
     justify-content: center;
-    /* height:610px; */
     height: 98%;
     width:95%; 
     padding: 1% 5rem;
-    /* border-radius: 2rem; */
     background-size: cover;  
     background-position: center;  
-    /* object-fit: cover; */
-    /* box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 0 0  0 0px  #157181, 0.3em 0.3em 1em rgba(0,0,0,0.3);  */
+    
 }
 
 /*------------------contenido texto de la 2da vista-------------------*/
@@ -917,12 +877,9 @@ button img {
 .codigoQR{
     display: flex;
     position: relative;
-    /* float: right; */
     top: 5%;
     width: auto;
     height: auto;
-    /* right: 0.3rem;
-    bottom: auto; */
 }
 
 .codigoQR img{
@@ -1017,13 +974,10 @@ i {
 .checkbtn {
     cursor: pointer;
     display:none;
-    /* color: #FFFF;
-    font-size: 2rem; */
 }
 
 #check {
     display:none;
-    
 }
 
 /*----------------------- esto seria para el responsive en celulares -----------------------------*/
@@ -1077,42 +1031,19 @@ i {
         cursor: pointer;  
         width: 80%;    
         align-items: center;
-        padding: 0.05rem;    
-        border: solid 0.2rem #157181;       
-        font-family: 'Open Sans', sans-serif;   
-        text-align: center;
-        letter-spacing: 0.1rem; 
-        justify-items: center;
-        border-radius: 1rem;
-        background-color: #44a8b9;    
-        vertical-align: middle;
-        cursor: pointer;    
-        text-transform: uppercase;    
+        padding: 0.35rem;   
+        text-align: center;     
     }
 
     header nav ul li a{
-        display: flex;
-        position: relative;
-        color: rgb(230, 222, 222);
-        line-height: 2rem;
-        font-size: 1.4rem;
-        letter-spacing: 0.1rem;
-        text-transform: uppercase;
-        padding: 0.02rem;
-        margin: 1rem;
-        text-decoration: none;
-        cursor: pointer; 
-        justify-content: center;
+        margin: auto;       
     }
     
     header nav ul ul{
-        display: none;
-        position: absolute;
-        width: 0;
-        opacity: -5;
-        transition: top 0.3s;
+        position: relative;
+        opacity: 0;
+        visibility: hidden;
         font-size: 0.7rem;
-        cursor: pointer; 
     }
      
     #check:checked ~.header-right {
@@ -1123,18 +1054,13 @@ i {
     .search-box{
         display: flex;
         position: relative;
-        width: 80%;
+        width: 79.5%;
         left: 10%;
         margin-bottom: 1.35rem;
-        /* max-height: 80%; */
         position: relative;   
-        /* transform: translate(-50); */
         background: #cccecf;
         border-radius: 2rem;
-        padding: 0.6rem;
-        vertical-align: middle;
-        justify-content: center;   
-        box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 0 0  0 0px  #157181, 0.3em 0.3em 1em rgba(0,0,0,0.3);
+        padding: 0.3rem;       
     } 
     
     .search-txt{
@@ -1145,7 +1071,6 @@ i {
         padding: 0;
         font-family: 'Open Sans', sans-serif;
         font-size: 1rem;
-        /* line-height: 1.5rem; */
         transition: 0.4s;
         background: none;
         text-align: center;
@@ -1160,7 +1085,7 @@ i {
     }
     
     .search-box:hover > .search-txt{
-        width: 80%;
+        width: 90%;
         background: rgb(241, 239, 236);
         padding: 0, 0.5rem;
     }
@@ -1171,7 +1096,6 @@ i {
 
     .carrusel {
         height: 28rem;
-        border: solid #e4dbdb 0.3rem;
     }
 
     .modal{
@@ -1229,8 +1153,7 @@ i {
         display: flex;
         background-color: #157181;
         font-family: 'Open Sans', sans-serif;
-        /* letter-spacing: 0.1rem; */
-        letter-spacing: 0.18rem;
+        letter-spacing: 0.12rem;
         color: #e4dbdb;
         justify-content: center;
         align-items: center;
@@ -1243,7 +1166,6 @@ i {
         display: flex;
         flex-wrap: wrap; 
         width: auto;
-        /* justify-content: space-around; */
         align-content: center;
         align-items: center;
         vertical-align: middle;
@@ -1261,25 +1183,19 @@ i {
     }
 
     main nav ul li {
-        display: inline-block;
-        margin: 0 0.4rem;
         border-radius: 0rem;
-        justify-content: space-between;
-        box-shadow: inset 0 -3em 3em rgb(0 0 0 / 10%), 0 0 0 0px #157181, 0.3em 0.3em 1em rgb(0 0 0 / 30%);
-        border-radius: 1rem;
-        font-size: 2rem;
-        cursor: pointer;
-        padding: 1rem;
-        width: 13rem;
-        align-items: inherit;
-        /* justify-content: center; */
-        text-align: center;
+        justify-content: space-between;       
+        font-size: 1.2rem;
+        padding: 0;
+        width: 13rem;        
+        overflow: hidden;
     }
 
     main nav ul li a {
-        font-size: 1.3rem;
-    }
-        
+        font-size: 1rem;        
+    }     
+       
+    
 }
 
 @media (max-width: 1280px){
