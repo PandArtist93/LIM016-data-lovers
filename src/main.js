@@ -3,311 +3,12 @@
 
 import data from './data/ghibli/ghibli.js';
 
-//interacción con el DOM
-let btnImagenes = document.getElementsByClassName("portada");
-let principalBtn = document.getElementById("btnHeaderPrincipal");
-let pagina2 =  document.getElementById("pagina2");
-let principalPage = document.getElementById("principalPage");
-let contenidoPagePersonajes = document.getElementById("contenidoPagePersonajes");
-let contenidoPageLocaciones = document.getElementById("contenidoPageLocaciones");
-let contenidoPageVehiculos = document.getElementById("contenidoPageVehiculos");
-let contenidoPage = document.getElementById("contenidoPage");
+const films = data.films;
 
-let dataPeliculas = data.films;
-// let tituloPeliculas = dataPeliculas.map(x => x.title);
-// let descriptionPelicula = dataPeliculas.map(x => x.description);
-// let directorPelicula = dataPeliculas.map(x => x.director);
-// let producerPelicula = dataPeliculas.map(x => x.producer);
-// let poster = dataPeliculas.map(x => x.poster);
-// let release_date = dataPeliculas.map(x => x.release_date);
-// let rt_score = dataPeliculas.map(x => x.rt_score);
-// let personajesPelicula = dataPeliculas.map(x => x.people);
-// let locacionesPelicula = dataPeliculas.map(x => x.locations);
-// let vehiculosPelicula = dataPeliculas.map(x => x.vehicles);
-
-//--------------------------------------------------
-// genera las portadas de los catálogos dinamicamente en la vista principal
-function renderCatalogo(dataArray, htmlLocation){    
-    let list='';
-    let i = 1;
-    dataArray.forEach( (obj) => {
-        list +=`
-        <div class="portada">
-            <button id= "btnPortada${[i]}">
-            <img src="${obj.poster}" alt="">                
-            </button>
-            <div class="textoImg" id= "">${obj.title}</div>
-        </div>`
-        htmlLocation.innerHTML = list;
-        i++; 
-
-    });
-}
-
-// crea los div en función de cada caracter 
-function createDetalles(character) {
-    let nuevoElemento = document.createElement('div'); 
-    let nuevoElementoImg = document.createElement('img');
-    nuevoElementoImg.src = character.img;
-    nuevoElemento.textContent += `${character.name}:`
-    nuevoElemento.appendChild(nuevoElementoImg);
-    nuevoElemento.classList.add("contenedorSubData");
-    
-    return nuevoElemento;
-}
-
-// -----------creando funcion para Vehiculos y locaciones----------------
-function catalogoLocacionesOVehiculos(caracteristica, contenidoPage,stringDeContenido) {
-    if (caracteristica.length !== 0){
-        for(let k = 0; k < caracteristica.length; k++) {
-            contenidoPage.appendChild(createDetalles(caracteristica[k]));                      
-        } 
-    }
-    else{
-        contenidoPage.innerHTML = `En esta película no se destacan ${stringDeContenido} en específico`;
-    }
-}  
-// ----------fin de creando funcion para Vehiculos y locaciones--------------
-
-let boxPoster = document.getElementById("boxPoster");
-renderCatalogo(dataPeliculas, boxPoster);
-
-// ordenado alfabético ascendente
-let a_z = document.getElementById("a_z");
-a_z.addEventListener("click",() => {
-    // let boxPoster = document.getElementById("boxPoster");
-    let boxPosterFilter = document.getElementById("boxPosterFilter");   
-    boxPoster.style.display= "none";
-    boxPosterFilter.style.display= " ";
-    
-    let peliculasOrdenadasPorTitulo = dataPeliculas.sort((a,b) => {
-        if (a.title < b.title) { return -1;}
-        if (a.title > b.title) { return 1;}
-        return 0;
-    }) 
-
-    renderCatalogo (peliculasOrdenadasPorTitulo, boxPosterFilter);
-    
-    for (let j=0; j< btnImagenes.length; j++) {
-    
-        btnImagenes[j].addEventListener("click",function() {
-            principalPage.style.display = "none" ; 
-            pagina2.style.display = "block" ;
-            // console.log(btnImagenes.length);
-            let i=j-20
-            generaDatosPeliculaElegida (peliculasOrdenadasPorTitulo,i); 
-        })
-    }
-    
-}); 
-
-
-// ordenado alfabético descendente
-let z_a = document.getElementById("z_a");9
-z_a.addEventListener("click", () => {
-    
-    // let boxPoster = document.getElementById("boxPoster");
-    let boxPosterFilter = document.getElementById("boxPosterFilter");   
-    boxPoster.style.display= "none";
-    boxPosterFilter.style.display= " ";
-
-    let peliculasOrdenadasPorTitulo = dataPeliculas.sort((a,b) => {
-        if (a.title > b.title) {return -1;}
-        if (a.title < b.title) {return 1;}
-        return 0;
-    });   
-    renderCatalogo (peliculasOrdenadasPorTitulo, boxPosterFilter);    
-});
-
-// ordenado cronológico ascendente
-let yearAsc = document.getElementById("yearAsc");
-yearAsc.addEventListener("click",() => {
-    /* console.log(release_date.sort()) */
-    let boxPoster = document.getElementById("boxPoster");
-    let boxPosterFilter = document.getElementById("boxPosterFilter");   
-    boxPoster.style.display= "none";
-    boxPosterFilter.style.display= " ";
-
-    let peliculasOrdenadasPorYear = dataPeliculas.sort((a,b) => {
-        if (a.release_date < b.release_date) {return -1;}
-        if (a.release_date > b.release_date) {return 1;}
-        return 0;
-    });
-    renderCatalogo (peliculasOrdenadasPorYear, boxPosterFilter);  
-});
-
-// ordenado cronológico descendente
-let yearDesc = document.getElementById("yearDesc");
-yearDesc.addEventListener("click", () => {
-    /* console.log(tituloPeliculas.reverse()) */
-    let boxPoster = document.getElementById("boxPoster");
-    let boxPosterFilter = document.getElementById("boxPosterFilter");   
-    boxPoster.style.display= "none";
-    boxPosterFilter.style.display= " ";
-
-    let peliculasOrdenadasPorYear = dataPeliculas.sort((a,b) => {
-        if (a.release_date > b.release_date) { return -1;}
-        if (a.release_date < b.release_date) {return 1;}
-        return 0;
-    });
-    renderCatalogo (peliculasOrdenadasPorYear, boxPosterFilter);
-});
-
-//ordenado por calificación de Mayor a menor
-
-let mayorToMenor = document.getElementById("mayorToMenor");
-mayorToMenor.addEventListener("click", () => {
-    let boxPoster = document.getElementById("boxPoster");
-    let boxPosterFilter = document.getElementById("boxPosterFilter");   
-    boxPoster.style.display= "none";
-    boxPosterFilter.style.display= " ";
-
-    let peliculasOrdenadasPorcalificacion = dataPeliculas.sort((a,b) => {
-        if (parseInt(a.rt_score) > parseInt(b.rt_score)) {
-            return -1;
-        }
-        if (parseInt(a.rt_score) < parseInt(b.rt_score)) {
-            return 1;
-        }
-        return 0;
-    });
-    renderCatalogo (peliculasOrdenadasPorcalificacion, boxPosterFilter);
-   
-});
-
-
-
-//ordenado por calificación de menor a Mayor
-let menorToMayor = document.getElementById("menorToMayor");
-menorToMayor.addEventListener("click", () => {
-    let boxPoster = document.getElementById("boxPoster");
-    let boxPosterFilter = document.getElementById("boxPosterFilter");   
-    boxPoster.style.display= "none";
-    boxPosterFilter.style.display= " ";
-
-    let peliculasOrdenadasPorcalificacion = dataPeliculas.sort((a,b) => {
-        if (parseInt(a.rt_score) < parseInt(b.rt_score)) {
-            return -1;
-        }
-        if (parseInt(a.rt_score) > parseInt(b.rt_score)) {
-            return 1;
-        }
-        return 0;
-    });   
-    renderCatalogo (peliculasOrdenadasPorcalificacion, boxPosterFilter);
-});
-
-principalBtn.addEventListener("click", function(){    
-    pagina2.style.display = "none";
-    principalPage.style.display = "block";    
-    location.reload();
-});
-
-//crea que catálogo con las imagenes de "personajes", "locaciones" y "vehículos"
-/* console.log(btnImagenes); */
- 
-// --------------funcion genera los datos de la pelicula elegida----------
-function generaDatosPeliculaElegida (arrayElegido,i) {
-
-    let personajesPelicula = arrayElegido.map(x => x.people);
-    let locacionesPelicula = arrayElegido.map(x => x.locations);
-    let vehiculosPelicula = arrayElegido.map(x => x.vehicles);
-    let tituloPeliculas = arrayElegido.map(x => x.title);
-    let descriptionPelicula = arrayElegido.map(x => x.description);
-    let directorPelicula = arrayElegido.map(x => x.director);
-    let producerPelicula = arrayElegido.map(x => x.producer);
-    let poster =arrayElegido.map(x => x.poster);
-    let release_date = arrayElegido.map(x => x.release_date);
-    let rt_score = arrayElegido.map(x => x.rt_score);
-    let characters = personajesPelicula[i];
-    let locations = locacionesPelicula[i];
-    let vehicles = vehiculosPelicula[i];
-
-    let text="";
-
-    text +=
-        `<div class="contentImagPage2" id="textPage6"><img src ="${poster[i]}"></div>
-          <div class="contentMovie">
-            <div class="contentPage2" id="textPage2">${tituloPeliculas[i]}</div>
-            <div class="contentPage2" id="textPage3">Sinopsis: ${descriptionPelicula[i]}</div>
-            <div class="contentPage2" id="textPage4">Director: ${directorPelicula[i]}</div>
-            <div class="contentPage2" id="textPage5">Productor: ${producerPelicula[i]}</div>
-            <div class="contentPage2" id="textPage7">Fecha de lanzamiento: ${release_date[i]}</div>
-            <div class="contentPage2" id="textPage8">Puntaje: ${rt_score[i]}/100</div>
-          </div>`     
-    contenidoPage.innerHTML = text;
-    i++; 
-
-    catalogoLocacionesOVehiculos(locations,contenidoPageLocaciones,"locaciones");
-    catalogoLocacionesOVehiculos(vehicles,contenidoPageVehiculos,"vehiculos");   
-    
-    for(let j = 0; j < characters.length; j++) {
-        contenidoPagePersonajes.appendChild(createDetalles(characters[j])); 
-    }  
-    
-}
-
-// -------------fin de funcion genera los datos de la pelicula elegida------
-
-
-for (let i=0; i< btnImagenes.length; i++) {
-    
-    btnImagenes[i].addEventListener("click",function() {
-        // let characters = personajesPelicula[i];
-        // let locations = locacionesPelicula[i];
-        // let vehicles = vehiculosPelicula[i];
-        // ocultar la primera vista y despliega la segunda
-        principalPage.style.display = "none" ; 
-        pagina2.style.display = "block" ;
-        generaDatosPeliculaElegida (dataPeliculas,i);
-
-        let imgDetalles = document.getElementsByClassName("contenedorSubData");
-        abrirModal(imgDetalles);
-    }) 
-}
-
-//--------------------------------------------------
-/* function crearVista2 () {
-    
-    for (let i=0; i< btnImagenes.length; i++) {
-        btnImagenes[i].addEventListener("click",function() {
-            principalPage.style.display = "none" ; 
-            pagina2.style.display = "block" ;
-            // generar lo daros basicos de la película selecionada
-            textPage6.innerHTML = '<img src ='+ poster[i]+'>';
-            textPage2.innerHTML = "Título: " + tituloPeliculas[i];
-            textPage3.innerHTML = "Sinopsis: " + descriptionPelicula[i];
-            textPage4.innerHTML = "Director: " + directorPelicula[i];
-            textPage5.innerHTML = "Productor: " + producerPelicula[i];
-            textPage7.innerHTML = "Fecha de lanzamiento: " + release_date[i];
-            textPage8.innerHTML = "Puntaje: " + rt_score[i] + "/100"; 
-        });   
-    }    
-} */
-
-// reacción y funcionalidad del modal
-let cerrar = document.getElementById("close");
+// ---------------------modal------------------------
 let modal = document.getElementById("modal");
 let modalC = document.getElementById("modalCont");
-/* let abrir = document.getElementById("cta"); */
-/* abrir.addEventListener("click", function(e){
-    e.preventDefault();
-    modalC.style.opacity = "1";
-    modalC.style.visibility = "visible";
-    modal.classList.toggle("modalClose");
-}); */
-
-function abrirModal(imgDetalles) {
-    for (let i = 0; i < imgDetalles.length; i++){
-        let imgSelect = imgDetalles[i];
-        imgSelect.addEventListener("click", function(e){
-            e.preventDefault();
-            modalC.style.opacity = "1";
-            modalC.style.visibility = "visible";
-            modal.classList.toggle("modalClose");
-        });
-    }
-}
+let cerrar = document.getElementById("close");
 
 cerrar.addEventListener("click", function(){
     modal.classList.toggle("modalClose");
@@ -326,70 +27,498 @@ window.addEventListener("click", function(e){
             modalC.style.opacity = "0";
             modalC.style.visibility = "hidden";
         },900);
-    }
+    }    
 });
+ 
+//---------------------rendereizar contenido ------------------------
+//renderizar catálogos
+function renderMovies(films, htmlLocation) {
 
-/* console.log(example, data); */
+    /* Recibira un arreglo de datos de peliculas y devolvera
+    las portadas de cada pelicula
 
-// let select_alfabetico = document.getElementById("select_alfabetico");
-// ---------------------------creando boton de top scroll------------------
-let buttomScrollTop = document.getElementById("buttomScrollTop")
-
-let creationButtomScrollTop="";
-creationButtomScrollTop +=`<button id="btnScrollTop" class="btnScrollTop"><i class="fas fa-arrow-circle-up"></i>status</button>`     
-
-buttomScrollTop.innerHTML=creationButtomScrollTop;
-
-// --------------------------
-
-let btnScrollTop = document.getElementById("btnScrollTop");
-
-document.addEventListener("scroll", handleScroll);
-
-function handleScroll() {
-  // do something on scroll
-
-  var scrollableHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-
-  var GOLDEN_RATIO = 0.7;
-
-
-  if ((document.documentElement.scrollTop / scrollableHeight ) > GOLDEN_RATIO) {
-    //show button
-    btnScrollTop.style.display = "block";
-  } else {
-    //hide button
-    btnScrollTop.style.display = "none";
-  }
+    input: arreglo de peliculas, ubicacion de renderizado
+    output: no retorna (renderiza en pantalla)
+    */
+    let filmDivs = "";
+    films.forEach( (film) => {
+        filmDivs +=`
+        <div class="portada" id="${film.id}">
+            <button>
+                <img src="${film.poster}">                
+            </button>
+            <div class="textoImg">${film.title}</div>
+        </div>`
+        htmlLocation.innerHTML = filmDivs; 
+    });
+    let btnPortadas = document.getElementsByClassName("portada");
+    return btnPortadas;
 }
 
-btnScrollTop.addEventListener("click", function() {
-    // window.scrollTo({
-    //         top: 0;
-    //         behavior: "smooth";
-    //   });
-      
-    setTimeout(function(){
-        window.scrollTo({
-            top: 0,
-            behavior: "auto"
+//renderizar contenido del modal al seleccioar personajes
+function renderCharacter(character){
+    let modalData =`
+        <div class="fondoImg">
+            <div class="imagen-carnet" id="imagen-carnet">          
+                <img src="${character.img}"/>
+            </div>
+        </div> 
+        <div class="seccionDatos">
+            <div class="contenido-texto" id="contenido-texto">
+                <p>Name: ${character.name}</p><br>
+                <p>Gender: ${character.gender}</p><br>
+                <p>Age: ${character.age}</p><br>
+                <p>Eye color: ${character.eye_color}</p><br>
+                <p>Hair color: ${character.hair_color}</p><br>
+                <p>Specie: ${character.specie}</p>        
+            </div>
+            <div class="codigoQR">
+                <img src="./imagenes/codigoQR.PNG">
+            </div>
+        </div>
+    `
+    let modalDataContainer = document.getElementById("modalData");
+    modalDataContainer.innerHTML = modalData;
+}
+
+//renderizar contenido del modal al seleccioar locaciones
+function renderLocation(location){
+    let modalData =`
+        <div class="fondoImg">
+            <div class="imagen-carnet" id="imagen-carnet">          
+                <img src="${location.img}"/>
+            </div>
+        </div> 
+        <div class="seccionDatos">
+            <div class="contenido-texto" id="contenido-texto">
+                <p>Name: ${location.name}</p><br>
+                <p>Climate: ${location.climate}</p><br>
+                <p>Terrain: ${location.terrain}</p><br>
+                <p>Surface water: ${location.surface_water}</p><br>    
+            </div>
+            <div class="codigoQR">
+                <img src="./imagenes/codigoQR.PNG">
+            </div>
+        </div>
+    `
+    let modalDataContainer = document.getElementById("modalData");
+    modalDataContainer.innerHTML = modalData;
+}
+
+//renderizar contenido del modal al seleccioar vehículos
+function renderVehicle(vehicle){
+    /* console.log(vehicle); */
+    let modalData =`
+        <div class="fondoImg">
+            <div class="imagen-carnet" id="imagen-carnet">          
+                <img src="${vehicle.img}"/>
+            </div>
+        </div> 
+        <div class="seccionDatos">
+            <div class="contenido-texto" id="contenido-texto">
+                <p>Name: ${vehicle.name}</p><br>
+                <p>description: ${vehicle.description}</p><br>
+                <p>vehicle class: ${vehicle.vehicle_class}</p><br>
+                <p>length: ${vehicle.length}</p><br>    
+                <p>pilot name:${vehicle.pilot.name}</p><br> 
+            </div>
+            <div class="codigoQR">
+                <img src="./imagenes/codigoQR.PNG">
+            </div>
+        </div>
+    `
+    let modalDataContainer = document.getElementById("modalData");
+    modalDataContainer.innerHTML = modalData;
+}
+
+//renderizar información detallada de la película en la 2da vista
+function renderMovieDetail(movie) {
+
+    let locations;
+    let characters;
+    let vehicles;
+    
+    let contenidoPage = document.getElementById("contenidoPage");
+    let contenidoPagePersonajes = document.getElementById("contenidoPagePersonajes");
+    let contenidoPageLocaciones = document.getElementById("contenidoPageLocaciones");
+    let contenidoPageVehiculos = document.getElementById("contenidoPageVehiculos");
+
+    // generar lo datos basicos de la película selecionada
+    let contentMovie =`
+        <div class="contentImagPage2" id="textPage6"><img src="${movie.poster}"></div>
+        <div class="contentMovie">
+            <div class="contentPage2" id="textpage2">Título:${movie.title}</div>
+            <div class="contentPage2" id="textpage3">Sinopsis: ${movie.description} </div>
+            <div class="contentPage2" id="textpage4">Director: ${movie.director}</div>
+            <div class="contentPage2" id="textpage5">Productor:  ${movie.producer}</div>
+            <div class="contentPage2" id="textpage7">Fecha de lanzamiento: ${movie.release_date} </div>
+            <div class="contentPage2" id="textpage8">Puntaje: ${movie.rt_score}/100</div>
+        </div>
+    `
+    contenidoPage.innerHTML = contentMovie;
+
+    // crear el catalogo de personajes
+    for(let j = 0; j < movie.people.length; j++) {
+        contenidoPagePersonajes.appendChild(createCharacter(movie.people[j]));           
+    }  
+     // crear el catalogo de locaciones
+    if (movie.locations.length !== 0){
+        for(let k = 0; k < movie.locations.length; k++) {
+            contenidoPageLocaciones.appendChild(createLocation(movie.locations[k]));             
+        } 
+    }
+    else{
+        contenidoPageLocaciones.innerHTML = "En esta película no es destacan locaciones específicas";
+    }
+     
+     // crear el catalogo de vehículos
+    if (movie.vehicles.length == 0){
+        contenidoPageVehiculos.innerHTML = "En esta película no es destacan vehículos específicos";
+    }
+    else{
+        for(let l = 0; l < movie.vehicles.length ; l++){
+            contenidoPageVehiculos.appendChild(createVehicle(movie.vehicles[l]));
+        }
+    }
+    characters = document.getElementsByClassName("subDataCharacter");
+    locations = document.getElementsByClassName("subDataLocation");
+    vehicles = document.getElementsByClassName("subDataVehicle");
+    
+    addCharacterCallback(characters, movie.people);
+    addLocationCallback(locations, movie.locations);
+    addVehicleCallback(vehicles, movie.vehicles);
+}
+
+//apertura la 2da vista y llama a la función que rendereiza el contenido de la pelicula seleccionada 
+function addMovieCallbacks(btnMovies){
+    let pagina2 =  document.getElementById("pagina2");
+    let principalPage = document.getElementById("principalPage");
+
+    for(let i=0; i < btnMovies.length; i++){
+        btnMovies[i].addEventListener("click", function() {            
+            /* console.log(btnMovies[i].id); */ // encontramos el id de la pelicula seleccionada
+            let movie = films.filter( (film) => {
+                return film.id === btnMovies[i].id                
+;           });
+            principalPage.style.display = "none" ; 
+            pagina2.style.display = "block" ;
+            renderMovieDetail(movie[0]);
         });
-    },0);
+    }
+}
+
+//apertura la vista del modal y llama a la función para rendereizar el contenido del personaje seleccionado 
+function addCharacterCallback(characterDivs, characters) {
+    for (let i = 0; i < characterDivs.length; i++){
+
+        characterDivs[i].addEventListener("click", function(){
+            modalC.style.opacity = "1";
+            modalC.style.visibility = "visible";
+            modal.classList.toggle("modalClose");
+            let characterData = characters.filter((character) => {
+                return character.id === characterDivs[i].id
+            });
+            renderCharacter(characterData[0]);
+        });
+    }
+}
+
+//apertura la vista del modal y llama a la función para renderizar el contenido del la locación seleccionado 
+function addLocationCallback(locationDivs, locations) {
+    for (let i = 0; i < locationDivs.length; i++){
+
+        locationDivs[i].addEventListener("click", function(){
+            modalC.style.opacity = "1";
+            modalC.style.visibility = "visible";
+            modal.classList.toggle("modalClose");
+            let locationData = locations.filter((location) => {
+                return location.id === locationDivs[i].id
+            });
+            renderLocation(locationData[0]);
+        });
+    }
+}
+
+//apertura la vista del modal y llama a la función para renderizar el contenido del vehículo seleccionado 
+function addVehicleCallback(vehicleDivs, vehicles) {
+    for (let i = 0; i < vehicleDivs.length; i++){
+
+        vehicleDivs[i].addEventListener("click", function(){
+            modalC.style.opacity = "1";
+            modalC.style.visibility = "visible";
+            modal.classList.toggle("modalClose");
+            let vehicleData = vehicles.filter((vehicle) => {
+                return vehicle.id === vehicleDivs[i].id
+            });
+            /* console.log(vehicleDivs[i].id); */
+            /* console.log(vehicleData); */
+            renderVehicle(vehicleData[0]);
+        });
+    }
+}
+
+//crea los div en función de cada personajes 
+function createCharacter(character) {
+    let nuevoElemento = document.createElement('div');
+    nuevoElemento.id = character.id;
+    let nuevoElementoImg = document.createElement('img');
+    nuevoElementoImg.src = character.img;
+    nuevoElemento.textContent += `${character.name}:`
+    nuevoElemento.appendChild(nuevoElementoImg);
+    nuevoElemento.classList.add("contenedorSubData", "subDataCharacter");
+
+    return nuevoElemento;
+}
+
+//crea los div en función de cada locación 
+function createLocation(location) {
+    let nuevoElemento = document.createElement('div');
+    nuevoElemento.id = location.id; 
+    let nuevoElementoImg = document.createElement('img');
+    nuevoElementoImg.src = location.img;
+    nuevoElemento.textContent += `${location.name}:`
+    nuevoElemento.appendChild(nuevoElementoImg);
+    nuevoElemento.classList.add("contenedorSubData", "subDataLocation");
+    
+    return nuevoElemento;
+}
+
+//crea los div en función de cada vehículo 
+function createVehicle(vehicle) {
+    let nuevoElemento = document.createElement('div'); 
+    nuevoElemento.id = vehicle.id; 
+    let nuevoElementoImg = document.createElement('img');
+    nuevoElementoImg.src = vehicle.img;
+    nuevoElemento.textContent += `${vehicle.name}:`
+    nuevoElemento.appendChild(nuevoElementoImg);
+    nuevoElemento.classList.add("contenedorSubData", "subDataVehicle");
+    
+    return nuevoElemento;
+}
+
+// ---------------------------------boton inicio dle menu principal--------------
+let principalBtn = document.getElementById("btnHeaderPrincipal");
+principalBtn.addEventListener("click", function(){    
+    pagina2.style.display = "none";
+    principalPage.style.display = "block";  
+    location.reload();    
 });
 
+//----------------------------------render principal-------------------------------
+function render(films) {
+    let boxPoster = document.getElementById("boxPoster");
+    let btnPortadasDivs = renderMovies(films, boxPoster); 
+    addMovieCallbacks(btnPortadasDivs);  
+}
 
-// function scrollToTop() {
-    // top: 0,
-    // behavior: "smooth" 
-// }
+renderDirectorDropdown();
+renderProducerDropdown();
+renderYearDropdown();
+render(films);
 
+// -------------------------------filters-----------------------------------------
 
+// ----------genera el dorpdown de directores-----------
+function renderDirectorDropdown() {
+    let listDirector = document.getElementById("listDirector");
+    //let directors = [... new Set(films.map(x => x.director))];
+    let uniqueDirectors = films.map(x => x.director).filter(
+        (director, index, directors) => directors.indexOf(director) === index
+    );
+    let liElement = "";
+    for(let i=0; i < uniqueDirectors.length; i++){
+        liElement += `<li><a id="${uniqueDirectors[i]}">${uniqueDirectors[i]}</a></li>`
+    }
+    listDirector.innerHTML = liElement;
+    addDirectorFilterCallback();
+}
 
+//filtra en función del director seleccionado 
+function addDirectorFilterCallback(){
+    let directors = document.getElementById("listDirector").children;
+    //let boxPoster = document.getElementById("boxPoster");
+    for(let i=0; i < directors.length; i++){
+        directors[i].firstChild.addEventListener("click", function(e){
+            //console.log(directorFilter(e.target.id));
+            //renderMovies(directorFilter(e.target.id), boxPoster);
+            render(directorFilter(e.target.id));
+        });
+    }
+}
 
+function directorFilter(director) {
+    //console.log(director);
+    let filteredMovies = films.filter((film) => {
+        return film.director ===  director;
+    })
+    return filteredMovies
+}
 
+// ---------------generar dropdows productores------------
+function renderProducerDropdown() {
+    let listProducer = document.getElementById("listProducer");
+    let uniqueProducers = films.map(x => x.producer).filter(
+        (producer, index, producers) => producers.indexOf(producer) === index
+    );
+    let liElement = "";
+    for(let i=0; i < uniqueProducers.length; i++){
+        liElement += `<li><a id="${uniqueProducers[i]}">${uniqueProducers[i]}</a></li>`
+    }
+    listProducer.innerHTML = liElement;
+    addProducerFilterCallback();
+}
 
+//filtra en función del productor seleccionado 
+function addProducerFilterCallback(){
+    let producers = document.getElementById("listProducer").children;
+    for(let i=0; i < producers.length; i++){
+        producers[i].firstChild.addEventListener("click", function(e){
+            render(producerFilter(e.target.id));
+        });
+    }
+}
 
+function producerFilter(producer) {
+    let filteredMovies = films.filter((film) => {
+        return film.producer ===  producer;
+    });
+    return filteredMovies
+}
 
+// ---------------generar dropdows por Año------------
+function renderYearDropdown() {
+    let listYear = document.getElementById("listYear");
+    let uniqueYears = films.map(x => x.release_date).filter(
+        (year, index, years) => years.indexOf(year) === index
+    );
+    let liElement = "";
+    for(let i=0; i < uniqueYears.length; i++){
+        liElement += `<li><a id="${uniqueYears[i]}">${uniqueYears[i]}</a></li>`
+    }
+    listYear.innerHTML = liElement;
+    addYearFilterCallback();
+}
 
+function addYearFilterCallback(){
+    let years = document.getElementById("listYear").children;
+    for(let i=0; i <  years.length; i++){
+        years[i].firstChild.addEventListener("click", function(e){
+            render(yearFilter(e.target.id));
+        });
+    }
+}
 
+function yearFilter(release_date){
+    let filteredYears = films.filter((film) => {
+        return film.release_date === release_date;
+    });
+    return filteredYears
+}
 
+// -------------------------------orderns-----------------------------------------
+// ----------orden de a--z -----------
+
+let a_z = document.getElementById("a_z");
+a_z.addEventListener("click", function(){       
+    
+    let peliculasOrdenadasPorTitulo = films.sort((a,b) => {
+        if (a.title < b.title) {
+            return -1;
+        }
+        if (a.title > b.title) {
+            return 1;
+        }
+        return 0;
+    });
+    render (peliculasOrdenadasPorTitulo);
+        
+});   
+
+// ----------orden de z--a -----------
+let z_a = document.getElementById("z_a");
+z_a.addEventListener("click", function(){
+    
+    let peliculasOrdenadasPorTitulo = films.sort((a,b) => {
+        if (a.title > b.title) {
+            return -1;
+        }
+        if (a.title < b.title) {
+            return 1;
+        }
+        return 0;
+    });
+    render (peliculasOrdenadasPorTitulo);
+
+});
+
+// ----------orden por fecha de lanzamiento (mas antigua)-----------
+let yearAsc = document.getElementById("yearAsc");
+yearAsc.addEventListener("click", function(){
+  
+    let peliculasOrdenadasPorYear = films.sort((a,b) => {
+        if (a.release_date < b.release_date) {
+            return -1;
+        }
+        if (a.release_date > b.release_date) {
+            return 1;
+        }
+        return 0;
+    });
+
+    render (peliculasOrdenadasPorYear);  
+
+});
+
+// ----------orden por fecha de lanzamiento (mas nueva)-----------
+let yearDesc = document.getElementById("yearDesc");
+yearDesc.addEventListener("click", function(){
+  
+    let peliculasOrdenadasPorYear = films.sort((a,b) => {
+        if (a.release_date > b.release_date) {
+            return -1;
+        }
+        if (a.release_date < b.release_date) {
+            return 1;
+        }
+        return 0;
+    });
+
+    render (peliculasOrdenadasPorYear);  
+
+});
+
+// ----------orden por calificación (mayor puntaje)-----------
+let mayorToMenor = document.getElementById("mayorToMenor");
+mayorToMenor.addEventListener("click", function(){
+    
+    let peliculasOrdenadasPorcalificacion = films.sort((a,b) => {
+        if (parseInt(a.rt_score) > parseInt(b.rt_score)) {
+            return -1;
+        }
+        if (parseInt(a.rt_score) < parseInt(b.rt_score)) {
+            return 1;
+        }
+        return 0;
+    });
+
+    render (peliculasOrdenadasPorcalificacion);
+});
+
+// ----------orden por calificación (menor puntaje)-----------
+let menorToMayor = document.getElementById("menorToMayor");
+menorToMayor.addEventListener("click", function(){
+    
+    let peliculasOrdenadasPorcalificacion = films.sort((a,b) => {
+        if (parseInt(a.rt_score) < parseInt(b.rt_score)) {
+            return -1;
+        }
+        if (parseInt(a.rt_score) > parseInt(b.rt_score)) {
+            return 1;
+        }
+        return 0;
+    });
+    
+    render (peliculasOrdenadasPorcalificacion);
+});
+
+//-------------------------------------------------

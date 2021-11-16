@@ -239,19 +239,14 @@ main {
 
 /*------------------características del carrusel-----------------*/
 .carrusel {
-    /* display: flex; */
-    /* flex-wrap: nowrap; */
+    
     width: 100%;
-    height: 38rem;
+    height: 600px;
     background-color:#524e4e;       
-    position: relative;
-    /* justify-content: center; */
-    user-select: none;  
-    /* left: 5%; */
-    /* align-items: center; */
+    position: relative; 
+    user-select: none;      
     margin: 5% 0;
-    border: solid #e4dbdb 0.7rem;
-    /* overflow: hidden;  */ 
+    /* border: solid #e4dbdb 0.7rem;   */ 
 
 }
 
@@ -260,24 +255,10 @@ main {
 }
 
 .carrusel .slide_img {
-    position: absolute;
-    /* padding: 0; */
-    /* display: flex; */
+    position: absolute;    
     height: 100%;
     width: 100%;
-   /*  min-width: 100%;
-    overflow: hidden;
-    transition: .3s ease all;*/
-    
-    
-    /* animation: slider;
-    animation-duration: 90s;
-    animation-iteration-count: infinite;
-    animation-direction:alternate;
-    animation-timing-function:linear;
-    overflow: hidden; */
-
-}
+} 
 
 /* @keyframes slider{
     0% {margin-left: 0;}
@@ -290,11 +271,9 @@ main {
     70% {margin-left:  -200%;}
 
     75% {margin-left:  -300%;}
-    100% {margin-left:  -300%;}
-   
-    
-} */
-
+    100% {margin-left:  -300%;}   
+}
+ */
 .carrusel .slide_img img{
     position: relative;
     width: 100%;
@@ -303,8 +282,6 @@ main {
     vertical-align: top;
     background-size: 100% 100%;
     object-fit: cover;
-    
-
 }
 
 .prev, .next {
@@ -337,7 +314,6 @@ label span{
 
 .prev:hover, .next:hover {
     transform: .3s;
-    
     color: #fffefe;
 }
 
@@ -385,6 +361,74 @@ label span{
 	#i5:checked  ~  #nav_slide #dot5
 { background-color: #e4dbdb;}
 
+/* 
+.container-carrusel{
+    
+    width: 100%;   
+    overflow: hidden;
+    position: relative;    
+}
+
+.slider{
+    display: flex;
+    width: 100%;
+    height: 600px;
+    
+}
+
+.seccionCarrusel{
+    width: 100%;
+    height: 100%;
+}
+
+.seccionImg{
+    width: 100%;
+    height: 100%;
+    
+}
+
+.imgSlider{
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;    
+    
+
+}
+
+.slider-btn{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: rgba(226, 221, 221, 0.726);
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.slider-btn:hover{
+
+    background: #FFFF;
+}
+
+.slider-btn-right{
+    color: #000000;
+    width: 40px;
+    height: 40px;
+    right: 15px;
+}
+
+.slider-btn-left{
+    color: #000000;
+    width: 40px;
+    height: 40px;
+    left: 15px;
+}
+ */
 /*---------------------------características de la sección de filtrado---------------*/
 .secfiltrado{
     width: 100%;    
@@ -698,9 +742,8 @@ button img {
     color: rgb(31, 29, 29);
     font-family: 'Open Sans', sans-serif;
     letter-spacing: 0.1rem; 
-    font-size: 1.2rem;   
-    /* border: groove #d2d6d4;    */
-    border:0.2rem groove #d2d6d4;
+    font-size: 1rem;   
+    border: groove #d2d6d4;   
 }
 
 .contenedorSubData img{
@@ -835,7 +878,7 @@ button img {
 .seccionDatos{
     height: auto;
     width: 50%;
-    padding: 2rem;
+    padding: 1rem;
     overflow: hidden;
     line-height:1.5rem;
 }
@@ -880,7 +923,7 @@ button img {
     display: flex;
     position: relative;
     /* float: right; */
-    top: 6%;
+    top: 5%;
     width: auto;
     height: auto;
     /* right: 0.3rem;
@@ -888,8 +931,8 @@ button img {
 }
 
 .codigoQR img{
-    width: auto;
-    height: auto;  
+    width: 13%;
+    height: 13%;  
 }
 
 /* ---------------------características del footer--------------------- */
