@@ -673,7 +673,10 @@ button img {
     flex-wrap: wrap;
     justify-content: space-around;
     align-content: flex-start;  
-    background: rgb(76, 185, 185);
+    background: rgb(76, 185, 185);    
+    /* background-repeat:no-repeat;
+    background-size: cover; 
+    object-fit: cover; */
     border-radius: 1.2rem;   
     font-family: 'Open Sans', sans-serif;
     letter-spacing: 0.1rem; 
