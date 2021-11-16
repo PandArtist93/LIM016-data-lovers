@@ -1,8 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; 
-    font-family: 'Source Sans Pro', sans-serif;
+    box-sizing: border-box;      
 }
 
 body {
@@ -96,6 +95,7 @@ header nav ul ul{
     width: 9rem;
     opacity: 0;
     visibility: hidden;
+    transition: top 0.3s;
     cursor: pointer; 
 }
 
@@ -246,8 +246,6 @@ main {
     position: relative; 
     user-select: none;      
     margin: 5% 0;
-    /* border: solid #e4dbdb 0.7rem;   */ 
-
 }
 
 #i1,#i2,#i3,#i4,#i5 {
@@ -448,6 +446,7 @@ label span{
     display: table;
 }
  */
+ 
 .secfiltrado nav ul{
     display: inline-flex;
     flex-direction: row;
@@ -463,7 +462,10 @@ label span{
     border-radius: 1rem;
     cursor: pointer; 
     padding: 0.35rem; 
+    width: 9rem;
+    height: 3.5rem;
     justify-content: center;
+    overflow: hidden;
 }
 
 .secfiltrado nav ul li a{
@@ -498,7 +500,6 @@ label span{
     top: 3rem;
     opacity: 1;
     visibility: visible; 
-    /* width:13rem; */
 }
 
 .secfiltrado nav ul ul li{
@@ -511,6 +512,7 @@ label span{
     background: #53909b;
     cursor: pointer; 
     left: -0.6rem;
+    height: auto;
 } 
 
 .secfiltrado nav ul ul li a{
@@ -528,30 +530,10 @@ main nav ul li:hover{
    background-color: #56adbd;
 }
 
-
-/*----------------------Sección de ordenado-----------------------*/
-/* .secOrdenado{
-    width: auto;    
-    height: 8rem;
-    display: flex;
-    /* margin-bottom: 2rem; */
-   /*  flex-wrap: nowrap;
-    background-color: #157181;
-    font-family: fantasy;
-    letter-spacing: 0.1rem; 
-    color: #e4dbdb;   
-    justify-content: center;
-    align-items: center;
-    vertical-align: middle;  */   
-/*} */
-
-/* .secOrdenado p{
-    font-size: 1.5rem;
-    font-family: fantasy;
-    letter-spacing: 0.18rem; */
-    /* color: rgb(219, 226, 152);   */  
-    /* color:rgba(231, 186, 101, 0.952);
-} */
+.secfiltrado nav ul li a:hover{
+    border-radius: 0.3rem;
+    color: rgb(176, 235, 207);
+}
 
 /*---------------------------características del catálogo de películas----------------*/
 .boxPoster {
@@ -613,7 +595,6 @@ button img {
     border-radius: 1rem 1rem 0 0;   
     cursor: pointer;
     background-size: cover;  
-    /* background-position: center center;  */ 
     object-fit: cover;
 }
 
@@ -648,15 +629,12 @@ button img {
 
 .contentImagPage2 img{    
     justify-content: center;
-    /* height:610px; */
     height: 98%;
     width:95%; 
     padding: 1% 5rem;
-    /* border-radius: 2rem; */
     background-size: cover;  
     background-position: center;  
-    /* object-fit: cover; */
-    /* box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 0 0  0 0px  #157181, 0.3em 0.3em 1em rgba(0,0,0,0.3);  */
+    
 }
 
 /*------------------contenido texto de la 2da vista-------------------*/
@@ -725,7 +703,7 @@ button img {
 }
 
 .contenedorSubData img{
-    /* height: 35rem; */
+    height: 35rem;
     border-radius: 1rem;
     background-repeat:no-repeat;
     background-size: cover;   
@@ -900,18 +878,52 @@ button img {
 .codigoQR{
     display: flex;
     position: relative;
-    /* float: right; */
     top: 5%;
     width: auto;
     height: auto;
-    /* right: 0.3rem;
-    bottom: auto; */
 }
 
 .codigoQR img{
     width: 13%;
     height: 13%;  
 }
+/* ------------------------------scrollTopButton--------------------------------------*/
+
+#buttomScrollTop {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    
+  
+}
+.btnScrollTop {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    z-index: 600;
+    margin: 2rem;
+    border-radius: 50%;
+    width: 5.3rem;
+    padding: 0.5rem;
+    height: 5.3rem;
+    /* box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 0 0  0 0px  #157181, 0.3em 0.3em 1em rgba(0,0,0,0.3); */
+    background: #c2d4cc;
+    cursor: pointer;
+    border: #157181 5px solid;
+}
+
+.btnScrollTop i {
+    font-size: 4.5rem;
+    
+}
+
+.btnScrollTop:hover{
+    background-color:rgb(168, 238, 238);
+    transition: 0.3s;
+    box-shadow: 0 0 0.6rem 0.1rem #104e48;
+}
+
 
 /* ---------------------características del footer--------------------- */
  footer { 
@@ -921,7 +933,7 @@ button img {
     flex-direction: column;  
     width: 100%;
     height: 100%; 
-    margin-top: 2rem;
+    margin-top: 6.5rem;
     font-size: 1.5rem;
     
 } 
@@ -995,52 +1007,15 @@ i {
     height: 1200px;
     width: 100%;
 }
-/* ------------------------------scrollTopButton--------------------------------------*/
-#buttomScrollTop {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    
-  
-}
-.btnScrollTop {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-content: center;
-    z-index: 600;
-    margin: 2rem;
-    border-radius: 50%;
-    width: 5.3rem;
-    padding: 0.5rem;
-    height: 5.3rem;
-    /* box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 0 0  0 0px  #157181, 0.3em 0.3em 1em rgba(0,0,0,0.3); */
-    background: #c2d4cc;
-    cursor: pointer;
-    border: #157181 5px solid;
-}
 
-.btnScrollTop i {
-    font-size: 4.5rem;
-    
-}
-
-.btnScrollTop:hover{
-    background-color:rgb(168, 238, 238);
-    transition: 0.3s;
-    box-shadow: 0 0 0.6rem 0.1rem #104e48;
-}
 /*---------------------- Media queries-menu responsive------------------------------- */
 .checkbtn {
     cursor: pointer;
     display:none;
-    /* color: #FFFF;
-    font-size: 2rem; */
 }
 
 #check {
     display:none;
-    
 }
 
 /*----------------------- esto seria para el responsive en celulares -----------------------------*/
@@ -1094,42 +1069,19 @@ i {
         cursor: pointer;  
         width: 80%;    
         align-items: center;
-        padding: 0.05rem;    
-        border: solid 0.2rem #157181;       
-        font-family: 'Open Sans', sans-serif;   
-        text-align: center;
-        letter-spacing: 0.1rem; 
-        justify-items: center;
-        border-radius: 1rem;
-        background-color: #44a8b9;    
-        vertical-align: middle;
-        cursor: pointer;    
-        text-transform: uppercase;    
+        padding: 0.35rem;   
+        text-align: center;     
     }
 
     header nav ul li a{
-        display: flex;
-        position: relative;
-        color: rgb(230, 222, 222);
-        line-height: 2rem;
-        font-size: 1.4rem;
-        letter-spacing: 0.1rem;
-        text-transform: uppercase;
-        padding: 0.02rem;
-        margin: 1rem;
-        text-decoration: none;
-        cursor: pointer; 
-        justify-content: center;
+        margin: auto;       
     }
     
     header nav ul ul{
-        display: none;
-        position: absolute;
-        width: 0;
-        opacity: -5;
-        transition: top 0.3s;
+        position: relative;
+        opacity: 0;
+        visibility: hidden;
         font-size: 0.7rem;
-        cursor: pointer; 
     }
      
     #check:checked ~.header-right {
@@ -1140,18 +1092,13 @@ i {
     .search-box{
         display: flex;
         position: relative;
-        width: 80%;
+        width: 79.5%;
         left: 10%;
         margin-bottom: 1.35rem;
-        /* max-height: 80%; */
         position: relative;   
-        /* transform: translate(-50); */
         background: #cccecf;
         border-radius: 2rem;
-        padding: 0.6rem;
-        vertical-align: middle;
-        justify-content: center;   
-        box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 0 0  0 0px  #157181, 0.3em 0.3em 1em rgba(0,0,0,0.3);
+        padding: 0.3rem;       
     } 
     
     .search-txt{
@@ -1162,7 +1109,6 @@ i {
         padding: 0;
         font-family: 'Open Sans', sans-serif;
         font-size: 1rem;
-        /* line-height: 1.5rem; */
         transition: 0.4s;
         background: none;
         text-align: center;
@@ -1177,7 +1123,7 @@ i {
     }
     
     .search-box:hover > .search-txt{
-        width: 80%;
+        width: 90%;
         background: rgb(241, 239, 236);
         padding: 0, 0.5rem;
     }
@@ -1188,7 +1134,6 @@ i {
 
     .carrusel {
         height: 28rem;
-        border: solid #e4dbdb 0.3rem;
     }
 
     .modal{
@@ -1238,31 +1183,7 @@ i {
     }
 }
  
-@media (max-width: 1337px) {
-    /* .secfiltrado{
-        width: 100%;    
-        height: 13rem;
-        display: flex;
-        background-color: #157181;
-        font-family: 'Open Sans', sans-serif; */
-        /* letter-spacing: 0.1rem; */
-        /* letter-spacing: 0.18rem;
-        color: #e4dbdb;
-        justify-content: center;
-        align-items: center;
-        vertical-align: middle;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        justify-content: center;
-        align-items:inherit; */
-        /* vertical-align: middle;    */
-        /* background-color: #157181; */
-        /* font-family: fantasy; */
-        /* font-family: 'Source Sans Pro', sans-serif; */
-        /* letter-spacing: 0.1rem; */ 
-        /* letter-spacing: 0.18rem; */
-        /* color: #e4dbdb;   
-    } */
+@media (max-width: 1250px) {
 
     .secfiltrado {
         width: auto;
@@ -1270,8 +1191,7 @@ i {
         display: flex;
         background-color: #157181;
         font-family: 'Open Sans', sans-serif;
-        /* letter-spacing: 0.1rem; */
-        letter-spacing: 0.18rem;
+        letter-spacing: 0.12rem;
         color: #e4dbdb;
         justify-content: center;
         align-items: center;
@@ -1280,23 +1200,40 @@ i {
         flex-wrap: wrap;
     } 
 
-    .secfiltrado nav ul li a {
+    main nav { 
         display: flex;
-        /* position: relative; */
+        flex-wrap: wrap; 
+        width: auto;
         align-content: center;
-        z-index: 200;
-        color: rgb(230, 222, 222);
-        line-height: 1.7rem;
-        font-size: 1.3rem;
-        letter-spacing: 0.1rem;
-        text-transform: uppercase;
-        padding: 0.02rem;
-        margin: 1rem;
-        /* text-decoration: none; */
-        cursor: pointer;
-        width: 60%;
+        align-items: center;
+        vertical-align: middle;
+        font-size: 1.9rem;
+        margin: 0rem 1rem;
+        flex-direction: column; 
+     }
+
+     main nav ul {
+        display: inline-flex;
+        flex-wrap: nowrap;
+        list-style: none;
+        position: relative;
+        margin: 1rem 0rem;
     }
-        
+
+    main nav ul li {
+        border-radius: 0rem;
+        justify-content: space-between;       
+        font-size: 1.2rem;
+        padding: 0;
+        width: 13rem;        
+        overflow: hidden;
+    }
+
+    main nav ul li a {
+        font-size: 1rem;        
+    }     
+       
+    
 }
 
 @media (max-width: 1280px){

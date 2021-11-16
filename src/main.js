@@ -1,5 +1,6 @@
-// import { conditionalExpression } from '@babel/types';
-/* import { example } from './data.js'; */
+/* import { conditionalExpression } from '@babel/types';
+
+import { renderDirector } from './data.js'; */
 
 import data from './data/ghibli/ghibli.js';
 
@@ -106,8 +107,7 @@ function renderLocation(location){
 }
 
 //renderizar contenido del modal al seleccioar vehículos
-function renderVehicle(vehicle){
-    /* console.log(vehicle); */
+function renderVehicle(vehicle){    
     let modalData =`
         <div class="fondoImg">
             <div class="imagen-carnet" id="imagen-carnet">          
@@ -250,8 +250,7 @@ function addVehicleCallback(vehicleDivs, vehicles) {
             let vehicleData = vehicles.filter((vehicle) => {
                 return vehicle.id === vehicleDivs[i].id
             });
-            /* console.log(vehicleDivs[i].id); */
-            /* console.log(vehicleData); */
+            
             renderVehicle(vehicleData[0]);
         });
     }
@@ -300,7 +299,6 @@ function createVehicle(vehicle) {
 let principalBtn = document.getElementById("btnHeaderPrincipal");
 let pagina2 = document.getElementById("pagina2");
 let principalPage = document.getElementById("principalPage");
-
 principalBtn.addEventListener("click", function(){    
     pagina2.style.display = "none";
     principalPage.style.display = "block";  
@@ -323,8 +321,7 @@ render(films);
 
 // ----------genera el dorpdown de directores-----------
 function renderDirectorDropdown() {
-    let listDirector = document.getElementById("listDirector");
-    //let directors = [... new Set(films.map(x => x.director))];
+    let listDirector = document.getElementById("listDirector");    
     let uniqueDirectors = films.map(x => x.director).filter(
         (director, index, directors) => directors.indexOf(director) === index
     );
@@ -338,19 +335,15 @@ function renderDirectorDropdown() {
 
 //filtra en función del director seleccionado 
 function addDirectorFilterCallback(){
-    let directors = document.getElementById("listDirector").children;
-    //let boxPoster = document.getElementById("boxPoster");
+    let directors = document.getElementById("listDirector").children;    
     for(let i=0; i < directors.length; i++){
-        directors[i].firstChild.addEventListener("click", function(e){
-            //console.log(directorFilter(e.target.id));
-            //renderMovies(directorFilter(e.target.id), boxPoster);
+        directors[i].firstChild.addEventListener("click", function(e){            
             render(directorFilter(e.target.id));
         });
     }
 }
 
-function directorFilter(director) {
-    //console.log(director);
+function directorFilter(director) {    
     let filteredMovies = films.filter((film) => {
         return film.director ===  director;
     })
@@ -387,6 +380,20 @@ function producerFilter(producer) {
     });
     return filteredMovies
 }
+
+//----------------------boton pelicula del header---------------------
+/* function renderMovieBtnMenu(films) {
+    let listMovieBtn = document.getElementById("listaOcultaSegundaria");
+    let listMovieByTitle = films.map(x => x.title);
+       
+    let listMovie = "";
+    for(let i=0; i < listMovieByTitle.length; i++){
+        listMovie += `<li><a id="${[i]}">${listMovieByTitle[i]}</a></li>`
+    }
+    listMovieBtn.innerHTML = listMovie;
+
+    renderMovieDetail()
+} */
 
 // ---------------generar dropdows por Año------------
 function renderYearDropdown() {
