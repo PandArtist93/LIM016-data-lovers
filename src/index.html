@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
   </head>  
   <body>    
     <header>
@@ -157,8 +157,7 @@
 
         <div class="secfiltrado">            
           <nav> 
-            <div class="containerSeccFilter">
-              <p>Filtrar por:</p>
+            <p>Filtrar por:</p>
             <ul>
               <li>
                 <a>Director</a>
@@ -173,43 +172,38 @@
                 <ul id="listYear"></ul>
               </li>                       
             </ul>  
-            </div>
-            
-            <div class="containerSeccFilter">
-              <p>Ordenar por:</p>
-              <ul>
-                <li>
-                  <a>lanzamiento</a>
-                  <ul id="listOrdernDate">
-                    <li><a id="yearAsc">Mas Antigua</a></li>
-                    <li><a id="yearDesc">Mas Nueva</a></li>                  
-                  </ul>
-                </li>              
-                <li>
-                  <a>Alfabético</a>
-                  <ul>
-                    <li><a id="a_z">A--Z</a></li>
-                    <li><a id="z_a">Z--A</a></li>                  
-                  </ul> 
-                </li>  
-                <li>
-                  <a >Calificación</a>
-                  <ul>
-                    <li><a id="mayorToMenor">Mayor puntaje</a></li>
-                    <li><a id="menorToMayor">Menor puntaje</a></li>                  
-                  </ul>
-                </li>                        
-              </ul> 
-
-            </div>
-           
+ 
+            <p>Ordenar por:</p>
+            <ul>
+              <li>
+                <a>lanzamiento</a>
+                <ul id="listOrdernDate">
+                  <li><a id="yearAsc">Mas Antigua</a></li>
+                  <li><a id="yearDesc">Mas Nueva</a></li>                  
+                </ul>
+              </li>              
+              <li>
+                <a>Alfabético</a>
+                <ul>
+                  <li><a id="a_z">A--Z</a></li>
+                  <li><a id="z_a">Z--A</a></li>                  
+                </ul> 
+              </li>  
+              <li>
+                <a >Calificación</a>
+                <ul>
+                  <li><a id="mayorToMenor">Mayor puntaje</a></li>
+                  <li><a id="menorToMayor">Menor puntaje</a></li>                  
+                </ul>
+              </li>                        
+            </ul>  
           </nav>                
         </div>
 
         <section class="boxPoster" id="boxPoster"></section>
 
-        <!-- <section class="boxPoster" id= "boxPosterFilter"></section>
-                   -->
+        <section class="boxPoster" id= "boxPosterFilter"></section>
+                  
       </div>                      
     </main>
 
@@ -257,8 +251,8 @@
         <div class="contenidoSubPage" id= "contenidoPageVehiculos"></div>
       </section>          
     </div>
-    <div id="buttomScrollTop"></div>
-    <footer id="footer"> 
+
+    <footer> 
       <div class="contenedor-principal"> 
         <div class="contenedor">
           <h2 class="titulo-seccion">Contáctanos </h2>
@@ -282,5 +276,7 @@
     <script src="main.js" type="module"></script>
   </body>
 </html>
+
+
 
 

@@ -1,8 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; 
-    font-family: 'Source Sans Pro', sans-serif;
+    box-sizing: border-box;      
 }
 
 body {
@@ -96,6 +95,7 @@ header nav ul ul{
     width: 9rem;
     opacity: 0;
     visibility: hidden;
+    transition: top 0.3s;
     cursor: pointer; 
 }
 
@@ -427,18 +427,11 @@ label span{
 
 .secfiltrado nav{
     display: flex;
-    flex-wrap:wrap;
+    flex-wrap: nowrap;
     width: auto;
     justify-content: space-around;
     align-items: center;
     margin: 1rem 1rem;
-}
-
-.containerSeccFilter{
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    height: 100%;
 }
 
 .secfiltrado p{
@@ -469,10 +462,10 @@ label span{
     border-radius: 1rem;
     cursor: pointer; 
     padding: 0.35rem; 
-    /* width: 9rem;
-    height: 3.5rem; */
+    width: 9rem;
+    height: 3.5rem;
     justify-content: center;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 .secfiltrado nav ul li a{
@@ -530,11 +523,15 @@ label span{
 .secfiltrado nav ul ul li a:hover{
     color: rgb(176, 235, 207);
     box-shadow: none;
-    border-radius: 0.3rem;
 }
 
 main nav ul li:hover{
    background-color: #56adbd;
+}
+
+.secfiltrado nav ul li a:hover{
+    border-radius: 0.3rem;
+    color: rgb(176, 235, 207);
 }
 
 /*---------------------------características del catálogo de películas----------------*/
@@ -705,7 +702,7 @@ button img {
 }
 
 .contenedorSubData img{
-    /* height: 35rem; */
+    height: 35rem;
     border-radius: 1rem;
     background-repeat:no-repeat;
     background-size: cover;   
@@ -898,7 +895,7 @@ button img {
     flex-direction: column;  
     width: 100%;
     height: 100%; 
-    margin-top: 2rem;
+    margin-top: 6.5rem;
     font-size: 1.5rem;
     
 } 
@@ -972,41 +969,7 @@ i {
     height: 1200px;
     width: 100%;
 }
-/* ------------------------------scrollTopButton--------------------------------------*/
-#buttomScrollTop {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    
-  
-}
-.btnScrollTop {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-content: center;
-    z-index: 600;
-    margin: 2rem;
-    border-radius: 50%;
-    width: 5.3rem;
-    padding: 0.5rem;
-    height: 5.3rem;
-    /* box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 0 0  0 0px  #157181, 0.3em 0.3em 1em rgba(0,0,0,0.3); */
-    background: #c2d4cc;
-    cursor: pointer;
-    border: #157181 5px solid;
-}
 
-.btnScrollTop i {
-    font-size: 4.5rem;
-    
-}
-
-.btnScrollTop:hover{
-    background-color:rgb(168, 238, 238);
-    transition: 0.3s;
-    box-shadow: 0 0 0.6rem 0.1rem #104e48;
-}
 /*---------------------- Media queries-menu responsive------------------------------- */
 .checkbtn {
     cursor: pointer;
@@ -1060,7 +1023,7 @@ i {
     }
   
     header nav ul li{
-        width: 100%;
+        width: auto;
         margin: 1rem 0 1rem 0;    
         box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 0 0  0 0px  #157181, 0.3em 0.3em 1em rgba(0,0,0,0.3); 
         border-radius: 1rem;
@@ -1068,17 +1031,8 @@ i {
         cursor: pointer;  
         width: 80%;    
         align-items: center;
-        padding: 0.05rem;    
-        border: solid 0.2rem #157181;       
-        font-family: 'Open Sans', sans-serif;   
-        text-align: center;
-        letter-spacing: 0.1rem; 
-        justify-items: center;
-        border-radius: 1rem;
-        background-color: #44a8b9;    
-        vertical-align: middle;
-        cursor: pointer;    
-        text-transform: uppercase;         
+        padding: 0.35rem;   
+        text-align: center;     
     }
 
     header nav ul li a{
@@ -1191,10 +1145,11 @@ i {
     }
 }
  
-@media (max-width: 1337px) {
-    .secfiltrado{
-        width: 100%;    
-        height: 13rem;
+@media (max-width: 1250px) {
+
+    .secfiltrado {
+        width: auto;
+        height: 17rem;
         display: flex;
         background-color: #157181;
         font-family: 'Open Sans', sans-serif;
@@ -1204,35 +1159,43 @@ i {
         align-items: center;
         vertical-align: middle;
         flex-direction: column;
+        flex-wrap: wrap;
+    } 
+
+    main nav { 
+        display: flex;
+        flex-wrap: wrap; 
+        width: auto;
+        align-content: center;
+        align-items: center;
+        vertical-align: middle;
+        font-size: 1.9rem;
+        margin: 0rem 1rem;
+        flex-direction: column; 
+     }
+
+     main nav ul {
+        display: inline-flex;
         flex-wrap: nowrap;
-        justify-content: center;
-        align-items:inherit;
-        /* vertical-align: middle;    */
-        background-color: #157181;
-        /* font-family: fantasy; */
-        font-family: 'Source Sans Pro', sans-serif;
-        /* letter-spacing: 0.1rem; */ 
-        /* letter-spacing: 0.18rem; */
-        color: #e4dbdb;   
+        list-style: none;
+        position: relative;
+        margin: 1rem 0rem;
     }
 
-    .secfiltrado nav ul li a {
-        display: flex;
-        /* position: relative; */
-        align-content: center;
-        z-index: 200;
-        color: rgb(230, 222, 222);
-        line-height: 1.7rem;
-        font-size: 1.3rem;
-        letter-spacing: 0.1rem;
-        text-transform: uppercase;
-        padding: 0.02rem;
-        margin: 1rem;
-        /* text-decoration: none; */
-        cursor: pointer;
-        width: 60%;
+    main nav ul li {
+        border-radius: 0rem;
+        justify-content: space-between;       
+        font-size: 1.2rem;
+        padding: 0;
+        width: 13rem;        
+        overflow: hidden;
     }
-        
+
+    main nav ul li a {
+        font-size: 1rem;        
+    }     
+       
+    
 }
 
 @media (max-width: 1280px){
@@ -1266,4 +1229,3 @@ i {
         top: -1rem;
     }
 }
-
