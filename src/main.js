@@ -298,6 +298,9 @@ function createVehicle(vehicle) {
 
 // ---------------------------------boton inicio dle menu principal--------------
 let principalBtn = document.getElementById("btnHeaderPrincipal");
+let pagina2 = document.getElementById("pagina2");
+let principalPage = document.getElementById("principalPage");
+
 principalBtn.addEventListener("click", function(){    
     pagina2.style.display = "none";
     principalPage.style.display = "block";  
@@ -521,4 +524,47 @@ menorToMayor.addEventListener("click", function(){
     render (peliculasOrdenadasPorcalificacion);
 });
 
-//-------------------------------------------------
+// ---------------------------creando div para el boton de top scroll-----------------------------
+let buttomScrollTop = document.getElementById("buttomScrollTop")
+
+let creationButtomScrollTop="";
+creationButtomScrollTop +=`<button id="btnScrollTop" class="btnScrollTop"><i class="fas fa-arrow-circle-up"></i></button>`     
+
+buttomScrollTop.innerHTML=creationButtomScrollTop;
+
+// -------------------------- boton de top scroll--------------------------------------------------
+
+let btnScrollTop = document.getElementById("btnScrollTop");
+
+document.addEventListener("scroll", handleScroll);
+
+function handleScroll() {
+  // do something on scroll
+
+  var scrollableHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+  var GOLDEN_RATIO = 0.7;
+
+
+  if ((document.documentElement.scrollTop / scrollableHeight ) > GOLDEN_RATIO) {
+    //show button
+    btnScrollTop.style.display = "block";
+  } else {
+    //hide button
+    btnScrollTop.style.display = "none";
+  }
+}
+
+btnScrollTop.addEventListener("click", function() {
+    // window.scrollTo({
+    //         top: 0;
+    //         behavior: "smooth";
+    //   });
+      
+    setTimeout(function(){
+        window.scrollTo({
+            top: 0,
+            behavior: "auto"
+        });
+    },0);
+});
