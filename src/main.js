@@ -1,7 +1,10 @@
-/* import { conditionalExpression } from '@babel/types';
+/* import { conditionalExpression } from '@babel/types'; */
 
-import { renderDirector } from './data.js'; */
-
+import { directorFilter } from './data.js';
+import { moviesFilter } from './data.js';
+import { producerFilter } from './data.js';
+import { yearFilter } from './data.js';
+/* import { orderAz } from './data.js'; */
 import data from './data/ghibli/ghibli.js';
 
 const films = data.films;
@@ -133,7 +136,6 @@ function renderVehicle(vehicle){
 
 //renderizar información detallada de la película en la 2da vista
 function renderMovieDetail(movie) {
-
     let locations;
     let characters;
     let vehicles;
@@ -143,12 +145,16 @@ function renderMovieDetail(movie) {
     let contenidoPageLocaciones = document.getElementById("contenidoPageLocaciones");
     let contenidoPageVehiculos = document.getElementById("contenidoPageVehiculos");
 
+    contenidoPagePersonajes.innerHTML = "";
+    contenidoPageLocaciones.innerHTML = "";
+    contenidoPageVehiculos.innerHTML = "";
+
     // generar lo datos basicos de la película selecionada
     let contentMovie =`
         <div class="contentImagPage2" id="textPage6"><img src="${movie.poster}"></div>
         <div class="contentMovie">
-            <div class="contentPage2" id="textpage2">Título:${movie.title}</div>
-            <div class="contentPage2" id="textpage3">Sinopsis: ${movie.description} </div>
+            <div class="contentPage2" id="textpage2">${movie.title}</div>
+            <div class="contentPage2" id="textpage3">${movie.description} </div>
             <div class="contentPage2" id="textpage4">Director: ${movie.director}</div>
             <div class="contentPage2" id="textpage5">Productor:  ${movie.producer}</div>
             <div class="contentPage2" id="textpage7">Fecha de lanzamiento: ${movie.release_date} </div>
@@ -192,8 +198,7 @@ function renderMovieDetail(movie) {
 //apertura la 2da vista y llama a la función que rendereiza el contenido de la pelicula seleccionada 
 function addMovieCallbacks(btnMovies){
     let pagina2 =  document.getElementById("pagina2");
-    let principalPage = document.getElementById("principalPage");
-
+    let principalPage = document.getElementById("principalPage");    
     for(let i=0; i < btnMovies.length; i++){
         btnMovies[i].addEventListener("click", function() {            
             /* console.log(btnMovies[i].id); */ // encontramos el id de la pelicula seleccionada
@@ -249,8 +254,7 @@ function addVehicleCallback(vehicleDivs, vehicles) {
             modal.classList.toggle("modalClose");
             let vehicleData = vehicles.filter((vehicle) => {
                 return vehicle.id === vehicleDivs[i].id
-            });
-            
+            });            
             renderVehicle(vehicleData[0]);
         });
     }
@@ -295,14 +299,65 @@ function createVehicle(vehicle) {
     return nuevoElemento;
 }
 
-// ---------------------------------boton inicio dle menu principal--------------
+// ---------------------------------boton inicio del menu principal--------------
 let principalBtn = document.getElementById("btnHeaderPrincipal");
 let pagina2 = document.getElementById("pagina2");
 let principalPage = document.getElementById("principalPage");
 principalBtn.addEventListener("click", function(){    
     pagina2.style.display = "none";
+    pagina3.style.display = "none";
+    pagina4.style.display = "none";
     principalPage.style.display = "block";  
     location.reload();    
+});
+
+// ---------------------------------boton peliculas del menu principal---------------
+function renderMovieDropdown() {
+    let listaOcultaSegundaria = document.getElementById("listaOcultaSegundaria");
+    let liElement = "";
+    for(let i=0; i < films.length; i++){
+        liElement += `<li><a id="${films[i].id}">${films[i].title}</a></li>`
+    }
+    listaOcultaSegundaria.innerHTML = liElement;
+    addMoviesFilterCallback();
+}
+
+function addMoviesFilterCallback(){
+    let movies = document.getElementById("listaOcultaSegundaria").children;
+    for(let i=0; i < movies.length; i++){
+        movies[i].firstChild.addEventListener("click", function(e){
+            principalPage.style.display = "none";
+            pagina2.style.display = "block";
+            renderMovieDetail((moviesFilter(films, e.target.id)[0]));
+        });
+    }
+}
+
+/* function moviesFilter(movieId){
+    let filteredMovies = films.filter((film) => {
+        return film.id === movieId ;
+    });
+    return filteredMovies
+} */
+
+//----------------------------------boton nosotros del menu principal------------
+let pagina4 = document.getElementById("pagina4");
+let nosotrosBtn = document.getElementById("btnHeaderNosotros");
+nosotrosBtn.addEventListener("click", function(){    
+    pagina4.style.display = "block";
+    pagina3.style.display = "none";
+    pagina2.style.display = "none";
+    principalPage.style.display = "none";      
+});
+
+//----------------------------------boton gráficas del menu principal------------
+let pagina3 = document.getElementById("pagina3");
+let graficasBtn = document.getElementById("btnGraficas");
+graficasBtn.addEventListener("click", function(){    
+    pagina3.style.display = "block";
+    pagina4.style.display = "none";
+    pagina2.style.display = "none";
+    principalPage.style.display = "none";      
 });
 
 //----------------------------------render principal-------------------------------
@@ -312,10 +367,12 @@ function render(films) {
     addMovieCallbacks(btnPortadasDivs);  
 }
 
+
 renderDirectorDropdown();
 renderProducerDropdown();
 renderYearDropdown();
 render(films);
+renderMovieDropdown();
 
 // -------------------------------filters-----------------------------------------
 
@@ -338,17 +395,17 @@ function addDirectorFilterCallback(){
     let directors = document.getElementById("listDirector").children;    
     for(let i=0; i < directors.length; i++){
         directors[i].firstChild.addEventListener("click", function(e){            
-            render(directorFilter(e.target.id));
+            render(directorFilter(films, e.target.id));
         });
     }
 }
 
-function directorFilter(director) {    
+/* function directorFilter(director) {    
     let filteredMovies = films.filter((film) => {
         return film.director ===  director;
     })
     return filteredMovies
-}
+}*/
 
 // ---------------generar dropdows productores------------
 function renderProducerDropdown() {
@@ -369,31 +426,18 @@ function addProducerFilterCallback(){
     let producers = document.getElementById("listProducer").children;
     for(let i=0; i < producers.length; i++){
         producers[i].firstChild.addEventListener("click", function(e){
-            render(producerFilter(e.target.id));
+            render(producerFilter(films, e.target.id));
         });
     }
 }
 
-function producerFilter(producer) {
+/* function producerFilter(producer) {
     let filteredMovies = films.filter((film) => {
         return film.producer ===  producer;
     });
     return filteredMovies
-}
-
-//----------------------boton pelicula del header---------------------
-/* function renderMovieBtnMenu(films) {
-    let listMovieBtn = document.getElementById("listaOcultaSegundaria");
-    let listMovieByTitle = films.map(x => x.title);
-       
-    let listMovie = "";
-    for(let i=0; i < listMovieByTitle.length; i++){
-        listMovie += `<li><a id="${[i]}">${listMovieByTitle[i]}</a></li>`
-    }
-    listMovieBtn.innerHTML = listMovie;
-
-    renderMovieDetail()
 } */
+
 
 // ---------------generar dropdows por Año------------
 function renderYearDropdown() {
@@ -413,22 +457,23 @@ function addYearFilterCallback(){
     let years = document.getElementById("listYear").children;
     for(let i=0; i <  years.length; i++){
         years[i].firstChild.addEventListener("click", function(e){
-            render(yearFilter(e.target.id));
+            render(yearFilter(films, e.target.id));
         });
     }
 }
 
-function yearFilter(release_date){
+/* function yearFilter(release_date){
     let filteredYears = films.filter((film) => {
         return film.release_date === release_date;
     });
     return filteredYears
-}
+} */
 
 // -------------------------------orderns-----------------------------------------
 // ----------orden de a--z -----------
 
 let a_z = document.getElementById("a_z");
+/* a_z.addEventListener("click", orderAz(films)); */
 a_z.addEventListener("click", function(){       
     
     let peliculasOrdenadasPorTitulo = films.sort((a,b) => {
@@ -507,7 +552,7 @@ mayorToMenor.addEventListener("click", function(){
         }
         if (parseInt(a.rt_score) < parseInt(b.rt_score)) {
             return 1;
-        }
+        } 
         return 0;
     });
 
@@ -524,7 +569,7 @@ menorToMayor.addEventListener("click", function(){
         }
         if (parseInt(a.rt_score) > parseInt(b.rt_score)) {
             return 1;
-        }
+        } 
         return 0;
     });
     
@@ -542,38 +587,29 @@ buttomScrollTop.innerHTML=creationButtomScrollTop;
 // -------------------------- boton de top scroll--------------------------------------------------
 
 let btnScrollTop = document.getElementById("btnScrollTop");
-
 document.addEventListener("scroll", handleScroll);
-
-function handleScroll() {
-  // do something on scroll
-
+function handleScroll() {     // do something on scroll
   var scrollableHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-
   var GOLDEN_RATIO = 0.7;
-
-
-  if ((document.documentElement.scrollTop / scrollableHeight ) > GOLDEN_RATIO) {
-    //show button
-    btnScrollTop.style.display = "block";
-  } else {
-    //hide button
-    btnScrollTop.style.display = "none";
+  if ((document.documentElement.scrollTop / scrollableHeight ) > GOLDEN_RATIO) {    
+    btnScrollTop.style.display = "block";   //show button
+  } else {    
+    btnScrollTop.style.display = "none";    //hide button
   }
 }
 
-btnScrollTop.addEventListener("click", function() {
-    // window.scrollTo({
-    //         top: 0;
-    //         behavior: "smooth";
-    //   });
-      
+btnScrollTop.addEventListener("click", function() {      
     window.scrollTo({
             top: 0,
             behavior: "auto"
     })
 });
 
+//------------------------barra de busqueda-------------------------------
+/* let cardFilter =document.getElementById("cardFilter");
+let posterContainer = films.id; 
+console.log(posterContainer); */
+/* searchFilters(cardFilter, posterContainer); */
 
-//filtra en función de la pelicula seleccionada-----
 
+//------------------------

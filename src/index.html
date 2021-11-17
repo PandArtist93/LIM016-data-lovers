@@ -21,38 +21,13 @@
           <i class="fas fa-bars"></i>
         </label>   
         <div class="header-right">
-          <div class="search-box" id="">
-            <input class= "search-txt" id="search-txt" type="text" name="" placeholder="Ingresar nombre de la película">
-            <a class= "search-bnt" href= ""><i class="fas fa-search"></i></a>
-          </div> 
           <ul>
             <li>
               <a id= "btnHeaderPrincipal">Inicio</a>
             </li>
             <li >
               <a >Películas</a>
-              <ul id="listaOcultaSegundaria">
-                <li><a id="">Castle in the Sky</a></li>
-                <li><a id="">My Neighbor Totoro</a></li>
-                <li><a id="">Kiki's Delivery Service</a></li>
-                <li><a id="">Grave of the Fireflies</a></li>
-                <li><a id="">Only Yesterday</a></li>
-                <li><a id="">Porco Rosso</a></li>
-                <li><a id="">Pom Poko</a></li>
-                <li><a id="">Whisper of the Heart</a></li>
-                <li><a id="">Princess Mononoke</a></li>
-                <li><a id="">My Neighbors the Yamadas</a></li>
-                <li><a id="">Spirited Away</a></li>
-                <li><a id="">The Cat Returns</a></li>
-                <li><a id="">Howl's Moving Castle</a></li>
-                <li><a id="">Tales from Earthsea</a></li>
-                <li><a id="">Ponyo on the Cliff by the Sea</a></li>
-                <li><a id="">The Borrower Arrietty</a></li>
-                <li><a id="">From Up on Poppy Hill</a></li>
-                <li><a id="">The Wind Rises</a></li>
-                <li><a id="">The Tale of the Princess Kaguya</a></li>
-                <li><a id="">When Marnie Was There</a></li>            
-              </ul>
+              <ul id="listaOcultaSegundaria"></ul>     
             </li>
             <li>
                 <a>Géneros</a>
@@ -71,7 +46,10 @@
                 </ul>
             </li>
             <li>
-              <a href="" id="btnHeaderNosotros">Nosotros</a>
+              <a id="btnHeaderNosotros">Nosotros</a>
+            </li>
+            <li>
+              <a id="btnGraficas">Gráficas</a>
             </li>
           </ul>           
         </div>       
@@ -85,7 +63,11 @@
           <h2>a</h2><h3><span>GHIBLI NO SEKAI</span></h3><br>
           <h4>¡Disfruta del mejor contenido de películas animadas!</h4><br>
           <h4>Desde los clásicos hasta los últimos estrenos de Studio Ghibli.</h4>
-        </div>           
+        </div> 
+        <!-- <div class="mensaje">
+          <h4>¡Disfruta del mejor contenido de películas animadas!</h4><br>
+          <h4>Desde los clásicos hasta los últimos estrenos de Studio Ghibli.</h4>
+        </div> -->          
   
         <div class="carrusel">
           <input type="radio" id="i1" name="images" checked>
@@ -196,9 +178,16 @@
                   <li><a id="menorToMayor">Menor puntaje</a></li>                  
                 </ul>
               </li>                        
-            </ul>  
-          </nav>                
+            </ul>              
+          </nav>                         
+        </div><br>
+        <div class="container-searchBar">
+          <div class="search-box" id="">
+            <input class= "search-txt" id="cardFilter" type="text" name="" placeholder="Ingresar nombre de la película">
+            <a class= "search-bnt" id="btnSearch"><i class="fas fa-search"></i></a>
+          </div> 
         </div>
+        
 
         <section class="boxPoster" id="boxPoster"></section>
 
@@ -209,7 +198,7 @@
 
     <div id= "pagina2" class="pagina2">
       <section class="contenidoPage" id= "contenidoPage">
-         <div class="contentImagPage2" id="textPage6"></div>
+         <!-- <div class="contentImagPage2" id="textPage6"></div>
          <div class="contentMovie">
             <div class="contentPage2" id="textPage2"></div>
             <div class="contentPage2" id="textPage3"></div>
@@ -217,7 +206,7 @@
             <div class="contentPage2" id="textPage5"></div>
             <div class="contentPage2" id="textPage7"></div>
             <div class="contentPage2" id="textPage8"></div>
-         </div>         
+         </div>          -->
       </section> 
 
       <section class="seccionPersonajes">        
@@ -251,7 +240,25 @@
         <div class="contenidoSubPage" id= "contenidoPageVehiculos"></div>
       </section>          
     </div>
+
+    <div id= "pagina3" class="pagina3">
+      <section class="contenidoPageNosotros" id= "contenidoPageNosotros">
+        <div class="nosotros-contenido">
+          
+        </div>
+      </section>
+    </div>
+
+    <div id= "pagina4" class="pagina4">
+      <section class="contenidoPageGraficas" id= "contenidoPageGraficas">
+        <div class=" graficas-contenido">
+          <!-- <canvas id="myChart" width="400" height="400"></canvas> -->
+        </div>
+      </section>
+    </div>
+
     <div id="buttomScrollTop"></div>
+
     <footer> 
       <div class="contenedor-principal"> 
         <div class="contenedor">
