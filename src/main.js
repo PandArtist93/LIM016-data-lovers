@@ -4,9 +4,13 @@ import { directorFilter } from './data.js';
 import { moviesFilter } from './data.js';
 import { producerFilter } from './data.js';
 import { yearFilter } from './data.js';
-/* import { orderAz } from './data.js'; */
+import { orderAz } from './data.js';
+import { orderZa } from './data.js';
+import { orderYearAsc } from './data.js';
+import { orderYearDesc } from './data.js';
+import { mayorPuntaje } from './data.js';
+import { menorPuntaje } from './data.js';
 import data from './data/ghibli/ghibli.js';
-
 const films = data.films;
 
 // ---------------------modal------------------------
@@ -75,10 +79,10 @@ function renderCharacter(character){
                 <p>Eye color: ${character.eye_color}</p><br>
                 <p>Hair color: ${character.hair_color}</p><br>
                 <p>Specie: ${character.specie}</p>        
-            </div>
-            <div class="codigoQR">
-                <img src="./imagenes/codigoQR.PNG">
-            </div>
+            </div> 
+            <div class = "link">
+                <a href="https://www.studioghibli.com.au/"> Oficial Page of Studio Ghibli </a>
+            </div>           
         </div>
     `
     let modalDataContainer = document.getElementById("modalData");
@@ -99,10 +103,10 @@ function renderLocation(location){
                 <p>Climate: ${location.climate}</p><br>
                 <p>Terrain: ${location.terrain}</p><br>
                 <p>Surface water: ${location.surface_water}</p><br>    
-            </div>
-            <div class="codigoQR">
-                <img src="./imagenes/codigoQR.PNG">
-            </div>
+            </div>  
+            <div>
+                <a href="https://www.studioghibli.com.au/">Oficial Page of Studio Ghibli</a>
+            </div>          
         </div>
     `
     let modalDataContainer = document.getElementById("modalData");
@@ -125,8 +129,8 @@ function renderVehicle(vehicle){
                 <p>length: ${vehicle.length}</p><br>    
                 <p>pilot name:${vehicle.pilot.name}</p><br> 
             </div>
-            <div class="codigoQR">
-                <img src="./imagenes/codigoQR.PNG">
+            <div>
+                <a href="https://www.studioghibli.com.au/">Oficial Page of Studio Ghibli</a>
             </div>
         </div>
     `
@@ -203,8 +207,8 @@ function addMovieCallbacks(btnMovies){
         btnMovies[i].addEventListener("click", function() {            
             /* console.log(btnMovies[i].id); */ // encontramos el id de la pelicula seleccionada
             let movie = films.filter( (film) => {
-                return film.id === btnMovies[i].id                
-;           });
+                return film.id === btnMovies[i].id;
+            });
             principalPage.style.display = "none" ; 
             pagina2.style.display = "block" ;
             renderMovieDetail(movie[0]);
@@ -328,7 +332,7 @@ function addMoviesFilterCallback(){
         movies[i].firstChild.addEventListener("click", function(e){
             principalPage.style.display = "none";
             pagina2.style.display = "block";
-            renderMovieDetail((moviesFilter(films, e.target.id)[0]));
+            renderMovieDetail((moviesFilter(e.target.id)[0]));
         });
     }
 }
@@ -339,11 +343,24 @@ function addMoviesFilterCallback(){
     });
     return filteredMovies
 } */
+//----------------------------------boton géneros del menu principal------------
+let pagina3 = document.getElementById("pagina3");
+let generosBtn = document.getElementById("btnHeaderGeneros").children;
+for(let i=0; i < generosBtn.length; i++){
+    generosBtn[i].firstChild.addEventListener("click", function(){
+        pagina5.style.display = "none";   
+        pagina4.style.display = "none";
+        pagina3.style.display = "block";
+        pagina2.style.display = "none";
+        principalPage.style.display = "none";  
+    });
+}
 
 //----------------------------------boton nosotros del menu principal------------
 let pagina4 = document.getElementById("pagina4");
 let nosotrosBtn = document.getElementById("btnHeaderNosotros");
-nosotrosBtn.addEventListener("click", function(){    
+nosotrosBtn.addEventListener("click", function(){  
+    pagina5.style.display = "none";  
     pagina4.style.display = "block";
     pagina3.style.display = "none";
     pagina2.style.display = "none";
@@ -351,10 +368,12 @@ nosotrosBtn.addEventListener("click", function(){
 });
 
 //----------------------------------boton gráficas del menu principal------------
-let pagina3 = document.getElementById("pagina3");
+let pagina5 = document.getElementById("pagina5");
 let graficasBtn = document.getElementById("btnGraficas");
-graficasBtn.addEventListener("click", function(){    
-    pagina3.style.display = "block";
+graficasBtn.addEventListener("click", function(){   
+    pagina5.style.display = "block";
+    pagina4.style.display = "none"; 
+    pagina3.style.display = "none";
     pagina4.style.display = "none";
     pagina2.style.display = "none";
     principalPage.style.display = "none";      
@@ -395,7 +414,7 @@ function addDirectorFilterCallback(){
     let directors = document.getElementById("listDirector").children;    
     for(let i=0; i < directors.length; i++){
         directors[i].firstChild.addEventListener("click", function(e){            
-            render(directorFilter(films, e.target.id));
+            render(directorFilter(e.target.id));
         });
     }
 }
@@ -426,7 +445,7 @@ function addProducerFilterCallback(){
     let producers = document.getElementById("listProducer").children;
     for(let i=0; i < producers.length; i++){
         producers[i].firstChild.addEventListener("click", function(e){
-            render(producerFilter(films, e.target.id));
+            render(producerFilter(e.target.id));
         });
     }
 }
@@ -457,7 +476,7 @@ function addYearFilterCallback(){
     let years = document.getElementById("listYear").children;
     for(let i=0; i <  years.length; i++){
         years[i].firstChild.addEventListener("click", function(e){
-            render(yearFilter(films, e.target.id));
+            render(yearFilter(e.target.id));
         });
     }
 }
@@ -473,107 +492,42 @@ function addYearFilterCallback(){
 // ----------orden de a--z -----------
 
 let a_z = document.getElementById("a_z");
-/* a_z.addEventListener("click", orderAz(films)); */
-a_z.addEventListener("click", function(){       
-    
-    let peliculasOrdenadasPorTitulo = films.sort((a,b) => {
-        if (a.title < b.title) {
-            return -1;
-        }
-        if (a.title > b.title) {
-            return 1;
-        }
-        return 0;
-    });
-    render (peliculasOrdenadasPorTitulo);
+a_z.addEventListener("click", function(){    
+    render (orderAz(films));     
         
 });   
 
 // ----------orden de z--a -----------
 let z_a = document.getElementById("z_a");
 z_a.addEventListener("click", function(){
-    
-    let peliculasOrdenadasPorTitulo = films.sort((a,b) => {
-        if (a.title > b.title) {
-            return -1;
-        }
-        if (a.title < b.title) {
-            return 1;
-        }
-        return 0;
-    });
-    render (peliculasOrdenadasPorTitulo);
-
+    render (orderZa(films));
+     
 });
 
 // ----------orden por fecha de lanzamiento (mas antigua)-----------
 let yearAsc = document.getElementById("yearAsc");
 yearAsc.addEventListener("click", function(){
-  
-    let peliculasOrdenadasPorYear = films.sort((a,b) => {
-        if (a.release_date < b.release_date) {
-            return -1;
-        }
-        if (a.release_date > b.release_date) {
-            return 1;
-        }
-        return 0;
-    });
-
-    render (peliculasOrdenadasPorYear);  
-
+    render (orderYearAsc(films));   
+   
 });
 
 // ----------orden por fecha de lanzamiento (mas nueva)-----------
 let yearDesc = document.getElementById("yearDesc");
 yearDesc.addEventListener("click", function(){
-  
-    let peliculasOrdenadasPorYear = films.sort((a,b) => {
-        if (a.release_date > b.release_date) {
-            return -1;
-        }
-        if (a.release_date < b.release_date) {
-            return 1;
-        }
-        return 0;
-    });
-
-    render (peliculasOrdenadasPorYear);  
-
+    render (orderYearDesc (films)); 
 });
 
 // ----------orden por calificación (mayor puntaje)-----------
 let mayorToMenor = document.getElementById("mayorToMenor");
 mayorToMenor.addEventListener("click", function(){
-    
-    let peliculasOrdenadasPorcalificacion = films.sort((a,b) => {
-        if (parseInt(a.rt_score) > parseInt(b.rt_score)) {
-            return -1;
-        }
-        if (parseInt(a.rt_score) < parseInt(b.rt_score)) {
-            return 1;
-        } 
-        return 0;
-    });
-
-    render (peliculasOrdenadasPorcalificacion);
+    render (mayorPuntaje(films));
 });
 
 // ----------orden por calificación (menor puntaje)-----------
 let menorToMayor = document.getElementById("menorToMayor");
-menorToMayor.addEventListener("click", function(){
-    
-    let peliculasOrdenadasPorcalificacion = films.sort((a,b) => {
-        if (parseInt(a.rt_score) < parseInt(b.rt_score)) {
-            return -1;
-        }
-        if (parseInt(a.rt_score) > parseInt(b.rt_score)) {
-            return 1;
-        } 
-        return 0;
-    });
-    
-    render (peliculasOrdenadasPorcalificacion);
+menorToMayor.addEventListener("click", function(){       
+    render (menorPuntaje(films));
+      
 });
 
 // ---------------------------creando div para el boton de top scroll-----------------------------
@@ -606,10 +560,12 @@ btnScrollTop.addEventListener("click", function() {
 });
 
 //------------------------barra de busqueda-------------------------------
-/* let cardFilter =document.getElementById("cardFilter");
-let posterContainer = films.id; 
-console.log(posterContainer); */
-/* searchFilters(cardFilter, posterContainer); */
-
+let cardFilter =document.getElementById("cardFilter");
+cardFilter.addEventListener("keyup", e => {    
+    let resultSearch = films.filter((film) => {
+        return film.title.toLowerCase().includes(e.target.value.toLowerCase());
+    });       
+    render(resultSearch);
+});
 
 //------------------------

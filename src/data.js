@@ -1,39 +1,40 @@
 // estas funciones son de ejemplo
+import data from './data/ghibli/ghibli.js';
+const films = data.films;
 
-export const example = () => {
-  return 'example';
-};
-
-export const anotherExample = () => {
-  return 'OMG';
-};
-
-export const directorFilter = (films, director) => {     
+//-----------------------------FILTER----------------------------------------
+//---------------------------filter by director----------------------------
+export const directorFilter = (director) => {       
   return films.filter((film) => {
     return film.director ===  director;
   });    
 };
 
-export const producerFilter = (films, producer) => {
+//---------------------------filter by producer----------------------------
+export const producerFilter = (producer) => {
   return films.filter((film) => {
     return film.producer ===  producer;
   });
 };
 
-export const moviesFilter = (films, movieId) => {
+//---------------------------filter by movie----------------------------
+export const moviesFilter = (movieId) => {
   return films.filter((film) => {
     return film.id === movieId;
   });
 };
 
-export const  yearFilter = (films, release_date) => {
+//---------------------------filter by release date----------------------------
+export const  yearFilter = (release_date) => {
   return films.filter((film) => {
     return film.release_date === release_date;
   });
 }
 
-/* export const orderAz = (films) => {
-  let peliculasOrdenadasPorTitulo = films.sort((a,b) => {
+//-----------------------------ORDER-----------------------------------
+//---------------------order alfabético de la a--z ---------------------
+export const orderAz = (films) => {      
+  return films.sort((a,b) => {
     if (a.title < b.title) {
       return -1;
     }
@@ -41,20 +42,79 @@ export const  yearFilter = (films, release_date) => {
       return 1;
     }
     return 0;
-  });
-  render (peliculasOrdenadasPorTitulo);     
+  }); 
     
-} */
+}
 
-/* let d = document;
-
-export default searchFilters = (input, selector) {
-  d.addEventListener("keyup", e=> {
-    if (e.target.matches(input)){
-      console.log(e.key)
+//---------------------order alfabético de la z--a ---------------------
+export const orderZa = (films) => {      
+  return films.sort((a,b) => {
+    if (a.title > b.title) {
+      return -1;
     }
+    if (a.title < b.title) {
+      return 1;
+    }
+    return 0;
+  }); 
+    
+}
+
+// ----------orden por fecha de lanzamiento (mas antigua)-----------
+export const orderYearAsc = (films) => {      
+  return films.sort((a,b) => {
+    if (a.release_date < b.release_date) {
+        return -1;
+    }
+    if (a.release_date > b.release_date) {
+        return 1;
+    }
+    return 0;
   });
-} */
+    
+}
+
+// ----------orden por fecha de lanzamiento (mas nueva)-----------
+export const orderYearDesc= (films) => {
+  return films.sort((a,b) => {
+    if (a.release_date > b.release_date) {
+        return -1;
+    }
+    if (a.release_date < b.release_date) {
+        return 1;
+    }
+    return 0;
+  });
+}
+
+//----------orden por calificación (Mayor puntaje)-----------
+export const mayorPuntaje = (films) => {
+  return films.sort((a,b) => {
+    if (parseInt(a.rt_score) < parseInt(b.rt_score)) {
+        return -1;
+    }
+    if (parseInt(a.rt_score) > parseInt(b.rt_score)) {
+        return 1;
+    } 
+    return 0;
+  });
+  
+};
+
+//----------orden por calificación (menor puntaje)-----------
+export const menorPuntaje = (films) => {
+  return films.sort((a,b) => {
+    if (parseInt(a.rt_score) < parseInt(b.rt_score)) {
+        return -1;
+    }
+    if (parseInt(a.rt_score) > parseInt(b.rt_score)) {
+        return 1;
+    } 
+    return 0;
+  });
+  
+};
+
 
 
 
