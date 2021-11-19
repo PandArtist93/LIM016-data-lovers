@@ -79,10 +79,7 @@ function renderCharacter(character){
                 <p>Eye color: ${character.eye_color}</p><br>
                 <p>Hair color: ${character.hair_color}</p><br>
                 <p>Specie: ${character.specie}</p>        
-            </div> 
-            <div class = "link">
-                <a href="https://www.studioghibli.com.au/"> Oficial Page of Studio Ghibli </a>
-            </div>           
+            </div>                       
         </div>
     `
     let modalDataContainer = document.getElementById("modalData");
@@ -103,10 +100,7 @@ function renderLocation(location){
                 <p>Climate: ${location.climate}</p><br>
                 <p>Terrain: ${location.terrain}</p><br>
                 <p>Surface water: ${location.surface_water}</p><br>    
-            </div>  
-            <div>
-                <a href="https://www.studioghibli.com.au/">Oficial Page of Studio Ghibli</a>
-            </div>          
+            </div>                        
         </div>
     `
     let modalDataContainer = document.getElementById("modalData");
@@ -128,10 +122,7 @@ function renderVehicle(vehicle){
                 <p>vehicle class: ${vehicle.vehicle_class}</p><br>
                 <p>length: ${vehicle.length}</p><br>    
                 <p>pilot name:${vehicle.pilot.name}</p><br> 
-            </div>
-            <div>
-                <a href="https://www.studioghibli.com.au/">Oficial Page of Studio Ghibli</a>
-            </div>
+            </div>            
         </div>
     `
     let modalDataContainer = document.getElementById("modalData");
