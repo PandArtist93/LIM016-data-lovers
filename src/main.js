@@ -1,16 +1,16 @@
-// import { renderDirector } from './data.js';
+/* import { conditionalExpression } from '@babel/types'; */
 
-import { directorFilter } from './data.js'; 
-
-import { moviesFilter } from './data.js'; 
-
-import { yearFilter } from './data.js'; 
-
-import { producerFilter } from './data.js'; 
-
-
+import { directorFilter } from './data.js';
+import { moviesFilter } from './data.js';
+import { producerFilter } from './data.js';
+import { yearFilter } from './data.js';
+import { orderAz } from './data.js';
+import { orderZa } from './data.js';
+import { orderYearAsc } from './data.js';
+import { orderYearDesc } from './data.js';
+import { mayorPuntaje } from './data.js';
+import { menorPuntaje } from './data.js';
 import data from './data/ghibli/ghibli.js';
-
 const films = data.films;
 
 // ---------------------modal------------------------
@@ -60,7 +60,6 @@ function renderMovies(films, htmlLocation) {
         htmlLocation.innerHTML = filmDivs; 
     });
     let btnPortadas = document.getElementsByClassName("portada");
-    // console.log(btnPortadas);
     return btnPortadas;
     
 }
@@ -81,10 +80,7 @@ function renderCharacter(character){
                 <p>Eye color: ${character.eye_color}</p><br>
                 <p>Hair color: ${character.hair_color}</p><br>
                 <p>Specie: ${character.specie}</p>        
-            </div>
-            <div class="codigoQR">
-                <img src="./imagenes/codigoQR.PNG">
-            </div>
+            </div>                       
         </div>
     `
     let modalDataContainer = document.getElementById("modalData");
@@ -105,10 +101,7 @@ function renderLocation(location){
                 <p>Climate: ${location.climate}</p><br>
                 <p>Terrain: ${location.terrain}</p><br>
                 <p>Surface water: ${location.surface_water}</p><br>    
-            </div>
-            <div class="codigoQR">
-                <img src="./imagenes/codigoQR.PNG">
-            </div>
+            </div>                        
         </div>
     `
     let modalDataContainer = document.getElementById("modalData");
@@ -130,10 +123,7 @@ function renderVehicle(vehicle){
                 <p>vehicle class: ${vehicle.vehicle_class}</p><br>
                 <p>length: ${vehicle.length}</p><br>    
                 <p>pilot name:${vehicle.pilot.name}</p><br> 
-            </div>
-            <div class="codigoQR">
-                <img src="./imagenes/codigoQR.PNG">
-            </div>
+            </div>            
         </div>
     `
     let modalDataContainer = document.getElementById("modalData");
@@ -142,7 +132,6 @@ function renderVehicle(vehicle){
 
 //renderizar información detallada de la película en la 2da vista
 function renderMovieDetail(movie) {
-    
     let locations;
     let characters;
     let vehicles;
@@ -160,8 +149,8 @@ function renderMovieDetail(movie) {
     let contentMovie =`
         <div class="contentImagPage2" id="textPage6"><img src="${movie.poster}"></div>
         <div class="contentMovie">
-            <div class="contentPage2" id="textpage2">Título:${movie.title}</div>
-            <div class="contentPage2" id="textpage3">Sinopsis: ${movie.description} </div>
+            <div class="contentPage2" id="textpage2">${movie.title}</div>
+            <div class="contentPage2" id="textpage3">${movie.description} </div>
             <div class="contentPage2" id="textpage4">Director: ${movie.director}</div>
             <div class="contentPage2" id="textpage5">Productor:  ${movie.producer}</div>
             <div class="contentPage2" id="textpage7">Fecha de lanzamiento: ${movie.release_date} </div>
@@ -205,15 +194,16 @@ function renderMovieDetail(movie) {
 //apertura la 2da vista y llama a la función que rendereiza el contenido de la pelicula seleccionada 
 function addMovieCallbacks(btnMovies){
     let pagina2 =  document.getElementById("pagina2");
-    let principalPage = document.getElementById("principalPage");
-
+    let principalPage = document.getElementById("principalPage");    
     for(let i=0; i < btnMovies.length; i++){
-        btnMovies[i].addEventListener("click", function() {            
-            /* console.log(btnMovies[i].id); */ // encontramos el id de la pelicula seleccionada
+        btnMovies[i].addEventListener("click", function() {         
             let movie = films.filter( (film) => {
-                return film.id === btnMovies[i].id
+                return film.id === btnMovies[i].id;
             });
             principalPage.style.display = "none" ; 
+            pagina3.style.display = "none" ; 
+            pagina4.style.display = "none" ;
+            pagina5.style.display = "none" ;            
             pagina2.style.display = "block" ;
             renderMovieDetail(movie[0]);
             // console.log(movie);
@@ -263,8 +253,7 @@ function addVehicleCallback(vehicleDivs, vehicles) {
             modal.classList.toggle("modalClose");
             let vehicleData = vehicles.filter((vehicle) => {
                 return vehicle.id === vehicleDivs[i].id
-            });
-            
+            });            
             renderVehicle(vehicleData[0]);
         });
     }
@@ -317,33 +306,69 @@ principalBtn.addEventListener("click", function(){
     pagina3.style.display = "none";
     pagina4.style.display = "none";  
     pagina2.style.display = "none";
+    pagina3.style.display = "none";
+    pagina4.style.display = "none";
     principalPage.style.display = "block";  
     location.reload();    
 });
 
-// ----------------botón nosotros del menú principal-------------------
+// ---------------------------------boton peliculas del menu principal---------------
+function renderMovieDropdown() {
+    let listaOcultaSegundaria = document.getElementById("listaOcultaSegundaria");
+    let liElement = "";
+    for(let i=0; i < films.length; i++){
+        liElement += `<li><a id="${films[i].id}">${films[i].title}</a></li>`
+    }
+    listaOcultaSegundaria.innerHTML = liElement;
+    addMoviesFilterCallback();
+}
 
-let btnHeaderNosotros = document.getElementById("btnHeaderNosotros");
+function addMoviesFilterCallback(){
+    let movies = document.getElementById("listaOcultaSegundaria").children;
+    for(let i=0; i < movies.length; i++){
+        movies[i].firstChild.addEventListener("click", function(e){
+            principalPage.style.display = "none";
+            pagina2.style.display = "block";
+            renderMovieDetail((moviesFilter(e.target.id)[0]));
+        });
+    }
+}
+
+//----------------------------------boton categorías del menu principal------------
 let pagina3 = document.getElementById("pagina3");
+let btnHeaderCategorias = document.getElementById("btnHeaderCategorias").children;
+for(let i=0; i < btnHeaderCategorias.length; i++){
+    btnHeaderCategorias[i].firstChild.addEventListener("click", function(){
+        pagina5.style.display = "none";   
+        pagina4.style.display = "none";
+        pagina3.style.display = "block";
+        pagina2.style.display = "none";
+        principalPage.style.display = "none";  
+    });
+}
+
+//----------------------------------boton nosotros del menu principal------------
 let pagina4 = document.getElementById("pagina4");
-
-
-btnHeaderNosotros.addEventListener("click",()=> {
-    principalPage.style.display = "none";
-    pagina2.style.display = "none";
-    pagina3.style.display = "block";
-    pagina4.style.display = "none";
-})
-
-// ----------------botón gráficos del menú principal-------------------
-let btnGraficas = document.getElementById("btnGraficas")
-btnGraficas.addEventListener("click",()=> {
-    principalPage.style.display = "none";
-    pagina2.style.display = "none";
-    pagina3.style.display = "none";
+let btnHeaderNosotros = document.getElementById("btnHeaderNosotros");
+btnHeaderNosotros.addEventListener("click", function(){  
+    pagina5.style.display = "none";  
     pagina4.style.display = "block";
-})
+    pagina3.style.display = "none";
+    pagina2.style.display = "none";
+    principalPage.style.display = "none";      
+});
 
+//----------------------------------boton gráficas del menu principal------------
+let pagina5 = document.getElementById("pagina5");
+let graficasBtn = document.getElementById("btnGraficas");
+graficasBtn.addEventListener("click", function(){   
+    pagina5.style.display = "block";
+    pagina4.style.display = "none"; 
+    pagina3.style.display = "none";
+    pagina4.style.display = "none";
+    pagina2.style.display = "none";
+    principalPage.style.display = "none";      
+});
 
 //----------------------------------render principal-------------------------------
 function render(films) {
@@ -353,11 +378,12 @@ function render(films) {
     // console.log(renderMovies(films, boxPoster));
 }
 
+
 renderDirectorDropdown();
 renderProducerDropdown();
 renderYearDropdown();
 render(films);
-renderMovieDropdown(); 
+renderMovieDropdown();
 
 // -------------------------------filters-----------------------------------------
 
@@ -385,12 +411,12 @@ function addDirectorFilterCallback(){
     }
 }
 
-// function directorFilter(director) {    
-//     let filteredMovies = films.filter((film) => {
-//         return film.director ===  director;
-//     })
-//     return filteredMovies
-// }
+/* function directorFilter(director) {    
+    let filteredMovies = films.filter((film) => {
+        return film.director ===  director;
+    })
+    return filteredMovies
+}*/
 
 // ---------------generar dropdows productores------------
 function renderProducerDropdown() {
@@ -416,18 +442,11 @@ function addProducerFilterCallback(){
     }
 }
 
-//----------------------boton pelicula del header---------------------
-/* function renderMovieBtnMenu(films) {
-    let listMovieBtn = document.getElementById("listaOcultaSegundaria");
-    let listMovieByTitle = films.map(x => x.title);
-       
-    let listMovie = "";
-    for(let i=0; i < listMovieByTitle.length; i++){
-        listMovie += `<li><a id="${[i]}">${listMovieByTitle[i]}</a></li>`
-    }
-    listMovieBtn.innerHTML = listMovie;
-
-    renderMovieDetail()
+/* function producerFilter(producer) {
+    let filteredMovies = films.filter((film) => {
+        return film.producer ===  producer;
+    });
+    return filteredMovies
 } */
 
 // ---------------generar dropdows por Año------------
@@ -457,106 +476,42 @@ function addYearFilterCallback(){
 // ----------orden de a--z -----------
 
 let a_z = document.getElementById("a_z");
-a_z.addEventListener("click", function(){       
-    
-    let peliculasOrdenadasPorTitulo = films.sort((a,b) => {
-        if (a.title < b.title) {
-            return -1;
-        }
-        if (a.title > b.title) {
-            return 1;
-        }
-        return 0;
-    });
-    render (peliculasOrdenadasPorTitulo);
+a_z.addEventListener("click", function(){    
+    render (orderAz(films));     
         
 });   
 
 // ----------orden de z--a -----------
 let z_a = document.getElementById("z_a");
 z_a.addEventListener("click", function(){
-    
-    let peliculasOrdenadasPorTitulo = films.sort((a,b) => {
-        if (a.title > b.title) {
-            return -1;
-        }
-        if (a.title < b.title) {
-            return 1;
-        }
-        return 0;
-    });
-    render (peliculasOrdenadasPorTitulo);
-
+    render (orderZa(films));
+     
 });
 
 // ----------orden por fecha de lanzamiento (mas antigua)-----------
 let yearAsc = document.getElementById("yearAsc");
 yearAsc.addEventListener("click", function(){
-  
-    let peliculasOrdenadasPorYear = films.sort((a,b) => {
-        if (a.release_date < b.release_date) {
-            return -1;
-        }
-        if (a.release_date > b.release_date) {
-            return 1;
-        }
-        return 0;
-    });
-
-    render (peliculasOrdenadasPorYear);  
-
+    render (orderYearAsc(films));   
+   
 });
 
 // ----------orden por fecha de lanzamiento (mas nueva)-----------
 let yearDesc = document.getElementById("yearDesc");
 yearDesc.addEventListener("click", function(){
-  
-    let peliculasOrdenadasPorYear = films.sort((a,b) => {
-        if (a.release_date > b.release_date) {
-            return -1;
-        }
-        if (a.release_date < b.release_date) {
-            return 1;
-        }
-        return 0;
-    });
-
-    render (peliculasOrdenadasPorYear);  
-
+    render (orderYearDesc (films)); 
 });
 
 // ----------orden por calificación (mayor puntaje)-----------
 let mayorToMenor = document.getElementById("mayorToMenor");
 mayorToMenor.addEventListener("click", function(){
-    
-    let peliculasOrdenadasPorcalificacion = films.sort((a,b) => {
-        if (parseInt(a.rt_score) > parseInt(b.rt_score)) {
-            return -1;
-        }
-        if (parseInt(a.rt_score) < parseInt(b.rt_score)) {
-            return 1;
-        }
-        return 0;
-    });
-
-    render (peliculasOrdenadasPorcalificacion);
+    render (mayorPuntaje(films));
 });
 
 // ----------orden por calificación (menor puntaje)-----------
 let menorToMayor = document.getElementById("menorToMayor");
-menorToMayor.addEventListener("click", function(){
-    
-    let peliculasOrdenadasPorcalificacion = films.sort((a,b) => {
-        if (parseInt(a.rt_score) < parseInt(b.rt_score)) {
-            return -1;
-        }
-        if (parseInt(a.rt_score) > parseInt(b.rt_score)) {
-            return 1;
-        }
-        return 0;
-    });
-    
-    render (peliculasOrdenadasPorcalificacion);
+menorToMayor.addEventListener("click", function(){       
+    render (menorPuntaje(films));
+      
 });
 
 // ---------------------------creando div para el boton de top scroll-----------------------------
@@ -570,70 +525,52 @@ buttomScrollTop.innerHTML=creationButtomScrollTop;
 // -------------------------- boton de top scroll--------------------------------------------------
 
 let btnScrollTop = document.getElementById("btnScrollTop");
-
 document.addEventListener("scroll", handleScroll);
-
-function handleScroll() {
-  // do something on scroll
-
+function handleScroll() {     // do something on scroll
   var scrollableHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-
   var GOLDEN_RATIO = 0.7;
-
-
-  if ((document.documentElement.scrollTop / scrollableHeight ) > GOLDEN_RATIO) {
-    //show button
-    btnScrollTop.style.display = "block";
-  } else {
-    //hide button
-    btnScrollTop.style.display = "none";
+  if ((document.documentElement.scrollTop / scrollableHeight ) > GOLDEN_RATIO) {    
+    btnScrollTop.style.display = "block";   //show button
+  } else {    
+    btnScrollTop.style.display = "none";    //hide button
   }
 }
 
-btnScrollTop.addEventListener("click", function() {
-    // window.scrollTo({
-    //         top: 0;
-    //         behavior: "smooth";
-    //   });
-      
+btnScrollTop.addEventListener("click", function() {      
     window.scrollTo({
             top: 0,
             behavior: "auto"
     })
 });
 
+//------------------------barra de busqueda-------------------------------
+let cardFilter =document.getElementById("cardFilter");
+cardFilter.addEventListener("keyup", e => {    
+    let resultSearch = films.filter((film) => {
+        return film.title.toLowerCase().includes(e.target.value.toLowerCase());
+    });       
+    render(resultSearch);
+});
 
-//------------------botón películas del botón principal------------------
+//------------------------sección de category-------------------------
+function RenderCategory(){ 
+    let uniqueCategories = films.map(x => x.category).filter(
+        (category, index, categories) => categories.indexOf(category) === index
+    );
 
-//------genera el dropdown de Peliculas-----
-function renderMovieDropdown() {
-    let listaOcultaSegundaria = document.getElementById("listaOcultaSegundaria");    
-    let liElement = "";
-    for(let i=0; i < films.length; i++){
-        liElement += `<li><a id="${films[i].id}" class="peliculasList">${films[i].title}</a></li>`
-
-    }
-    listaOcultaSegundaria.innerHTML = liElement;
-    addMoviesFilterCallback();
-}
-
-//-----pasa a render 2 en función de la película seleccionada -----
-
-function addMoviesFilterCallback(){
-    let movies = document.getElementById("listaOcultaSegundaria").children;   
-    // console.log(movies);
-    for(let i=0; i < movies.length; i++){
-        movies[i].firstChild.addEventListener("click", function(e){   
-            principalPage.style.display = "none" ; 
-            pagina2.style.display = "block" ;
-            renderMovieDetail((moviesFilter(e.target.id)[0]));                 
+    uniqueCategories.forEach( (category) => {
+        let categoryMovies = films.filter((film) => {
+            return film.category === category
         });
-    }      
+        let htmlLocation = document.getElementById(category);       
+        let btnPortadas = renderMovies(categoryMovies, htmlLocation);        
+        addMovieCallbacks(btnPortadas);              
+    });    
+   
 }
+RenderCategory();
 
 // -----------------función del chart1-------------------
-// let Chart = "";
-// console.log(films.map(x => x.people[3]));
 function totalCasesChart(ctx) {
     // eslint-disable-next-line no-undef
     new Chart(ctx, {
@@ -645,7 +582,7 @@ function totalCasesChart(ctx) {
                 data:films.map(x => x.release_date).filter(
                     (year, index, years) => years.indexOf(year) === index//para que no se repitan los elementos
                 ),
-                //   data: ["1980","2000","2021"],
+                
                 borderColor:"orange",
                 backgroundColor:[
                     'rgb(31, 152, 122)',
@@ -660,8 +597,8 @@ function totalCasesChart(ctx) {
                 fontSize: 300,
                 padding:30,
                 fontCoor: '#12619c',
-                },
-            // beginAtZero: false,
+            },
+            
             legend : {
             position: 'bottom',
             labels: {
@@ -699,7 +636,6 @@ let namesValueGender = Object.values(arrayConteoPorGeneros);
 
 // -----------arrays de especies por peliculas--------------
 const specie =  arrayPeople.map((x) => {return x.map((elemt) => {return elemt.specie})});
-// console.log(specie);
 
 // ----concatena todos los generos de cada pelicula en un array----
 for (let i=0; i<specie.length;i++){
@@ -713,7 +649,6 @@ function arraySumBySpecie(datos_) {
 
 let arrayConteoPorEspecie = arraySumBySpecie(specie[0])
 // delete arrayConteoPorEspecie["NA"];
-// console.log(arrayConteoPorEspecie);
 
 // ------separando en arrays generos de cantidad de cantida de cada uno------------
 let namesSpecie = Object.keys(arrayConteoPorEspecie);
@@ -729,7 +664,7 @@ function totalCasesChart2(ctx2) {
             datasets:[{
                 label: "Num datos",
                 data:namesValueGender,
-                //   data: ["1980","2000","2021"],
+                
                 borderColor:"orange",
                 backgroundColor:[
                     'rgb(20, 143, 119)',
@@ -768,7 +703,7 @@ function totalCasesChart3(ctx3) {
             datasets:[{
                 label: "Num datos",
                 data:namesValueSpecie,
-                //   data: ["1980","2000","2021"],
+                
                 borderColor:"orange",
                 backgroundColor:
                     graphColors,
