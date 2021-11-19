@@ -98,6 +98,7 @@ header nav ul li a{
 header nav ul ul{
     position: absolute;
     width: 9rem;
+    z-index: 200;
     opacity: 0;
     visibility: hidden;
     transition: top 0.3s;
@@ -967,7 +968,7 @@ button img {
     flex-wrap: wrap;
     width: 100%;
     height: auto;
-    border: solid #127688;
+    border: 0.4rem solid #23524b;
     justify-content: space-around;
     border-radius: 2rem;
     padding: 2rem;
@@ -982,15 +983,66 @@ button img {
     display: none;   
 }
 
+
+
 /*------------------------------- pagina5---------------------------------------------*/
 .pagina5 {
-    display: flex;
+    display: none;
+    padding: 3em;
     width:100%; 
     height: 200rem;
     background-color:#d4ebe2;
-    display: none;   
+   
 }
 
+.boxPage4 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    margin: 2% 0;
+
+}
+
+.box1 {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+.chartTitle {
+    align-items: 4rem;
+    margin: 2rem;
+    font-family: fantasy;
+    font-size: 2rem;
+    text-align: center;
+    color: #43a8b9;
+    -webkit-text-stroke: 0.09rem rgb(20, 58, 35);
+}
+
+
+.boxChart {
+  width: 50rem;
+  height: auto;
+  background: #f2f8f6;
+  border-radius: 2rem;
+  padding: 2rem;
+  border: 0.4rem solid #23524b;
+
+}
+
+.contentBoxCharts {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 3rem;
+    width: auto;
+}
+
+.chart2 {
+    width: 30rem;
+}
 /* ------------------------------scrollTopButton--------------------------------------*/
 
 #buttomScrollTop {
@@ -1384,4 +1436,6 @@ i {
         /* top: -1rem; */
     }
 }
+
+
 

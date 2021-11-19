@@ -61,6 +61,7 @@ function renderMovies(films, htmlLocation) {
     });
     let btnPortadas = document.getElementsByClassName("portada");
     return btnPortadas;
+    
 }
 
 //renderizar contenido del modal al seleccioar personajes
@@ -205,6 +206,7 @@ function addMovieCallbacks(btnMovies){
             pagina5.style.display = "none" ;            
             pagina2.style.display = "block" ;
             renderMovieDetail(movie[0]);
+            // console.log(movie);
         });
     }
 }
@@ -300,7 +302,9 @@ function createVehicle(vehicle) {
 let principalBtn = document.getElementById("btnHeaderPrincipal");
 let pagina2 = document.getElementById("pagina2");
 let principalPage = document.getElementById("principalPage");
-principalBtn.addEventListener("click", function(){    
+principalBtn.addEventListener("click", function(){ 
+    pagina3.style.display = "none";
+    pagina4.style.display = "none";  
     pagina2.style.display = "none";
     pagina3.style.display = "none";
     pagina4.style.display = "none";
@@ -330,17 +334,11 @@ function addMoviesFilterCallback(){
     }
 }
 
-/* function moviesFilter(movieId){
-    let filteredMovies = films.filter((film) => {
-        return film.id === movieId ;
-    });
-    return filteredMovies
-} */
-//----------------------------------boton géneros del menu principal------------
+//----------------------------------boton categorías del menu principal------------
 let pagina3 = document.getElementById("pagina3");
-let generosBtn = document.getElementById("btnHeaderGeneros").children;
-for(let i=0; i < generosBtn.length; i++){
-    generosBtn[i].firstChild.addEventListener("click", function(){
+let btnHeaderCategorias = document.getElementById("btnHeaderCategorias").children;
+for(let i=0; i < btnHeaderCategorias.length; i++){
+    btnHeaderCategorias[i].firstChild.addEventListener("click", function(){
         pagina5.style.display = "none";   
         pagina4.style.display = "none";
         pagina3.style.display = "block";
@@ -351,8 +349,8 @@ for(let i=0; i < generosBtn.length; i++){
 
 //----------------------------------boton nosotros del menu principal------------
 let pagina4 = document.getElementById("pagina4");
-let nosotrosBtn = document.getElementById("btnHeaderNosotros");
-nosotrosBtn.addEventListener("click", function(){  
+let btnHeaderNosotros = document.getElementById("btnHeaderNosotros");
+btnHeaderNosotros.addEventListener("click", function(){  
     pagina5.style.display = "none";  
     pagina4.style.display = "block";
     pagina3.style.display = "none";
@@ -377,6 +375,7 @@ function render(films) {
     let boxPoster = document.getElementById("boxPoster");
     let btnPortadasDivs = renderMovies(films, boxPoster); 
     addMovieCallbacks(btnPortadasDivs);  
+    // console.log(renderMovies(films, boxPoster));
 }
 
 
@@ -450,12 +449,11 @@ function addProducerFilterCallback(){
     return filteredMovies
 } */
 
-
 // ---------------generar dropdows por Año------------
 function renderYearDropdown() {
     let listYear = document.getElementById("listYear");
     let uniqueYears = films.map(x => x.release_date).filter(
-        (year, index, years) => years.indexOf(year) === index
+        (year, index, years) => years.indexOf(year) === index//para que no se repitan los elementos
     );
     let liElement = "";
     for(let i=0; i < uniqueYears.length; i++){
@@ -473,13 +471,6 @@ function addYearFilterCallback(){
         });
     }
 }
-
-/* function yearFilter(release_date){
-    let filteredYears = films.filter((film) => {
-        return film.release_date === release_date;
-    });
-    return filteredYears
-} */
 
 // -------------------------------orderns-----------------------------------------
 // ----------orden de a--z -----------
@@ -578,3 +569,171 @@ function RenderCategory(){
    
 }
 RenderCategory();
+
+// -----------------función del chart1-------------------
+function totalCasesChart(ctx) {
+    // eslint-disable-next-line no-undef
+    new Chart(ctx, {
+        type:"line",
+        data: {
+            labels: films.map(x => x.title),
+            datasets:[{
+                label: "Num datos",
+                data:films.map(x => x.release_date).filter(
+                    (year, index, years) => years.indexOf(year) === index//para que no se repitan los elementos
+                ),
+                
+                borderColor:"orange",
+                backgroundColor:[
+                    'rgb(31, 152, 122)',
+                ]
+            }]
+        },
+
+        options : {
+            title: {
+                display: true,
+                text: 'Peliculas de Studios Ghibli por año',
+                fontSize: 300,
+                padding:30,
+                fontCoor: '#12619c',
+            },
+            
+            legend : {
+            position: 'bottom',
+            labels: {
+                padding: 20,
+                boxWhidth:15,
+                fontFamily: "system-ui",
+                fontColor: "#345678",
+            }
+            }
+        }      
+    })
+}
+
+
+// -----------arrays de géneros por peliculas--------------
+const arrayPeople = films.map(x => { return x.people;});
+const gender =  arrayPeople.map((x) => {return x.map((elemt) => {return elemt.gender})});
+
+// ----concatena todos los generos de cada pelicula en un array----
+for (let i=0; i<gender.length;i++){
+    gender[0] = gender[0].concat(gender[i])
+}
+
+// --------función que cuenta cuantas personas habían por género---- 
+function arraySumByGender(datos_) {
+    return datos_.reduce((a, d) => (a[d] ? a[d] += 1 : a[d] = 1,a), {});
+}
+
+let arrayConteoPorGeneros = arraySumByGender(gender[0])
+delete arrayConteoPorGeneros["NA"];
+
+// ------separando en arrays generos de cantidad de cantida de cada uno------------
+let namesGender = Object.keys(arrayConteoPorGeneros);
+let namesValueGender = Object.values(arrayConteoPorGeneros);
+
+// -----------arrays de especies por peliculas--------------
+const specie =  arrayPeople.map((x) => {return x.map((elemt) => {return elemt.specie})});
+
+// ----concatena todos los generos de cada pelicula en un array----
+for (let i=0; i<specie.length;i++){
+    specie[0] = specie[0].concat(specie[i])
+}
+
+// --------función que cuenta cuantas personas habían por género---- 
+function arraySumBySpecie(datos_) {
+    return datos_.reduce((a, d) => (a[d] ? a[d] += 1 : a[d] = 1,a), {});
+}
+
+let arrayConteoPorEspecie = arraySumBySpecie(specie[0])
+// delete arrayConteoPorEspecie["NA"];
+
+// ------separando en arrays generos de cantidad de cantida de cada uno------------
+let namesSpecie = Object.keys(arrayConteoPorEspecie);
+let namesValueSpecie = Object.values(arrayConteoPorEspecie);
+
+// ----------función del chart 2-------------------
+function totalCasesChart2(ctx2) {
+    // eslint-disable-next-line no-undef
+    new Chart(ctx2, {
+        type:"pie",
+        data: {
+            labels:namesGender,
+            datasets:[{
+                label: "Num datos",
+                data:namesValueGender,
+                
+                borderColor:"orange",
+                backgroundColor:[
+                    'rgb(20, 143, 119)',
+                    'rgb(244, 208, 63)',
+                    'rgb(31, 97, 141)',
+                    'rgb(245, 183, 177)',
+                ]
+            }]
+        },             
+    })
+}
+// ----------colores Random-------------------------
+let graphColors = [];
+let internalDataLength = namesSpecie;
+let i = 0;
+while (i <= internalDataLength.length) {
+    var randomR = Math.floor((Math.random() * 130) + 100);
+    var randomG = Math.floor((Math.random() * 130) + 100);
+    var randomB = Math.floor((Math.random() * 130) + 100);
+  
+    var graphBackground = "rgb(" 
+            + randomR + ", " 
+            + randomG + ", " 
+            + randomB + ")";
+    graphColors.push(graphBackground);
+    i++;
+} 
+
+// ----------función del chart 3-------------------
+function totalCasesChart3(ctx3) {
+    // eslint-disable-next-line no-undef
+    new Chart(ctx3, {
+        type:"pie",
+        data: {
+            labels:namesSpecie,
+            datasets:[{
+                label: "Num datos",
+                data:namesValueSpecie,
+                
+                borderColor:"orange",
+                backgroundColor:
+                    graphColors,
+            }]
+        },             
+    })
+}
+
+// ----------función que renderiza las gráficas-------------------
+function renderChart() {
+    const ctx =  document.getElementById("myChart").getContext("2d");
+    const ctx2 =  document.getElementById("myChart2").getContext("2d");
+    const ctx3 =  document.getElementById("myChart3").getContext("2d");
+    totalCasesChart(ctx);
+    totalCasesChart2(ctx2);
+    totalCasesChart3(ctx3);
+}
+renderChart();
+
+
+
+    
+
+
+
+
+
+
+
+
+            
+            
+            

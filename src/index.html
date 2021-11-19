@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <title>Data Lovers</title>
-    <script src="https://kit.fontawesome.com/59bcf52c44.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,7 +30,7 @@
             </li>
             <li>
                 <a id="">Categorías</a>
-                <ul id="btnHeaderGeneros">
+                <ul id="btnHeaderCategorias">
                   <li><a href="#Aventura" >Aventura</a></li>
                   <li><a href="#Sobrenatural">Sobrenatural</a></li>
                   <li><a href="#Drama">Drama</a></li>
@@ -109,28 +108,6 @@
             <label for="i4" class="dots" id="dot4"></label>
             <label for="i5" class="dots" id="dot5"></label>
           </div> 
-
-          <!-- <div class="slider" id="slider">
-            <div class="seccionCarrusel">
-              <div>
-                <img class="imgSlider" src="https://i.pinimg.com/originals/c9/db/06/c9db06f07d4831b68812feca92d05843.jpg" alt="fondo de   ghibli">
-              </div>
-              <div class="seccionImg">
-                <img class="imgSlider" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/ghibli2-1548333192.jpg" alt="">
-              </div>
-              <div>
-                <img class="imgSlider" src="https://d3i6li5p17fo2k.cloudfront.net/en/rimage/pivot_half_1152/image/5330/a62d76623b89ef1efb5e37543e2504d3" alt="">
-              </div>
-              <div>
-                <img class="imgSlider" src="https://media.wired.co.uk/photos/606d9ea2ef15037f58853565/master/w_1600%2Cc_limit/ponyo.jpg" alt="">
-              </div>
-              <div>
-                <img class="imgSlider" src="https://studioghiblimovies.com/wp-content/uploads/2014/11/bg2.jpg" alt="">
-              </div>
-            </div> 
-            <div class="slider-btn slider-btn-right" id="btnRightSlider">&#x203a</div>       
-            <div class="slider-btn slider-btn-left" id="btnLeftSlider">&#x2039</div>
-          </div>  -->
         </div>  
 
         <div class="secfiltrado">            
@@ -306,11 +283,53 @@
     <div id= "pagina5" class="pagina5">
       <section class="contenidoPageGraficas" id= "contenidoPageGraficas">
         <div class=" graficas-contenido">
-         
+          <div class="boxPage4 box1">
+            <p class="chartTitle">Average Movies</p>
+            <div class="boxChart">
+              <canvas id="myChart"></canvas>
+            </div>
+          </div>
+          <div class="boxPage4">
+            <div class="contentBoxCharts">
+              <p class="chartTitle">Average Gender</p>
+              <div class="boxChart chart2">
+                <canvas id="myChart2"></canvas>
+              </div>
+            </div>
+            <div class="contentBoxCharts">
+              <p class="chartTitle">Average Species</p>
+              <div class="boxChart chart2">
+                <canvas id="myChart3"></canvas>
+              </div>
+            </div>
+          </div>         
         </div>
       </section>
     </div>
 
+    <!-- <div id="pagina4" class="pagina4">
+      <div class="boxPage4 box1">
+        <p class="chartTitle">Average Movies</p>
+        <div class="boxChart">
+          <canvas id="myChart"></canvas>
+        </div>
+      </div>
+      <div class="boxPage4">
+        <div class="contentBoxCharts">
+          <p class="chartTitle">Average Gender</p>
+          <div class="boxChart chart2">
+            <canvas id="myChart2"></canvas>
+          </div>
+        </div>
+        <div class="contentBoxCharts">
+          <p class="chartTitle">Average Species</p>
+          <div class="boxChart chart2">
+            <canvas id="myChart3"></canvas>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    
     <div id="buttomScrollTop"></div>
 
     <footer> 
@@ -331,7 +350,10 @@
         </div>
       </div>
     </footer>
+    <script src="https://kit.fontawesome.com/59bcf52c44.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/a5f03eb3dc.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
+    <script type="text/javascript" src="ghibli.json"></script>
     <script src="main.js" type="module"></script>
   </body>
 </html>
