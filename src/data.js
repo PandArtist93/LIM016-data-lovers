@@ -90,10 +90,10 @@ export const orderYearDesc= (films) => {
 //----------orden por calificación (Mayor puntaje)-----------
 export const mayorPuntaje = (films) => {
   return films.sort((a,b) => {
-    if (parseInt(a.rt_score) < parseInt(b.rt_score)) {
+    if (parseInt(a.rt_score) > parseInt(b.rt_score)) {
         return -1;
     }
-    if (parseInt(a.rt_score) > parseInt(b.rt_score)) {
+    if (parseInt(a.rt_score) < parseInt(b.rt_score)) {
         return 1;
     } 
     return 0;

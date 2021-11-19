@@ -935,42 +935,42 @@ button img {
     justify-content: center;
 }
 
-/* .btnPage{
-    background-color: #315468;
-    display: flex;
-    justify-content: center;
-    outline: none;    
-    width: 70%;
-    height: auto;
-    border: 0;
-    border-radius: 0.5rem;
-    padding: auto;
-    color: #FFFFFF; 
-    line-height: inherit;
-    text-transform: uppercase;
-    cursor: pointer;  
-    font-size: 1rem ;
-    letter-spacing: 0.5rem;
-    font-family: sans-serif;  
-} */
-
 /*------------------------------- pagina3---------------------------------------------*/
 .pagina3 {
-    display: flex;
+    display: none;
     width:100%; 
     height: auto;
     background-color:#d4ebe2;
-    display: none;   
+    display: none;  
+    margin: 0;
 }
 
-.genderMovie{
+.containerCategory{
+    display: flex;
+    flex-direction: column;
+}
+
+.categoryMovie{    
+    justify-content: center;
     width: 100%;
-    height: 25rem;
+    height: auto;
     color: rgb(31, 29, 29);
-    margin: 2rem 5rem;
+    padding: 2rem 6rem;
     font-family: 'Open Sans', sans-serif;
     letter-spacing: 0.1rem; 
     font-size: 1.5rem;   
+}
+
+.renderCategory{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    border: solid #127688;
+    justify-content: space-around;
+    border-radius: 2rem;
+    padding: 2rem;
+    margin: 2rem 0;
 }
 /*------------------------------- pagina4---------------------------------------------*/
 .pagina4 {

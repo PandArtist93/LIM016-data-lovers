@@ -568,4 +568,21 @@ cardFilter.addEventListener("keyup", e => {
     render(resultSearch);
 });
 
-//------------------------
+//------------------------sección de category-------------------------
+function RenderCategory(){ 
+    let uniqueCategories = films.map(x => x.category).filter(
+        (category, index, categories) => categories.indexOf(category) === index
+    );
+
+    uniqueCategories.forEach( (category) => {
+        let categoryMovies = films.filter((film) => {
+            return film.category === category
+        });
+        let htmlLocation = document.getElementById(category);
+        console.log(`${category}: movies: ${categoryMovies.length}`);
+        let btnPortadas = renderMovies(categoryMovies, htmlLocation);        
+        addMovieCallbacks(btnPortadas);              
+    });    
+   
+}
+RenderCategory();
