@@ -202,7 +202,6 @@ function addMovieCallbacks(btnMovies){
             });
             principalPage.style.display = "none" ; 
             pagina3.style.display = "none" ; 
-            pagina4.style.display = "none" ;
             pagina5.style.display = "none" ;            
             pagina2.style.display = "block" ;
             renderMovieDetail(movie[0]);
@@ -303,11 +302,9 @@ let principalBtn = document.getElementById("btnHeaderPrincipal");
 let pagina2 = document.getElementById("pagina2");
 let principalPage = document.getElementById("principalPage");
 principalBtn.addEventListener("click", function(){ 
-    pagina3.style.display = "none";
-    pagina4.style.display = "none";  
+    pagina3.style.display = "none";     
     pagina2.style.display = "none";
-    pagina3.style.display = "none";
-    pagina4.style.display = "none";
+    pagina3.style.display = "none";    
     principalPage.style.display = "block";  
     location.reload();    
 });
@@ -339,33 +336,19 @@ let pagina3 = document.getElementById("pagina3");
 let btnHeaderCategorias = document.getElementById("btnHeaderCategorias").children;
 for(let i=0; i < btnHeaderCategorias.length; i++){
     btnHeaderCategorias[i].firstChild.addEventListener("click", function(){
-        pagina5.style.display = "none";   
-        pagina4.style.display = "none";
+        pagina5.style.display = "none";           
         pagina3.style.display = "block";
         pagina2.style.display = "none";
         principalPage.style.display = "none";  
     });
 }
 
-//----------------------------------boton nosotros del menu principal------------
-let pagina4 = document.getElementById("pagina4");
-let btnHeaderNosotros = document.getElementById("btnHeaderNosotros");
-btnHeaderNosotros.addEventListener("click", function(){  
-    pagina5.style.display = "none";  
-    pagina4.style.display = "block";
-    pagina3.style.display = "none";
-    pagina2.style.display = "none";
-    principalPage.style.display = "none";      
-});
-
 //----------------------------------boton gráficas del menu principal------------
 let pagina5 = document.getElementById("pagina5");
 let graficasBtn = document.getElementById("btnGraficas");
 graficasBtn.addEventListener("click", function(){   
-    pagina5.style.display = "block";
-    pagina4.style.display = "none"; 
-    pagina3.style.display = "none";
-    pagina4.style.display = "none";
+    pagina5.style.display = "block";    
+    pagina3.style.display = "none";    
     pagina2.style.display = "none";
     principalPage.style.display = "none";      
 });
@@ -375,7 +358,7 @@ function render(films) {
     let boxPoster = document.getElementById("boxPoster");
     let btnPortadasDivs = renderMovies(films, boxPoster); 
     addMovieCallbacks(btnPortadasDivs);  
-    // console.log(renderMovies(films, boxPoster));
+    
 }
 
 
