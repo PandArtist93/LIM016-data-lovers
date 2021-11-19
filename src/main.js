@@ -195,8 +195,7 @@ function addMovieCallbacks(btnMovies){
     let pagina2 =  document.getElementById("pagina2");
     let principalPage = document.getElementById("principalPage");    
     for(let i=0; i < btnMovies.length; i++){
-        btnMovies[i].addEventListener("click", function() {            
-            /* console.log(btnMovies[i].id); */ // encontramos el id de la pelicula seleccionada
+        btnMovies[i].addEventListener("click", function() {         
             let movie = films.filter( (film) => {
                 return film.id === btnMovies[i].id;
             });
@@ -572,8 +571,7 @@ function RenderCategory(){
         let categoryMovies = films.filter((film) => {
             return film.category === category
         });
-        let htmlLocation = document.getElementById(category);
-        console.log(`${category}: movies: ${categoryMovies.length}`);
+        let htmlLocation = document.getElementById(category);       
         let btnPortadas = renderMovies(categoryMovies, htmlLocation);        
         addMovieCallbacks(btnPortadas);              
     });    

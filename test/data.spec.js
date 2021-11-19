@@ -8,13 +8,13 @@ describe('directorFilter', () => {
 
   it('filtrar las peliculas que tienen como director a Hayao Miyazaki`', () => {
     let result = { director: 
-      "Hayao Miyazaki": 
+      "Hayao Miyazaki"/* : 
       "Isao Takahata": 
       "Yoshifumi Kondō": 
       "Hiroyuki Morita",
       "Gorō Miyazaki",
-      "Hiromasa Yonebayashi", 
-      ""
+      "Hiromasa Yonebayashi",  */
+      
     }
     expect(directorFilter("Hayao Miyazaki")).toEqual(expect.arrayContaining([expect.objectContaining(result)]));
   });
@@ -28,11 +28,11 @@ describe('producerFilter', () => {
 
   it('filtrar las peliculas que tienen como productor a Isao Takahata`', () => {
     let result = { producer: 
-      "Isao Takahata",
+      "Isao Takahata"/* ,
       "Hayao Miyazaki",
       "Toru Hara",
       "Toshio Suzuki", 
-      "Yoshiaki Nishimura", 
+      "Yoshiaki Nishimura",  */
     }
     expect(producerFilter("Isao Takahata")).toEqual(expect.arrayContaining([expect.objectContaining(result)]));
   });
