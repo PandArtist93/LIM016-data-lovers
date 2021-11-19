@@ -762,7 +762,7 @@ while (i <= internalDataLength.length) {
 function totalCasesChart3(ctx3) {
     // eslint-disable-next-line no-undef
     new Chart(ctx3, {
-        type:"pie",
+        type:"doughnut",
         data: {
             labels:namesSpecie,
             datasets:[{
