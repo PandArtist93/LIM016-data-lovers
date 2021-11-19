@@ -1,6 +1,13 @@
-/* import { conditionalExpression } from '@babel/types';
+// import { renderDirector } from './data.js';
 
-import { renderDirector } from './data.js'; */
+import { directorFilter } from './data.js'; 
+
+import { moviesFilter } from './data.js'; 
+
+import { yearFilter } from './data.js'; 
+
+import { producerFilter } from './data.js'; 
+
 
 import data from './data/ghibli/ghibli.js';
 
@@ -53,7 +60,9 @@ function renderMovies(films, htmlLocation) {
         htmlLocation.innerHTML = filmDivs; 
     });
     let btnPortadas = document.getElementsByClassName("portada");
+    // console.log(btnPortadas);
     return btnPortadas;
+    
 }
 
 //renderizar contenido del modal al seleccioar personajes
@@ -133,7 +142,7 @@ function renderVehicle(vehicle){
 
 //renderizar información detallada de la película en la 2da vista
 function renderMovieDetail(movie) {
-
+    
     let locations;
     let characters;
     let vehicles;
@@ -142,6 +151,10 @@ function renderMovieDetail(movie) {
     let contenidoPagePersonajes = document.getElementById("contenidoPagePersonajes");
     let contenidoPageLocaciones = document.getElementById("contenidoPageLocaciones");
     let contenidoPageVehiculos = document.getElementById("contenidoPageVehiculos");
+
+    contenidoPagePersonajes.innerHTML = "";
+    contenidoPageLocaciones.innerHTML = "";
+    contenidoPageVehiculos.innerHTML = "";
 
     // generar lo datos basicos de la película selecionada
     let contentMovie =`
@@ -198,11 +211,12 @@ function addMovieCallbacks(btnMovies){
         btnMovies[i].addEventListener("click", function() {            
             /* console.log(btnMovies[i].id); */ // encontramos el id de la pelicula seleccionada
             let movie = films.filter( (film) => {
-                return film.id === btnMovies[i].id                
-;           });
+                return film.id === btnMovies[i].id
+            });
             principalPage.style.display = "none" ; 
             pagina2.style.display = "block" ;
             renderMovieDetail(movie[0]);
+            // console.log(movie);
         });
     }
 }
@@ -295,27 +309,55 @@ function createVehicle(vehicle) {
     return nuevoElemento;
 }
 
-// ---------------------------------boton inicio dle menu principal--------------
+// ---------------------------------boton inicio del menu principal--------------
 let principalBtn = document.getElementById("btnHeaderPrincipal");
 let pagina2 = document.getElementById("pagina2");
 let principalPage = document.getElementById("principalPage");
-principalBtn.addEventListener("click", function(){    
+principalBtn.addEventListener("click", function(){ 
+    pagina3.style.display = "none";
+    pagina4.style.display = "none";  
     pagina2.style.display = "none";
     principalPage.style.display = "block";  
     location.reload();    
 });
+
+// ----------------botón nosotros del menú principal-------------------
+
+let btnHeaderNosotros = document.getElementById("btnHeaderNosotros");
+let pagina3 = document.getElementById("pagina3");
+let pagina4 = document.getElementById("pagina4");
+
+
+btnHeaderNosotros.addEventListener("click",()=> {
+    principalPage.style.display = "none";
+    pagina2.style.display = "none";
+    pagina3.style.display = "block";
+    pagina4.style.display = "none";
+})
+
+// ----------------botón gráficos del menú principal-------------------
+let btnGraficas = document.getElementById("btnGraficas")
+btnGraficas.addEventListener("click",()=> {
+    principalPage.style.display = "none";
+    pagina2.style.display = "none";
+    pagina3.style.display = "none";
+    pagina4.style.display = "block";
+})
+
 
 //----------------------------------render principal-------------------------------
 function render(films) {
     let boxPoster = document.getElementById("boxPoster");
     let btnPortadasDivs = renderMovies(films, boxPoster); 
     addMovieCallbacks(btnPortadasDivs);  
+    // console.log(renderMovies(films, boxPoster));
 }
 
 renderDirectorDropdown();
 renderProducerDropdown();
 renderYearDropdown();
 render(films);
+renderMovieDropdown(); 
 
 // -------------------------------filters-----------------------------------------
 
@@ -343,12 +385,12 @@ function addDirectorFilterCallback(){
     }
 }
 
-function directorFilter(director) {    
-    let filteredMovies = films.filter((film) => {
-        return film.director ===  director;
-    })
-    return filteredMovies
-}
+// function directorFilter(director) {    
+//     let filteredMovies = films.filter((film) => {
+//         return film.director ===  director;
+//     })
+//     return filteredMovies
+// }
 
 // ---------------generar dropdows productores------------
 function renderProducerDropdown() {
@@ -374,13 +416,6 @@ function addProducerFilterCallback(){
     }
 }
 
-function producerFilter(producer) {
-    let filteredMovies = films.filter((film) => {
-        return film.producer ===  producer;
-    });
-    return filteredMovies
-}
-
 //----------------------boton pelicula del header---------------------
 /* function renderMovieBtnMenu(films) {
     let listMovieBtn = document.getElementById("listaOcultaSegundaria");
@@ -399,7 +434,7 @@ function producerFilter(producer) {
 function renderYearDropdown() {
     let listYear = document.getElementById("listYear");
     let uniqueYears = films.map(x => x.release_date).filter(
-        (year, index, years) => years.indexOf(year) === index
+        (year, index, years) => years.indexOf(year) === index//para que no se repitan los elementos
     );
     let liElement = "";
     for(let i=0; i < uniqueYears.length; i++){
@@ -416,13 +451,6 @@ function addYearFilterCallback(){
             render(yearFilter(e.target.id));
         });
     }
-}
-
-function yearFilter(release_date){
-    let filteredYears = films.filter((film) => {
-        return film.release_date === release_date;
-    });
-    return filteredYears
 }
 
 // -------------------------------orderns-----------------------------------------
@@ -575,5 +603,202 @@ btnScrollTop.addEventListener("click", function() {
 });
 
 
-//filtra en función de la pelicula seleccionada-----
+//------------------botón películas del botón principal------------------
 
+//------genera el dropdown de Peliculas-----
+function renderMovieDropdown() {
+    let listaOcultaSegundaria = document.getElementById("listaOcultaSegundaria");    
+    let liElement = "";
+    for(let i=0; i < films.length; i++){
+        liElement += `<li><a id="${films[i].id}" class="peliculasList">${films[i].title}</a></li>`
+
+    }
+    listaOcultaSegundaria.innerHTML = liElement;
+    addMoviesFilterCallback();
+}
+
+//-----pasa a render 2 en función de la película seleccionada -----
+
+function addMoviesFilterCallback(){
+    let movies = document.getElementById("listaOcultaSegundaria").children;   
+    // console.log(movies);
+    for(let i=0; i < movies.length; i++){
+        movies[i].firstChild.addEventListener("click", function(e){   
+            principalPage.style.display = "none" ; 
+            pagina2.style.display = "block" ;
+            renderMovieDetail((moviesFilter(e.target.id)[0]));                 
+        });
+    }      
+}
+
+// -----------------función del chart1-------------------
+// let Chart = "";
+// console.log(films.map(x => x.people[3]));
+function totalCasesChart(ctx) {
+    // eslint-disable-next-line no-undef
+    new Chart(ctx, {
+        type:"line",
+        data: {
+            labels: films.map(x => x.title),
+            datasets:[{
+                label: "Num datos",
+                data:films.map(x => x.release_date).filter(
+                    (year, index, years) => years.indexOf(year) === index//para que no se repitan los elementos
+                ),
+                //   data: ["1980","2000","2021"],
+                borderColor:"orange",
+                backgroundColor:[
+                    'rgb(31, 152, 122)',
+                ]
+            }]
+        },
+
+        options : {
+            title: {
+                display: true,
+                text: 'Peliculas de Studios Ghibli por año',
+                fontSize: 300,
+                padding:30,
+                fontCoor: '#12619c',
+                },
+            // beginAtZero: false,
+            legend : {
+            position: 'bottom',
+            labels: {
+                padding: 20,
+                boxWhidth:15,
+                fontFamily: "system-ui",
+                fontColor: "#345678",
+            }
+            }
+        }      
+    })
+}
+
+
+// -----------arrays de géneros por peliculas--------------
+const arrayPeople = films.map(x => { return x.people;});
+const gender =  arrayPeople.map((x) => {return x.map((elemt) => {return elemt.gender})});
+
+// ----concatena todos los generos de cada pelicula en un array----
+for (let i=0; i<gender.length;i++){
+    gender[0] = gender[0].concat(gender[i])
+}
+
+// --------función que cuenta cuantas personas habían por género---- 
+function arraySumByGender(datos_) {
+    return datos_.reduce((a, d) => (a[d] ? a[d] += 1 : a[d] = 1,a), {});
+}
+
+let arrayConteoPorGeneros = arraySumByGender(gender[0])
+delete arrayConteoPorGeneros["NA"];
+
+// ------separando en arrays generos de cantidad de cantida de cada uno------------
+let namesGender = Object.keys(arrayConteoPorGeneros);
+let namesValueGender = Object.values(arrayConteoPorGeneros);
+
+// -----------arrays de especies por peliculas--------------
+const specie =  arrayPeople.map((x) => {return x.map((elemt) => {return elemt.specie})});
+// console.log(specie);
+
+// ----concatena todos los generos de cada pelicula en un array----
+for (let i=0; i<specie.length;i++){
+    specie[0] = specie[0].concat(specie[i])
+}
+
+// --------función que cuenta cuantas personas habían por género---- 
+function arraySumBySpecie(datos_) {
+    return datos_.reduce((a, d) => (a[d] ? a[d] += 1 : a[d] = 1,a), {});
+}
+
+let arrayConteoPorEspecie = arraySumBySpecie(specie[0])
+// delete arrayConteoPorEspecie["NA"];
+// console.log(arrayConteoPorEspecie);
+
+// ------separando en arrays generos de cantidad de cantida de cada uno------------
+let namesSpecie = Object.keys(arrayConteoPorEspecie);
+let namesValueSpecie = Object.values(arrayConteoPorEspecie);
+
+// ----------función del chart 2-------------------
+function totalCasesChart2(ctx2) {
+    // eslint-disable-next-line no-undef
+    new Chart(ctx2, {
+        type:"pie",
+        data: {
+            labels:namesGender,
+            datasets:[{
+                label: "Num datos",
+                data:namesValueGender,
+                //   data: ["1980","2000","2021"],
+                borderColor:"orange",
+                backgroundColor:[
+                    'rgb(20, 143, 119)',
+                    'rgb(244, 208, 63)',
+                    'rgb(31, 97, 141)',
+                    'rgb(245, 183, 177)',
+                ]
+            }]
+        },             
+    })
+}
+// ----------colores Random-------------------------
+let graphColors = [];
+let internalDataLength = namesSpecie;
+let i = 0;
+while (i <= internalDataLength.length) {
+    var randomR = Math.floor((Math.random() * 130) + 100);
+    var randomG = Math.floor((Math.random() * 130) + 100);
+    var randomB = Math.floor((Math.random() * 130) + 100);
+  
+    var graphBackground = "rgb(" 
+            + randomR + ", " 
+            + randomG + ", " 
+            + randomB + ")";
+    graphColors.push(graphBackground);
+    i++;
+} 
+
+// ----------función del chart 3-------------------
+function totalCasesChart3(ctx3) {
+    // eslint-disable-next-line no-undef
+    new Chart(ctx3, {
+        type:"pie",
+        data: {
+            labels:namesSpecie,
+            datasets:[{
+                label: "Num datos",
+                data:namesValueSpecie,
+                //   data: ["1980","2000","2021"],
+                borderColor:"orange",
+                backgroundColor:
+                    graphColors,
+            }]
+        },             
+    })
+}
+
+// ----------función que renderiza las gráficas-------------------
+function renderChart() {
+    const ctx =  document.getElementById("myChart").getContext("2d");
+    const ctx2 =  document.getElementById("myChart2").getContext("2d");
+    const ctx3 =  document.getElementById("myChart3").getContext("2d");
+    totalCasesChart(ctx);
+    totalCasesChart2(ctx2);
+    totalCasesChart3(ctx3);
+}
+renderChart();
+
+
+
+    
+
+
+
+
+
+
+
+
+            
+            
+            

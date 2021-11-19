@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <title>Data Lovers</title>
-    <script src="https://kit.fontawesome.com/59bcf52c44.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,27 +30,7 @@
             </li>
             <li >
               <a >Películas</a>
-              <ul id="listaOcultaSegundaria">
-                <li><a id="">Castle in the Sky</a></li>
-                <li><a id="">My Neighbor Totoro</a></li>
-                <li><a id="">Kiki's Delivery Service</a></li>
-                <li><a id="">Grave of the Fireflies</a></li>
-                <li><a id="">Only Yesterday</a></li>
-                <li><a id="">Porco Rosso</a></li>
-                <li><a id="">Pom Poko</a></li>
-                <li><a id="">Whisper of the Heart</a></li>
-                <li><a id="">Princess Mononoke</a></li>
-                <li><a id="">My Neighbors the Yamadas</a></li>
-                <li><a id="">Spirited Away</a></li>
-                <li><a id="">The Cat Returns</a></li>
-                <li><a id="">Howl's Moving Castle</a></li>
-                <li><a id="">Tales from Earthsea</a></li>
-                <li><a id="">Ponyo on the Cliff by the Sea</a></li>
-                <li><a id="">The Borrower Arrietty</a></li>
-                <li><a id="">From Up on Poppy Hill</a></li>
-                <li><a id="">The Wind Rises</a></li>
-                <li><a id="">The Tale of the Princess Kaguya</a></li>
-                <li><a id="">When Marnie Was There</a></li>            
+              <ul id="listaOcultaSegundaria">      
               </ul>
             </li>
             <li>
@@ -71,7 +50,10 @@
                 </ul>
             </li>
             <li>
-              <a href="" id="btnHeaderNosotros">Nosotros</a>
+              <a id="btnHeaderNosotros">Nosotros</a>
+            </li>
+            <li>
+              <a id="btnGraficas">Gráficas</a>
             </li>
           </ul>           
         </div>       
@@ -131,28 +113,6 @@
             <label for="i4" class="dots" id="dot4"></label>
             <label for="i5" class="dots" id="dot5"></label>
           </div> 
-
-          <!-- <div class="slider" id="slider">
-            <div class="seccionCarrusel">
-              <div>
-                <img class="imgSlider" src="https://i.pinimg.com/originals/c9/db/06/c9db06f07d4831b68812feca92d05843.jpg" alt="fondo de   ghibli">
-              </div>
-              <div class="seccionImg">
-                <img class="imgSlider" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/ghibli2-1548333192.jpg" alt="">
-              </div>
-              <div>
-                <img class="imgSlider" src="https://d3i6li5p17fo2k.cloudfront.net/en/rimage/pivot_half_1152/image/5330/a62d76623b89ef1efb5e37543e2504d3" alt="">
-              </div>
-              <div>
-                <img class="imgSlider" src="https://media.wired.co.uk/photos/606d9ea2ef15037f58853565/master/w_1600%2Cc_limit/ponyo.jpg" alt="">
-              </div>
-              <div>
-                <img class="imgSlider" src="https://studioghiblimovies.com/wp-content/uploads/2014/11/bg2.jpg" alt="">
-              </div>
-            </div> 
-            <div class="slider-btn slider-btn-right" id="btnRightSlider">&#x203a</div>       
-            <div class="slider-btn slider-btn-left" id="btnLeftSlider">&#x2039</div>
-          </div>  -->
         </div>  
 
         <div class="secfiltrado">            
@@ -208,16 +168,7 @@
     </main>
 
     <div id= "pagina2" class="pagina2">
-      <section class="contenidoPage" id= "contenidoPage">
-         <div class="contentImagPage2" id="textPage6"></div>
-         <div class="contentMovie">
-            <div class="contentPage2" id="textPage2"></div>
-            <div class="contentPage2" id="textPage3"></div>
-            <div class="contentPage2" id="textPage4"></div>
-            <div class="contentPage2" id="textPage5"></div>
-            <div class="contentPage2" id="textPage7"></div>
-            <div class="contentPage2" id="textPage8"></div>
-         </div>         
+      <section class="contenidoPage" id= "contenidoPage">   
       </section> 
 
       <section class="seccionPersonajes">        
@@ -251,6 +202,30 @@
         <div class="contenidoSubPage" id= "contenidoPageVehiculos"></div>
       </section>          
     </div>
+
+    <div id="pagina3" class="pagina3"></div>
+    <div id="pagina4" class="pagina4">
+      <div class="boxPage4 box1">
+        <p class="chartTitle">Average Movies</p>
+        <div class="boxChart">
+          <canvas id="myChart"></canvas>
+        </div>
+      </div>
+      <div class="boxPage4">
+        <div class="contentBoxCharts">
+          <p class="chartTitle">Average Gender</p>
+          <div class="boxChart chart2">
+            <canvas id="myChart2"></canvas>
+          </div>
+        </div>
+        <div class="contentBoxCharts">
+          <p class="chartTitle">Average Species</p>
+          <div class="boxChart chart2">
+            <canvas id="myChart3"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
     <div id="buttomScrollTop"></div>
     <footer> 
       <div class="contenedor-principal"> 
@@ -272,7 +247,10 @@
       <!-- <p>Privacy Policy | Cookie Policy | Do Not Sell My Personal Information | Terms | </p>
       <p> Desarrollado por Maizaga y KaterinT © 2021. Todos los derechos reservados.</p>          -->
     </footer>
+    <script src="https://kit.fontawesome.com/59bcf52c44.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/a5f03eb3dc.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
+    <script type="text/javascript" src="ghibli.json"></script>
     <script src="main.js" type="module"></script>
   </body>
 </html>

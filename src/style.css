@@ -901,7 +901,7 @@ button img {
     flex-wrap: wrap;
     flex-direction: column;
     align-content: center;
-    z-index: 600;
+    z-index: 490;
     margin: 2rem;
     border-radius: 50%;
     width: 5.3rem;
@@ -1267,4 +1267,79 @@ i {
         top: -1rem;
     }
 }
+
+
+/* .pagina3 {
+    display: flex;
+    width:100%; 
+    background-color:#d4ebe2;
+    display: none;   
+} */
+
+.pagina4 {
+    display: none;
+    padding: 3em;
+}
+
+.boxPage4 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    margin: 2% 0;
+
+}
+
+.box1 {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+.chartTitle {
+    align-items: 4rem;
+    margin: 2rem;
+    font-family: fantasy;
+    font-size: 2rem;
+    text-align: center;
+    color: #43a8b9;
+    -webkit-text-stroke: 0.09rem rgb(20, 58, 35);
+}
+
+
+.boxChart {
+  width: 50rem;
+  height: auto;
+  /* display: none; */
+  /* justify-content: center; */
+  background: #f2f8f6;
+  border-radius: 2rem;
+  padding: 2rem;
+  border: 0.4rem solid #23524b;
+
+}
+
+.contentBoxCharts {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 3rem;
+    width: auto;
+}
+
+.chart2 {
+    width: 30rem;
+}
+
+
+/* ---------------dropdrow a la lista peliculas ----- */
+
+#listaOcultaSegundaria {
+    max-height:15rem;
+    overflow:auto;
+}
+
+
+
 
