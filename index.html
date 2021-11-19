@@ -60,9 +60,11 @@
         <div class="mensaje_bienvenida">         
           <h1>Bienvenido</h1>
           <h2>a</h2><h3><span>GHIBLI NO SEKAI</span></h3><br>
+        </div> 
+        <div class="mensaje">
           <h4>¡Disfruta del mejor contenido de películas animadas!</h4><br>
           <h4>Desde los clásicos hasta los últimos estrenos de Studio Ghibli.</h4>
-        </div>                 
+        </div>                
   
         <div class="carrusel">
           <input type="radio" id="i1" name="images" checked>
@@ -112,46 +114,50 @@
 
         <div class="secfiltrado">            
           <nav> 
-            <p>Filtrar por:</p>
-            <ul>
-              <li>
-                <a>Director</a>
-                <ul id="listDirector"></ul>
-              </li>              
-              <li>
-                <a>Productor</a>
-                <ul id="listProducer"></ul> 
-              </li>  
-              <li>
-                <a>Año</a>
-                <ul id="listYear"></ul>
-              </li>                       
-            </ul>  
- 
-            <p>Ordenar por:</p>
-            <ul>
-              <li>
-                <a>lanzamiento</a>
-                <ul id="listOrdernDate">
-                  <li><a id="yearAsc">Mas Antigua</a></li>
-                  <li><a id="yearDesc">Mas Nueva</a></li>                  
-                </ul>
-              </li>              
-              <li>
-                <a>Alfabético</a>
-                <ul>
-                  <li><a id="a_z">A--Z</a></li>
-                  <li><a id="z_a">Z--A</a></li>                  
-                </ul> 
-              </li>  
-              <li>
-                <a >Calificación</a>
-                <ul>
-                  <li><a id="mayorToMenor">Mayor puntaje</a></li>
-                  <li><a id="menorToMayor">Menor puntaje</a></li>                  
-                </ul>
-              </li>                        
-            </ul>              
+            <div class="boxSecFilter">
+              <p>Filtrar por:</p>
+              <ul>
+                <li>
+                  <a>Director</a>
+                  <ul id="listDirector"></ul>
+                </li>              
+                <li>
+                  <a>Productor</a>
+                  <ul id="listProducer"></ul> 
+                </li>  
+                <li>
+                  <a>Año</a>
+                  <ul id="listYear"></ul>
+                </li>                       
+              </ul>               
+            </div>
+
+            <div class="boxSecFilter">
+              <p>Ordenar por:</p>
+              <ul>
+                <li>
+                  <a>lanzamiento</a>
+                  <ul id="listOrdernDate">
+                    <li><a id="yearAsc">Mas Antigua</a></li>
+                    <li><a id="yearDesc">Mas Nueva</a></li>                  
+                  </ul>
+                </li>              
+                <li>
+                  <a>Alfabético</a>
+                  <ul>
+                    <li><a id="a_z">A--Z</a></li>
+                    <li><a id="z_a">Z--A</a></li>                  
+                  </ul> 
+                </li>  
+                <li>
+                  <a >Calificación</a>
+                  <ul>
+                    <li><a id="mayorToMenor">Mayor puntaje</a></li>
+                    <li><a id="menorToMayor">Menor puntaje</a></li>                  
+                  </ul>
+                </li>                        
+              </ul>            
+            </div>                                  
           </nav>                         
         </div><br>
         <div class="container-searchBar">
@@ -307,29 +313,6 @@
       </section>
     </div>
 
-    <!-- <div id="pagina4" class="pagina4">
-      <div class="boxPage4 box1">
-        <p class="chartTitle">Average Movies</p>
-        <div class="boxChart">
-          <canvas id="myChart"></canvas>
-        </div>
-      </div>
-      <div class="boxPage4">
-        <div class="contentBoxCharts">
-          <p class="chartTitle">Average Gender</p>
-          <div class="boxChart chart2">
-            <canvas id="myChart2"></canvas>
-          </div>
-        </div>
-        <div class="contentBoxCharts">
-          <p class="chartTitle">Average Species</p>
-          <div class="boxChart chart2">
-            <canvas id="myChart3"></canvas>
-          </div>
-        </div>
-      </div>
-    </div> -->
-    
     <div id="buttomScrollTop"></div>
 
     <footer> 
