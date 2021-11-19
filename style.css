@@ -98,6 +98,7 @@ header nav ul li a{
 header nav ul ul{
     position: absolute;
     width: 9rem;
+    z-index: 200;
     opacity: 0;
     visibility: hidden;
     transition: top 0.3s;
@@ -130,7 +131,7 @@ header nav ul ul li{
     position: relative;
     z-index: 201;
     right: 2rem;
-    top: 3rem;
+    top: 2.5rem;
     width: auto;
     border-radius: 0rem;
     float: none;
@@ -803,6 +804,7 @@ button img {
 .cajaSuperior h2{
     display: flex;
     color: #FFFF;
+    margin: 0 1.2rem;
     font-size: 1rem ;
     letter-spacing: 0.5rem;
     justify-content: right;
@@ -935,42 +937,42 @@ button img {
     justify-content: center;
 }
 
-/* .btnPage{
-    background-color: #315468;
-    display: flex;
-    justify-content: center;
-    outline: none;    
-    width: 70%;
-    height: auto;
-    border: 0;
-    border-radius: 0.5rem;
-    padding: auto;
-    color: #FFFFFF; 
-    line-height: inherit;
-    text-transform: uppercase;
-    cursor: pointer;  
-    font-size: 1rem ;
-    letter-spacing: 0.5rem;
-    font-family: sans-serif;  
-} */
-
 /*------------------------------- pagina3---------------------------------------------*/
 .pagina3 {
-    display: flex;
+    display: none;
     width:100%; 
     height: auto;
     background-color:#d4ebe2;
-    display: none;   
+    display: none;  
+    margin: 0;
 }
 
-.genderMovie{
+.containerCategory{
+    display: flex;
+    flex-direction: column;
+}
+
+.categoryMovie{    
+    justify-content: center;
     width: 100%;
-    height: 25rem;
+    height: auto;
     color: rgb(31, 29, 29);
-    margin: 2rem 5rem;
+    padding: 2rem 6rem;
     font-family: 'Open Sans', sans-serif;
     letter-spacing: 0.1rem; 
     font-size: 1.5rem;   
+}
+
+.renderCategory{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    border: 0.4rem solid #23524b;
+    justify-content: space-around;
+    border-radius: 2rem;
+    padding: 2rem;
+    margin: 2rem 0;
 }
 /*------------------------------- pagina4---------------------------------------------*/
 .pagina4 {
@@ -981,15 +983,66 @@ button img {
     display: none;   
 }
 
+
+
 /*------------------------------- pagina5---------------------------------------------*/
 .pagina5 {
-    display: flex;
+    display: none;
+    padding: 3em;
     width:100%; 
     height: 200rem;
     background-color:#d4ebe2;
-    display: none;   
+   
 }
 
+.boxPage4 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    margin: 2% 0;
+
+}
+
+.box1 {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+.chartTitle {
+    align-items: 4rem;
+    margin: 2rem;
+    font-family: fantasy;
+    font-size: 2rem;
+    text-align: center;
+    color: #43a8b9;
+    -webkit-text-stroke: 0.09rem rgb(20, 58, 35);
+}
+
+
+.boxChart {
+  width: 50rem;
+  height: auto;
+  background: #f2f8f6;
+  border-radius: 2rem;
+  padding: 2rem;
+  border: 0.4rem solid #23524b;
+
+}
+
+.contentBoxCharts {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 3rem;
+    width: auto;
+}
+
+.chart2 {
+    width: 30rem;
+}
 /* ------------------------------scrollTopButton--------------------------------------*/
 
 #buttomScrollTop {
@@ -1164,13 +1217,11 @@ i {
     }
   
     header nav ul li{
-        width: auto;
         margin: 1rem 0 1rem 0;    
         box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 0 0  0 0px  #157181, 0.3em 0.3em 1em rgba(0,0,0,0.3); 
         border-radius: 1rem;
         font-size: 1.5rem; 
-        cursor: pointer;  
-        width: 80%;    
+        width: 70%;    
         align-items: center;
         padding: 0.35rem;   
         text-align: center;     
@@ -1187,6 +1238,14 @@ i {
         font-size: 0.7rem;
     }
      
+    header nav ul ul li{
+        justify-content: center;
+        width: auto;
+        margin: 0; 
+        bottom: 12rem;
+        left: 0.2rem;
+    }
+
     #check:checked ~.header-right {
         left: 0;
         display: block;      
@@ -1319,7 +1378,7 @@ i {
         flex-wrap: nowrap;
         list-style: none;
         position: relative;
-        margin: 1rem 0rem;
+        /* margin: 1rem 0rem; */
     }
 
     main nav ul li {
@@ -1337,12 +1396,10 @@ i {
 
     .container-searchBar{
         display: flex;
-        padding: auto;
-        margin: 0 10%;
+        padding: auto;        
         align-content: center;
         justify-content: center;
-        align-items: center;
-    
+        align-items: center;    
     }  
        
     
@@ -1376,7 +1433,9 @@ i {
 
 @media (max-width: 1235px){
     .secfiltrado nav ul ul li{        
-        top: -1rem;
+        /* top: -1rem; */
     }
 }
+
+
 
