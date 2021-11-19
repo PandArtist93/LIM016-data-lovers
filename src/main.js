@@ -210,6 +210,9 @@ function addMovieCallbacks(btnMovies){
                 return film.id === btnMovies[i].id;
             });
             principalPage.style.display = "none" ; 
+            pagina3.style.display = "none" ; 
+            pagina4.style.display = "none" ;
+            pagina5.style.display = "none" ;            
             pagina2.style.display = "block" ;
             renderMovieDetail(movie[0]);
         });
