@@ -221,7 +221,7 @@ main {
     /* display: flex; */
 } 
 
-/*---------------caracter÷isticas de la pagina principal----------------*/
+/*---------------caracteristicas de la pagina principal----------------*/
 .principalPage h3 {
     color: rgb(181, 220, 223);
     font-size: 7rem;
@@ -467,40 +467,36 @@ label span{
 /*---------------------------características de la sección de filtrado---------------*/
 .secfiltrado{
     width: 100%;    
-    height: auto;
+    height: 7rem;
     display: flex;
-    justify-content: space-around;
     align-items:center;
     background-color: #157181;
     font-family: 'Open Sans', sans-serif;
     color: #e4dbdb;   
+    
 }
 
 .secfiltrado nav{
     display: flex;
-    flex-wrap: nowrap;
-    width: auto;
-    height: 6rem;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
     justify-content: space-around;
-    align-items: center;
-    /* margin: 1rem 1rem; */
+    margin: 1rem 1rem;
 }
 
 .boxSecFilter{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    vertical-align: middle;
-    align-content: center;
-    margin: 2rem;
+    display: flex;   
+    
 }
 
 .secfiltrado p{
-    font-size: 1.4rem;
+    display: flex;
+    font-size: 1.2rem;
     letter-spacing: 0.1rem;
-    color:rgba(231, 186, 101, 0.952);
-    align-content: center;
-    vertical-align: middle;
+    color:rgba(231, 186, 101, 0.952);  
+    width: 9rem;
+    align-items: center;
 } 
 
 /* main nav:after{
@@ -1383,7 +1379,6 @@ i {
         flex-wrap: nowrap;
         list-style: none;
         position: relative;
-        /* margin: 1rem 0rem; */
     }
 
     main nav ul li {
@@ -1436,11 +1431,13 @@ i {
     }
 }
 
-@media (max-width: 1235px){
-    .secfiltrado nav ul ul li{        
-        /* top: -1rem; */
+@media (max-width: 1277px){
+    .secfiltrado{
+        height: auto;
+        /* padding: 1rem; */
+
+    }
+    .boxSecFilter{
+        margin: 1rem 0;
     }
 }
-
-
-

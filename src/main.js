@@ -562,9 +562,7 @@ function totalCasesChart(ctx) {
             labels: films.map(x => x.title),
             datasets:[{
                 label: "Num datos",
-                data:films.map(x => x.release_date).filter(
-                    (year, index, years) => years.indexOf(year) === index//para que no se repitan los elementos
-                ),
+                data:films.map(x => x.release_date),
                 
                 borderColor:"orange",
                 backgroundColor:[
