@@ -141,6 +141,8 @@ function renderMovieDetail(movie) {
     let contenidoPageLocaciones = document.getElementById("contenidoPageLocaciones");
     let contenidoPageVehiculos = document.getElementById("contenidoPageVehiculos");
 
+    pagina3.style.display = "none" ; 
+    pagina5.style.display = "none" ; 
     contenidoPagePersonajes.innerHTML = "";
     contenidoPageLocaciones.innerHTML = "";
     contenidoPageVehiculos.innerHTML = "";
@@ -695,6 +697,7 @@ function totalCasesChart3(ctx3) {
 
 // ----------función que renderiza las gráficas-------------------
 function renderChart() {
+    
     const ctx =  document.getElementById("myChart").getContext("2d");
     const ctx2 =  document.getElementById("myChart2").getContext("2d");
     const ctx3 =  document.getElementById("myChart3").getContext("2d");
