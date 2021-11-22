@@ -223,9 +223,9 @@ main {
 
 /*---------------caracteristicas de la pagina principal----------------*/
 .principalPage h3 {
-    color: rgb(181, 220, 223);
-    font-size: 7rem;
-    -webkit-text-stroke: 0.002rem rgb(20, 58, 35);
+    color: rgb(18, 40, 78);
+    font-size: 10rem;
+    -webkit-text-stroke: 0.002rem rgb(70, 127, 134);
     font-family: 'Open Sans', sans-serif;
     font-weight: bold;
 }
@@ -235,8 +235,10 @@ main {
 }
 
 .principalPage h1, h2 {
-    color: rgb(8, 117, 121);
-    font-size: 3.2rem;
+    color: rgb(2, 22, 53);
+    -webkit-text-stroke: 0.002rem rgb(70, 127, 134);
+    font-size: 4rem;
+   
     font-family:'Open Sans', sans-serif;
     letter-spacing: 0.2rem; 
 }
@@ -261,9 +263,8 @@ main {
     align-items: center;
     font-size: 1.3rem;    
     width: 100%;
-    height: 35rem;   
+    height: 40rem;   
     background-image: url("https://taylorfinn.files.wordpress.com/2018/10/45e1c53194fc5f424f17e0f926990af8.gif?w=540&h=300&crop=1") ;
-    color: rgb(112, 112, 112);  
     background-size: cover;  
     background-position: center;  
     object-fit: cover;
@@ -991,7 +992,7 @@ button img {
     display: none;
     padding: 3em;
     width:100%; 
-    height: 200rem;
+    height: auto;
     background-color:#d4ebe2;
    
 }
