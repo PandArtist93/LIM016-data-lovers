@@ -50,13 +50,15 @@ header nav .logo {
 header h3 {
     color:#FFFF;
     font-size: 3.2rem;
-    font-family: 'Open Sans', sans-serif;
+    /* font-family: 'Open Sans', sans-serif; */
+    font-family:'EB Garamond', serif;
 }
 
 header nav ul{
     width: auto;
     position: relative;  
-    font-family: 'Open Sans', sans-serif;   
+    /* font-family: 'Open Sans', sans-serif;    */
+    font-family:'EB Garamond', serif;
     color: #e4dbdb;
     margin: 0 1rem;
 }
@@ -72,7 +74,8 @@ header nav ul li{
     border-radius: 1rem;   
     padding: 0.35rem;    
     border: solid 0.2rem #157181;       
-    font-family: 'Open Sans', sans-serif;   
+    /* font-family: 'Open Sans', sans-serif;   */
+    font-family:'EB Garamond', serif;  
     letter-spacing: 0.1rem; 
     border-radius: 1rem;
     background-color: #44a8b9;    
@@ -177,7 +180,8 @@ header nav ul ul li a{
     border-radius: 3rem;
     border: none;
     padding: 0;    
-    font-family: 'Open Sans', sans-serif;
+    /* font-family: 'Open Sans', sans-serif; */
+    font-family:'EB Garamond', serif; 
     font-size: 1rem;
     transition: 0.4s;
     background: none;
@@ -226,7 +230,8 @@ main {
     color: rgb(181, 220, 223);
     font-size: 7rem;
     -webkit-text-stroke: 0.002rem rgb(20, 58, 35);
-    font-family: 'Open Sans', sans-serif;
+    /* font-family: 'Open Sans', sans-serif; */
+    font-family:'EB Garamond', serif; 
     font-weight: bold;
 }
 
@@ -237,17 +242,20 @@ main {
 .principalPage h1, h2 {
     color: rgb(8, 117, 121);
     font-size: 3.2rem;
-    font-family:'Open Sans', sans-serif;
+    /* font-family:'Open Sans', sans-serif; */
+    font-family:'EB Garamond', serif; 
     letter-spacing: 0.2rem; 
 }
 
 .principalPage h4 {    
-    font-family: 'Open Sans', sans-serif;
+    /* font-family: 'Open Sans', sans-serif; */
+    font-family:'Source Sans Pro', sans-serif;
     letter-spacing: 0.15rem; 
 }
 
 .principalPage p {
-    font-family: 'Open Sans', sans-serif;
+    /* font-family: 'Open Sans', sans-serif; */
+    font-family:'EB Garamond', serif;
     letter-spacing: 0.15rem; 
     color: #e4dbdb;
     font-size: 1.5rem;
@@ -279,7 +287,8 @@ main {
     width: 100%;
     height: 7rem;    
     margin-top: 2.5rem;  
-    font-style: italic;
+    /* font-style: italic; */
+    font-family:'EB Garamond', serif;
     color: rgb(112, 112, 112);  
     background-size: cover;  
     background-position: center;  
@@ -472,7 +481,8 @@ label span{
     justify-content: space-around;
     align-items:center;
     background-color: #157181;
-    font-family: 'Open Sans', sans-serif;
+    /* font-family: 'Open Sans', sans-serif; */
+    font-family:'EB Garamond', serif;
     color: #e4dbdb;   
 }
 
@@ -484,6 +494,10 @@ label span{
     justify-content: space-around;
     align-items: center;
     /* margin: 1rem 1rem; */
+}
+
+.secfiltrado nav ul li a {
+    font-family: 'EB Garamond';
 }
 
 .boxSecFilter{
@@ -630,7 +644,8 @@ main nav ul li:hover{
     top: 80%;
     justify-content: center;
     background: rgba(7, 53, 80, 0.582);
-    font-family: 'Open Sans', sans-serif;
+    /* font-family: 'Open Sans', sans-serif; */
+    font-family:'EB Garamond', serif;
     letter-spacing: 0.15rem; 
     font-size: 1.3rem;
     text-shadow: 1rem 1rem 1rem 0;
@@ -710,7 +725,8 @@ button img {
     background-color:#f2f8f6;
     flex-wrap: wrap;
     color: rgb(0, 0, 0);
-    font-family: 'Open Sans', sans-serif;
+    /* font-family: 'Open Sans', sans-serif; */
+    font-family:'EB Garamond', serif;
     letter-spacing: 0.1rem;
     font-size: 1.5rem;
     border-radius: 0 2rem 0 2rem;
@@ -725,11 +741,33 @@ button img {
 .contentPage2 {
     display: flex;
     justify-content: left;
-    flex-direction: column;
+    /* flex-direction: column; */
     margin: 1rem 0 1rem 0;  
+    align-items: baseline;
+    text-align: justify;
     font-size: 1.3rem;
     height: 90%;
-    width: 90%;
+    width: 100%;
+}
+
+.titlePage2 {
+    display: flex;
+    justify-content: center;
+    /* flex-direction: column; */
+    margin: 1rem 0 1rem 0;  
+    align-items: baseline;
+    font-size: 1.3rem;
+    height: 90%;
+    width: 100%;
+}
+.contentPage2title {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.contentPage2Subtitle {
+    margin-right: 0.5rem;
+    font-size: 1.8rem;
 }
 /*-----------------------catálogo de personajes------------------*/
 .contenidoSubPage{
@@ -745,7 +783,8 @@ button img {
     background-size: cover; 
     object-fit: cover; */
     border-radius: 1.2rem;   
-    font-family: 'Open Sans', sans-serif;
+    /* font-family: 'Open Sans', sans-serif; */
+    font-family:'EB Garamond', serif;
     letter-spacing: 0.1rem; 
     font-size: 1.2rem;    
     color: rgb(0, 0, 0);
@@ -765,12 +804,16 @@ button img {
     border-radius: 0 1rem 0 1rem;
     background: rgb(255, 250, 250);
     color: rgb(31, 29, 29);
-    font-family: 'Open Sans', sans-serif;
+    /* font-family: 'Open Sans', sans-serif; */
+    font-family:'EB Garamond', serif;
     letter-spacing: 0.1rem; 
-    font-size: 1rem;   
+    font-size: 1.5rem;   
     border: groove #d2d6d4;   
 }
 
+.subDataCharacter {
+    font-size: 3rems;
+}
 .contenedorSubData img{
     height: 35rem;
     border-radius: 1rem;
@@ -787,9 +830,10 @@ button img {
 .TitleSec{
     color: rgb(31, 29, 29);
     margin: 2rem 5rem;
-    font-family: 'Open Sans', sans-serif;
+    /* font-family: 'Open Sans', sans-serif; */
+    font-family:'EB Garamond', serif;
     letter-spacing: 0.1rem; 
-    font-size: 1.5rem;   
+    font-size: 2rem;   
 }
 
 /*----------------------características del modal-----------------------*/
@@ -973,7 +1017,8 @@ button img {
     height: auto;
     color: rgb(31, 29, 29);
     padding: 2rem 6rem;
-    font-family: 'Open Sans', sans-serif;
+    /* font-family: 'Open Sans', sans-serif; */
+    font-family:'EB Garamond', serif;
     letter-spacing: 0.1rem; 
     font-size: 1.5rem;   
 }
@@ -1038,7 +1083,8 @@ button img {
 
 .chartTitle {
     align-items: 4rem;
-    font-family: fantasy;
+    /* font-family: fantasy; */
+    font-family:'EB Garamond', serif;
     font-size: 2rem;
     text-align: center;
     color: #43a8b9;
@@ -1137,7 +1183,8 @@ button img {
     padding: 0.7rem;
     background-color:#104953;
     width: 100%;
-    font-family: 'Open Sans', sans-serif;
+    /* font-family: 'Open Sans', sans-serif; */
+    font-family:'EB Garamond', serif;
     letter-spacing: 0.1rem; 
     font-size: 1.05rem;
     color: #e4dbdb;
@@ -1293,7 +1340,8 @@ i {
         border-radius: 3rem;
         border: none;
         padding: 0;
-        font-family: 'Open Sans', sans-serif;
+        /* font-family: 'Open Sans', sans-serif; */
+        font-family:'EB Garamond', serif;
         font-size: 1rem;
         transition: 0.4s;
         background: none;
@@ -1316,7 +1364,7 @@ i {
 
     label span{
         font-size: 4rem;  
-             
+
     }
 
     .carrusel {
@@ -1377,7 +1425,8 @@ i {
         height: 17rem;
         display: flex;
         background-color: #157181;
-        font-family: 'Open Sans', sans-serif;
+        /* font-family: 'Open Sans', sans-serif; */
+        font-family:'EB Garamond', serif;
         letter-spacing: 0.12rem;
         color: #e4dbdb;
         justify-content: center;

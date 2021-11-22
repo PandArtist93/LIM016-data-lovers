@@ -151,12 +151,12 @@ function renderMovieDetail(movie) {
     let contentMovie =`
         <div class="contentImagPage2" id="textPage6"><img src="${movie.poster}"></div>
         <div class="contentMovie">
-            <div class="contentPage2" id="textpage2">${movie.title}</div>
+            <div class="titlePage2" id="textpage2"><span class="contentPage2title">${movie.title}</span></div>
             <div class="contentPage2" id="textpage3">${movie.description} </div>
-            <div class="contentPage2" id="textpage4">Director: ${movie.director}</div>
-            <div class="contentPage2" id="textpage5">Productor:  ${movie.producer}</div>
-            <div class="contentPage2" id="textpage7">Fecha de lanzamiento: ${movie.release_date} </div>
-            <div class="contentPage2" id="textpage8">Puntaje: ${movie.rt_score}/100</div>
+            <div class="contentPage2" id="textpage4"><span class="contentPage2Subtitle">Director:</span>${movie.director}</div>
+            <div class="contentPage2" id="textpage5"><span class="contentPage2Subtitle">Productor:</span> ${movie.producer}</div>
+            <div class="contentPage2" id="textpage7"><span class="contentPage2Subtitle">Año:</span>${movie.release_date} </div>
+            <div class="contentPage2" id="textpage8"><span class="contentPage2Subtitle">Puntaje:</span>${movie.rt_score}/100</div>
         </div>
     `
     contenidoPage.innerHTML = contentMovie;
@@ -307,7 +307,6 @@ principalBtn.addEventListener("click", function(){
     pagina3.style.display = "none";
     pagina4.style.display = "none";  
     pagina2.style.display = "none";
-    pagina3.style.display = "none";
     principalPage.style.display = "block";  
     location.reload();    
 });
@@ -329,6 +328,8 @@ function addMoviesFilterCallback(){
         movies[i].firstChild.addEventListener("click", function(e){
             principalPage.style.display = "none";
             pagina2.style.display = "block";
+            pagina3.style.display = "none";
+            pagina4.style.display = "none";
             renderMovieDetail((moviesFilter(e.target.id)[0]));
         });
     }
@@ -512,15 +513,6 @@ buttomScrollTop.innerHTML=creationButtomScrollTop;
 
 let btnScrollTop = document.getElementById("btnScrollTop");
 document.addEventListener("scroll", handleScroll);
-// function handleScroll() {     // do something on scroll
-//   var scrollableHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-//   var GOLDEN_RATIO = 0;
-//   if ((document.documentElement.scrollTop / scrollableHeight ) > GOLDEN_RATIO) {    
-//     btnScrollTop.style.display = "block";   //show button
-//   } else {    
-//     btnScrollTop.style.display = "none";    //hide button
-//   }
-// }
 function handleScroll() {  
 btnScrollTop.style.display = "block";   //show button
 }
@@ -559,7 +551,6 @@ function RenderCategory(){
     });  
    
 }
-
 RenderCategory();
 
 // ----------colores Random-------------------------
@@ -579,6 +570,7 @@ function coloresRandom (valor) {
 } 
     return graphColors;
 }
+
 // -----------------función del chart1-------------------
 function totalCasesChart(ctx) {
     // eslint-disable-next-line no-undef
@@ -596,9 +588,6 @@ function totalCasesChart(ctx) {
                 ]
             }]
         },
-        // options : {
-            // maintainAspectRatio:false,
-        // }
     })
 }
 
@@ -644,14 +633,14 @@ let namesValueSpecie = Object.values(arrayConteoPorEspecie);
 // ----concatena todas las categorias de cada pelicula en un array----
 const arrayCategory= films.map(x => x.category);
 for (let i=0; i<arrayCategory.length;i++){
-    arrayCategory[0] += arrayCategory[i];
+    arrayCategory[0] = arrayCategory[i];
 }
+// console.log(arrayCategory);
 
 // --------función que cuenta cuantos hay por categorias---- 
 function arraysSumByCategory(datos_) {
     return datos_.reduce((a, d) => (a[d] ? a[d] += 1 : a[d] = 1,a), {});
 }
-
 let arrayConteoPorCategory = arraysSumByCategory(arrayCategory);
 
 // ------separando en arrays categoria de cantidad de cantida(n°) de cada uno------------
@@ -683,6 +672,7 @@ function totalCasesChart2(ctx2) {
         },             
     })
 }
+
 // ----------función del chart 3-------------------
 function totalCasesChart3(ctx3) {
     // eslint-disable-next-line no-undef
@@ -701,6 +691,7 @@ function totalCasesChart3(ctx3) {
         },             
     })
 }
+
 // ----------función del chart 4-------------------
 function totalCasesChart4(ctx4) {
     // eslint-disable-next-line no-undef
@@ -718,6 +709,7 @@ function totalCasesChart4(ctx4) {
         },             
     })
 }
+
 // ----------función que renderiza las gráficas-------------------
 function renderChart() {
     const ctx =  document.getElementById("myChart").getContext("2d");
