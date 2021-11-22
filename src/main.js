@@ -11,6 +11,8 @@ import { orderYearDesc } from './data.js';
 import { mayorPuntaje } from './data.js';
 import { menorPuntaje } from './data.js';
 import data from './data/ghibli/ghibli.js';
+
+// console.log((data));
 const films = data.films;
 
 // ---------------------modal------------------------
@@ -202,8 +204,7 @@ function addMovieCallbacks(btnMovies){
             });
             principalPage.style.display = "none" ; 
             pagina3.style.display = "none" ; 
-            pagina4.style.display = "none" ;
-            pagina5.style.display = "none" ;            
+            pagina4.style.display = "none" ;        
             pagina2.style.display = "block" ;
             renderMovieDetail(movie[0]);
             // console.log(movie);
@@ -307,7 +308,6 @@ principalBtn.addEventListener("click", function(){
     pagina4.style.display = "none";  
     pagina2.style.display = "none";
     pagina3.style.display = "none";
-    pagina4.style.display = "none";
     principalPage.style.display = "block";  
     location.reload();    
 });
@@ -339,7 +339,6 @@ let pagina3 = document.getElementById("pagina3");
 let btnHeaderCategorias = document.getElementById("btnHeaderCategorias").children;
 for(let i=0; i < btnHeaderCategorias.length; i++){
     btnHeaderCategorias[i].firstChild.addEventListener("click", function(){
-        pagina5.style.display = "none";   
         pagina4.style.display = "none";
         pagina3.style.display = "block";
         pagina2.style.display = "none";
@@ -347,25 +346,12 @@ for(let i=0; i < btnHeaderCategorias.length; i++){
     });
 }
 
-//----------------------------------boton nosotros del menu principal------------
-let pagina4 = document.getElementById("pagina4");
-let btnHeaderNosotros = document.getElementById("btnHeaderNosotros");
-btnHeaderNosotros.addEventListener("click", function(){  
-    pagina5.style.display = "none";  
-    pagina4.style.display = "block";
-    pagina3.style.display = "none";
-    pagina2.style.display = "none";
-    principalPage.style.display = "none";      
-});
-
 //----------------------------------boton gráficas del menu principal------------
-let pagina5 = document.getElementById("pagina5");
+let pagina4 = document.getElementById("pagina4");
 let graficasBtn = document.getElementById("btnGraficas");
 graficasBtn.addEventListener("click", function(){   
-    pagina5.style.display = "block";
-    pagina4.style.display = "none"; 
+    pagina4.style.display = "block";
     pagina3.style.display = "none";
-    pagina4.style.display = "none";
     pagina2.style.display = "none";
     principalPage.style.display = "none";      
 });
@@ -526,16 +512,18 @@ buttomScrollTop.innerHTML=creationButtomScrollTop;
 
 let btnScrollTop = document.getElementById("btnScrollTop");
 document.addEventListener("scroll", handleScroll);
-function handleScroll() {     // do something on scroll
-  var scrollableHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  var GOLDEN_RATIO = 0.7;
-  if ((document.documentElement.scrollTop / scrollableHeight ) > GOLDEN_RATIO) {    
-    btnScrollTop.style.display = "block";   //show button
-  } else {    
-    btnScrollTop.style.display = "none";    //hide button
-  }
+// function handleScroll() {     // do something on scroll
+//   var scrollableHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+//   var GOLDEN_RATIO = 0;
+//   if ((document.documentElement.scrollTop / scrollableHeight ) > GOLDEN_RATIO) {    
+//     btnScrollTop.style.display = "block";   //show button
+//   } else {    
+//     btnScrollTop.style.display = "none";    //hide button
+//   }
+// }
+function handleScroll() {  
+btnScrollTop.style.display = "block";   //show button
 }
-
 btnScrollTop.addEventListener("click", function() {      
     window.scrollTo({
             top: 0,
@@ -553,23 +541,44 @@ cardFilter.addEventListener("keyup", e => {
 });
 
 //------------------------sección de category-------------------------
+let uniqueCategories = [];
+
 function RenderCategory(){ 
-    let uniqueCategories = films.map(x => x.category).filter(
-        (category, index, categories) => categories.indexOf(category) === index
+    uniqueCategories = films.map(x => x.category).filter(
+    (category, index, categories) => categories.indexOf(category) === index
     );
 
     uniqueCategories.forEach( (category) => {
         let categoryMovies = films.filter((film) => {
             return film.category === category
         });
+        
         let htmlLocation = document.getElementById(category);       
         let btnPortadas = renderMovies(categoryMovies, htmlLocation);        
-        addMovieCallbacks(btnPortadas);              
-    });    
+        addMovieCallbacks(btnPortadas);            
+    });  
    
 }
+
 RenderCategory();
 
+// ----------colores Random-------------------------
+let graphColors = [];
+function coloresRandom (valor) {
+
+    for (let i = 0; i <= valor.length; i++) {
+        var randomR = Math.floor((Math.random() * 130) + 100);
+        var randomG = Math.floor((Math.random() * 130) + 100);
+        var randomB = Math.floor((Math.random() * 130) + 100);
+    
+        var graphBackground = "rgb(" 
+                + randomR + ", " 
+                + randomG + ", " 
+                + randomB + ")";
+        graphColors.push(graphBackground);
+} 
+    return graphColors;
+}
 // -----------------función del chart1-------------------
 function totalCasesChart(ctx) {
     // eslint-disable-next-line no-undef
@@ -578,44 +587,24 @@ function totalCasesChart(ctx) {
         data: {
             labels: films.map(x => x.title),
             datasets:[{
-                label: "Num datos",
-                data:films.map(x => x.release_date).filter(
-                    (year, index, years) => years.indexOf(year) === index//para que no se repitan los elementos
-                ),
+                label: "Movies",
+                data:films.map(x => x.release_date),
                 
-                borderColor:"orange",
+                borderColor:"#B1D51A",
                 backgroundColor:[
                     'rgb(31, 152, 122)',
                 ]
             }]
         },
-
-        options : {
-            title: {
-                display: true,
-                text: 'Peliculas de Studios Ghibli por año',
-                fontSize: 300,
-                padding:30,
-                fontCoor: '#12619c',
-            },
-            
-            legend : {
-            position: 'bottom',
-            labels: {
-                padding: 20,
-                boxWhidth:15,
-                fontFamily: "system-ui",
-                fontColor: "#345678",
-            }
-            }
-        }      
+        // options : {
+            // maintainAspectRatio:false,
+        // }
     })
 }
 
-
 // -----------arrays de géneros por peliculas--------------
-const arrayPeople = films.map(x => { return x.people;});
-const gender =  arrayPeople.map((x) => {return x.map((elemt) => {return elemt.gender})});
+const arrayPeople = films.map(x => x.people);
+const gender =  arrayPeople.map((x) =>x.map((elemt) => elemt.gender));
 
 // ----concatena todos los generos de cada pelicula en un array----
 for (let i=0; i<gender.length;i++){
@@ -630,29 +619,49 @@ function arraySumByGender(datos_) {
 let arrayConteoPorGeneros = arraySumByGender(gender[0])
 delete arrayConteoPorGeneros["NA"];
 
-// ------separando en arrays generos de cantidad de cantida de cada uno------------
+// ------separando en arrays generos de cantidad de cantida(n°) de cada uno------------
 let namesGender = Object.keys(arrayConteoPorGeneros);
 let namesValueGender = Object.values(arrayConteoPorGeneros);
 
 // -----------arrays de especies por peliculas--------------
-const specie =  arrayPeople.map((x) => {return x.map((elemt) => {return elemt.specie})});
+const specie =  arrayPeople.map((x) => x.map((elemt) => elemt.specie));
 
-// ----concatena todos los generos de cada pelicula en un array----
+// ----concatena todas las especies de cada pelicula en un array----
 for (let i=0; i<specie.length;i++){
     specie[0] = specie[0].concat(specie[i])
 }
 
-// --------función que cuenta cuantas personas habían por género---- 
+// --------función que cuenta cuantas personas habían por especie---- 
 function arraySumBySpecie(datos_) {
     return datos_.reduce((a, d) => (a[d] ? a[d] += 1 : a[d] = 1,a), {});
 }
-
 let arrayConteoPorEspecie = arraySumBySpecie(specie[0])
-// delete arrayConteoPorEspecie["NA"];
 
-// ------separando en arrays generos de cantidad de cantida de cada uno------------
+// ------separando en arrays las especies de cantidad de cantida(n°) de cada uno------------
 let namesSpecie = Object.keys(arrayConteoPorEspecie);
 let namesValueSpecie = Object.values(arrayConteoPorEspecie);
+
+// ----concatena todas las categorias de cada pelicula en un array----
+const arrayCategory= films.map(x => x.category);
+for (let i=0; i<arrayCategory.length;i++){
+    arrayCategory[0] += arrayCategory[i];
+}
+
+// --------función que cuenta cuantos hay por categorias---- 
+function arraysSumByCategory(datos_) {
+    return datos_.reduce((a, d) => (a[d] ? a[d] += 1 : a[d] = 1,a), {});
+}
+
+let arrayConteoPorCategory = arraysSumByCategory(arrayCategory);
+
+// ------separando en arrays categoria de cantidad de cantida(n°) de cada uno------------
+let namesCategory = Object.keys(arrayConteoPorCategory);
+let namesValueCategory = Object.values(arrayConteoPorCategory);
+
+// -----------colores Random por Gráfica---------
+let colorRandomChart2 = coloresRandom(namesGender);
+let colorRandomChart3 = coloresRandom(namesSpecie);
+let colorRandomChart4 = coloresRandom(namesCategory);
 
 // ----------función del chart 2-------------------
 function totalCasesChart2(ctx2) {
@@ -663,36 +672,17 @@ function totalCasesChart2(ctx2) {
             labels:namesGender,
             datasets:[{
                 label: "Num datos",
-                data:namesValueGender,
-                
+                data:namesValueGender,   
                 borderColor:"orange",
-                backgroundColor:[
-                    'rgb(20, 143, 119)',
-                    'rgb(244, 208, 63)',
-                    'rgb(31, 97, 141)',
-                    'rgb(245, 183, 177)',
-                ]
-            }]
+                backgroundColor:
+                    colorRandomChart2,
+            }],
+            options : {
+                // maintainAspectRatio:false,
+            },
         },             
     })
 }
-// ----------colores Random-------------------------
-let graphColors = [];
-let internalDataLength = namesSpecie;
-let i = 0;
-while (i <= internalDataLength.length) {
-    var randomR = Math.floor((Math.random() * 130) + 100);
-    var randomG = Math.floor((Math.random() * 130) + 100);
-    var randomB = Math.floor((Math.random() * 130) + 100);
-  
-    var graphBackground = "rgb(" 
-            + randomR + ", " 
-            + randomG + ", " 
-            + randomB + ")";
-    graphColors.push(graphBackground);
-    i++;
-} 
-
 // ----------función del chart 3-------------------
 function totalCasesChart3(ctx3) {
     // eslint-disable-next-line no-undef
@@ -706,22 +696,42 @@ function totalCasesChart3(ctx3) {
                 
                 borderColor:"orange",
                 backgroundColor:
-                    graphColors,
-            }]
+                colorRandomChart3,
+            }],
         },             
     })
 }
-
+// ----------función del chart 4-------------------
+function totalCasesChart4(ctx4) {
+    // eslint-disable-next-line no-undef
+    new Chart(ctx4, {
+        type:"doughnut",
+        data: {
+            labels:namesCategory,
+            datasets:[{
+                label: "Categorias",
+                data:namesValueCategory,
+                borderColor:"orange",
+                backgroundColor:
+                colorRandomChart4,
+            }],
+        },             
+    })
+}
 // ----------función que renderiza las gráficas-------------------
 function renderChart() {
     const ctx =  document.getElementById("myChart").getContext("2d");
     const ctx2 =  document.getElementById("myChart2").getContext("2d");
     const ctx3 =  document.getElementById("myChart3").getContext("2d");
+    const ctx4 =  document.getElementById("myChart4").getContext("2d");
     totalCasesChart(ctx);
     totalCasesChart2(ctx2);
     totalCasesChart3(ctx3);
+    totalCasesChart4(ctx4);
 }
 renderChart();
+
+
 
 
 
