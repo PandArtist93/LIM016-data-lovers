@@ -225,9 +225,9 @@ main {
     /* display: flex; */
 } 
 
-/*---------------caracter÷isticas de la pagina principal----------------*/
+/*---------------caracteristicas de la pagina principal----------------*/
 .principalPage h3 {
-    color: rgb(181, 220, 223);
+    color: rgb(18, 40, 78);
     font-size: 7rem;
     -webkit-text-stroke: 0.002rem rgb(20, 58, 35);
     /* font-family: 'Open Sans', sans-serif; */
@@ -269,9 +269,8 @@ main {
     align-items: center;
     font-size: 1.3rem;    
     width: 100%;
-    height: 35rem;   
+    height: 40rem;   
     background-image: url("https://taylorfinn.files.wordpress.com/2018/10/45e1c53194fc5f424f17e0f926990af8.gif?w=540&h=300&crop=1") ;
-    color: rgb(112, 112, 112);  
     background-size: cover;  
     background-position: center;  
     object-fit: cover;
@@ -308,7 +307,7 @@ main {
     margin-top: 5%;
 }
 
-#i1,#i2,#i3,#i4,#i5 {
+#i1,#i2,#i3,#i4,#i5,#i6 {
     display: none;
 }
 
@@ -391,19 +390,34 @@ label span{
 
 .slide_img{z-index: -1;}
 
-  #i1:checked ~ #one  ,
-	#i2:checked ~ #two  ,
-	#i3:checked ~ #three,
-	#i4:checked ~ #four ,
-	#i5:checked ~ #five 
-	{z-index: 9; animation: scroll 1s ease-in-out;}
+#i1:checked ~ #one,
+#i2:checked ~ #two,
+#i3:checked ~ #three,
+#i4:checked ~ #four,
+#i5:checked ~ #five,
+#i6:checked ~ #six {
+    z-index: 9;
+    animation: scroll 1s ease-in-out;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: antialiased;
+}
 
-	#i1:checked  ~  #nav_slide #dot1,
-	#i2:checked  ~  #nav_slide #dot2,
-	#i3:checked  ~  #nav_slide #dot3,
-	#i4:checked  ~  #nav_slide #dot4,
-	#i5:checked  ~  #nav_slide #dot5
-{ background-color: #e4dbdb;}
+#i1:checked  ~  #nav_slide #dot1,
+#i2:checked  ~  #nav_slide #dot2,
+#i3:checked  ~  #nav_slide #dot3,
+#i4:checked  ~  #nav_slide #dot4,
+#i5:checked  ~  #nav_slide #dot5, 
+#i6:checked  ~  #nav_slide #dot6{ 
+    background-color: #e4dbdb;
+}
+
+#carrusel-box {
+    -webkit-transition: all 0.75s ease;
+    -moz-transition: all 0.75s ease;
+    -ms-transition: all 0.75s ease;
+    -o-transition: all 0.75s ease;
+    transition: all 0.75s ease;
+}
 
 /* 
 .container-carrusel{
@@ -476,24 +490,23 @@ label span{
 /*---------------------------características de la sección de filtrado---------------*/
 .secfiltrado{
     width: 100%;    
-    height: auto;
+    height: 7rem;
     display: flex;
-    justify-content: space-around;
     align-items:center;
     background-color: #157181;
     /* font-family: 'Open Sans', sans-serif; */
     font-family:'EB Garamond', serif;
     color: #e4dbdb;   
+    
 }
 
 .secfiltrado nav{
     display: flex;
-    flex-wrap: nowrap;
-    width: auto;
-    height: 6rem;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
     justify-content: space-around;
-    align-items: center;
-    /* margin: 1rem 1rem; */
+    margin: 1rem 1rem;
 }
 
 .secfiltrado nav ul li a {
@@ -501,20 +514,17 @@ label span{
 }
 
 .boxSecFilter{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    vertical-align: middle;
-    align-content: center;
-    margin: 2rem;
+    display: flex;   
+    
 }
 
 .secfiltrado p{
-    font-size: 1.4rem;
+    display: flex;
+    font-size: 1.2rem;
     letter-spacing: 0.1rem;
-    color:rgba(231, 186, 101, 0.952);
-    align-content: center;
-    vertical-align: middle;
+    color:rgba(231, 186, 101, 0.952);  
+    width: 9rem;
+    align-items: center;
 } 
 
 /* main nav:after{
@@ -627,8 +637,8 @@ main nav ul li:hover{
 .portada {
     background: #d4ebe2;
     border-radius: 0 1rem 0 1rem;
-    width: 22rem;
-    height: 38rem;
+    width: 17rem;
+    height: 30rem;
     display: flex;  
     position: relative;
     margin: 2rem;
@@ -1034,7 +1044,6 @@ button img {
     padding: 2rem;
     margin: 2rem 0;
 }
-
 
 /*------------------------------- pagina4---------------------------------------------*/
 .pagina4 {
@@ -1453,7 +1462,6 @@ i {
         flex-wrap: nowrap;
         list-style: none;
         position: relative;
-        /* margin: 1rem 0rem; */
     }
 
     main nav ul li {
@@ -1476,8 +1484,7 @@ i {
         justify-content: center;
         align-items: center;    
     }  
-       
-    
+           
 }
 
 @media (max-width: 1280px){
@@ -1503,6 +1510,17 @@ i {
     .contentMovie{
         justify-content: center;
         width: 100%;
+    }
+}
+
+@media (max-width: 1277px){
+    .secfiltrado{
+        height: auto;
+        /* padding: 1rem; */
+
+    }
+    .boxSecFilter{
+        margin: 1rem 0;
     }
 }
 
