@@ -219,9 +219,9 @@ main {
 
 /*---------------caracteristicas de la pagina principal----------------*/
 .principalPage h3 {
-    color: rgb(18, 40, 78);
+    color: rgb(18, 43, 85);
     font-size: 7rem;
-    -webkit-text-stroke: 0.002rem rgb(20, 58, 35);
+    -webkit-text-stroke: 0.2rem rgb(170, 179, 173);
     font-family:'EB Garamond', serif; 
     font-weight: bold;
 }
@@ -258,7 +258,8 @@ main {
     font-size: 1.3rem;    
     width: 100%;
     height: 40rem;   
-    background-image: url("https://taylorfinn.files.wordpress.com/2018/10/45e1c53194fc5f424f17e0f926990af8.gif?w=540&h=300&crop=1") ;
+    background-image: url("https://media3.giphy.com/media/tfz6OO7BCEAOk/giphy.gif?cid=ecf05e47iq8smxo3e03q510fgfsv15wt8z3r8i3k86jb6sqd&rid=giphy.gif&ct=g");
+    /* background-image: url("https://taylorfinn.files.wordpress.com/2018/10/45e1c53194fc5f424f17e0f926990af8.gif?w=540&h=300&crop=1") ; */
     background-size: cover;  
     background-position: center;  
     object-fit: cover;
@@ -286,7 +287,7 @@ main {
 #slideshow-principal{
     position: relative;
     overflow: hidden;
-    margin: 5% 0 0 0;
+    margin: 3.5% 0 0 0;
     height: 600px;
 }
 
@@ -1098,7 +1099,14 @@ i {
 /*---------------------- Media queries-menu responsive------------------------------- */
 .checkbtn {
     cursor: pointer;
-    display:none;
+    display:none; 
+}
+
+.checkbtn i{
+    width: 40px;
+    height: 40px;
+    padding: auto;
+    color: rgb(230, 218, 218);
 }
 
 #check {
@@ -1130,6 +1138,7 @@ i {
     header nav {      
         justify-content: space-between;
         flex-direction:initial;
+        padding: 0 7%;
     }
 
     .header-right {
