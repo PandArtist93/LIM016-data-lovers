@@ -49,13 +49,13 @@ header nav .logo {
 header h3 {
     color:#FFFF;
     font-size: 3.2rem;
-    font-family:'EB Garamond', serif;
+    font-family:'Shippori Antique', sans-serif;
 }
 
 header nav ul{
     width: auto;
     position: relative;  
-    font-family:'EB Garamond', serif;
+    font-family: 'Shippori Antique', sans-serif;
     color: #e4dbdb;
     margin: 0 1rem;
 }
@@ -71,7 +71,7 @@ header nav ul li{
     border-radius: 1rem;   
     padding: 0.35rem;    
     border: solid 0.2rem #157181;       
-    font-family:'EB Garamond', serif;  
+    font-family: 'Shippori Antique', sans-serif;
     letter-spacing: 0.1rem; 
     border-radius: 1rem;
     background-color: #44a8b9;    
@@ -86,7 +86,7 @@ header nav ul li a{
     position: relative;
     color: #e4dbdb;
     line-height: 2.4rem;
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     letter-spacing: 0.1rem;
     text-transform: uppercase;
     padding: 0.02rem;
@@ -173,8 +173,8 @@ header nav ul ul li a{
     width: 100%;
     border-radius: 3rem;
     border: none;
-    padding: 0;   
-    font-family:'EB Garamond', serif; 
+    padding: 0;    
+    font-family: 'Shippori Antique', sans-serif;
     font-size: 1rem;
     transition: 0.4s;
     background: none;
@@ -196,6 +196,14 @@ header nav ul ul li a{
     transition: 1s;
     color: black;
 } 
+
+.search-bnt i{
+    font-size: 30px;
+    padding:9px;
+    margin: 3px 15px;
+    color: #104953;
+    transition: .3s ease;  
+}
 
 header i {
     font-size: 1.4rem;
@@ -221,8 +229,8 @@ main {
 .principalPage h3 {
     color: rgb(18, 43, 85);
     font-size: 7rem;
-    -webkit-text-stroke: 0.2rem rgb(170, 179, 173);
-    font-family:'EB Garamond', serif; 
+    -webkit-text-stroke: 0.002rem rgb(78, 95, 85);
+    font-family: 'Shippori Antique', sans-serif;
     font-weight: bold;
 }
 
@@ -233,17 +241,17 @@ main {
 .principalPage h1, h2 {
     color: rgb(2, 44, 109);
     font-size: 3.2rem;
-    font-family:'EB Garamond', serif; 
+    font-family: 'Shippori Antique', sans-serif;
     letter-spacing: 0.2rem; 
 }
 
 .principalPage h4 {    
-    font-family:'Source Sans Pro', sans-serif;
+    font-family: 'Shippori Antique', sans-serif;
     letter-spacing: 0.15rem; 
 }
 
 .principalPage p {
-    font-family:'EB Garamond', serif;
+    font-family: 'Shippori Antique', sans-serif;
     letter-spacing: 0.15rem; 
     color: #e4dbdb;
     font-size: 1.5rem;
@@ -275,7 +283,7 @@ main {
     width: 100%;
     height: 7rem;    
     margin-top: 2.5rem;  
-    font-family:'EB Garamond', serif;
+    font-family: 'Shippori Antique', sans-serif;
     color: rgb(112, 112, 112);  
     background-size: cover;  
     background-position: center;  
@@ -361,9 +369,8 @@ main {
     display: flex;
     align-items:center;
     background-color: #157181;
-    font-family:'EB Garamond', serif;
-    color: #e4dbdb;   
-    
+    font-family: 'Shippori Antique', sans-serif;
+    color: #e4dbdb;       
 }
 
 .secfiltrado nav{
@@ -376,7 +383,7 @@ main {
 }
 
 .secfiltrado nav ul li a {
-    font-family: 'EB Garamond';
+    font-family: 'Shippori Antique', sans-serif;
 }
 
 .boxSecFilter{
@@ -385,6 +392,9 @@ main {
 }
 
 .secfiltrado p{
+    margin: 0.4rem;
+    font-size: 1.2rem;
+    font-family:'Shippori Antique', sans-serif;;
     display: flex;
     font-size: 1.2rem;
     letter-spacing: 0.1rem;
@@ -434,8 +444,7 @@ main {
     cursor: pointer; 
     width: auto;
     line-height: 2rem;
-    font-size: 1rem;
-    letter-spacing: 0.1rem;
+    font-size: 0.8rem;
 }
 
 .secfiltrado nav ul ul{
@@ -518,12 +527,13 @@ main nav ul li:hover{
     position: absolute;
     top: 80%;
     justify-content: center;
-    background: #157181;
-    font-family:'EB Garamond', serif;
+    background: rgba(7, 53, 80, 0.582);
+    font-family: 'Shippori Antique', sans-serif;
     letter-spacing: 0.15rem; 
-    font-size: 1.3rem;
+    font-size: 1rem;
     text-shadow: 1rem 1rem 1rem 0;
     color: #e4dbdb;
+    font-weight: 600;
     text-align: center;
     align-items: center;
     text-transform: uppercase;
@@ -538,7 +548,7 @@ button {
     height: 81%;
     justify-content: center;
     border-color: #d4ebe2;
-    border-radius: 1rem 1rem 0 0; 
+    border-radius: 1rem 1rem 0 0;
     z-index: 6;    
 } 
   
@@ -599,7 +609,7 @@ button img {
     background-color:#f2f8f6;
     flex-wrap: wrap;
     color: rgb(0, 0, 0);
-    font-family:'EB Garamond', serif;
+    font-family: 'Shippori Antique', sans-serif;
     letter-spacing: 0.1rem;
     font-size: 1.5rem;
     border-radius: 0 2rem 0 2rem;
@@ -617,7 +627,8 @@ button img {
     margin: 1rem 0 1rem 0;  
     align-items: baseline;
     text-align: justify;
-    font-size: 1.3rem;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 1.4rem;
     height: 90%;
     width: 100%;
 }
@@ -634,11 +645,14 @@ button img {
 .contentPage2title {
     font-size: 3rem;
     font-weight: 700;
+    color: #13525a;
 }
 
 .contentPage2Subtitle {
     margin-right: 0.5rem;
     font-size: 1.8rem;
+    font-weight: 600;
+    color: #128291;
 }
 /*-----------------------catálogo de personajes------------------*/
 .contenidoSubPage{
@@ -651,7 +665,7 @@ button img {
     align-content: flex-start;  
     background: rgb(76, 185, 185);    
     border-radius: 1.2rem;   
-    font-family:'EB Garamond', serif;
+    font-family: 'Shippori Antique', sans-serif;
     letter-spacing: 0.1rem; 
     font-size: 1.2rem;    
     color: rgb(0, 0, 0);
@@ -671,14 +685,14 @@ button img {
     border-radius: 0 1rem 0 1rem;
     background: rgb(255, 250, 250);
     color: rgb(31, 29, 29);
-    font-family:'EB Garamond', serif;
+    font-family: 'Shippori Antique', sans-serif;
     letter-spacing: 0.1rem; 
-    font-size: 1.5rem;   
+    font-size: 1rem;   
     border: groove #d2d6d4;   
 }
 
 .subDataCharacter {
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .contenedorSubData img{
@@ -695,9 +709,9 @@ button img {
 }
 
 .TitleSec{
-    color: rgb(31, 29, 29);
+    color: #206670;
     margin: 2rem 5rem;
-    font-family:'EB Garamond', serif;
+    font-family: 'Shippori Antique', sans-serif;
     letter-spacing: 0.1rem; 
     font-size: 2rem;   
 }
@@ -733,7 +747,7 @@ button img {
     font-size: 1rem ;
     letter-spacing: 0.5rem;
     justify-content: right;
-    font-family: sans-serif;
+    font-family: 'Shippori Antique', sans-serif;
     vertical-align: middle;
 }
 
@@ -814,18 +828,31 @@ button img {
 .seccionDatos{
     height: auto;
     width: 50%;
-    padding: 1rem;
+    padding: 2rem;
     overflow: hidden;
     line-height:1.5rem;
+    vertical-align: center;
+    align-content: center;
 }
 
-.contenido-texto{    
+.contenido-texto{ 
+    display: flex; 
+    flex-direction: column;  
     width: 100%;
-    height: auto;
+    height: 100%;
     color: #000000;
-    font-size: 1.5rem;
-    font-family: sans-serif;
+    font-size: 1.3rem;
+    font-family: 'Shippori Antique', sans-serif;
     background: #FFFF;
+    align-content: center;
+}
+
+.modalDetails {
+    font-weight: 600;
+    margin-right: 0.7rem;
+    color:rgb(57, 68, 68);
+    font-family: 'Shippori Antique', sans-serif;
+    font-size: 1.5rem;
 }
 
 .cajaMedia{
@@ -844,7 +871,7 @@ button img {
     justify-content: center;
     text-align: center;
     align-items: center;
-    font-family: sans-serif;
+    font-family: 'Shippori Antique', sans-serif;
     font-size:0.7rem;
     font-weight: normal;
     font-variant: small-caps;
@@ -881,11 +908,11 @@ button img {
     justify-content: center;
     width: 100%;
     height: auto;
-    color: rgb(31, 29, 29);
+    color: #157181;
     padding: 2rem 6rem;
-    font-family:'EB Garamond', serif;
+    font-family: 'Shippori Antique', sans-serif;
     letter-spacing: 0.1rem; 
-    font-size: 1.5rem;   
+    font-size: 1.8rem;   
 }
 
 .renderCategory{
@@ -947,13 +974,12 @@ button img {
 
 .chartTitle {
     align-items: 4rem;
-    font-family:'EB Garamond', serif;
+    font-family: 'Shippori Antique', sans-serif;
+    font-weight: 600;
     font-size: 2rem;
     text-align: center;
-    color: #43a8b9;
-    -webkit-text-stroke: 0.09rem rgb(20, 58, 35);
+    color: #157181;
 }
-
 
 .boxChart {
   width: 50rem;
@@ -961,7 +987,7 @@ button img {
   background: #f2f8f6;
   border-radius: 2rem;
   padding: 2rem;
-  border: 0.4rem solid #34805d;
+  border: 0.4rem solid #157181;
   margin: 1.5rem 0;
 
 }
@@ -986,24 +1012,33 @@ button img {
     
   
 }
+
 .btnScrollTop {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-content: center;
-    z-index: 490;
-    margin: 2rem;
     border-radius: 50%;
-    width: 5.3rem;
-    padding: 0.5rem;
-    height: 5.3rem;
-    background: #c2d4cc;
+    box-shadow: inset 0 -3em 3em rgb(0 0 0 / 10%), 0 0 0 0px #157181, 0.3em 0.3em 1em rgb(0 0 0 / 30%);
+    width: 5rem;
+    height: 5rem;
+    position: fixed;
+    bottom: 25rem;
+    right: 1.4rem;
+    display: block;
+    padding: 2px -1px;
     cursor: pointer;
-    border: #157181 5px solid;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: transform 0.5s, opacity 0.3s;
 }
 
-.btnScrollTop i {
-    font-size: 4.5rem;
+
+.showScrollBtn {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+i {
+    font-size: 4rem;
+    color: #104953;
+    transition: .3s ease;  
     
 }
 
@@ -1045,7 +1080,8 @@ button img {
     padding: 0.7rem;
     background-color:#104953;
     width: 100%;
-    font-family:'EB Garamond', serif;
+    /* font-family: 'Open Sans', sans-serif; */
+    font-family: 'Shippori Antique', sans-serif;
     letter-spacing: 0.1rem; 
     font-size: 1.05rem;
     color: #e4dbdb;
@@ -1064,7 +1100,7 @@ button img {
     padding: 0.7rem;
 }
 
-i {
+.redes-sociales i{
     font-size: 30px;
     padding:9px;
     margin: 3px 15px;
@@ -1072,19 +1108,19 @@ i {
     transition: .3s ease;  
 }
 
-#fb:hover {
+.redes-sociales #fb:hover {
     cursor: pointer;
     color: rgb(29, 69, 201);
     transform: translateY(-0.38rem);
 }
 
-#twitter:hover {
+.redes-sociales #twitter:hover {
     cursor: pointer;
     color: #0CA2DC;
     transform: translateY(-0.38rem);
 }
 
-#yt:hover {
+.redes-sociales #yt:hover {
     cursor: pointer;
     color: rgb(255, 0, 0);
     transform: translateY(-0.38rem);
@@ -1209,7 +1245,8 @@ i {
         border-radius: 3rem;
         border: none;
         padding: 0;
-        font-family:'EB Garamond', serif;
+        /* font-family: 'Open Sans', sans-serif; */
+        font-family: 'Shippori Antique', sans-serif;
         font-size: 1rem;
         transition: 0.4s;
         background: none;
@@ -1228,6 +1265,14 @@ i {
         width: 90%;
         background: rgb(241, 239, 236);
         padding: 0, 0.5rem;
+    }
+
+    .search-bnt i{
+        font-size: 30px;
+        padding:9px;
+        margin: 3px 15px;
+        color: #104953;
+        transition: .3s ease;  
     }
 
     label span{
@@ -1292,7 +1337,7 @@ i {
         height: 17rem;
         display: flex;
         background-color: #157181;
-        font-family:'EB Garamond', serif;
+        font-family: 'Shippori Antique', sans-serif;
         letter-spacing: 0.12rem;
         color: #e4dbdb;
         justify-content: center;
