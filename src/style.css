@@ -50,14 +50,12 @@ header nav .logo {
 header h3 {
     color:#FFFF;
     font-size: 3.2rem;
-    /* font-family: 'Open Sans', sans-serif; */
     font-family: 'Shippori Antique', sans-serif;
 }
 
 header nav ul{
     width: auto;
     position: relative;  
-    /* font-family: 'Open Sans', sans-serif;    */
     font-family: 'Shippori Antique', sans-serif;
     color: #e4dbdb;
     margin: 0 1rem;
@@ -74,7 +72,6 @@ header nav ul li{
     border-radius: 1rem;   
     padding: 0.35rem;    
     border: solid 0.2rem #157181;       
-    /* font-family: 'Open Sans', sans-serif;   */
     font-family: 'Shippori Antique', sans-serif;
     letter-spacing: 0.1rem; 
     border-radius: 1rem;
@@ -180,7 +177,6 @@ header nav ul ul li a{
     border-radius: 3rem;
     border: none;
     padding: 0;    
-    /* font-family: 'Open Sans', sans-serif; */
     font-family: 'Shippori Antique', sans-serif;
     font-size: 1rem;
     transition: 0.4s;
@@ -238,7 +234,6 @@ main {
     color: rgb(18, 40, 78);
     font-size: 7rem;
     -webkit-text-stroke: 0.002rem rgb(20, 58, 35);
-    /* font-family: 'Open Sans', sans-serif; */
     font-family: 'Shippori Antique', sans-serif;
     font-weight: bold;
 }
@@ -250,7 +245,6 @@ main {
 .principalPage h1, h2 {
     color: rgb(8, 117, 121);
     font-size: 3.2rem;
-    /* font-family:'Open Sans', sans-serif; */
     font-family: 'Shippori Antique', sans-serif;
     letter-spacing: 0.2rem; 
 }
