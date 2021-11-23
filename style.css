@@ -228,7 +228,7 @@ main {
 /*---------------caracteristicas de la pagina principal----------------*/
 .principalPage h3 {
     color: rgb(18, 43, 85);
-    font-size: 7rem;
+    font-size: 6rem;
     -webkit-text-stroke: 0.002rem rgb(184, 190, 187);
     font-family: 'Shippori Antique', sans-serif;
     font-weight: bold;
@@ -1445,6 +1445,10 @@ i {
     }
     .myChart {
         width: auto;
+    }
+    .principalPage h3 {
+        font-size: 5rem;
+        justify-content: center;
     }
 }
 
