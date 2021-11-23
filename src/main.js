@@ -399,12 +399,6 @@ function addDirectorFilterCallback(){
     }
 }
 
-/* function directorFilter(director) {    
-    let filteredMovies = films.filter((film) => {
-        return film.director ===  director;
-    })
-    return filteredMovies
-}*/
 
 // ---------------generar dropdows productores------------
 function renderProducerDropdown() {
@@ -429,13 +423,6 @@ function addProducerFilterCallback(){
         });
     }
 }
-
-/* function producerFilter(producer) {
-    let filteredMovies = films.filter((film) => {
-        return film.producer ===  producer;
-    });
-    return filteredMovies
-} */
 
 // ---------------generar dropdows por Año------------
 function renderYearDropdown() {
@@ -725,7 +712,55 @@ function renderChart() {
 }
 renderChart();
 
+/*------------------------------carrusel------------------------------------*/
+addEventListener("DOMContentLoaded", () => {
+    const imagenes = ["img/img-1.PNG", "img/img-2.PNG", "img/img-3.PNG", 
+    "img/img-4.PNG", "img/img-5.PNG", "img/img-6.PNG", "img/img-7.PNG", "img/img-8.PNG", 
+    "img/img-9.PNG", "img/img-10.PNG"]
 
+    let i = 1;
+    const img1 = document.querySelector("#img1");
+    const img2 = document.querySelector("#img2");
+    const progressBar = document.querySelector("#progress-bar");
+    const divIndicadores = document.querySelector("#indicadores");
+    let porcentaje_base = 100/imagenes.length;
+    let porcentaje_actual = porcentaje_base;
+
+    for(let index = 0; index < imagenes.length; index++){
+        const div = document.createElement("div");
+        div.classList.add("circle");
+        div.id = index;
+        divIndicadores.appendChild(div);
+    }
+
+    progressBar.style.width = `${porcentaje_base}%` 
+    img1.src = imagenes[0];
+    const circulos = document.querySelectorAll(".circle");
+    circulos[0].classList.add("resaltado");
+
+    const slideshow = () => {
+        img2.src = imagenes[i]
+        const circulo_actual = Array.from(circulos).find(el => el.id ==i);
+        Array.from(circulos).forEach(cir => cir.classList.remove("resaltado"));
+        circulo_actual.classList.add("resaltado");
+
+        img2.classList.add("active");
+        i++
+        porcentaje_actual += porcentaje_base;
+        progressBar.style.width = `${porcentaje_actual}%`
+        if(i == imagenes.length){
+            i = 0;
+            porcentaje_actual = porcentaje_base - porcentaje_base;
+        }
+
+        setTimeout(() => {
+            img1.src = img2.src;
+            img2.classList.remove("active");
+        }, 1000);
+    }
+
+    setInterval(slideshow, 4000);
+});
 
 
 
