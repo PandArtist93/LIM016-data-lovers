@@ -143,6 +143,8 @@ function renderMovieDetail(movie) {
     let contenidoPageLocaciones = document.getElementById("contenidoPageLocaciones");
     let contenidoPageVehiculos = document.getElementById("contenidoPageVehiculos");
 
+    pagina3.style.display = "none" ; 
+    pagina4.style.display = "none" ; 
     contenidoPagePersonajes.innerHTML = "";
     contenidoPageLocaciones.innerHTML = "";
     contenidoPageVehiculos.innerHTML = "";
@@ -207,7 +209,6 @@ function addMovieCallbacks(btnMovies){
             pagina4.style.display = "none" ;        
             pagina2.style.display = "block" ;
             renderMovieDetail(movie[0]);
-            // console.log(movie);
         });
     }
 }
@@ -304,8 +305,8 @@ let principalBtn = document.getElementById("btnHeaderPrincipal");
 let pagina2 = document.getElementById("pagina2");
 let principalPage = document.getElementById("principalPage");
 principalBtn.addEventListener("click", function(){ 
-    pagina3.style.display = "none";
-    pagina4.style.display = "none";  
+    pagina4.style.display = "none";
+    pagina3.style.display = "none";     
     pagina2.style.display = "none";
     principalPage.style.display = "block";  
     location.reload();    
@@ -362,7 +363,7 @@ function render(films) {
     let boxPoster = document.getElementById("boxPoster");
     let btnPortadasDivs = renderMovies(films, boxPoster); 
     addMovieCallbacks(btnPortadasDivs);  
-    // console.log(renderMovies(films, boxPoster));
+    
 }
 
 
@@ -728,6 +729,7 @@ function totalCasesChart4(ctx4) {
 
 // ----------función que renderiza las gráficas-------------------
 function renderChart() {
+    
     const ctx =  document.getElementById("myChart").getContext("2d");
     const ctx2 =  document.getElementById("myChart2").getContext("2d");
     const ctx3 =  document.getElementById("myChart3").getContext("2d");
