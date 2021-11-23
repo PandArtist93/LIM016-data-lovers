@@ -76,12 +76,12 @@ function renderCharacter(character){
         </div> 
         <div class="seccionDatos">
             <div class="contenido-texto" id="contenido-texto">
-                <p>Name: ${character.name}</p><br>
-                <p>Gender: ${character.gender}</p><br>
-                <p>Age: ${character.age}</p><br>
-                <p>Eye color: ${character.eye_color}</p><br>
-                <p>Hair color: ${character.hair_color}</p><br>
-                <p>Specie: ${character.specie}</p>        
+                <p><span class="modalDetails">Name:</span> ${character.name}</p><br>
+                <p><span class="modalDetails">Gender:</span> ${character.gender}</p><br>
+                <p><span class="modalDetails">Age:</span> ${character.age}</p><br>
+                <p><span class="modalDetails">Eye color:</span> ${character.eye_color}</p><br>
+                <p><span class="modalDetails">Hair color:</span> ${character.hair_color}</p><br>
+                <p><span class="modalDetails">Specie:</span> ${character.specie}</p>        
             </div>                       
         </div>
     `
@@ -99,10 +99,10 @@ function renderLocation(location){
         </div> 
         <div class="seccionDatos">
             <div class="contenido-texto" id="contenido-texto">
-                <p>Name: ${location.name}</p><br>
-                <p>Climate: ${location.climate}</p><br>
-                <p>Terrain: ${location.terrain}</p><br>
-                <p>Surface water: ${location.surface_water}</p><br>    
+                <p><span class="modalDetails">Name:</span> ${location.name}</p><br>
+                <p><span class="modalDetails">Climate:</span> ${location.climate}</p><br>
+                <p><span class="modalDetails">Terrain:</span> ${location.terrain}</p><br>
+                <p><span class="modalDetails">Surface water:</span> ${location.surface_water}</p><br>    
             </div>                        
         </div>
     `
@@ -120,11 +120,11 @@ function renderVehicle(vehicle){
         </div> 
         <div class="seccionDatos">
             <div class="contenido-texto" id="contenido-texto">
-                <p>Name: ${vehicle.name}</p><br>
-                <p>description: ${vehicle.description}</p><br>
-                <p>vehicle class: ${vehicle.vehicle_class}</p><br>
-                <p>length: ${vehicle.length}</p><br>    
-                <p>pilot name:${vehicle.pilot.name}</p><br> 
+                <p><span class="modalDetails">Name:</span> ${vehicle.name}</p><br>
+                <p><span class="modalDetails">Description:</span> ${vehicle.description}</p><br>
+                <p><span class="modalDetails">Vehicle Class:</span> ${vehicle.vehicle_class}</p><br>
+                <p><span class="modalDetails">Length:</span> ${vehicle.length}</p><br>    
+                <p><span class="modalDetails">Pilot Name:</span>${vehicle.pilot.name}</p><br> 
             </div>            
         </div>
     `
@@ -678,7 +678,7 @@ function totalCasesChart2(ctx2) {
             datasets:[{
                 label: "Num datos",
                 data:namesValueGender,   
-                borderColor:"orange",
+                borderColor:"#607b7f",
                 backgroundColor:
                     colorRandomChart2,
             }],
@@ -700,7 +700,7 @@ function totalCasesChart3(ctx3) {
                 label: "Num datos",
                 data:namesValueSpecie,
                 
-                borderColor:"orange",
+                borderColor:"#607b7f",
                 backgroundColor:
                 colorRandomChart3,
             }],
@@ -718,7 +718,7 @@ function totalCasesChart4(ctx4) {
             datasets:[{
                 label: "Categorias",
                 data:namesValueCategory,
-                borderColor:"orange",
+                borderColor:"#607b7f",
                 backgroundColor:
                 colorRandomChart4,
             }],
