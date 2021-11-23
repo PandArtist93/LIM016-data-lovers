@@ -513,13 +513,29 @@ buttomScrollTop.innerHTML=creationButtomScrollTop;
 
 let btnScrollTop = document.getElementById("btnScrollTop");
 document.addEventListener("scroll", handleScroll);
-function handleScroll() {  
-btnScrollTop.style.display = "block";   //show button
+function handleScroll() {
+    var scrollableHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var GOLDEN_RATIO = 0.5;
+
+    if ((document.documentElement.scrollTop / scrollableHeight ) > GOLDEN_RATIO) {
+        // btnScrollTop.style.display = "block";   //show button
+
+    // } else {
+        //hide button
+//         btnScrollTop.style.display = "none";
+//   }
+        if(!btnScrollTop.classList.contains("showScrollBtn"))
+        btnScrollTop.classList.add("showScrollBtn")
+        } else {
+        //hide button
+        if(btnScrollTop.classList.contains("showScrollBtn"))
+        btnScrollTop.classList.remove("showScrollBtn")
+        }
 }
 btnScrollTop.addEventListener("click", function() {      
     window.scrollTo({
             top: 0,
-            behavior: "auto"
+            behavior: "smooth"
     })
 });
 
