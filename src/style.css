@@ -678,18 +678,19 @@ button img {
 }
 
 .subDataCharacter {
-    font-size: 3rems;
+    font-size: 1.1rem;
 }
+
 .contenedorSubData img{
-    height: 35rem;
+    
     border-radius: 1rem;
     background-repeat:no-repeat;
     background-size: cover;   
     cursor: pointer;   
     object-fit: cover;
     margin: 0.5rem;
-    width: 15rem;
-    height: 20rem;
+    width: 17rem;
+    height: 22rem;
     box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 0 0  0 0px  #157181, 0.3em 0.3em 1em rgba(0,0,0,0.3); 
 }
 
