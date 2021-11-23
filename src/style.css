@@ -833,12 +833,12 @@ button img {
     /* font-family: 'Open Sans', sans-serif; */
     font-family: 'Shippori Antique', sans-serif;
     letter-spacing: 0.1rem; 
-    font-size: 1.5rem;   
+    font-size: 1rem;   
     border: groove #d2d6d4;   
 }
 
 .subDataCharacter {
-    font-size: 3rem;
+    font-size: 1rem;
 }
 .contenedorSubData img{
     height: 35rem;
