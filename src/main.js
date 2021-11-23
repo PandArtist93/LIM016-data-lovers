@@ -156,9 +156,9 @@ function renderMovieDetail(movie) {
             <div class="titlePage2" id="textpage2"><span class="contentPage2title">${movie.title}</span></div>
             <div class="contentPage2" id="textpage3">${movie.description} </div>
             <div class="contentPage2" id="textpage4"><span class="contentPage2Subtitle">Director:</span>${movie.director}</div>
-            <div class="contentPage2" id="textpage5"><span class="contentPage2Subtitle">Productor:</span> ${movie.producer}</div>
-            <div class="contentPage2" id="textpage7"><span class="contentPage2Subtitle">Año:</span>${movie.release_date} </div>
-            <div class="contentPage2" id="textpage8"><span class="contentPage2Subtitle">Puntaje:</span>${movie.rt_score}/100</div>
+            <div class="contentPage2" id="textpage5"><span class="contentPage2Subtitle">Producer:</span> ${movie.producer}</div>
+            <div class="contentPage2" id="textpage7"><span class="contentPage2Subtitle">Year:</span>${movie.release_date} </div>
+            <div class="contentPage2" id="textpage8"><span class="contentPage2Subtitle">Score:</span>${movie.rt_score}/100</div>
         </div>
     `
     contenidoPage.innerHTML = contentMovie;

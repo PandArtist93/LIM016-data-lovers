@@ -229,7 +229,7 @@ main {
 .principalPage h3 {
     color: rgb(18, 43, 85);
     font-size: 7rem;
-    -webkit-text-stroke: 0.002rem rgb(154, 167, 160);
+    -webkit-text-stroke: 0.002rem rgb(184, 190, 187);
     font-family: 'Shippori Antique', sans-serif;
     font-weight: bold;
 }
@@ -650,8 +650,8 @@ button img {
 
 .contentPage2Subtitle {
     margin-right: 0.5rem;
-    font-size: 1.8rem;
-    font-weight: 600;
+    font-size: 1.5rem;
+    font-weight:600;
     color: #128291;
 }
 /*-----------------------catálogo de personajes------------------*/
