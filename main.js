@@ -76,12 +76,12 @@ function renderCharacter(character){
         </div> 
         <div class="seccionDatos">
             <div class="contenido-texto" id="contenido-texto">
-                <p>Name: ${character.name}</p><br>
-                <p>Gender: ${character.gender}</p><br>
-                <p>Age: ${character.age}</p><br>
-                <p>Eye color: ${character.eye_color}</p><br>
-                <p>Hair color: ${character.hair_color}</p><br>
-                <p>Specie: ${character.specie}</p>        
+                <p><span class="modalDetails">Name:</span> ${character.name}</p><br>
+                <p><span class="modalDetails">Gender:</span> ${character.gender}</p><br>
+                <p><span class="modalDetails">Age:</span> ${character.age}</p><br>
+                <p><span class="modalDetails">Eye color:</span> ${character.eye_color}</p><br>
+                <p><span class="modalDetails">Hair color:</span> ${character.hair_color}</p><br>
+                <p><span class="modalDetails">Specie:</span> ${character.specie}</p>        
             </div>                       
         </div>
     `
@@ -99,10 +99,10 @@ function renderLocation(location){
         </div> 
         <div class="seccionDatos">
             <div class="contenido-texto" id="contenido-texto">
-                <p>Name: ${location.name}</p><br>
-                <p>Climate: ${location.climate}</p><br>
-                <p>Terrain: ${location.terrain}</p><br>
-                <p>Surface water: ${location.surface_water}</p><br>    
+                <p><span class="modalDetails">Name:</span> ${location.name}</p><br>
+                <p><span class="modalDetails">Climate:</span> ${location.climate}</p><br>
+                <p><span class="modalDetails">Terrain:</span> ${location.terrain}</p><br>
+                <p><span class="modalDetails">Surface water:</span> ${location.surface_water}</p><br>    
             </div>                        
         </div>
     `
@@ -120,11 +120,11 @@ function renderVehicle(vehicle){
         </div> 
         <div class="seccionDatos">
             <div class="contenido-texto" id="contenido-texto">
-                <p>Name: ${vehicle.name}</p><br>
-                <p>description: ${vehicle.description}</p><br>
-                <p>vehicle class: ${vehicle.vehicle_class}</p><br>
-                <p>length: ${vehicle.length}</p><br>    
-                <p>pilot name:${vehicle.pilot.name}</p><br> 
+                <p><span class="modalDetails">Name:</span> ${vehicle.name}</p><br>
+                <p><span class="modalDetails">Description:</span> ${vehicle.description}</p><br>
+                <p><span class="modalDetails">Vehicle Class:</span> ${vehicle.vehicle_class}</p><br>
+                <p><span class="modalDetails">Length:</span> ${vehicle.length}</p><br>    
+                <p><span class="modalDetails">Pilot Name:</span>${vehicle.pilot.name}</p><br> 
             </div>            
         </div>
     `
@@ -156,9 +156,9 @@ function renderMovieDetail(movie) {
             <div class="titlePage2" id="textpage2"><span class="contentPage2title">${movie.title}</span></div>
             <div class="contentPage2" id="textpage3">${movie.description} </div>
             <div class="contentPage2" id="textpage4"><span class="contentPage2Subtitle">Director:</span>${movie.director}</div>
-            <div class="contentPage2" id="textpage5"><span class="contentPage2Subtitle">Productor:</span> ${movie.producer}</div>
-            <div class="contentPage2" id="textpage7"><span class="contentPage2Subtitle">Año:</span>${movie.release_date} </div>
-            <div class="contentPage2" id="textpage8"><span class="contentPage2Subtitle">Puntaje:</span>${movie.rt_score}/100</div>
+            <div class="contentPage2" id="textpage5"><span class="contentPage2Subtitle">Producer:</span> ${movie.producer}</div>
+            <div class="contentPage2" id="textpage7"><span class="contentPage2Subtitle">Year:</span>${movie.release_date} </div>
+            <div class="contentPage2" id="textpage8"><span class="contentPage2Subtitle">Score:</span>${movie.rt_score}/100</div>
         </div>
     `
     contenidoPage.innerHTML = contentMovie;
@@ -501,13 +501,29 @@ buttomScrollTop.innerHTML=creationButtomScrollTop;
 
 let btnScrollTop = document.getElementById("btnScrollTop");
 document.addEventListener("scroll", handleScroll);
-function handleScroll() {  
-btnScrollTop.style.display = "block";   //show button
+function handleScroll() {
+    var scrollableHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var GOLDEN_RATIO = 0.5;
+
+    if ((document.documentElement.scrollTop / scrollableHeight ) > GOLDEN_RATIO) {
+        // btnScrollTop.style.display = "block";   //show button
+
+    // } else {
+        //hide button
+//         btnScrollTop.style.display = "none";
+//   }
+        if(!btnScrollTop.classList.contains("showScrollBtn"))
+        btnScrollTop.classList.add("showScrollBtn")
+        } else {
+        //hide button
+        if(btnScrollTop.classList.contains("showScrollBtn"))
+        btnScrollTop.classList.remove("showScrollBtn")
+        }
 }
 btnScrollTop.addEventListener("click", function() {      
     window.scrollTo({
             top: 0,
-            behavior: "auto"
+            behavior: "smooth"
     })
 });
 
@@ -650,7 +666,7 @@ function totalCasesChart2(ctx2) {
             datasets:[{
                 label: "Num datos",
                 data:namesValueGender,   
-                borderColor:"orange",
+                borderColor:"#607b7f",
                 backgroundColor:
                     colorRandomChart2,
             }],
@@ -672,7 +688,7 @@ function totalCasesChart3(ctx3) {
                 label: "Num datos",
                 data:namesValueSpecie,
                 
-                borderColor:"orange",
+                borderColor:"#607b7f",
                 backgroundColor:
                 colorRandomChart3,
             }],
@@ -690,7 +706,7 @@ function totalCasesChart4(ctx4) {
             datasets:[{
                 label: "Categorias",
                 data:namesValueCategory,
-                borderColor:"orange",
+                borderColor:"#607b7f",
                 backgroundColor:
                 colorRandomChart4,
             }],
