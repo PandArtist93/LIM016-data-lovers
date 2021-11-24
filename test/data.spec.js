@@ -32,10 +32,6 @@ describe('directorFilter', () => {
 });
 
 describe('producerFilter', () => {
-
-
-
-  
   it('is a function', () => {
     expect(typeof producerFilter).toBe('function');
   });

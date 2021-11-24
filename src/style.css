@@ -49,11 +49,7 @@ header nav .logo {
 header h3 {
     color:#FFFF;
     font-size: 3.2rem;
-<<<<<<< HEAD
-    font-family: 'Shippori Antique', sans-serif;
-=======
     font-family:'Shippori Antique', sans-serif;
->>>>>>> a2bea7a34330e7b4b0463ded2729b153c1c692bd
 }
 
 header nav ul{
@@ -231,15 +227,9 @@ main {
 
 /*---------------caracteristicas de la pagina principal----------------*/
 .principalPage h3 {
-<<<<<<< HEAD
-    color: rgb(18, 40, 78);
-    font-size: 7rem;
-    -webkit-text-stroke: 0.002rem rgb(20, 58, 35);
-=======
     color: rgb(18, 43, 85);
     font-size: 6rem;
     -webkit-text-stroke: 0.002rem rgb(184, 190, 187);
->>>>>>> a2bea7a34330e7b4b0463ded2729b153c1c692bd
     font-family: 'Shippori Antique', sans-serif;
     font-weight: bold;
 }
