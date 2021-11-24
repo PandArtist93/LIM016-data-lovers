@@ -31,7 +31,11 @@ describe('directorFilter', () => {
   });
 });
 
+<<<<<<< HEAD
 describe('producerFilter', () => {  
+=======
+describe('producerFilter', () => {
+>>>>>>> 712a107f732ec0fa3cfbbd8ef53d59bc501cef29
   it('is a function', () => {
     expect(typeof producerFilter).toBe('function');
   });
