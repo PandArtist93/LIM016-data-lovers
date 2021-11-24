@@ -586,6 +586,15 @@ button img {
     justify-content: space-around;   
 }
 
+#contenidoPageLocaciones{
+    color: #dbe3e6;
+    font-size: 1.4rem;
+}
+
+#contenidoPageVehiculos{
+    color: #dbe3e6;
+    font-size: 1.4rem;
+}
 /* ------------------portada de la película seleccionada--------------------*/
 .contentImagPage2 {
     display: flex;
