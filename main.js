@@ -174,12 +174,12 @@ function renderMovieDetail(movie) {
         } 
     }
     else{
-        contenidoPageLocaciones.innerHTML = "En esta película no es destacan locaciones específicas";
+        contenidoPageLocaciones.innerHTML = "Specific locations are not highlighted in this film";
     }
      
      // crear el catalogo de vehículos
     if (movie.vehicles.length == 0){
-        contenidoPageVehiculos.innerHTML = "En esta película no es destacan vehículos específicos";
+        contenidoPageVehiculos.innerHTML = "Specific vehicles are not featured in this movie";
     }
     else{
         for(let l = 0; l < movie.vehicles.length ; l++){
